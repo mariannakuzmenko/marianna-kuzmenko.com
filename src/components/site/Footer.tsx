@@ -1,26 +1,31 @@
 import { Link } from "react-router-dom";
+import { Instagram, Linkedin, Github, Mail } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-foreground/15 mt-32">
-      <div className="container-editorial py-20">
+    <footer className="relative mt-32 overflow-hidden">
+      <div className="absolute inset-0" style={{ background: "var(--gradient-soft)" }} />
+      <div className="blob blob-pink" style={{ width: 380, height: 380, top: "-80px", right: "10%" }} />
+      <div className="container-editorial py-24 relative">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-6">
             <p className="eyebrow mb-6">Lass uns reden</p>
-            <h2 className="display-md mb-6">
+            <h2 className="display-md mb-8">
               Bereit für eine Website,<br />
-              die wirklich <em className="text-accent not-italic">funktioniert</em>?
+              die wirklich <em className="text-rose not-italic">funktioniert</em>?
             </h2>
             <a
               href="mailto:hello@mariannakuzmenko.de"
-              className="inline-flex items-center gap-3 group"
+              className="btn-pink"
             >
-              <span className="font-display text-2xl md:text-4xl underline-draw">hello@mariannakuzmenko.de</span>
+              <Mail size={16} strokeWidth={1.6} />
+              hello@mariannakuzmenko.de
             </a>
           </div>
+
           <div className="md:col-span-3">
             <p className="eyebrow mb-4">Navigation</p>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2.5 text-sm">
               <li><Link to="/" className="underline-draw">Startseite</Link></li>
               <li><Link to="/ueber-mich" className="underline-draw">Über mich</Link></li>
               <li><Link to="/webentwicklung" className="underline-draw">Webentwicklung</Link></li>
@@ -29,25 +34,32 @@ export const Footer = () => {
               <li><Link to="/blog" className="underline-draw">Blog</Link></li>
             </ul>
           </div>
+
           <div className="md:col-span-3">
             <p className="eyebrow mb-4">Standort</p>
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed text-muted-foreground">
               Freelancer Webdesigner<br />
               Deutschland · Remote weltweit
             </p>
-            <p className="eyebrow mt-6 mb-4">Folgen</p>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="underline-draw">LinkedIn</a></li>
-              <li><a href="#" className="underline-draw">Instagram</a></li>
-              <li><a href="#" className="underline-draw">GitHub</a></li>
-            </ul>
+            <p className="eyebrow mt-8 mb-4">Folgen</p>
+            <div className="flex gap-3">
+              <a href="#" className="w-10 h-10 rounded-full bg-paper flex items-center justify-center hover:bg-rose-soft transition-colors duration-500" aria-label="LinkedIn">
+                <Linkedin size={16} strokeWidth={1.6} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-paper flex items-center justify-center hover:bg-rose-soft transition-colors duration-500" aria-label="Instagram">
+                <Instagram size={16} strokeWidth={1.6} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-paper flex items-center justify-center hover:bg-rose-soft transition-colors duration-500" aria-label="GitHub">
+                <Github size={16} strokeWidth={1.6} />
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="hairline mt-20 mb-6" />
         <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-muted-foreground font-mono uppercase tracking-widest">
           <p>© {new Date().getFullYear()} Marianna Kuzmenko · Alle Rechte vorbehalten</p>
-          <p>Gebaut mit Sorgfalt in Deutschland</p>
+          <p>Mit Sorgfalt gemacht — in Deutschland</p>
         </div>
       </div>
     </footer>
