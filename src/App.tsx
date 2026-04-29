@@ -10,6 +10,7 @@ import Webentwicklung from "./pages/Webentwicklung.tsx";
 import SeoPage from "./pages/SeoPage.tsx";
 import Projekte from "./pages/Projekte.tsx";
 import Blog from "./pages/Blog.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/seo" element={<SeoPage />} />
             <Route path="/projekte" element={<Projekte />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
