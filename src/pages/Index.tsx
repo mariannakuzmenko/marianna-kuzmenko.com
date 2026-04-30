@@ -222,28 +222,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="kontakt" className="container-editorial py-28">
-        <div className="card-soft relative overflow-hidden p-10 md:p-20" style={{ background: "var(--gradient-soft)" }}>
-          <div className="blob blob-pink" style={{ width: 320, height: 320, top: "-80px", right: "-80px" }} />
-          <div className="blob blob-blue" style={{ width: 280, height: 280, bottom: "-100px", left: "-80px" }} />
-          <div className="relative">
-            <div className="chip-pink mb-6">
-              <Sparkles size={12} /> 05 — Kontakt
-            </div>
-            <h2 className="display-lg max-w-4xl">
-              Bereit für eine Website,<br />
-              die wirklich <span className="italic text-rose">funktioniert?</span>
-            </h2>
-            <p className="mt-6 max-w-xl text-muted-foreground leading-relaxed">
-              Schreib mir kurz, was du vorhast. Ich melde mich innerhalb von 48 Stunden zurück — persönlich, nicht aus dem Funnel.
-            </p>
-            <a href="mailto:hello@mariannakuzmenko.de" className="btn-pink mt-10">
-              ok, ich schaue es mir an →
-            </a>
-          </div>
-        </div>
-      </section>
+      <Testimonials />
+
+      <ContactSection />
     </Layout>
   );
 };
