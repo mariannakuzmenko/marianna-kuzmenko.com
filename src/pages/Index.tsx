@@ -3,6 +3,8 @@ import { Seo } from "@/components/site/Seo";
 import { Marquee } from "@/components/site/Marquee";
 import { IconCard } from "@/components/site/IconCard";
 import { FloatingNote } from "@/components/site/FloatingNote";
+import { Testimonials } from "@/components/site/Testimonials";
+import { ContactSection } from "@/components/site/ContactSection";
 import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
@@ -10,7 +12,6 @@ import {
   Layers,
   Code2,
   Search,
-  Sparkles,
   ArrowRight,
 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
