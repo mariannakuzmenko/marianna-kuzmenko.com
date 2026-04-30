@@ -150,22 +150,68 @@
 
   /* Soft pink primary button */
   .btn-pink {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-foreground transition-all duration-500 ease-out;
-    background: var(--gradient-rose);
-    box-shadow: var(--shadow-pink);
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-all duration-300 ease-out;
+    background: hsl(var(--rose));
+    color: white;
+    box-shadow: 0 8px 20px -8px hsl(var(--rose) / 0.55);
   }
   .btn-pink:hover {
+    background: hsl(var(--rose-hover));
     transform: translateY(-2px);
-    box-shadow: 0 24px 50px -18px hsl(var(--rose) / 0.55);
+    box-shadow: 0 14px 28px -10px hsl(var(--rose) / 0.6);
+  }
+  /* Outlined pink (secondary) */
+  .btn-pink-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-all duration-300 ease-out;
+    background: transparent;
+    color: hsl(var(--rose-hover));
+    border: 1.5px solid hsl(var(--rose) / 0.6);
+  }
+  .btn-pink-outline:hover {
+    background: hsl(var(--rose));
+    color: white;
+    transform: translateY(-2px);
+    border-color: hsl(var(--rose));
+    box-shadow: 0 12px 26px -10px hsl(var(--rose) / 0.5);
   }
   .btn-ghost-soft {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-foreground transition-all duration-500;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-foreground transition-all duration-300;
     background: hsl(var(--paper));
     box-shadow: var(--shadow-glow);
   }
   .btn-ghost-soft:hover {
-    background: hsl(var(--sky));
+    background: white;
     transform: translateY(-2px);
+    box-shadow: 0 14px 30px -12px hsl(210 50% 50% / 0.2);
+  }
+  /* Form inputs */
+  .input-soft {
+    @apply w-full rounded-2xl border bg-white px-5 py-4 text-sm transition-all duration-300 outline-none;
+    border-color: hsl(var(--border));
+    box-shadow: 0 2px 8px -4px hsl(210 40% 60% / 0.1);
+  }
+  .input-soft::placeholder { color: hsl(var(--muted-foreground) / 0.7); }
+  .input-soft:focus {
+    border-color: hsl(var(--rose));
+    box-shadow: 0 0 0 4px hsl(var(--rose) / 0.15);
+  }
+  /* White content card with subtle border */
+  .panel-white {
+    @apply rounded-3xl bg-white p-8 md:p-10 transition-all duration-500;
+    border: 1px solid hsl(210 40% 94%);
+    box-shadow: var(--shadow-card);
+  }
+  /* Floating side feedback button */
+  .floating-feedback {
+    @apply fixed right-0 top-1/2 -translate-y-1/2 z-40 rotate-180 px-4 py-3 text-xs font-medium tracking-wider uppercase rounded-t-2xl rounded-b-none transition-all duration-300;
+    writing-mode: vertical-rl;
+    background: hsl(var(--rose));
+    color: white;
+    box-shadow: -6px 0 18px -6px hsl(var(--rose) / 0.5);
+  }
+  .floating-feedback:hover {
+    background: hsl(var(--rose-hover));
+    padding-right: 1.25rem;
   }
 
   /* Soft cards */
