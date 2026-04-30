@@ -98,10 +98,13 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: 'ss01', 'cv11';
+    font-weight: 300;
+    letter-spacing: 0.005em;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse 80% 60% at 0% 0%, hsl(var(--sky) / 0.45), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 100% 100%, hsl(var(--rose-soft) / 0.45), transparent 60%);
+      radial-gradient(ellipse 90% 60% at 50% 0%, hsl(205 90% 94%) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 50% at 100% 100%, hsl(350 90% 96%) 0%, transparent 60%),
+      linear-gradient(180deg, hsl(205 80% 97%) 0%, hsl(210 70% 95%) 100%);
     background-attachment: fixed;
   }
   ::selection { background: hsl(var(--rose) / 0.6); color: hsl(var(--foreground)); }
