@@ -474,3 +474,20 @@
   height: 80px;
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'><path d='M0,40 C360,-10 720,90 1080,40 C1260,15 1380,25 1440,40 L1440,0 L0,0 Z' fill='%23ffffff'/></svg>") no-repeat center / 100% 100%;
 }
+
+@keyframes breathe-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  50% { transform: translate(-30px, 20px) scale(1.08); opacity: 0.45; }
+}
+@keyframes breathe-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+  50% { transform: translate(25px, -15px) scale(1.06); opacity: 0.4; }
+}
+@keyframes breathe-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+  50% { transform: translate(-15px, 25px) scale(1.1); opacity: 0.35; }
+}
+@keyframes quote-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(3px, -5px) rotate(3deg); }
+}
