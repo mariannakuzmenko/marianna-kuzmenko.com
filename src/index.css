@@ -216,12 +216,13 @@
 
   /* Soft cards */
   .card-soft {
-    @apply rounded-3xl bg-card p-8 md:p-10 transition-all duration-500;
-    box-shadow: var(--shadow-soft);
+    @apply rounded-3xl bg-white p-8 md:p-10 transition-all duration-500;
+    border: 1px solid hsl(210 40% 94%);
+    box-shadow: var(--shadow-card);
   }
   .card-soft:hover {
     transform: translateY(-4px);
-    box-shadow: 0 30px 70px -25px hsl(220 40% 50% / 0.25);
+    box-shadow: 0 22px 50px -20px hsl(210 50% 50% / 0.22);
   }
 
   /* Soft pill / chip */
