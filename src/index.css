@@ -295,6 +295,118 @@
     transform: translateY(0);
   }
 
+  /* Staggered line reveal */
+  .reveal-line {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.9s var(--transition-smooth), transform 0.9s var(--transition-smooth);
+  }
+  .reveal-line.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hover accent — subtle color shift on key phrases */
+  .hover-accent {
+    @apply relative transition-colors duration-500;
+    color: inherit;
+  }
+  .hover-accent::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-[1.5px] w-full origin-right scale-x-0 transition-transform duration-700;
+    background: hsl(var(--rose));
+    transition-timing-function: var(--transition-smooth);
+  }
+  .hover-accent:hover {
+    color: hsl(var(--rose-hover));
+  }
+  .hover-accent:hover::after {
+    @apply origin-left scale-x-100;
+  }
+
+  /* Whisper — personal touch micro-copy */
+  .whisper {
+    @apply block text-xs font-mono text-muted-foreground/0 tracking-widest uppercase text-center;
+    transition: color 1.2s ease, transform 1.2s ease;
+    transform: translateY(6px);
+  }
+  .whisper-visible {
+    color: hsl(var(--muted-foreground) / 0.4);
+    transform: translateY(0);
+  }
+  .whisper-fade {
+    color: hsl(var(--muted-foreground) / 0) !important;
+    transform: translateY(-4px);
+    transition: color 2s ease, transform 2s ease;
+  }
+
+  /* Button press feedback */
+  .btn-press {
+    transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s ease;
+  }
+  .btn-press:active {
+    transform: scale(0.96) translateY(1px) !important;
+    box-shadow: 0 2px 8px -4px hsl(var(--rose) / 0.4) !important;
+  }
+
+  /* Testimonial transitions */
+  .testimonial-card {
+    transition: opacity 0.5s ease, transform 0.5s var(--transition-smooth);
+  }
+  .testimonial-enter {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  .testimonial-exit {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+  }
+  .testimonial-quote-icon {
+    animation: quote-float 6s ease-in-out infinite;
+  }
+
+  /* Breathing background */
+  .breathing-bg {
+    @apply fixed inset-0 pointer-events-none;
+    z-index: -1;
+  }
+  .breathing-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+  }
+  .breathing-orb-1 {
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    top: -20%;
+    right: -15%;
+    background: hsl(205 80% 92%);
+    animation: breathe-1 12s ease-in-out infinite;
+  }
+  .breathing-orb-2 {
+    width: 50vw;
+    height: 50vw;
+    max-width: 700px;
+    max-height: 700px;
+    bottom: -10%;
+    left: -15%;
+    background: hsl(350 80% 92%);
+    animation: breathe-2 15s ease-in-out infinite;
+  }
+  .breathing-orb-3 {
+    width: 35vw;
+    height: 35vw;
+    max-width: 500px;
+    max-height: 500px;
+    top: 40%;
+    left: 30%;
+    background: hsl(210 70% 94%);
+    animation: breathe-3 18s ease-in-out infinite;
+  }
+
   /* Floating soft blobs (background decoration) */
   .blob {
     position: absolute;
