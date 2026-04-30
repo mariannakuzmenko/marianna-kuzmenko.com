@@ -8,52 +8,55 @@
 
 @layer base {
   :root {
-    --background: 210 60% 99%;          /* almost white with a hint of blue */
-    --foreground: 220 30% 18%;          /* soft navy ink */
+    --background: 205 65% 97%;          /* soft sky tint */
+    --foreground: 220 35% 20%;          /* gentle ink */
 
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 18%;
+    --card-foreground: 220 35% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 18%;
+    --popover-foreground: 220 35% 20%;
 
-    --primary: 350 80% 80%;             /* soft pink */
-    --primary-foreground: 220 30% 18%;
+    --primary: 350 70% 78%;             /* muted soft pink */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 205 70% 94%;           /* light blue */
+    --secondary: 205 70% 94%;
     --secondary-foreground: 220 30% 22%;
 
-    --muted: 210 30% 96%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 220 15% 48%;
 
-    --accent: 350 80% 78%;              /* dusty pink accent */
-    --accent-foreground: 220 30% 18%;
+    --accent: 350 70% 78%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 30% 90%;
-    --input: 210 30% 92%;
-    --ring: 350 80% 78%;
+    --border: 210 40% 92%;
+    --input: 210 40% 94%;
+    --ring: 350 70% 78%;
 
     --radius: 1.25rem;
 
     /* Brand extras */
-    --ink: 220 30% 18%;
+    --ink: 220 35% 20%;
     --paper: 0 0% 100%;
-    --sky: 205 75% 90%;                 /* light blue surface */
-    --sky-deep: 210 70% 78%;
-    --rose: 350 80% 78%;                /* dusty pink */
-    --rose-soft: 350 90% 92%;           /* lighter pink */
-    --highlight: 48 96% 78%;            /* warm soft yellow */
+    --sky: 205 80% 92%;
+    --sky-deep: 210 70% 80%;
+    --rose: 350 70% 72%;                /* muted pink button */
+    --rose-hover: 350 65% 64%;          /* darker hover */
+    --rose-soft: 350 90% 95%;
+    --highlight: 48 96% 78%;
 
-    --gradient-soft: linear-gradient(135deg, hsl(205 70% 95%) 0%, hsl(350 90% 96%) 100%);
-    --gradient-rose: linear-gradient(135deg, hsl(350 90% 92%) 0%, hsl(350 80% 80%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(205 90% 96%) 0%, hsl(210 80% 94%) 60%, hsl(350 90% 97%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(205 90% 97%) 0%, hsl(210 75% 95%) 50%, hsl(205 90% 97%) 100%);
+    --gradient-rose: linear-gradient(135deg, hsl(350 80% 80%) 0%, hsl(350 70% 70%) 100%);
     --gradient-sky: linear-gradient(135deg, hsl(205 80% 96%) 0%, hsl(210 70% 88%) 100%);
 
-    --shadow-soft: 0 20px 60px -25px hsl(220 40% 50% / 0.18);
-    --shadow-pink: 0 18px 40px -18px hsl(350 80% 70% / 0.45);
-    --shadow-glow: 0 0 0 1px hsl(210 30% 92%), 0 30px 60px -30px hsl(220 40% 60% / 0.25);
+    --shadow-soft: 0 10px 40px -18px hsl(210 50% 50% / 0.16);
+    --shadow-card: 0 8px 30px -12px hsl(210 60% 60% / 0.18);
+    --shadow-pink: 0 12px 28px -10px hsl(350 70% 70% / 0.45);
+    --shadow-glow: 0 0 0 1px hsl(210 40% 94%), 0 20px 50px -25px hsl(220 40% 60% / 0.2);
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -95,10 +98,13 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: 'ss01', 'cv11';
+    font-weight: 300;
+    letter-spacing: 0.005em;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse 80% 60% at 0% 0%, hsl(var(--sky) / 0.45), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 100% 100%, hsl(var(--rose-soft) / 0.45), transparent 60%);
+      radial-gradient(ellipse 90% 60% at 50% 0%, hsl(205 90% 94%) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 50% at 100% 100%, hsl(350 90% 96%) 0%, transparent 60%),
+      linear-gradient(180deg, hsl(205 80% 97%) 0%, hsl(210 70% 95%) 100%);
     background-attachment: fixed;
   }
   ::selection { background: hsl(var(--rose) / 0.6); color: hsl(var(--foreground)); }
@@ -144,32 +150,79 @@
 
   /* Soft pink primary button */
   .btn-pink {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-foreground transition-all duration-500 ease-out;
-    background: var(--gradient-rose);
-    box-shadow: var(--shadow-pink);
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-all duration-300 ease-out;
+    background: hsl(var(--rose));
+    color: white;
+    box-shadow: 0 8px 20px -8px hsl(var(--rose) / 0.55);
   }
   .btn-pink:hover {
+    background: hsl(var(--rose-hover));
     transform: translateY(-2px);
-    box-shadow: 0 24px 50px -18px hsl(var(--rose) / 0.55);
+    box-shadow: 0 14px 28px -10px hsl(var(--rose) / 0.6);
+  }
+  /* Outlined pink (secondary) */
+  .btn-pink-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-all duration-300 ease-out;
+    background: transparent;
+    color: hsl(var(--rose-hover));
+    border: 1.5px solid hsl(var(--rose) / 0.6);
+  }
+  .btn-pink-outline:hover {
+    background: hsl(var(--rose));
+    color: white;
+    transform: translateY(-2px);
+    border-color: hsl(var(--rose));
+    box-shadow: 0 12px 26px -10px hsl(var(--rose) / 0.5);
   }
   .btn-ghost-soft {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-foreground transition-all duration-500;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-foreground transition-all duration-300;
     background: hsl(var(--paper));
     box-shadow: var(--shadow-glow);
   }
   .btn-ghost-soft:hover {
-    background: hsl(var(--sky));
+    background: white;
     transform: translateY(-2px);
+    box-shadow: 0 14px 30px -12px hsl(210 50% 50% / 0.2);
+  }
+  /* Form inputs */
+  .input-soft {
+    @apply w-full rounded-2xl border bg-white px-5 py-4 text-sm transition-all duration-300 outline-none;
+    border-color: hsl(var(--border));
+    box-shadow: 0 2px 8px -4px hsl(210 40% 60% / 0.1);
+  }
+  .input-soft::placeholder { color: hsl(var(--muted-foreground) / 0.7); }
+  .input-soft:focus {
+    border-color: hsl(var(--rose));
+    box-shadow: 0 0 0 4px hsl(var(--rose) / 0.15);
+  }
+  /* White content card with subtle border */
+  .panel-white {
+    @apply rounded-3xl bg-white p-8 md:p-10 transition-all duration-500;
+    border: 1px solid hsl(210 40% 94%);
+    box-shadow: var(--shadow-card);
+  }
+  /* Floating side feedback button */
+  .floating-feedback {
+    @apply fixed right-0 top-1/2 -translate-y-1/2 z-40 rotate-180 px-4 py-3 text-xs font-medium tracking-wider uppercase rounded-t-2xl rounded-b-none transition-all duration-300;
+    writing-mode: vertical-rl;
+    background: hsl(var(--rose));
+    color: white;
+    box-shadow: -6px 0 18px -6px hsl(var(--rose) / 0.5);
+  }
+  .floating-feedback:hover {
+    background: hsl(var(--rose-hover));
+    padding-right: 1.25rem;
   }
 
   /* Soft cards */
   .card-soft {
-    @apply rounded-3xl bg-card p-8 md:p-10 transition-all duration-500;
-    box-shadow: var(--shadow-soft);
+    @apply rounded-3xl bg-white p-8 md:p-10 transition-all duration-500;
+    border: 1px solid hsl(210 40% 94%);
+    box-shadow: var(--shadow-card);
   }
   .card-soft:hover {
     transform: translateY(-4px);
-    box-shadow: 0 30px 70px -25px hsl(220 40% 50% / 0.25);
+    box-shadow: 0 22px 50px -20px hsl(210 50% 50% / 0.22);
   }
 
   /* Soft pill / chip */
@@ -289,3 +342,23 @@
   50% { transform: translate(-30px, 20px) scale(1.08); }
 }
 .animate-float-slower { animation: float-slower 18s ease-in-out infinite; }
+
+@keyframes star-pop {
+  0% { opacity: 0; transform: scale(0.4) rotate(-20deg); }
+  60% { opacity: 1; transform: scale(1.15) rotate(0); }
+  100% { opacity: 1; transform: scale(1) rotate(0); filter: drop-shadow(0 0 6px hsl(var(--rose) / 0.55)); }
+}
+.star-pop { animation: star-pop 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: 80px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'><path d='M0,40 C360,90 720,-10 1080,40 C1260,65 1380,55 1440,40 L1440,80 L0,80 Z' fill='%23ffffff'/></svg>") no-repeat center / 100% 100%;
+}
+.wave-divider-up {
+  display: block;
+  width: 100%;
+  height: 80px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'><path d='M0,40 C360,-10 720,90 1080,40 C1260,15 1380,25 1440,40 L1440,0 L0,0 Z' fill='%23ffffff'/></svg>") no-repeat center / 100% 100%;
+}
