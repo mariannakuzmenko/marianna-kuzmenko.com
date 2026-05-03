@@ -404,8 +404,22 @@
     max-height: 500px;
     top: 40%;
     left: 30%;
-    background: hsl(210 70% 94%);
+    background: hsl(208 70% 92%);
     animation: breathe-3 18s ease-in-out infinite;
+  }
+  .breathing-orb-4 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    width: 40vw;
+    height: 40vw;
+    max-width: 600px;
+    max-height: 600px;
+    top: 60%;
+    right: 10%;
+    background: hsl(348 70% 93%);
+    animation: breathe-2 22s ease-in-out infinite reverse;
+    opacity: 0.28;
   }
 
   /* Floating soft blobs (background decoration) */
