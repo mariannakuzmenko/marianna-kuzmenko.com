@@ -99,6 +99,29 @@ const BlogPost = () => {
         </div>
       </article>
 
+      {(() => {
+        const idx = posts.findIndex((p) => p.slug === post.slug);
+        const prev = idx > 0 ? posts[idx - 1] : null;
+        const next = idx < posts.length - 1 ? posts[idx + 1] : null;
+        return (
+          <section className="container-editorial pb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {prev ? (
+                <Link to={`/blog/${prev.slug}`} className="card-soft group">
+                  <p className="eyebrow mb-2 flex items-center gap-2"><ArrowLeft size={12} /> Vorheriger Artikel</p>
+                  <p className="font-display text-xl md:text-2xl group-hover:text-rose transition-colors">{prev.title}</p>
+                </Link>
+              ) : <div />}
+              {next ? (
+                <Link to={`/blog/${next.slug}`} className="card-soft group md:text-right">
+                  <p className="eyebrow mb-2 flex items-center gap-2 md:justify-end">Nächster Artikel <ArrowRight size={12} /></p>
+                  <p className="font-display text-xl md:text-2xl group-hover:text-rose transition-colors">{next.title}</p>
+                </Link>
+              ) : <div />}
+            </div>
+          </section>
+        );
+      })()}
       {related.length > 0 && (
         <section className="container-editorial py-24">
           <p className="eyebrow mb-4">Ähnliche Artikel</p>
