@@ -17,6 +17,14 @@ import {
   Code2,
   Search,
   ArrowRight,
+  Compass,
+  PenTool,
+  Rocket,
+  LineChart,
+  Sparkles,
+  Heart,
+  Clock,
+  ShieldCheck,
 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 import project1 from "@/assets/project-1.jpg";
