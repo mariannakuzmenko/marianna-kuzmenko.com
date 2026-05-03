@@ -1,8 +1,8 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { getPost, getRelated } from "@/data/posts";
-import { ArrowLeft, ArrowUpRight, Clock, Calendar } from "lucide-react";
+import { getPost, getRelated, posts } from "@/data/posts";
+import { ArrowLeft, ArrowUpRight, Clock, Calendar, ArrowRight } from "lucide-react";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -51,16 +51,18 @@ const BlogPost = () => {
           <div className="col-span-12 md:col-span-8 md:col-start-3 space-y-6">
             {post.content.map((block, i) => {
               if (block.type === "h2")
-                return <h2 key={i} className="font-display text-3xl md:text-4xl mt-12 mb-2">{block.text}</h2>;
+                return <h2 key={i} className="font-display text-3xl md:text-4xl mt-14 mb-3">{block.text}</h2>;
+              if (block.type === "h3")
+                return <h3 key={i} className="font-display text-2xl mt-10 mb-2 text-foreground/90">{block.text}</h3>;
               if (block.type === "quote")
                 return (
-                  <blockquote key={i} className="my-10 pl-6 border-l-2 border-rose">
+                  <blockquote key={i} className="my-12 pl-6 border-l-2 border-rose">
                     <p className="font-display italic text-2xl md:text-3xl leading-snug">{block.text}</p>
                   </blockquote>
                 );
               if (block.type === "list")
                 return (
-                  <ul key={i} className="space-y-2 list-none">
+                  <ul key={i} className="space-y-2 list-none my-4">
                     {block.items?.map((it, j) => (
                       <li key={j} className="flex gap-3 text-lg leading-relaxed">
                         <span className="text-rose mt-1">→</span>
@@ -68,6 +70,16 @@ const BlogPost = () => {
                       </li>
                     ))}
                   </ul>
+                );
+              if (block.type === "link" && block.to)
+                return (
+                  <Link
+                    key={i}
+                    to={block.to}
+                    className="my-6 inline-flex items-center gap-2 text-rose-hover hover:text-rose underline-draw font-medium"
+                  >
+                    {block.label}
+                  </Link>
                 );
               return <p key={i} className="text-lg leading-relaxed text-foreground/85">{block.text}</p>;
             })}
