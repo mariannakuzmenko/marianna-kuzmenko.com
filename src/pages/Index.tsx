@@ -17,6 +17,14 @@ import {
   Code2,
   Search,
   ArrowRight,
+  Compass,
+  PenTool,
+  Rocket,
+  LineChart,
+  Sparkles,
+  Heart,
+  Clock,
+  ShieldCheck,
 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 import project1 from "@/assets/project-1.jpg";
@@ -205,9 +213,9 @@ const Index = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { name: "Atelier Norden", category: "Webdesign · Webentwicklung", img: project1 },
-            { name: "Kraft & Klarheit", category: "UX/UI · SEO", img: project2 },
-            { name: "Studio Linde", category: "Branding · Webdev", img: project3 },
+            { name: "Atelier Norden", category: "Webdesign · Webentwicklung", img: project1, desc: "Markenwebsite für ein skandinavisches Designstudio. Klare Hierarchie, ruhige Typografie, +180% organische Reichweite." },
+            { name: "Kraft & Klarheit", category: "UX/UI · SEO", img: project2, desc: "Coaching-Plattform mit klarem Funnel. UX-Redesign, neue Inhaltsstruktur, sauberes technisches SEO." },
+            { name: "Studio Linde", category: "Branding · Webdev", img: project3, desc: "Atelierauftritt mit eigenem Designsystem. Editorial Layout, sanfte Microinteractions, schnelle Performance." },
           ].map((p, i) => (
             <Link
               to="/projekte"
@@ -215,8 +223,13 @@ const Index = () => {
               className="reveal group block"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className="frame-soft aspect-[4/5] mb-5">
+              <div className="project-card frame-soft aspect-[4/5] mb-5">
                 <img src={p.img} alt={`${p.name} — Projekt von Marianna Kuzmenko`} loading="lazy" />
+                <div className="project-overlay text-white">
+                  <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{p.category}</p>
+                  <h3 className="font-display text-2xl md:text-3xl mt-2">{p.name}</h3>
+                  <p className="text-sm leading-relaxed opacity-90 mt-3">{p.desc}</p>
+                </div>
               </div>
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -235,6 +248,93 @@ const Index = () => {
           </Link>
         </div>
         <Whisper className="mt-10">fast geschafft …</Whisper>
+      </section>
+
+      <WaveDivider flip />
+
+      {/* SO LÄUFT EIN PROJEKT */}
+      <section className="container-editorial py-28">
+        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
+          <div className="col-span-12 md:col-span-7">
+            <p className="eyebrow mb-4 reveal-line">05 — Ablauf</p>
+            <h2 className="display-lg reveal-line">
+              So läuft ein<br />
+              <span className="italic text-rose">Projekt.</span>
+            </h2>
+          </div>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
+            <p className="text-muted-foreground leading-relaxed">
+              Ein klarer Weg vom ersten Gespräch bis zum Launch — ohne Überraschungen, mit viel Sorgfalt.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { icon: Compass, step: "01", title: "Verstehen", desc: "Ich höre zu. Ziele, Zielgruppe, Markt — bevor irgendein Pixel entsteht." },
+            { icon: PenTool, step: "02", title: "Gestalten", desc: "Struktur und Design entstehen gemeinsam. Du bekommst klare Entwürfe statt 30 Versionen." },
+            { icon: Code2, step: "03", title: "Bauen", desc: "Saubere Entwicklung mit React, Performance und SEO direkt eingebaut." },
+            { icon: Rocket, step: "04", title: "Launchen", desc: "Wir gehen live. Danach: Pflege, Optimierung, weiterdenken." },
+          ].map((p, i) => (
+            <div
+              key={i}
+              className="reveal glass-panel p-7"
+              style={{ transitionDelay: `${i * 90}ms` }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-11 h-11 rounded-2xl bg-rose-soft flex items-center justify-center">
+                  <p.icon size={20} strokeWidth={1.5} className="text-rose" />
+                </div>
+                <span className="font-mono text-xs text-muted-foreground tracking-widest">{p.step}</span>
+              </div>
+              <h3 className="font-display text-2xl mb-2">{p.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <WaveDivider />
+
+      {/* WARUM MIT MIR */}
+      <section className="container-editorial py-28">
+        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
+          <div className="col-span-12 md:col-span-7">
+            <p className="eyebrow mb-4 reveal-line">06 — Warum</p>
+            <h2 className="display-lg reveal-line">
+              Warum mit<br />
+              <span className="italic text-rose">mir arbeiten.</span>
+            </h2>
+          </div>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
+            <p className="text-muted-foreground leading-relaxed">
+              Nicht für jede Person das Richtige — und genau das ist gut so.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { icon: Sparkles, title: "Design mit Substanz", desc: "Schön ist nicht genug. Jede Entscheidung hat einen Grund — und einen messbaren Effekt." },
+            { icon: LineChart, title: "SEO von Anfang an", desc: "Sichtbarkeit beginnt in der Struktur. Keine Add-ons, keine teuren Nachbesserungen." },
+            { icon: ShieldCheck, title: "Technisch sauber", desc: "Wartbare Codebasis, schnelle Ladezeiten, Accessibility — Standard, kein Aufpreis." },
+            { icon: Heart, title: "Menschlich & klar", desc: "Klare Kommunikation, ehrliche Antworten. Keine Buzzwords, keine Schwammigkeit." },
+            { icon: Clock, title: "Pünktlich & verlässlich", desc: "Du weißt jederzeit, wo wir stehen. Termine sind Zusagen, keine Wünsche." },
+            { icon: PenTool, title: "Sorgfalt im Detail", desc: "Spacing, Mikrocopy, Animation — die kleinen Dinge machen den Unterschied." },
+          ].map((p, i) => (
+            <div
+              key={i}
+              className="reveal card-soft"
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
+              <div className="w-11 h-11 rounded-2xl bg-secondary flex items-center justify-center mb-5">
+                <p.icon size={20} strokeWidth={1.5} className="text-foreground" />
+              </div>
+              <h3 className="font-display text-xl md:text-2xl mb-2">{p.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <WaveDivider flip />

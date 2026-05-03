@@ -8,44 +8,44 @@
 
 @layer base {
   :root {
-    --background: 205 65% 97%;          /* soft sky tint */
-    --foreground: 220 35% 20%;          /* gentle ink */
+    --background: 204 80% 96%;          /* fresher light blue */
+    --foreground: 220 35% 18%;          /* gentle ink */
 
     --card: 0 0% 100%;
-    --card-foreground: 220 35% 20%;
+    --card-foreground: 220 35% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 35% 20%;
+    --popover-foreground: 220 35% 18%;
 
-    --primary: 350 70% 78%;             /* muted soft pink */
+    --primary: 348 55% 78%;             /* dusty elegant pink */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 205 70% 94%;
+    --secondary: 204 75% 92%;
     --secondary-foreground: 220 30% 22%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 220 15% 48%;
+    --muted: 206 50% 95%;
+    --muted-foreground: 220 14% 46%;
 
-    --accent: 350 70% 78%;
+    --accent: 348 55% 78%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 40% 92%;
-    --input: 210 40% 94%;
-    --ring: 350 70% 78%;
+    --border: 206 45% 90%;
+    --input: 206 45% 93%;
+    --ring: 348 55% 78%;
 
     --radius: 1.25rem;
 
     /* Brand extras */
-    --ink: 220 35% 20%;
+    --ink: 220 35% 18%;
     --paper: 0 0% 100%;
-    --sky: 205 80% 92%;
-    --sky-deep: 210 70% 80%;
-    --rose: 350 70% 72%;                /* muted pink button */
-    --rose-hover: 350 65% 64%;          /* darker hover */
-    --rose-soft: 350 90% 95%;
+    --sky: 204 85% 90%;
+    --sky-deep: 208 75% 76%;
+    --rose: 348 50% 74%;                /* dusty pink button */
+    --rose-hover: 348 45% 64%;          /* refined hover */
+    --rose-soft: 348 75% 95%;
     --highlight: 48 96% 78%;
 
     --gradient-soft: linear-gradient(180deg, hsl(205 90% 96%) 0%, hsl(210 80% 94%) 60%, hsl(350 90% 97%) 100%);
@@ -102,9 +102,10 @@
     letter-spacing: 0.005em;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse 90% 60% at 50% 0%, hsl(205 90% 94%) 0%, transparent 55%),
-      radial-gradient(ellipse 70% 50% at 100% 100%, hsl(350 90% 96%) 0%, transparent 60%),
-      linear-gradient(180deg, hsl(205 80% 97%) 0%, hsl(210 70% 95%) 100%);
+      radial-gradient(ellipse 80% 55% at 50% 0%, hsl(204 90% 92%) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 50% at 100% 100%, hsl(348 80% 95%) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 45% at 0% 60%, hsl(208 80% 93%) 0%, transparent 55%),
+      linear-gradient(180deg, hsl(204 85% 96%) 0%, hsl(208 75% 94%) 50%, hsl(204 85% 96%) 100%);
     background-attachment: fixed;
   }
   ::selection { background: hsl(var(--rose) / 0.6); color: hsl(var(--foreground)); }
@@ -403,8 +404,22 @@
     max-height: 500px;
     top: 40%;
     left: 30%;
-    background: hsl(210 70% 94%);
+    background: hsl(208 70% 92%);
     animation: breathe-3 18s ease-in-out infinite;
+  }
+  .breathing-orb-4 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    width: 40vw;
+    height: 40vw;
+    max-width: 600px;
+    max-height: 600px;
+    top: 60%;
+    right: 10%;
+    background: hsl(348 70% 93%);
+    animation: breathe-2 22s ease-in-out infinite reverse;
+    opacity: 0.28;
   }
 
   /* Floating soft blobs (background decoration) */
@@ -436,6 +451,60 @@
     background: hsl(var(--rose-soft));
     box-shadow: 0 10px 25px -10px hsl(var(--rose) / 0.4);
   }
+
+  /* Glass panel */
+  .glass-panel {
+    background: hsl(0 0% 100% / 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid hsl(0 0% 100% / 0.6);
+    box-shadow: var(--shadow-card);
+    @apply rounded-3xl;
+  }
+
+  /* Section overlap */
+  .section-overlap { margin-top: -4rem; position: relative; z-index: 2; }
+
+  /* Project card hover reveal */
+  .project-card { @apply relative overflow-hidden rounded-3xl; }
+  .project-card .project-overlay {
+    @apply absolute inset-0 flex flex-col justify-end p-6 md:p-8 opacity-0 transition-all duration-700;
+    background: linear-gradient(180deg, transparent 30%, hsl(220 50% 15% / 0.78) 100%);
+    transform: translateY(12px);
+  }
+  .project-card:hover .project-overlay { opacity: 1; transform: translateY(0); }
+  .project-card .project-overlay > * {
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.7s var(--transition-smooth), opacity 0.7s ease;
+  }
+  .project-card:hover .project-overlay > * { transform: translateY(0); opacity: 1; }
+  .project-card .project-overlay > *:nth-child(2) { transition-delay: 0.08s; }
+  .project-card .project-overlay > *:nth-child(3) { transition-delay: 0.16s; }
+
+  /* Glow highlight on important words */
+  .glow-word {
+    position: relative;
+    color: hsl(var(--rose-hover));
+    transition: text-shadow 0.6s ease;
+  }
+  .glow-word::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-[2px] w-0 transition-all duration-700;
+    background: hsl(var(--rose));
+  }
+  .glow-word:hover { text-shadow: 0 0 14px hsl(var(--rose) / 0.45); }
+  .glow-word:hover::after { width: 100%; }
+
+  /* Numbered timeline step */
+  .timeline-step { @apply relative pl-14; }
+  .timeline-step::before {
+    content: attr(data-step);
+    @apply absolute left-0 top-0 w-10 h-10 rounded-full flex items-center justify-center font-mono text-sm;
+    background: hsl(var(--rose-soft));
+    color: hsl(var(--rose-hover));
+    border: 1px solid hsl(var(--rose) / 0.3);
+  }
 }
 
 @keyframes marquee {
@@ -465,14 +534,20 @@
 .wave-divider {
   display: block;
   width: 100%;
-  height: 80px;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'><path d='M0,40 C360,90 720,-10 1080,40 C1260,65 1380,55 1440,40 L1440,80 L0,80 Z' fill='%23ffffff'/></svg>") no-repeat center / 100% 100%;
+  height: 110px;
+  margin-top: -40px;
+  margin-bottom: -40px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 110' preserveAspectRatio='none'><path d='M0,55 C360,120 720,-10 1080,55 C1260,90 1380,75 1440,55 L1440,110 L0,110 Z' fill='%23ffffff' fill-opacity='0.55'/></svg>") no-repeat center / 100% 100%;
+  pointer-events: none;
 }
 .wave-divider-up {
   display: block;
   width: 100%;
-  height: 80px;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'><path d='M0,40 C360,-10 720,90 1080,40 C1260,15 1380,25 1440,40 L1440,0 L0,0 Z' fill='%23ffffff'/></svg>") no-repeat center / 100% 100%;
+  height: 110px;
+  margin-top: -40px;
+  margin-bottom: -40px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 110' preserveAspectRatio='none'><path d='M0,55 C360,-10 720,120 1080,55 C1260,30 1380,40 1440,55 L1440,0 L0,0 Z' fill='%23ffffff' fill-opacity='0.55'/></svg>") no-repeat center / 100% 100%;
+  pointer-events: none;
 }
 
 @keyframes breathe-1 {
