@@ -213,9 +213,9 @@ const Index = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { name: "Atelier Norden", category: "Webdesign · Webentwicklung", img: project1 },
-            { name: "Kraft & Klarheit", category: "UX/UI · SEO", img: project2 },
-            { name: "Studio Linde", category: "Branding · Webdev", img: project3 },
+            { name: "Atelier Norden", category: "Webdesign · Webentwicklung", img: project1, desc: "Markenwebsite für ein skandinavisches Designstudio. Klare Hierarchie, ruhige Typografie, +180% organische Reichweite." },
+            { name: "Kraft & Klarheit", category: "UX/UI · SEO", img: project2, desc: "Coaching-Plattform mit klarem Funnel. UX-Redesign, neue Inhaltsstruktur, sauberes technisches SEO." },
+            { name: "Studio Linde", category: "Branding · Webdev", img: project3, desc: "Atelierauftritt mit eigenem Designsystem. Editorial Layout, sanfte Microinteractions, schnelle Performance." },
           ].map((p, i) => (
             <Link
               to="/projekte"
@@ -223,8 +223,13 @@ const Index = () => {
               className="reveal group block"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className="frame-soft aspect-[4/5] mb-5">
+              <div className="project-card frame-soft aspect-[4/5] mb-5">
                 <img src={p.img} alt={`${p.name} — Projekt von Marianna Kuzmenko`} loading="lazy" />
+                <div className="project-overlay text-white">
+                  <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{p.category}</p>
+                  <h3 className="font-display text-2xl md:text-3xl mt-2">{p.name}</h3>
+                  <p className="text-sm leading-relaxed opacity-90 mt-3">{p.desc}</p>
+                </div>
               </div>
               <div className="flex items-start justify-between gap-4">
                 <div>
