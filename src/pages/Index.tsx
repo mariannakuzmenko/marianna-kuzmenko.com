@@ -57,23 +57,24 @@ const Index = () => {
         path="/"
       />
 
-      {/* HERO */}
-      <section className="container-editorial pt-12 md:pt-20 pb-20 relative overflow-hidden">
+      {/* HERO — cinematic scene */}
+      <section className="container-editorial pt-12 md:pt-20 pb-24 relative overflow-hidden">
+        {/* Layered floating shapes */}
         <div ref={blobRef1} className="blob blob-pink animate-float-slow" style={{ width: 460, height: 460, top: "-100px", right: "-120px" }} />
         <div ref={blobRef2} className="blob blob-blue animate-float-slower" style={{ width: 380, height: 380, top: "200px", left: "-150px" }} />
+        <div className="hero-shape hero-shape-ring" style={{ width: 220, height: 220, top: "8%", left: "42%" }} />
+        <div className="hero-shape hero-shape-dot" style={{ width: 14, height: 14, top: "30%", right: "12%" }} />
+        <div className="hero-shape hero-shape-square" style={{ width: 90, height: 90, bottom: "8%", left: "38%" }} />
 
         <div className="grid grid-cols-12 gap-6 items-end relative">
-          <div className="col-span-12 md:col-span-8 reveal-stagger">
+          <div className="col-span-12 md:col-span-7 reveal-stagger">
             <div className="chip mb-8 reveal-line">
               <span className="w-2 h-2 rounded-full bg-rose animate-pulse" />
               Verfügbar für neue Projekte · Q3 2026
             </div>
             <h1 className="display-xl reveal-line">
-              <span className={`inline-block transition-all duration-1000 ${morphed ? "opacity-0 -translate-y-4" : "opacity-100"}`}>
+              <span className={`inline-block transition-all duration-1000 ${morphed ? "opacity-90" : "opacity-100"}`}>
                 Webdesign,
-              </span>
-              <span className={`inline-block transition-all duration-1000 delay-100 ${morphed ? "opacity-100 -translate-y-4" : ""}`}>
-                {morphed ? "" : ""}
               </span>
               <br />
               <span className="italic font-light reveal-line">das sich</span><br />
@@ -83,14 +84,19 @@ const Index = () => {
               </span>
             </h1>
           </div>
-          <div className="col-span-12 md:col-span-4 hidden md:block">
-            <div className="frame-soft aspect-[3/4] max-w-[280px] ml-auto reveal" style={{ transitionDelay: "300ms" }}>
+
+          {/* Portrait + Mockup composition */}
+          <div className="col-span-12 md:col-span-5 hidden md:block relative">
+            <div className="frame-soft aspect-[3/4] max-w-[260px] ml-auto reveal" style={{ transitionDelay: "200ms" }}>
               <img src={portrait} alt="Marianna Kuzmenko, Webdesignerin in Deutschland" loading="eager" />
+            </div>
+            <div className="absolute -bottom-10 -left-6 w-[68%] reveal" style={{ transitionDelay: "500ms" }}>
+              <LaptopMockup screens={[project1, project2, project3]} alt="Beispielprojekt im Browser" />
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-6 mt-16 md:mt-20 relative">
+        <div className="grid grid-cols-12 gap-6 mt-20 md:mt-28 relative">
           <div className="col-span-12 md:col-span-6 reveal" style={{ transitionDelay: "200ms" }}>
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85">
               Ich bin <span className="hover-accent">Webdesignerin und Entwicklerin</span> in Deutschland. Ich baue moderne Websites mit klarer Struktur, ruhigem Design und nachhaltiger <span className="hover-accent">SEO Optimierung</span> — für Menschen, die mehr wollen als ein Template.
