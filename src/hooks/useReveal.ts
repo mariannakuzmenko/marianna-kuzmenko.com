@@ -16,6 +16,21 @@ export const useReveal = () => {
     );
     els.forEach((el) => io.observe(el));
 
+    // Cinematic scene fade
+    const scenes = document.querySelectorAll<HTMLElement>(".scene-fade");
+    const sceneIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            sceneIO.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    scenes.forEach((el) => sceneIO.observe(el));
+
     // Staggered text reveal
     const staggerEls = document.querySelectorAll<HTMLElement>(".reveal-stagger");
     const staggerIO = new IntersectionObserver(
@@ -54,6 +69,7 @@ export const useReveal = () => {
 
     return () => {
       io.disconnect();
+      sceneIO.disconnect();
       staggerIO.disconnect();
       whisperIO.disconnect();
     };
