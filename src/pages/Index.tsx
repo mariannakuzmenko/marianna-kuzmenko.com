@@ -7,6 +7,8 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { ContactSection } from "@/components/site/ContactSection";
 import { WaveDivider } from "@/components/site/WaveDivider";
 import { Whisper } from "@/components/site/Whisper";
+import { LaptopMockup } from "@/components/site/LaptopMockup";
+import { EinblickSection } from "@/components/site/EinblickSection";
 import { useParallax } from "@/hooks/useParallax";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
