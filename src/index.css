@@ -608,7 +608,7 @@
   .scroll-line-fill {
     position: absolute;
     top: 0; left: 0; right: 0;
-    background: linear-gradient(180deg, hsl(var(--rose) / 0.7), hsl(var(--rose-hover)));
+    background: linear-gradient(180deg, hsl(var(--sky-deep) / 0.85) 0%, hsl(var(--rose) / 0.9) 100%);
     border-radius: 2px;
     transition: height 0.2s linear;
   }
@@ -616,12 +616,51 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 10px; height: 10px;
+    width: 11px; height: 11px;
     border-radius: 50%;
-    background: hsl(var(--rose));
-    box-shadow: 0 0 0 4px hsl(var(--rose) / 0.18), 0 0 18px hsl(var(--rose) / 0.6);
+    background: linear-gradient(135deg, hsl(var(--sky-deep)), hsl(var(--rose)));
+    box-shadow: 0 0 0 4px hsl(var(--rose) / 0.16), 0 0 22px hsl(var(--rose) / 0.55);
     transition: top 0.2s linear;
     animation: dot-pulse 2.4s ease-in-out infinite;
+  }
+
+  /* ========== Story step (Problem → Lösung → Ergebnis) ========== */
+  .story-step {
+    @apply relative pl-6 border-l-2;
+    border-color: hsl(var(--rose) / 0.35);
+  }
+  .story-step::before {
+    content: '';
+    @apply absolute -left-[7px] top-2 w-3 h-3 rounded-full;
+    background: hsl(var(--rose));
+    box-shadow: 0 0 0 4px hsl(var(--rose-soft));
+  }
+  .story-step + .story-step { @apply mt-6; }
+
+  /* ========== Section flow (gradient overlap between sections) ========== */
+  .section-flow {
+    position: relative;
+  }
+  .section-flow::before {
+    content: '';
+    position: absolute;
+    inset: -60px 0 auto 0;
+    height: 120px;
+    background: linear-gradient(180deg, transparent, hsl(0 0% 100% / 0.35));
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Final ending moment */
+  .ending-scene {
+    @apply relative text-center py-32 md:py-40 overflow-hidden;
+  }
+  .ending-scene .ending-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.25rem, 6vw, 5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
   }
 
   /* ========== Cinematic scene transition ========== */
