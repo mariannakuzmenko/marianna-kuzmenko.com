@@ -86,7 +86,16 @@ export const Testimonials = () => {
           </div>
 
           <p className="font-display text-2xl md:text-3xl leading-snug text-foreground/90 mb-10">
-            „{t.quote}"
+            {t.quote.split(" ").map((w, idx) => (
+              <span
+                key={`${i}-${idx}`}
+                className="inline-block opacity-0 animate-[fade-in_0.6s_ease-out_forwards]"
+                style={{ animationDelay: `${idx * 35 + 200}ms`, marginRight: "0.25em" }}
+              >
+                {idx === 0 ? `„${w}` : w}
+              </span>
+            ))}
+            <span className="inline-block">"</span>
           </p>
 
           <div className="flex flex-col items-center gap-1">
