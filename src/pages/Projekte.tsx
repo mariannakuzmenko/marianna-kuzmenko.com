@@ -2,7 +2,7 @@ import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, AlertCircle, Lightbulb, TrendingUp } from "lucide-react";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -103,16 +103,20 @@ const Projekte = () => {
         />
       </section>
 
-      <section className="container-editorial pb-28 space-y-16">
+      <section className="container-editorial pb-28 space-y-24">
         {projects.map((p, i) => (
           <article
             key={i}
-            className="reveal grid grid-cols-12 gap-8 items-center"
-            style={{ transitionDelay: `${i * 80}ms` }}
+            className="scene-fade grid grid-cols-12 gap-8 items-center"
           >
             <div className={`col-span-12 md:col-span-7 ${i % 2 === 1 ? "md:order-2" : ""}`}>
-              <div className="frame-soft aspect-[4/3]">
+              <div className="project-card frame-soft aspect-[4/3]">
                 <img src={p.image} alt={`${p.name} — Projekt von Marianna Kuzmenko`} loading="lazy" />
+                <div className="project-overlay text-white">
+                  <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{p.tags.join(" · ")}</p>
+                  <h3 className="font-display text-2xl md:text-3xl mt-2">{p.name}</h3>
+                  <p className="text-sm leading-relaxed opacity-90 mt-3">{p.solution}</p>
+                </div>
               </div>
             </div>
             <div className={`col-span-12 md:col-span-5 ${i % 2 === 1 ? "md:order-1" : ""}`}>
@@ -121,22 +125,22 @@ const Projekte = () => {
                 <ArrowUpRight className="text-muted-foreground" size={20} />
               </div>
               <h2 className="display-md mb-5">{p.name}</h2>
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-8">
                 {p.tags.map((t) => (
                   <span key={t} className="chip">{t}</span>
                 ))}
               </div>
-              <div className="space-y-4">
-                <div>
-                  <p className="eyebrow mb-1.5">Problem</p>
+              <div>
+                <div className="story-step">
+                  <p className="eyebrow mb-1.5 flex items-center gap-2"><AlertCircle size={12} className="text-rose" /> Problem</p>
                   <p className="leading-relaxed">{p.problem}</p>
                 </div>
-                <div>
-                  <p className="eyebrow mb-1.5">Lösung</p>
+                <div className="story-step">
+                  <p className="eyebrow mb-1.5 flex items-center gap-2"><Lightbulb size={12} className="text-rose" /> Lösung</p>
                   <p className="leading-relaxed">{p.solution}</p>
                 </div>
-                <div>
-                  <p className="eyebrow mb-1.5">Ergebnis</p>
+                <div className="story-step">
+                  <p className="eyebrow mb-1.5 flex items-center gap-2"><TrendingUp size={12} className="text-rose" /> Ergebnis</p>
                   <p className="leading-relaxed text-rose font-display text-xl">{p.result}</p>
                 </div>
               </div>
