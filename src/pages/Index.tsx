@@ -355,6 +355,26 @@ const Index = () => {
 
       <WaveDivider />
 
+      {/* ENDING MOMENT — calm final scene before contact */}
+      <section className="ending-scene scene-fade">
+        <div className="container-editorial relative">
+          <p className="eyebrow mb-6 reveal-line">— Anfang —</p>
+          <h2 className="ending-headline">
+            Vielleicht ist das<br />
+            der <span className="italic text-rose marker">Anfang.</span>
+          </h2>
+          <p className="mt-8 max-w-xl mx-auto text-muted-foreground leading-relaxed">
+            Wenn dich etwas davon berührt hat, ist das schon mehr als die meisten Websites schaffen.
+            Schreib mir — auch wenn du noch nicht genau weißt, wohin es gehen soll.
+          </p>
+          <div className="mt-10 flex justify-center">
+            <a href="#kontakt" className="btn-pink btn-press">
+              Lass uns reden <ArrowUpRight size={16} />
+            </a>
+          </div>
+        </div>
+      </section>
+
       <ContactSection />
     </Layout>
   );
