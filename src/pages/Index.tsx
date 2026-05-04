@@ -347,6 +347,10 @@ const Index = () => {
 
       <WaveDivider flip />
 
+      <EinblickSection />
+
+      <WaveDivider />
+
       <Testimonials />
 
       <WaveDivider />
