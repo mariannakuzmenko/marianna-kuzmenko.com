@@ -53,7 +53,7 @@ const projects: Project[] = [
     year: "2025",
     name: "NEIN / STUDIO",
     category: "Anti-Agentur · Editorial",
-    intro: "„Wir sind wahrscheinlich nichts für dich." — Eine Website, die Haltung zeigt und genau dadurch anzieht.",
+    intro: 'Wir sind wahrscheinlich nichts für dich. Eine Website, die Haltung zeigt — und genau dadurch anzieht.',
     challenge:
       "Wie sticht eine Kreativagentur in einem Meer austauschbarer Studio-Sites hervor? Indem sie aufhört, sich anzubiedern.",
     concept:
