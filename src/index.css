@@ -663,6 +663,64 @@
     letter-spacing: -0.025em;
   }
 
+  /* ========== Project showcase (cinematic portfolio) ========== */
+  .showcase-scene {
+    @apply relative rounded-[2.5rem] overflow-hidden px-6 md:px-14 py-16 md:py-24;
+    box-shadow: 0 40px 80px -40px hsl(220 50% 30% / 0.25);
+  }
+  .showcase-scene::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(120% 80% at 20% 0%, hsl(0 0% 100% / 0.5), transparent 60%);
+    pointer-events: none;
+  }
+  /* Mood themes */
+  .mood-warm    { background: linear-gradient(135deg, hsl(28 60% 92%) 0%, hsl(18 55% 84%) 100%); }
+  .mood-pastel  { background: linear-gradient(135deg, hsl(348 70% 95%) 0%, hsl(140 35% 90%) 100%); }
+  .mood-beige   { background: linear-gradient(135deg, hsl(38 35% 94%) 0%, hsl(30 25% 86%) 100%); }
+  .mood-bold    { background: linear-gradient(135deg, hsl(60 8% 95%) 0%, hsl(70 60% 88%) 100%); }
+  .mood-emotion { background: linear-gradient(135deg, hsl(30 70% 92%) 0%, hsl(140 30% 88%) 100%); }
+  .mood-dark    { background: linear-gradient(135deg, hsl(30 25% 14%) 0%, hsl(20 35% 8%) 100%); color: hsl(40 30% 92%); }
+  .mood-luxury  { background: linear-gradient(135deg, hsl(35 40% 14%) 0%, hsl(28 45% 22%) 100%); color: hsl(40 50% 92%); }
+  .mood-corporate { background: linear-gradient(135deg, hsl(220 40% 18%) 0%, hsl(220 50% 12%) 100%); color: hsl(48 90% 88%); }
+  .mood-clinic  { background: linear-gradient(135deg, hsl(150 30% 92%) 0%, hsl(200 40% 90%) 100%); }
+
+  .mood-dark .text-muted-foreground,
+  .mood-luxury .text-muted-foreground,
+  .mood-corporate .text-muted-foreground { color: hsl(40 20% 75%); }
+
+  .showcase-mockup {
+    transition: transform 1.2s var(--transition-smooth), filter 1.2s ease;
+    filter: drop-shadow(0 30px 50px hsl(220 60% 20% / 0.35));
+    will-change: transform;
+  }
+  .showcase-mockup:hover { transform: translateY(-10px) scale(1.015); }
+  .showcase-mockup img { @apply w-full h-auto object-contain; }
+
+  .tilt-left  { transform: perspective(1400px) rotateY(6deg) rotateX(2deg); }
+  .tilt-right { transform: perspective(1400px) rotateY(-6deg) rotateX(2deg); }
+  .tilt-left:hover  { transform: perspective(1400px) rotateY(2deg) rotateX(0) translateY(-10px); }
+  .tilt-right:hover { transform: perspective(1400px) rotateY(-2deg) rotateX(0) translateY(-10px); }
+
+  .case-meta { @apply font-mono text-[11px] uppercase tracking-[0.18em] opacity-70; }
+  .case-step-label { @apply font-mono text-[11px] uppercase tracking-[0.22em] mb-2 opacity-80; }
+  .case-step + .case-step { @apply mt-7; }
+
+  .glow-btn {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all;
+    background: hsl(var(--rose));
+    color: white;
+    box-shadow: 0 10px 30px -8px hsl(var(--rose) / 0.6);
+  }
+  .glow-btn:hover { box-shadow: 0 0 0 3px hsl(var(--rose) / 0.25), 0 18px 40px -10px hsl(var(--rose) / 0.7); transform: translateY(-2px); }
+
+  .floating-tag {
+    @apply absolute font-mono text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full backdrop-blur-md;
+    background: hsl(0 0% 100% / 0.7);
+    border: 1px solid hsl(0 0% 100% / 0.6);
+    color: hsl(var(--ink));
+  }
+
   /* ========== Cinematic scene transition ========== */
   .scene {
     position: relative;
