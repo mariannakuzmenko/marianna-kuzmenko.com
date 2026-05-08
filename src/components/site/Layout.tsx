@@ -13,7 +13,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       <BreathingBackground />
       <ScrollLine />
       <Nav />
-      <main className="pt-16 md:pt-20">{children}</main>
+      <main className="pt-20 md:pt-28">{children}</main>
       <FloatingFeedback />
       <Footer />
     </div>
