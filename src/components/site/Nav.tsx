@@ -17,13 +17,13 @@ export const Nav = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/60">
-      <div className="container-editorial flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="group flex items-center" aria-label="Marianna Kuzmenko — Web Design & Development">
+      <div className="container-editorial flex items-center justify-between h-20 md:h-28">
+        <Link to="/" className="group flex items-center py-2" aria-label="Marianna Kuzmenko — Web Design & Development">
           <img
             src={logo}
             alt="Marianna Kuzmenko"
-            className="h-9 md:h-11 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-            style={{ filter: "drop-shadow(0 2px 10px hsl(var(--sky-deep) / 0.35))" }}
+            className="h-14 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+            style={{ filter: "drop-shadow(0 4px 18px hsl(208 70% 50% / 0.35))" }}
           />
         </Link>
 

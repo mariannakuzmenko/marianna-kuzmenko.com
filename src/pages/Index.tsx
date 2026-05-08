@@ -76,8 +76,8 @@ const Index = () => {
             <img
               src={logo}
               alt="Marianna Kuzmenko — Web Design & Development"
-              className="w-full max-w-[560px] h-auto mb-8 reveal-line"
-              style={{ filter: "drop-shadow(0 6px 24px hsl(var(--sky-deep) / 0.35))" }}
+              className="w-full max-w-[720px] h-auto mb-10 reveal-line"
+              style={{ filter: "drop-shadow(0 8px 32px hsl(208 70% 45% / 0.4))" }}
             />
             <h1 className="display-xl reveal-line">
               <span className={`inline-block transition-all duration-1000 ${morphed ? "opacity-90" : "opacity-100"}`}>
