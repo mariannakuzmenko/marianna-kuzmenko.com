@@ -13,8 +13,8 @@ export const Footer = () => {
             <img
               src={logo}
               alt="Marianna Kuzmenko"
-              className="h-12 md:h-14 w-auto object-contain mb-8 opacity-90"
-              style={{ filter: "invert(1) hue-rotate(180deg) contrast(1.1)" }}
+              className="h-12 md:h-14 w-auto object-contain mb-8"
+              style={{ filter: "drop-shadow(0 4px 18px hsl(var(--sky-deep) / 0.35))" }}
             />
             <p className="eyebrow mb-6">Lass uns reden</p>
             <h2 className="display-md mb-8">

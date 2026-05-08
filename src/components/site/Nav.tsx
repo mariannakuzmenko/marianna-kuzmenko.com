@@ -23,7 +23,7 @@ export const Nav = () => {
             src={logo}
             alt="Marianna Kuzmenko"
             className="h-9 md:h-11 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-            style={{ filter: "invert(1) hue-rotate(180deg) contrast(1.1)" }}
+            style={{ filter: "drop-shadow(0 2px 10px hsl(var(--sky-deep) / 0.35))" }}
           />
         </Link>
 
