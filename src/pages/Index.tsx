@@ -32,6 +32,7 @@ import portrait from "@/assets/portrait.jpg";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
+import logo from "@/assets/logo.png";
 
 /* Special moment: headline morph on scroll */
 const useHeadlineMorph = () => {
@@ -72,6 +73,12 @@ const Index = () => {
               <span className="w-2 h-2 rounded-full bg-rose animate-pulse" />
               Verfügbar für neue Projekte · Q3 2026
             </div>
+            <img
+              src={logo}
+              alt="Marianna Kuzmenko — Web Design & Development"
+              className="w-full max-w-[560px] h-auto mb-8 reveal-line"
+              style={{ filter: "drop-shadow(0 6px 24px hsl(var(--sky-deep) / 0.35))" }}
+            />
             <h1 className="display-xl reveal-line">
               <span className={`inline-block transition-all duration-1000 ${morphed ? "opacity-90" : "opacity-100"}`}>
                 Webdesign,
