@@ -4,6 +4,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index.tsx";
 import UeberMich from "./pages/UeberMich.tsx";
 import Webentwicklung from "./pages/Webentwicklung.tsx";
@@ -22,16 +23,29 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/ueber-mich" element={<UeberMich />} />
-            <Route path="/webentwicklung" element={<Webentwicklung />} />
-            <Route path="/seo" element={<SeoPage />} />
-            <Route path="/projekte" element={<Projekte />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <LanguageProvider>
+            <Routes>
+              {/* German (default) */}
+              <Route path="/" element={<Index />} />
+              <Route path="/ueber-mich" element={<UeberMich />} />
+              <Route path="/webentwicklung" element={<Webentwicklung />} />
+              <Route path="/seo" element={<SeoPage />} />
+              <Route path="/projekte" element={<Projekte />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+
+              {/* English */}
+              <Route path="/en" element={<Index />} />
+              <Route path="/en/about" element={<UeberMich />} />
+              <Route path="/en/web-development" element={<Webentwicklung />} />
+              <Route path="/en/seo" element={<SeoPage />} />
+              <Route path="/en/projects" element={<Projekte />} />
+              <Route path="/en/blog" element={<Blog />} />
+              <Route path="/en/blog/:slug" element={<BlogPost />} />
+
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </LanguageProvider>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

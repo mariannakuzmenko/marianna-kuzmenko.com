@@ -3,30 +3,41 @@ import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { getPost, getRelated, posts } from "@/data/posts";
 import { ArrowLeft, ArrowUpRight, Clock, Calendar, ArrowRight } from "lucide-react";
+import { useLang, pick } from "@/i18n/LanguageContext";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPost(slug) : undefined;
+  const { lang, path } = useLang();
 
-  if (!post) return <Navigate to="/blog" replace />;
+  const blogBase = lang === "en" ? "/en/blog" : "/blog";
+
+  if (!post) return <Navigate to={blogBase} replace />;
 
   const related = getRelated(post.related);
+
+  const ui = pick(lang,
+    { back: "Zurück zum Blog", relatedTo: "Passend dazu", helpQ: "Brauchst du Hilfe damit?", view: "ansehen", prev: "Vorheriger Artikel", next: "Nächster Artikel", relatedH: "Weiterlesen", relatedEye: "Ähnliche Artikel", read: "Lesen" },
+    { back: "Back to journal", relatedTo: "Related", helpQ: "Need help with this?", view: "view", prev: "Previous article", next: "Next article", relatedH: "Keep reading", relatedEye: "Related articles", read: "Read" },
+  );
 
   return (
     <Layout>
       <Seo
         title={`${post.title} — Marianna Kuzmenko`}
         description={post.excerpt}
-        path={`/blog/${post.slug}`}
+        path={`${blogBase}/${post.slug}`}
+        pathDe={`/blog/${post.slug}`}
+        pathEn={`/en/blog/${post.slug}`}
       />
 
       <article className="container-editorial pt-12 md:pt-16 pb-20">
         <Link
-          to="/blog"
+          to={blogBase}
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-rose transition-colors mb-12 group"
         >
           <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-          Zurück zum Blog
+          {ui.back}
         </Link>
 
         <div className="max-w-4xl">
@@ -71,27 +82,28 @@ const BlogPost = () => {
                     ))}
                   </ul>
                 );
-              if (block.type === "link" && block.to)
+              if (block.type === "link" && block.to) {
+                const to = lang === "en" && block.to.startsWith("/blog/")
+                  ? `/en${block.to}`
+                  : block.to;
                 return (
-                  <Link
-                    key={i}
-                    to={block.to}
-                    className="my-6 inline-flex items-center gap-2 text-rose-hover hover:text-rose underline-draw font-medium"
-                  >
+                  <Link key={i} to={to} className="my-6 inline-flex items-center gap-2 text-rose-hover hover:text-rose underline-draw font-medium">
                     {block.label}
                   </Link>
                 );
+              }
               return <p key={i} className="text-lg leading-relaxed text-foreground/85">{block.text}</p>;
             })}
 
             {post.serviceLink && (
               <div className="mt-16 card-soft bg-secondary">
-                <p className="eyebrow mb-3">Passend dazu</p>
-                <h3 className="font-display text-2xl md:text-3xl mb-4">
-                  Brauchst du Hilfe damit?
-                </h3>
-                <Link to={post.serviceLink.to} className="btn-pink mt-2">
-                  {post.serviceLink.label} ansehen →
+                <p className="eyebrow mb-3">{ui.relatedTo}</p>
+                <h3 className="font-display text-2xl md:text-3xl mb-4">{ui.helpQ}</h3>
+                <Link
+                  to={post.serviceLink.to === "/webentwicklung" ? path("web") : post.serviceLink.to === "/seo" ? path("seo") : post.serviceLink.to}
+                  className="btn-pink mt-2"
+                >
+                  {post.serviceLink.label} {ui.view} →
                 </Link>
               </div>
             )}
@@ -107,14 +119,14 @@ const BlogPost = () => {
           <section className="container-editorial pb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {prev ? (
-                <Link to={`/blog/${prev.slug}`} className="card-soft group">
-                  <p className="eyebrow mb-2 flex items-center gap-2"><ArrowLeft size={12} /> Vorheriger Artikel</p>
+                <Link to={`${blogBase}/${prev.slug}`} className="card-soft group">
+                  <p className="eyebrow mb-2 flex items-center gap-2"><ArrowLeft size={12} /> {ui.prev}</p>
                   <p className="font-display text-xl md:text-2xl group-hover:text-rose transition-colors">{prev.title}</p>
                 </Link>
               ) : <div />}
               {next ? (
-                <Link to={`/blog/${next.slug}`} className="card-soft group md:text-right">
-                  <p className="eyebrow mb-2 flex items-center gap-2 md:justify-end">Nächster Artikel <ArrowRight size={12} /></p>
+                <Link to={`${blogBase}/${next.slug}`} className="card-soft group md:text-right">
+                  <p className="eyebrow mb-2 flex items-center gap-2 md:justify-end">{ui.next} <ArrowRight size={12} /></p>
                   <p className="font-display text-xl md:text-2xl group-hover:text-rose transition-colors">{next.title}</p>
                 </Link>
               ) : <div />}
@@ -122,16 +134,17 @@ const BlogPost = () => {
           </section>
         );
       })()}
+
       {related.length > 0 && (
         <section className="container-editorial py-24">
-          <p className="eyebrow mb-4">Ähnliche Artikel</p>
-          <h2 className="display-md mb-12">Weiterlesen<span className="text-rose">.</span></h2>
+          <p className="eyebrow mb-4">{ui.relatedEye}</p>
+          <h2 className="display-md mb-12">{ui.relatedH}<span className="text-rose">.</span></h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {related.map((p, i) => (
               <Link
                 key={p.slug}
-                to={`/blog/${p.slug}`}
+                to={`${blogBase}/${p.slug}`}
                 className="reveal group card-soft block"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
@@ -145,7 +158,7 @@ const BlogPost = () => {
                 <h3 className="font-display text-2xl md:text-3xl mb-3 group-hover:text-rose transition-colors">{p.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{p.excerpt}</p>
                 <span className="inline-flex items-center gap-2 mt-4 text-sm font-mono uppercase tracking-widest">
-                  Lesen <ArrowUpRight size={14} className="transition-transform group-hover:rotate-45 duration-500" />
+                  {ui.read} <ArrowUpRight size={14} className="transition-transform group-hover:rotate-45 duration-500" />
                 </span>
               </Link>
             ))}
