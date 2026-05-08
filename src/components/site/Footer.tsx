@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Github, Mail } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useLang, pick } from "@/i18n/LanguageContext";
 
 export const Footer = () => {
+  const { lang, path } = useLang();
   return (
     <footer className="relative mt-32 overflow-hidden">
       <div className="absolute inset-0" style={{ background: "var(--gradient-soft)" }} />
@@ -14,12 +16,12 @@ export const Footer = () => {
               src={logo}
               alt="Marianna Kuzmenko"
               className="h-12 md:h-14 w-auto object-contain mb-8"
-              style={{ filter: "drop-shadow(0 4px 18px hsl(var(--sky-deep) / 0.35))" }}
+              style={{ filter: "drop-shadow(0 4px 18px hsl(208 70% 50% / 0.35))" }}
             />
-            <p className="eyebrow mb-6">Lass uns reden</p>
+            <p className="eyebrow mb-6">{pick(lang, "Lass uns reden", "Let’s talk")}</p>
             <h2 className="display-md mb-8">
-              Bereit für eine Website,<br />
-              die wirklich <em className="text-rose not-italic">funktioniert</em>?
+              {pick(lang, <>Bereit für eine Website,<br />die wirklich <em className="text-rose not-italic">funktioniert</em>?</>,
+                          <>Ready for a website<br />that actually <em className="text-rose not-italic">works</em>?</>)}
             </h2>
             <a
               href="mailto:hello@mariannakuzmenko.de"
@@ -31,24 +33,24 @@ export const Footer = () => {
           </div>
 
           <div className="md:col-span-3">
-            <p className="eyebrow mb-4">Navigation</p>
+            <p className="eyebrow mb-4">{pick(lang, "Navigation", "Navigation")}</p>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/" className="underline-draw">Startseite</Link></li>
-              <li><Link to="/ueber-mich" className="underline-draw">Über mich</Link></li>
-              <li><Link to="/webentwicklung" className="underline-draw">Webentwicklung</Link></li>
-              <li><Link to="/seo" className="underline-draw">SEO Optimierung</Link></li>
-              <li><Link to="/projekte" className="underline-draw">Projekte</Link></li>
-              <li><Link to="/blog" className="underline-draw">Blog</Link></li>
+              <li><Link to={path("home")}  className="underline-draw">{pick(lang, "Startseite", "Home")}</Link></li>
+              <li><Link to={path("about")} className="underline-draw">{pick(lang, "Über mich", "About")}</Link></li>
+              <li><Link to={path("web")}   className="underline-draw">{pick(lang, "Webentwicklung", "Web Development")}</Link></li>
+              <li><Link to={path("seo")}   className="underline-draw">{pick(lang, "SEO Optimierung", "SEO Optimization")}</Link></li>
+              <li><Link to={path("work")}  className="underline-draw">{pick(lang, "Projekte", "Work")}</Link></li>
+              <li><Link to={path("blog")}  className="underline-draw">Blog</Link></li>
             </ul>
           </div>
 
           <div className="md:col-span-3">
-            <p className="eyebrow mb-4">Standort</p>
+            <p className="eyebrow mb-4">{pick(lang, "Standort", "Location")}</p>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Freelancer Webdesigner<br />
-              Deutschland · Remote weltweit
+              {pick(lang, <>Freelancer Webdesigner<br />Deutschland · Remote weltweit</>,
+                          <>Freelance Web Designer<br />Germany · Remote worldwide</>)}
             </p>
-            <p className="eyebrow mt-8 mb-4">Folgen</p>
+            <p className="eyebrow mt-8 mb-4">{pick(lang, "Folgen", "Follow")}</p>
             <div className="flex gap-3">
               <a href="#" className="w-10 h-10 rounded-full bg-paper flex items-center justify-center hover:bg-rose-soft transition-colors duration-500" aria-label="LinkedIn">
                 <Linkedin size={16} strokeWidth={1.6} />
@@ -65,8 +67,8 @@ export const Footer = () => {
 
         <div className="hairline mt-20 mb-6" />
         <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-muted-foreground font-mono uppercase tracking-widest">
-          <p>© {new Date().getFullYear()} Marianna Kuzmenko · Alle Rechte vorbehalten</p>
-          <p>Mit Sorgfalt gemacht — in Deutschland</p>
+          <p>© {new Date().getFullYear()} Marianna Kuzmenko · {pick(lang, "Alle Rechte vorbehalten", "All rights reserved")}</p>
+          <p>{pick(lang, "Mit Sorgfalt gemacht — in Deutschland", "Crafted with care — in Germany")}</p>
         </div>
       </div>
     </footer>
