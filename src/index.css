@@ -372,12 +372,12 @@
   .sky-base {
     position: absolute; inset: 0;
     background:
-      radial-gradient(120% 70% at 50% 0%, hsl(205 100% 98%) 0%, transparent 60%),
+      radial-gradient(120% 70% at 50% 0%, hsl(208 78% 90%) 0%, transparent 60%),
       linear-gradient(180deg,
-        hsl(205 95% 95%) 0%,
-        hsl(208 90% 92%) 35%,
-        hsl(206 85% 94%) 70%,
-        hsl(204 90% 96%) 100%);
+        hsl(208 70% 86%) 0%,
+        hsl(210 65% 82%) 35%,
+        hsl(208 60% 84%) 70%,
+        hsl(206 70% 88%) 100%);
   }
   .sky-glow {
     position: absolute;
