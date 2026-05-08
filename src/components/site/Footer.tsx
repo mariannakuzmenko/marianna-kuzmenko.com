@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Github, Mail } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export const Footer = () => {
   return (
@@ -9,6 +10,12 @@ export const Footer = () => {
       <div className="container-editorial py-24 relative">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-6">
+            <img
+              src={logo}
+              alt="Marianna Kuzmenko"
+              className="h-12 md:h-14 w-auto object-contain mb-8 opacity-90"
+              style={{ filter: "invert(1) hue-rotate(180deg) contrast(1.1)" }}
+            />
             <p className="eyebrow mb-6">Lass uns reden</p>
             <h2 className="display-md mb-8">
               Bereit für eine Website,<br />
