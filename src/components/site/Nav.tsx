@@ -1,6 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const links = [
   { to: "/", label: "Start" },
@@ -17,11 +18,13 @@ export const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/60">
       <div className="container-editorial flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="group flex items-center gap-2.5 font-display text-xl md:text-2xl">
-          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-rose-soft transition-transform duration-500 group-hover:rotate-180">
-            <Sparkles size={14} className="text-foreground" strokeWidth={1.5} />
-          </span>
-          <span>Marianna<span className="text-rose">.</span>K</span>
+        <Link to="/" className="group flex items-center" aria-label="Marianna Kuzmenko — Web Design & Development">
+          <img
+            src={logo}
+            alt="Marianna Kuzmenko"
+            className="h-9 md:h-11 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+            style={{ filter: "invert(1) hue-rotate(180deg) contrast(1.1)" }}
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
