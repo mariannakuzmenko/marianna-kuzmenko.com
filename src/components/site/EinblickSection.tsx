@@ -10,8 +10,8 @@ import { useLang, pick } from "@/i18n/LanguageContext";
 export const EinblickSection = () => {
   const { lang } = useLang();
   const t = pick(lang,
-    { eyebrow: "07 — Einblick", titleA: "Einblick in", titleB: "meine Arbeit.", lead: "Werkstatt, Hände, Bildschirme. Ein paar Ausschnitte aus meinem Alltag — zwischen Skizze und Code.", portraitAlt: "Marianna Kuzmenko bei der Arbeit", deskAlt: "Mein Arbeitsplatz", mockupAlt: "Projektvorschau im Laptop", note: "„aus der Werkstatt"", whisper: "noch ein Moment …" },
-    { eyebrow: "07 — Behind the scenes", titleA: "A glimpse into", titleB: "the work.", lead: "Studio, hands, screens. A few snapshots from the everyday — between sketch and code.", portraitAlt: "Marianna Kuzmenko at work", deskAlt: "My workspace", mockupAlt: "Project preview in laptop", note: "“from the studio”", whisper: "just a moment …" },
+    { eyebrow: "07 — Einblick", titleA: "Einblick in", titleB: "meine Arbeit.", lead: "Werkstatt, Hände, Bildschirme. Ein paar Ausschnitte aus meinem Alltag — zwischen Skizze und Code.", portraitAlt: "Marianna Kuzmenko bei der Arbeit", deskAlt: "Mein Arbeitsplatz", mockupAlt: "Projektvorschau im Laptop", note: "„aus der Werkstatt\u201C", whisper: "noch ein Moment …" },
+    { eyebrow: "07 — Behind the scenes", titleA: "A glimpse into", titleB: "the work.", lead: "Studio, hands, screens. A few snapshots from the everyday — between sketch and code.", portraitAlt: "Marianna Kuzmenko at work", deskAlt: "My workspace", mockupAlt: "Project preview in laptop", note: "\u201Cfrom the studio\u201D", whisper: "just a moment …" },
   );
 
   return (
