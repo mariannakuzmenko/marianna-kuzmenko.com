@@ -267,6 +267,42 @@ const Index = () => {
       endBefore: "the ",
       endLead: "If something here resonated, that’s already more than most websites manage. Write me — even if you don’t yet know where it should go.",
       endCta: "Let’s talk",
+      // Why a website matters
+      mEye: "— Why a website matters",
+      mTitleA: "A website is more",
+      mTitleB: "than a storefront.",
+      mLead: "It’s often the first impression of your brand — and decides in seconds whether someone stays.",
+      matters: [
+        { title: "Build trust", desc: "A professional website earns trust within the first few seconds." },
+        { title: "Be more visible", desc: "SEO and modern web development help you get found online." },
+        { title: "A strong first impression", desc: "Your website is often the first contact with future clients." },
+        { title: "More inquiries", desc: "Clear structure and thoughtful UX gently invite more inquiries and sales." },
+        { title: "Long-term presence", desc: "A website keeps working for your brand and business in the background." },
+        { title: "Shape perception", desc: "Design quietly influences how people read your work and its value." },
+      ],
+      storyEye: "— A thought",
+      storyA: "A website today is more",
+      storyB: "than just an online presence.",
+      storyC: "It’s often the first impression of your brand — quiet, precise, honest.",
+      storyD: "Trust grows in the details. Perception follows form. Professionalism is felt before it’s read.",
+      cEye: "— A comparison",
+      cTitleA: "With, or",
+      cTitleB: "without.",
+      cLead: "Two worlds — and the calm difference between them.",
+      cWithoutTitle: "Without a professional site",
+      cWithout: [
+        "Your business feels less trustworthy",
+        "Visitors leave faster than you’d think",
+        "You lose visibility in search",
+        "The brand starts to feel interchangeable",
+      ],
+      cWithTitle: "With a modern site",
+      cWith: [
+        "Your brand reads as clearer and more professional",
+        "Trust forms within the first seconds",
+        "You get found online with intent",
+        "Inquiries arrive better qualified",
+      ],
     }
   );
 
