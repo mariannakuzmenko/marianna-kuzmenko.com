@@ -372,48 +372,49 @@
   .sky-base {
     position: absolute; inset: 0;
     background:
-      radial-gradient(120% 70% at 50% 0%, hsl(208 78% 90%) 0%, transparent 60%),
+      radial-gradient(140% 80% at 50% -10%, hsl(213 100% 98%) 0%, transparent 55%),
+      radial-gradient(80% 50% at 80% 20%, hsl(340 50% 94% / 0.55) 0%, transparent 60%),
       linear-gradient(180deg,
-        hsl(208 70% 86%) 0%,
-        hsl(210 65% 82%) 35%,
-        hsl(208 60% 84%) 70%,
-        hsl(206 70% 88%) 100%);
+        hsl(210 65% 88%) 0%,
+        hsl(210 55% 82%) 30%,
+        hsl(211 50% 78%) 65%,
+        hsl(213 60% 86%) 100%);
   }
   .sky-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.55;
+    filter: blur(110px);
+    opacity: 0.5;
   }
   .sky-glow-1 {
-    width: 60vw; height: 60vw; max-width: 800px; max-height: 800px;
+    width: 60vw; height: 60vw; max-width: 820px; max-height: 820px;
     top: -25%; right: -15%;
-    background: hsl(205 100% 95%);
+    background: hsl(213 100% 96%);
     animation: breathe-1 16s ease-in-out infinite;
   }
   .sky-glow-2 {
     width: 50vw; height: 50vw; max-width: 700px; max-height: 700px;
     top: 30%; left: -20%;
-    background: hsl(210 85% 93%);
+    background: hsl(210 70% 90%);
     animation: breathe-2 20s ease-in-out infinite;
     opacity: 0.45;
   }
   .sky-glow-3 {
-    width: 40vw; height: 40vw; max-width: 600px; max-height: 600px;
-    bottom: 10%; right: 10%;
-    background: hsl(348 70% 95%);
+    width: 42vw; height: 42vw; max-width: 620px; max-height: 620px;
+    bottom: 8%; right: 8%;
+    background: hsl(340 50% 92%);
     animation: breathe-3 24s ease-in-out infinite;
-    opacity: 0.3;
+    opacity: 0.32;
   }
   .cloud {
     position: absolute;
-    background: radial-gradient(ellipse at center, hsl(0 0% 100% / 0.85) 0%, hsl(0 0% 100% / 0) 65%);
-    filter: blur(20px);
+    background: radial-gradient(ellipse at center, hsl(213 100% 99% / 0.9) 0%, hsl(213 100% 99% / 0) 65%);
+    filter: blur(24px);
     border-radius: 50%;
   }
-  .cloud-1 { width: 520px; height: 180px; top: 12%; left: -10%; animation: cloud-drift 70s linear infinite; }
-  .cloud-2 { width: 420px; height: 150px; top: 28%; left: 30%; opacity: 0.7; animation: cloud-drift 95s linear infinite; animation-delay: -30s; }
-  .cloud-3 { width: 600px; height: 200px; top: 8%;  left: 60%; opacity: 0.85; animation: cloud-drift 110s linear infinite; animation-delay: -60s; }
+  .cloud-1 { width: 540px; height: 190px; top: 12%; left: -10%; animation: cloud-drift 70s linear infinite; }
+  .cloud-2 { width: 440px; height: 160px; top: 28%; left: 30%; opacity: 0.7; animation: cloud-drift 95s linear infinite; animation-delay: -30s; }
+  .cloud-3 { width: 620px; height: 210px; top: 8%;  left: 60%; opacity: 0.85; animation: cloud-drift 110s linear infinite; animation-delay: -60s; }
 
   .sky-architecture {
     position: absolute;
@@ -422,14 +423,14 @@
     height: 70vh;
     min-height: 520px;
     max-height: 900px;
-    opacity: 0.85;
+    opacity: 0.78;
   }
 
   .sky-haze {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, transparent 0%, transparent 55%, hsl(205 90% 96% / 0.5) 80%, hsl(205 90% 97% / 0.75) 100%);
+      linear-gradient(180deg, transparent 0%, transparent 50%, hsl(213 100% 98% / 0.45) 78%, hsl(213 100% 99% / 0.7) 100%);
   }
 
   .sky-particles { position: absolute; inset: 0; }
