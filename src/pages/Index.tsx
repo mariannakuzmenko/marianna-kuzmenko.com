@@ -27,6 +27,12 @@ import {
   Heart,
   Clock,
   ShieldCheck,
+  Star,
+  TrendingUp,
+  MessageCircle,
+  Eye,
+  Minus,
+  Plus,
 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 import project1 from "@/assets/project-1.jpg";
@@ -140,6 +146,44 @@ const Index = () => {
       endBefore: "der ",
       endLead: "Wenn dich etwas davon berührt hat, ist das schon mehr als die meisten Websites schaffen. Schreib mir — auch wenn du noch nicht genau weißt, wohin es gehen soll.",
       endCta: "Lass uns reden",
+      // Why a website matters
+      mEye: "— Warum eine Website zählt",
+      mTitleA: "Eine Website ist mehr",
+      mTitleB: "als ein Schaufenster.",
+      mLead: "Sie ist oft der erste Eindruck deiner Marke — und entscheidet in Sekunden, ob jemand bleibt.",
+      matters: [
+        { title: "Vertrauen aufbauen", desc: "Eine professionelle Website schafft Vertrauen bereits in den ersten Sekunden." },
+        { title: "Mehr Sichtbarkeit", desc: "SEO und moderne Webentwicklung helfen dabei, online besser gefunden zu werden." },
+        { title: "Starker erster Eindruck", desc: "Deine Website ist oft der erste Kontakt mit potenziellen Kund:innen." },
+        { title: "Mehr Anfragen", desc: "Klare Struktur und gutes UX-Design unterstützen mehr Anfragen und Verkäufe." },
+        { title: "Langfristige Präsenz", desc: "Eine Website arbeitet langfristig für deine Marke und dein Business." },
+        { title: "Wahrnehmung gestalten", desc: "Design beeinflusst, wie Menschen deine Arbeit und deinen Wert einschätzen." },
+      ],
+      // Storytelling
+      storyEye: "— Ein Gedanke",
+      storyA: "Eine Website ist heute mehr",
+      storyB: "als nur eine Online-Präsenz.",
+      storyC: "Sie ist oft der erste Eindruck deiner Marke — leise, präzise, ehrlich.",
+      storyD: "Vertrauen entsteht im Detail. Wahrnehmung folgt der Form. Professionalität spürt man, bevor man sie liest.",
+      // Contrast
+      cEye: "— Ein Vergleich",
+      cTitleA: "Mit, oder",
+      cTitleB: "ohne.",
+      cLead: "Zwei Welten — und der ruhige Unterschied dazwischen.",
+      cWithoutTitle: "Ohne professionelle Website",
+      cWithout: [
+        "Unternehmen wirken weniger vertrauenswürdig",
+        "Potenzielle Kund:innen springen schneller ab",
+        "Sichtbarkeit in Suchmaschinen geht verloren",
+        "Die Marke fühlt sich austauschbar an",
+      ],
+      cWithTitle: "Mit einer modernen Website",
+      cWith: [
+        "Deine Marke wirkt klarer und professioneller",
+        "Vertrauen entsteht in den ersten Sekunden",
+        "Du wirst online besser gefunden",
+        "Anfragen kommen qualifizierter herein",
+      ],
     },
     {
       seoTitle: "Web Designer & Web Developer in Germany — Marianna Kuzmenko",
@@ -223,6 +267,42 @@ const Index = () => {
       endBefore: "the ",
       endLead: "If something here resonated, that’s already more than most websites manage. Write me — even if you don’t yet know where it should go.",
       endCta: "Let’s talk",
+      // Why a website matters
+      mEye: "— Why a website matters",
+      mTitleA: "A website is more",
+      mTitleB: "than a storefront.",
+      mLead: "It’s often the first impression of your brand — and decides in seconds whether someone stays.",
+      matters: [
+        { title: "Build trust", desc: "A professional website earns trust within the first few seconds." },
+        { title: "Be more visible", desc: "SEO and modern web development help you get found online." },
+        { title: "A strong first impression", desc: "Your website is often the first contact with future clients." },
+        { title: "More inquiries", desc: "Clear structure and thoughtful UX gently invite more inquiries and sales." },
+        { title: "Long-term presence", desc: "A website keeps working for your brand and business in the background." },
+        { title: "Shape perception", desc: "Design quietly influences how people read your work and its value." },
+      ],
+      storyEye: "— A thought",
+      storyA: "A website today is more",
+      storyB: "than just an online presence.",
+      storyC: "It’s often the first impression of your brand — quiet, precise, honest.",
+      storyD: "Trust grows in the details. Perception follows form. Professionalism is felt before it’s read.",
+      cEye: "— A comparison",
+      cTitleA: "With, or",
+      cTitleB: "without.",
+      cLead: "Two worlds — and the calm difference between them.",
+      cWithoutTitle: "Without a professional site",
+      cWithout: [
+        "Your business feels less trustworthy",
+        "Visitors leave faster than you’d think",
+        "You lose visibility in search",
+        "The brand starts to feel interchangeable",
+      ],
+      cWithTitle: "With a modern site",
+      cWith: [
+        "Your brand reads as clearer and more professional",
+        "Trust forms within the first seconds",
+        "You get found online with intent",
+        "Inquiries arrive better qualified",
+      ],
     }
   );
 
@@ -348,6 +428,39 @@ const Index = () => {
 
       <WaveDivider flip />
 
+      {/* WHY A WEBSITE MATTERS */}
+      <section className="container-editorial py-28">
+        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
+          <div className="col-span-12 md:col-span-7">
+            <p className="eyebrow mb-4 reveal-line">{t.mEye}</p>
+            <h2 className="display-lg reveal-line">
+              {t.mTitleA}<br />
+              <span className="italic text-rose">{t.mTitleB}</span>
+            </h2>
+          </div>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
+            <p className="text-muted-foreground leading-relaxed">{t.mLead}</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {t.matters.map((m, i) => {
+            const Icon = [ShieldCheck, TrendingUp, MessageCircle, Rocket, Clock, Eye][i];
+            return (
+              <div key={i} className="reveal glass-panel p-7 group" style={{ transitionDelay: `${i * 70}ms` }}>
+                <div className="w-12 h-12 rounded-2xl bg-rose-soft flex items-center justify-center mb-5 transition-transform duration-500 group-hover:-rotate-6">
+                  <Icon size={20} strokeWidth={1.4} className="text-rose" />
+                </div>
+                <h3 className="font-display text-2xl mb-2">{m.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <WaveDivider />
+
       {/* SERVICES */}
       <section className="container-editorial py-28">
         <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
@@ -380,6 +493,25 @@ const Index = () => {
       </section>
 
       <WaveDivider />
+
+      {/* STORYTELLING */}
+      <section className="container-editorial py-32 md:py-40 scene-fade">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="eyebrow mb-8 reveal-line">{t.storyEye}</p>
+          <h2 className="display-xl leading-[1.1] reveal-stagger">
+            <span className="reveal-line block">{t.storyA}</span>
+            <span className="reveal-line block italic text-rose">{t.storyB}</span>
+          </h2>
+          <p className="mt-12 text-xl md:text-2xl font-display italic text-foreground/80 leading-relaxed reveal">
+            {t.storyC}
+          </p>
+          <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto reveal" style={{ transitionDelay: "200ms" }}>
+            {t.storyD}
+          </p>
+        </div>
+      </section>
+
+      <WaveDivider flip />
 
       {/* PROJECTS */}
       <section className="container-editorial py-28 relative">
@@ -424,6 +556,51 @@ const Index = () => {
           </Link>
         </div>
         <Whisper className="mt-10">{t.whisper3}</Whisper>
+      </section>
+
+      <WaveDivider flip />
+
+      {/* CONTRAST */}
+      <section className="container-editorial py-28">
+        <div className="text-center mb-16 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.cEye}</p>
+          <h2 className="display-lg reveal-line">
+            {t.cTitleA} <span className="italic text-rose">{t.cTitleB}</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed reveal-line max-w-xl mx-auto">{t.cLead}</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 relative">
+          <div className="hidden md:block absolute left-1/2 top-6 bottom-6 w-px bg-gradient-to-b from-transparent via-rose/30 to-transparent" aria-hidden />
+
+          <div className="reveal card-soft bg-secondary/40 relative overflow-hidden">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">{t.cWithoutTitle}</p>
+            <ul className="space-y-4">
+              {t.cWithout.map((line, i) => (
+                <li key={i} className="flex items-start gap-3 text-foreground/70">
+                  <span className="mt-1.5 w-7 h-7 rounded-full bg-background/60 flex items-center justify-center shrink-0">
+                    <Minus size={14} strokeWidth={1.6} className="text-muted-foreground" />
+                  </span>
+                  <span className="leading-relaxed">{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="reveal card-soft bg-rose-soft/40 relative overflow-hidden" style={{ transitionDelay: "120ms" }}>
+            <p className="font-mono text-[11px] uppercase tracking-widest text-rose mb-4">{t.cWithTitle}</p>
+            <ul className="space-y-4">
+              {t.cWith.map((line, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1.5 w-7 h-7 rounded-full bg-rose/15 flex items-center justify-center shrink-0">
+                    <Plus size={14} strokeWidth={1.6} className="text-rose" />
+                  </span>
+                  <span className="leading-relaxed">{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       <WaveDivider flip />
