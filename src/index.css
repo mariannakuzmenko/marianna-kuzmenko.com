@@ -8,55 +8,55 @@
 
 @layer base {
   :root {
-    --background: 204 80% 96%;          /* fresher light blue */
-    --foreground: 220 35% 18%;          /* gentle ink */
+    --background: 213 100% 98%;         /* refined porcelain #f8fbff */
+    --foreground: 218 30% 16%;          /* deeper editorial ink */
 
     --card: 0 0% 100%;
-    --card-foreground: 220 35% 18%;
+    --card-foreground: 218 30% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 35% 18%;
+    --popover-foreground: 218 30% 16%;
 
-    --primary: 348 55% 78%;             /* dusty elegant pink */
+    --primary: 340 35% 74%;             /* dusty rose #d7a4b8 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 204 75% 92%;
-    --secondary-foreground: 220 30% 22%;
+    --secondary: 210 55% 90%;           /* smoky sky #bdd7ee */
+    --secondary-foreground: 218 30% 18%;
 
-    --muted: 206 50% 95%;
-    --muted-foreground: 220 14% 46%;
+    --muted: 210 50% 94%;
+    --muted-foreground: 218 14% 44%;
 
-    --accent: 348 55% 78%;
+    --accent: 340 35% 74%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 206 45% 90%;
-    --input: 206 45% 93%;
-    --ring: 348 55% 78%;
+    --border: 210 40% 88%;
+    --input: 210 40% 92%;
+    --ring: 340 35% 74%;
 
     --radius: 1.25rem;
 
-    /* Brand extras */
-    --ink: 220 35% 18%;
-    --paper: 0 0% 100%;
-    --sky: 204 85% 90%;
-    --sky-deep: 208 75% 76%;
-    --rose: 348 50% 74%;                /* dusty pink button */
-    --rose-hover: 348 45% 64%;          /* refined hover */
-    --rose-soft: 348 75% 95%;
-    --highlight: 48 96% 78%;
+    /* Brand extras — Soft Luxury palette */
+    --ink: 218 30% 16%;
+    --paper: 213 100% 99%;
+    --sky: 210 60% 84%;                 /* #bdd7ee smoky sky */
+    --sky-deep: 211 50% 70%;            /* deeper atmospheric */
+    --rose: 340 35% 74%;                /* dusty rose #d7a4b8 */
+    --rose-hover: 338 36% 64%;          /* deeper dusty rose */
+    --rose-soft: 340 50% 94%;
+    --highlight: 38 80% 82%;            /* warm champagne hint */
 
-    --gradient-soft: linear-gradient(180deg, hsl(205 90% 96%) 0%, hsl(210 80% 94%) 60%, hsl(350 90% 97%) 100%);
-    --gradient-page: linear-gradient(180deg, hsl(205 90% 97%) 0%, hsl(210 75% 95%) 50%, hsl(205 90% 97%) 100%);
-    --gradient-rose: linear-gradient(135deg, hsl(350 80% 80%) 0%, hsl(350 70% 70%) 100%);
-    --gradient-sky: linear-gradient(135deg, hsl(205 80% 96%) 0%, hsl(210 70% 88%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(213 100% 99%) 0%, hsl(210 65% 92%) 60%, hsl(340 50% 96%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(213 100% 99%) 0%, hsl(210 55% 90%) 50%, hsl(213 100% 99%) 100%);
+    --gradient-rose: linear-gradient(135deg, hsl(340 40% 80%) 0%, hsl(338 38% 68%) 100%);
+    --gradient-sky: linear-gradient(135deg, hsl(213 100% 98%) 0%, hsl(210 60% 82%) 100%);
 
-    --shadow-soft: 0 10px 40px -18px hsl(210 50% 50% / 0.16);
-    --shadow-card: 0 8px 30px -12px hsl(210 60% 60% / 0.18);
-    --shadow-pink: 0 12px 28px -10px hsl(350 70% 70% / 0.45);
-    --shadow-glow: 0 0 0 1px hsl(210 40% 94%), 0 20px 50px -25px hsl(220 40% 60% / 0.2);
+    --shadow-soft: 0 14px 50px -22px hsl(211 45% 40% / 0.18);
+    --shadow-card: 0 12px 40px -16px hsl(211 50% 45% / 0.20);
+    --shadow-pink: 0 14px 32px -12px hsl(338 45% 60% / 0.40);
+    --shadow-glow: 0 0 0 1px hsl(210 50% 95% / 0.8), 0 24px 60px -28px hsl(218 40% 50% / 0.22);
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
