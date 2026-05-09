@@ -560,6 +560,51 @@ const Index = () => {
 
       <WaveDivider flip />
 
+      {/* CONTRAST */}
+      <section className="container-editorial py-28">
+        <div className="text-center mb-16 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.cEye}</p>
+          <h2 className="display-lg reveal-line">
+            {t.cTitleA} <span className="italic text-rose">{t.cTitleB}</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed reveal-line max-w-xl mx-auto">{t.cLead}</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 relative">
+          <div className="hidden md:block absolute left-1/2 top-6 bottom-6 w-px bg-gradient-to-b from-transparent via-rose/30 to-transparent" aria-hidden />
+
+          <div className="reveal card-soft bg-secondary/40 relative overflow-hidden">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">{t.cWithoutTitle}</p>
+            <ul className="space-y-4">
+              {t.cWithout.map((line, i) => (
+                <li key={i} className="flex items-start gap-3 text-foreground/70">
+                  <span className="mt-1.5 w-7 h-7 rounded-full bg-background/60 flex items-center justify-center shrink-0">
+                    <Minus size={14} strokeWidth={1.6} className="text-muted-foreground" />
+                  </span>
+                  <span className="leading-relaxed">{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="reveal card-soft bg-rose-soft/40 relative overflow-hidden" style={{ transitionDelay: "120ms" }}>
+            <p className="font-mono text-[11px] uppercase tracking-widest text-rose mb-4">{t.cWithTitle}</p>
+            <ul className="space-y-4">
+              {t.cWith.map((line, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1.5 w-7 h-7 rounded-full bg-rose/15 flex items-center justify-center shrink-0">
+                    <Plus size={14} strokeWidth={1.6} className="text-rose" />
+                  </span>
+                  <span className="leading-relaxed">{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <WaveDivider flip />
+
       {/* PROCESS */}
       <section className="container-editorial py-28">
         <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
