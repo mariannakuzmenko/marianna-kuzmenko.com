@@ -27,6 +27,12 @@ import {
   Heart,
   Clock,
   ShieldCheck,
+  Star,
+  TrendingUp,
+  MessageCircle,
+  Eye,
+  Minus,
+  Plus,
 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 import project1 from "@/assets/project-1.jpg";
