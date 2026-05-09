@@ -428,6 +428,39 @@ const Index = () => {
 
       <WaveDivider flip />
 
+      {/* WHY A WEBSITE MATTERS */}
+      <section className="container-editorial py-28">
+        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
+          <div className="col-span-12 md:col-span-7">
+            <p className="eyebrow mb-4 reveal-line">{t.mEye}</p>
+            <h2 className="display-lg reveal-line">
+              {t.mTitleA}<br />
+              <span className="italic text-rose">{t.mTitleB}</span>
+            </h2>
+          </div>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
+            <p className="text-muted-foreground leading-relaxed">{t.mLead}</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {t.matters.map((m, i) => {
+            const Icon = [ShieldCheck, TrendingUp, MessageCircle, Rocket, Clock, Eye][i];
+            return (
+              <div key={i} className="reveal glass-panel p-7 group" style={{ transitionDelay: `${i * 70}ms` }}>
+                <div className="w-12 h-12 rounded-2xl bg-rose-soft flex items-center justify-center mb-5 transition-transform duration-500 group-hover:-rotate-6">
+                  <Icon size={20} strokeWidth={1.4} className="text-rose" />
+                </div>
+                <h3 className="font-display text-2xl mb-2">{m.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <WaveDivider />
+
       {/* SERVICES */}
       <section className="container-editorial py-28">
         <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
