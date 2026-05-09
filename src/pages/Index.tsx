@@ -494,6 +494,25 @@ const Index = () => {
 
       <WaveDivider />
 
+      {/* STORYTELLING */}
+      <section className="container-editorial py-32 md:py-40 scene-fade">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="eyebrow mb-8 reveal-line">{t.storyEye}</p>
+          <h2 className="display-xl leading-[1.1] reveal-stagger">
+            <span className="reveal-line block">{t.storyA}</span>
+            <span className="reveal-line block italic text-rose">{t.storyB}</span>
+          </h2>
+          <p className="mt-12 text-xl md:text-2xl font-display italic text-foreground/80 leading-relaxed reveal">
+            {t.storyC}
+          </p>
+          <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto reveal" style={{ transitionDelay: "200ms" }}>
+            {t.storyD}
+          </p>
+        </div>
+      </section>
+
+      <WaveDivider flip />
+
       {/* PROJECTS */}
       <section className="container-editorial py-28 relative">
         <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
