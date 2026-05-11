@@ -123,7 +123,7 @@ const Webentwicklung = () => {
         </div>
       </section>
 
-      <Marquee items={["React", "TypeScript", "SEO", "Performance", "Accessibility", "Tailwind"]} />
+      <FloatingTypographyBand items={["React", "TypeScript", "SEO", "Performance", "Accessibility", "Tailwind"]} />
 
       <section className="container-editorial py-28">
         <div className="grid grid-cols-12 gap-6 mb-16">
