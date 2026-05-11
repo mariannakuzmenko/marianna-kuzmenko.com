@@ -394,7 +394,7 @@ const Index = () => {
         <Whisper className="mt-12">{t.whisper1}</Whisper>
       </section>
 
-      <Marquee items={t.marquee} />
+      <FloatingTypographyBand items={t.marquee} />
 
       <WaveDivider />
 
