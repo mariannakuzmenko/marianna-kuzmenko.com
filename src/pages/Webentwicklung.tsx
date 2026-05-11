@@ -1,6 +1,6 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { Marquee } from "@/components/site/Marquee";
+import { FloatingTypographyBand } from "@/components/site/FloatingTypographyBand";
 import { ProcessStep } from "@/components/site/ProcessStep";
 import { IconCard } from "@/components/site/IconCard";
 import { Link } from "react-router-dom";
