@@ -12,6 +12,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="min-h-screen text-foreground relative">
       <BreathingBackground />
+      <FloatingWords />
       <ScrollLine />
       <Nav />
       <main className="pt-20 md:pt-28">{children}</main>
