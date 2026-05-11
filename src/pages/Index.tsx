@@ -1,6 +1,6 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { Marquee } from "@/components/site/Marquee";
+import { FloatingTypographyBand } from "@/components/site/FloatingTypographyBand";
 import { IconCard } from "@/components/site/IconCard";
 import { FloatingNote } from "@/components/site/FloatingNote";
 import { Testimonials } from "@/components/site/Testimonials";
