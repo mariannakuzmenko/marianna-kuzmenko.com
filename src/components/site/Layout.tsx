@@ -14,10 +14,12 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       <BreathingBackground />
       <FloatingWords />
       <ScrollLine />
-      <Nav />
-      <main className="pt-20 md:pt-28">{children}</main>
-      <FloatingFeedback />
-      <Footer />
+      <div className="relative z-10">
+        <Nav />
+        <main className="pt-20 md:pt-28">{children}</main>
+        <FloatingFeedback />
+        <Footer />
+      </div>
     </div>
   );
 };
