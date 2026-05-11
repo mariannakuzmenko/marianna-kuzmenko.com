@@ -3,6 +3,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { FloatingFeedback } from "./FloatingFeedback";
 import { BreathingBackground } from "./BreathingBackground";
+import { FloatingWords } from "./FloatingWords";
 import { ScrollLine } from "./ScrollLine";
 import { useReveal } from "@/hooks/useReveal";
 
