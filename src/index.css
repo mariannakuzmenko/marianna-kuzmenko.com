@@ -873,3 +873,88 @@
   90%  { opacity: 0.6; }
   100% { transform: translateY(-110vh) translateX(40px); opacity: 0; }
 }
+
+/* ============= Floating cinematic typography ============= */
+.floating-words {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;            /* above background, below content */
+  overflow: hidden;
+}
+.floating-words .fw-word {
+  position: absolute;
+  transform: translate3d(0, calc(var(--scroll-y, 0px) * var(--depth-parallax, -0.04)), 0);
+}
+
+.fw-word {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  will-change: transform, opacity, filter;
+  animation-name: fw-drift;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.fw-italic { font-style: italic; font-weight: 300; }
+
+/* Tints — soft luxury palette */
+.fw-tint-white {
+  color: hsl(0 0% 100% / 0.55);
+  text-shadow: 0 1px 0 hsl(0 0% 100% / 0.4);
+}
+.fw-tint-blue {
+  color: hsl(210 70% 92% / 0.65);
+}
+.fw-tint-rose {
+  color: hsl(340 50% 90% / 0.55);
+}
+
+/* Depth layers — opacity, blur, parallax */
+.fw-depth-1 {
+  --depth-parallax: -0.08;
+  opacity: 0.85;
+  filter: blur(0.4px);
+}
+.fw-depth-2 {
+  --depth-parallax: -0.05;
+  opacity: 0.55;
+  filter: blur(2px);
+}
+.fw-depth-3 {
+  --depth-parallax: -0.025;
+  opacity: 0.32;
+  filter: blur(5px);
+}
+
+@keyframes fw-drift {
+  0%   { transform: translate3d(0, calc(var(--scroll-y, 0px) * var(--depth-parallax, -0.04)), 0); }
+  50%  { transform: translate3d(2.5vw, calc(var(--scroll-y, 0px) * var(--depth-parallax, -0.04) - 14px), 0); }
+  100% { transform: translate3d(-1.5vw, calc(var(--scroll-y, 0px) * var(--depth-parallax, -0.04) + 10px), 0); }
+}
+
+/* In-flow band variant */
+.floating-band { isolation: isolate; }
+.floating-band-haze {
+  background:
+    radial-gradient(60% 80% at 30% 50%, hsl(213 100% 99% / 0.5), transparent 70%),
+    radial-gradient(50% 70% at 75% 60%, hsl(340 50% 95% / 0.35), transparent 75%);
+  pointer-events: none;
+}
+.fw-band {
+  position: absolute;
+  /* fade in/out across band scroll */
+  opacity: calc(var(--band-progress, 0.5) * (1 - var(--band-progress, 0.5)) * 4 * var(--fw-base-opacity, 1));
+  transition: opacity 0.4s ease;
+}
+.fw-band.fw-depth-1 { --fw-base-opacity: 0.9; }
+.fw-band.fw-depth-2 { --fw-base-opacity: 0.6; }
+.fw-band.fw-depth-3 { --fw-base-opacity: 0.35; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-word { animation: none; }
+}
