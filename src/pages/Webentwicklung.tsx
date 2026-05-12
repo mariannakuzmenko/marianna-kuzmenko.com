@@ -1,6 +1,6 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { FloatingTypographyBand } from "@/components/site/FloatingTypographyBand";
+
 import { ProcessStep } from "@/components/site/ProcessStep";
 import { IconCard } from "@/components/site/IconCard";
 import { Link } from "react-router-dom";
@@ -123,7 +123,11 @@ const Webentwicklung = () => {
         </div>
       </section>
 
-      <FloatingTypographyBand items={["React", "TypeScript", "SEO", "Performance", "Accessibility", "Tailwind"]} />
+      <div className="container-editorial py-6 flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs uppercase tracking-[0.25em] text-muted-foreground/70">
+        {["React", "TypeScript", "SEO", "Performance", "Accessibility", "Tailwind"].map((c) => (
+          <span key={c}>{c}</span>
+        ))}
+      </div>
 
       <section className="container-editorial py-28">
         <div className="grid grid-cols-12 gap-6 mb-16">
