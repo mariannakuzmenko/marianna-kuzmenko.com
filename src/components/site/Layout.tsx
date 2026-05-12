@@ -3,7 +3,6 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { FloatingFeedback } from "./FloatingFeedback";
 import { BreathingBackground } from "./BreathingBackground";
-import { FloatingWords } from "./FloatingWords";
 import { ScrollLine } from "./ScrollLine";
 import { useReveal } from "@/hooks/useReveal";
 
@@ -12,7 +11,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="min-h-screen text-foreground relative">
       <BreathingBackground />
-      <FloatingWords />
       <ScrollLine />
       <div className="relative z-10">
         <Nav />
