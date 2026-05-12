@@ -35,10 +35,16 @@ import {
   Plus,
 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
 import logo from "@/assets/logo.png";
+import pPfotenhaus from "@/assets/projects/pfotenhaus.png";
+import pDentallux from "@/assets/projects/dentallux.png";
+import pLior from "@/assets/projects/lior-friseur.png";
+import pLush from "@/assets/projects/lush-bloom.png";
+import pNova from "@/assets/projects/atelier-nova.png";
+import pFour from "@/assets/projects/four-elements.png";
+import pCredit from "@/assets/projects/creditpath.png";
+import pRaum from "@/assets/projects/raumform.png";
+import pNein from "@/assets/projects/nein-studio.png";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
 const useHeadlineMorph = () => {
@@ -109,9 +115,12 @@ const Index = () => {
       s4titleB: "Projekte.",
       s4lead: "Ein paar Projekte, die zeigen, wie Strategie, Design und Entwicklung zusammenkommen.",
       projects: [
-        { name: "Atelier Norden", category: "Webdesign · Webentwicklung", desc: "Markenwebsite für ein skandinavisches Designstudio. Klare Hierarchie, ruhige Typografie, +180% organische Reichweite." },
-        { name: "Kraft & Klarheit", category: "UX/UI · SEO", desc: "Coaching-Plattform mit klarem Funnel. UX-Redesign, neue Inhaltsstruktur, sauberes technisches SEO." },
-        { name: "Studio Linde", category: "Branding · Webdev", desc: "Atelierauftritt mit eigenem Designsystem. Editorial Layout, sanfte Microinteractions, schnelle Performance." },
+        { name: "Pfotenhaus", category: "Pet Hotel · UX/UI", desc: "Markenwebsite für ein Tierhotel. Warme Bildsprache, klare Buchungsstruktur, ruhige Animationen." },
+        { name: "Dentallux", category: "Zahnklinik · SEO", desc: "Premium-Auftritt für eine Zahnklinik. Vertrauen durch Klarheit, technisches SEO von Anfang an." },
+        { name: "Lior Friseur", category: "Salon · Web Design", desc: "Editorial Friseur-Site mit feiner Typografie und sanften Übergängen." },
+        { name: "Lush & Bloom", category: "Florist · UX/UI", desc: "Botanischer Online-Auftritt. Atmosphäre, Produktwelt und ein leiser Shop-Funnel." },
+        { name: "Atelier Nova", category: "Studio · Branding", desc: "Designstudio-Site mit eigenem System. Editorial Layout, +180% organische Reichweite." },
+        { name: "Four Elements", category: "Restaurant · Web Dev", desc: "Restaurant-Erlebnis mit cinematic Hero, Reservierung und schneller Performance." },
       ],
       allProjects: "Alle Projekte ansehen",
       whisper3: "fast geschafft …",
@@ -233,9 +242,12 @@ const Index = () => {
       s4titleB: "projects.",
       s4lead: "A few projects that show how strategy, design and development come together.",
       projects: [
-        { name: "Atelier Norden", category: "Web Design · Development", desc: "Brand site for a Scandinavian design studio. Clear hierarchy, calm typography, +180% organic reach." },
-        { name: "Kraft & Klarheit", category: "UX/UI · SEO", desc: "Coaching platform with a clear funnel. UX redesign, new content structure, clean technical SEO." },
-        { name: "Studio Linde", category: "Branding · Web Dev", desc: "Studio site with its own design system. Editorial layout, soft microinteractions, fast performance." },
+        { name: "Pfotenhaus", category: "Pet Hotel · UX/UI", desc: "Brand site for a pet hotel. Warm imagery, calm booking flow, gentle animations." },
+        { name: "Dentallux", category: "Dental Clinic · SEO", desc: "Premium presence for a dental clinic. Trust through clarity, technical SEO from day one." },
+        { name: "Lior Hair", category: "Salon · Web Design", desc: "Editorial salon site with fine typography and soft transitions." },
+        { name: "Lush & Bloom", category: "Florist · UX/UI", desc: "Botanical web experience. Atmosphere, product world, and a quiet shop funnel." },
+        { name: "Atelier Nova", category: "Studio · Branding", desc: "Studio site with its own system. Editorial layout, +180% organic reach." },
+        { name: "Four Elements", category: "Restaurant · Web Dev", desc: "Restaurant experience with a cinematic hero, reservations, and fast performance." },
       ],
       allProjects: "View all projects",
       whisper3: "almost there …",
@@ -307,11 +319,9 @@ const Index = () => {
   );
 
   const services = t.services;
-  const projects = [
-    { ...t.projects[0], img: project1 },
-    { ...t.projects[1], img: project2 },
-    { ...t.projects[2], img: project3 },
-  ];
+  const projectImgs = [pPfotenhaus, pDentallux, pLior, pLush, pNova, pFour];
+  const projects = t.projects.map((p, i) => ({ ...p, img: projectImgs[i] }));
+  const heroScreens = [pNova, pDentallux, pLush, pFour];
   const processIcons = [Compass, PenTool, Code2, Rocket];
   const whyIcons = [Sparkles, LineChart, ShieldCheck, Heart, Clock, PenTool];
   const serviceIcons = [Palette, Layers, Code2, Search];
@@ -364,8 +374,15 @@ const Index = () => {
             <div className="frame-soft aspect-[3/4] max-w-[260px] ml-auto reveal" style={{ transitionDelay: "200ms" }}>
               <img src={portrait} alt={t.portraitAlt} loading="eager" />
             </div>
-            <div className="absolute -bottom-10 -left-6 w-[68%] reveal" style={{ transitionDelay: "500ms" }}>
-              <LaptopMockup screens={[project1, project2, project3]} alt={t.mockupAlt} />
+            <div className="absolute -bottom-12 -left-8 w-[72%] reveal" style={{ transitionDelay: "500ms" }}>
+              <LaptopMockup screens={heroScreens} alt={t.mockupAlt} />
+            </div>
+            <div
+              className="absolute -bottom-4 right-2 w-[34%] aspect-[9/19] rounded-[28px] overflow-hidden border border-white/70 shadow-[0_30px_60px_-25px_hsl(211_50%_30%_/_0.45)] bg-white reveal animate-float-slow"
+              style={{ transitionDelay: "700ms" }}
+              aria-hidden
+            >
+              <img src={pPfotenhaus} alt="" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </div>
         </div>
@@ -526,26 +543,81 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((p, i) => (
-            <Link to={path("work")} key={i} className="reveal group block" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="project-card frame-soft aspect-[4/5] mb-5">
-                <img src={p.img} alt={`${p.name} — ${pick(lang, "Projekt von Marianna Kuzmenko", "Project by Marianna Kuzmenko")}`} loading="lazy" />
+        {/* Editorial asymmetric showcase */}
+        <div className="grid grid-cols-12 gap-6 md:gap-8">
+          {/* Featured large */}
+          <Link to={path("work")} className="reveal group block col-span-12 md:col-span-8 md:row-span-2" style={{ transitionDelay: "0ms" }}>
+            <div className="project-card frame-soft aspect-[16/11] mb-5">
+              <img src={projects[0].img} alt={`${projects[0].name}`} loading="lazy" />
+              <div className="project-overlay text-white">
+                <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{projects[0].category}</p>
+                <h3 className="font-display text-3xl md:text-4xl mt-2">{projects[0].name}</h3>
+                <p className="text-sm leading-relaxed opacity-90 mt-3 max-w-md">{projects[0].desc}</p>
+              </div>
+            </div>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="font-display text-2xl md:text-3xl group-hover:text-rose transition-colors duration-500">{projects[0].name}</h3>
+                <p className="text-xs text-muted-foreground font-mono uppercase tracking-widest mt-1.5">{projects[0].category}</p>
+              </div>
+              <ArrowUpRight className="transition-transform group-hover:rotate-45 duration-500 text-muted-foreground group-hover:text-rose mt-1" size={22} />
+            </div>
+          </Link>
+
+          {/* Two stacked right */}
+          {[1, 2].map((i) => (
+            <Link
+              to={path("work")}
+              key={i}
+              className="reveal group block col-span-12 md:col-span-4"
+              style={{ transitionDelay: `${i * 120}ms` }}
+            >
+              <div className="project-card frame-soft aspect-[4/5] mb-4">
+                <img src={projects[i].img} alt={`${projects[i].name}`} loading="lazy" />
                 <div className="project-overlay text-white">
-                  <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{p.category}</p>
-                  <h3 className="font-display text-2xl md:text-3xl mt-2">{p.name}</h3>
-                  <p className="text-sm leading-relaxed opacity-90 mt-3">{p.desc}</p>
+                  <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{projects[i].category}</p>
+                  <h3 className="font-display text-2xl mt-2">{projects[i].name}</h3>
                 </div>
               </div>
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="font-display text-2xl md:text-3xl group-hover:text-rose transition-colors duration-500">{p.name}</h3>
-                  <p className="text-sm text-muted-foreground font-mono uppercase tracking-widest mt-1.5">{p.category}</p>
+                  <h4 className="font-display text-xl group-hover:text-rose transition-colors duration-500">{projects[i].name}</h4>
+                  <p className="text-[11px] text-muted-foreground font-mono uppercase tracking-widest mt-1">{projects[i].category}</p>
                 </div>
-                <ArrowUpRight className="transition-transform group-hover:rotate-45 duration-500 text-muted-foreground group-hover:text-rose mt-1" size={22} />
+                <ArrowUpRight className="transition-transform group-hover:rotate-45 duration-500 text-muted-foreground group-hover:text-rose" size={18} />
               </div>
             </Link>
           ))}
+
+          {/* Three across bottom — different sizes */}
+          {[3, 4, 5].map((i, idx) => {
+            const span = idx === 1 ? "md:col-span-6" : "md:col-span-3";
+            const ratio = idx === 1 ? "aspect-[16/10]" : "aspect-[4/5]";
+            const offset = idx === 0 ? "md:mt-12" : idx === 2 ? "md:-mt-6" : "";
+            return (
+              <Link
+                to={path("work")}
+                key={i}
+                className={`reveal group block col-span-12 ${span} ${offset}`}
+                style={{ transitionDelay: `${(idx + 3) * 100}ms` }}
+              >
+                <div className={`project-card frame-soft ${ratio} mb-4`}>
+                  <img src={projects[i].img} alt={`${projects[i].name}`} loading="lazy" />
+                  <div className="project-overlay text-white">
+                    <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{projects[i].category}</p>
+                    <h3 className="font-display text-2xl mt-2">{projects[i].name}</h3>
+                  </div>
+                </div>
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h4 className="font-display text-lg md:text-xl group-hover:text-rose transition-colors duration-500">{projects[i].name}</h4>
+                    <p className="text-[11px] text-muted-foreground font-mono uppercase tracking-widest mt-1">{projects[i].category}</p>
+                  </div>
+                  <ArrowUpRight className="transition-transform group-hover:rotate-45 duration-500 text-muted-foreground group-hover:text-rose" size={16} />
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="mt-12">
