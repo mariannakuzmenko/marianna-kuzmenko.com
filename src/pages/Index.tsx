@@ -35,10 +35,16 @@ import {
   Plus,
 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
 import logo from "@/assets/logo.png";
+import pPfotenhaus from "@/assets/projects/pfotenhaus.png";
+import pDentallux from "@/assets/projects/dentallux.png";
+import pLior from "@/assets/projects/lior-friseur.png";
+import pLush from "@/assets/projects/lush-bloom.png";
+import pNova from "@/assets/projects/atelier-nova.png";
+import pFour from "@/assets/projects/four-elements.png";
+import pCredit from "@/assets/projects/creditpath.png";
+import pRaum from "@/assets/projects/raumform.png";
+import pNein from "@/assets/projects/nein-studio.png";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
 const useHeadlineMorph = () => {
@@ -109,9 +115,12 @@ const Index = () => {
       s4titleB: "Projekte.",
       s4lead: "Ein paar Projekte, die zeigen, wie Strategie, Design und Entwicklung zusammenkommen.",
       projects: [
-        { name: "Atelier Norden", category: "Webdesign · Webentwicklung", desc: "Markenwebsite für ein skandinavisches Designstudio. Klare Hierarchie, ruhige Typografie, +180% organische Reichweite." },
-        { name: "Kraft & Klarheit", category: "UX/UI · SEO", desc: "Coaching-Plattform mit klarem Funnel. UX-Redesign, neue Inhaltsstruktur, sauberes technisches SEO." },
-        { name: "Studio Linde", category: "Branding · Webdev", desc: "Atelierauftritt mit eigenem Designsystem. Editorial Layout, sanfte Microinteractions, schnelle Performance." },
+        { name: "Pfotenhaus", category: "Pet Hotel · UX/UI", desc: "Markenwebsite für ein Tierhotel. Warme Bildsprache, klare Buchungsstruktur, ruhige Animationen." },
+        { name: "Dentallux", category: "Zahnklinik · SEO", desc: "Premium-Auftritt für eine Zahnklinik. Vertrauen durch Klarheit, technisches SEO von Anfang an." },
+        { name: "Lior Friseur", category: "Salon · Web Design", desc: "Editorial Friseur-Site mit feiner Typografie und sanften Übergängen." },
+        { name: "Lush & Bloom", category: "Florist · UX/UI", desc: "Botanischer Online-Auftritt. Atmosphäre, Produktwelt und ein leiser Shop-Funnel." },
+        { name: "Atelier Nova", category: "Studio · Branding", desc: "Designstudio-Site mit eigenem System. Editorial Layout, +180% organische Reichweite." },
+        { name: "Four Elements", category: "Restaurant · Web Dev", desc: "Restaurant-Erlebnis mit cinematic Hero, Reservierung und schneller Performance." },
       ],
       allProjects: "Alle Projekte ansehen",
       whisper3: "fast geschafft …",
@@ -233,9 +242,12 @@ const Index = () => {
       s4titleB: "projects.",
       s4lead: "A few projects that show how strategy, design and development come together.",
       projects: [
-        { name: "Atelier Norden", category: "Web Design · Development", desc: "Brand site for a Scandinavian design studio. Clear hierarchy, calm typography, +180% organic reach." },
-        { name: "Kraft & Klarheit", category: "UX/UI · SEO", desc: "Coaching platform with a clear funnel. UX redesign, new content structure, clean technical SEO." },
-        { name: "Studio Linde", category: "Branding · Web Dev", desc: "Studio site with its own design system. Editorial layout, soft microinteractions, fast performance." },
+        { name: "Pfotenhaus", category: "Pet Hotel · UX/UI", desc: "Brand site for a pet hotel. Warm imagery, calm booking flow, gentle animations." },
+        { name: "Dentallux", category: "Dental Clinic · SEO", desc: "Premium presence for a dental clinic. Trust through clarity, technical SEO from day one." },
+        { name: "Lior Hair", category: "Salon · Web Design", desc: "Editorial salon site with fine typography and soft transitions." },
+        { name: "Lush & Bloom", category: "Florist · UX/UI", desc: "Botanical web experience. Atmosphere, product world, and a quiet shop funnel." },
+        { name: "Atelier Nova", category: "Studio · Branding", desc: "Studio site with its own system. Editorial layout, +180% organic reach." },
+        { name: "Four Elements", category: "Restaurant · Web Dev", desc: "Restaurant experience with a cinematic hero, reservations, and fast performance." },
       ],
       allProjects: "View all projects",
       whisper3: "almost there …",
@@ -307,11 +319,9 @@ const Index = () => {
   );
 
   const services = t.services;
-  const projects = [
-    { ...t.projects[0], img: project1 },
-    { ...t.projects[1], img: project2 },
-    { ...t.projects[2], img: project3 },
-  ];
+  const projectImgs = [pPfotenhaus, pDentallux, pLior, pLush, pNova, pFour];
+  const projects = t.projects.map((p, i) => ({ ...p, img: projectImgs[i] }));
+  const heroScreens = [pNova, pDentallux, pLush, pFour];
   const processIcons = [Compass, PenTool, Code2, Rocket];
   const whyIcons = [Sparkles, LineChart, ShieldCheck, Heart, Clock, PenTool];
   const serviceIcons = [Palette, Layers, Code2, Search];
