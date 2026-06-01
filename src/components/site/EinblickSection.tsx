@@ -1,8 +1,9 @@
-import portrait from "@/assets/portrait.jpg";
-import workspace from "@/assets/workspace.jpg";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project4 from "@/assets/project-4.jpg";
+import editorialPortrait from "@/assets/uploads/marianna-portrait-editorial.jpeg.asset.json";
+import closePortrait from "@/assets/uploads/marianna-portrait-close.jpeg.asset.json";
+import dentalluxMockup from "@/assets/uploads/dentallux-mockup.png.asset.json";
+import creditpathMockup from "@/assets/uploads/creditpath-mockup.png.asset.json";
+import nuernbergGuideMockup from "@/assets/uploads/nuernberg-guide-mockup.png.asset.json";
+import holzwerkMockup from "@/assets/uploads/holzwerk-mockup.png.asset.json";
 import { LaptopMockup } from "./LaptopMockup";
 import { Whisper } from "./Whisper";
 import { useLang, pick } from "@/i18n/LanguageContext";
@@ -10,8 +11,8 @@ import { useLang, pick } from "@/i18n/LanguageContext";
 export const EinblickSection = () => {
   const { lang } = useLang();
   const t = pick(lang,
-    { eyebrow: "07 — Einblick", titleA: "Einblick in", titleB: "meine Arbeit.", lead: "Werkstatt, Hände, Bildschirme. Ein paar Ausschnitte aus meinem Alltag — zwischen Skizze und Code.", portraitAlt: "Marianna Kuzmenko bei der Arbeit", deskAlt: "Mein Arbeitsplatz", mockupAlt: "Projektvorschau im Laptop", note: "„aus der Werkstatt\u201C", whisper: "noch ein Moment …" },
-    { eyebrow: "07 — Behind the scenes", titleA: "A glimpse into", titleB: "the work.", lead: "Studio, hands, screens. A few snapshots from the everyday — between sketch and code.", portraitAlt: "Marianna Kuzmenko at work", deskAlt: "My workspace", mockupAlt: "Project preview in laptop", note: "\u201Cfrom the studio\u201D", whisper: "just a moment …" },
+    { eyebrow: "07 — Einblick", titleA: "Einblick in", titleB: "meine Arbeit.", lead: "Persönliche Präsenz, echte Projekte, hochwertige Screens. Ein paar Ausschnitte aus meiner Arbeit zwischen Markenstrategie, Design und Code.", portraitAlt: "Marianna Kuzmenko bei der Arbeit", deskAlt: "Nahes Portrait von Marianna Kuzmenko", mockupAlt: "Projektvorschau im Laptop", note: "„echte Arbeit, klar gezeigt“", whisper: "noch ein Moment …" },
+    { eyebrow: "07 — Behind the scenes", titleA: "A glimpse into", titleB: "the work.", lead: "Personal presence, real projects, refined screens. A few moments from the work between brand strategy, design and code.", portraitAlt: "Marianna Kuzmenko at work", deskAlt: "Close portrait of Marianna Kuzmenko", mockupAlt: "Project preview in laptop", note: "“real work, clearly shown”", whisper: "just a moment …" },
   );
 
   return (
@@ -31,23 +32,27 @@ export const EinblickSection = () => {
 
       <div className="relative grid grid-cols-12 gap-4 md:gap-6 items-center min-h-[560px]">
         <div className="col-span-7 md:col-span-4 reveal">
-          <div className="frame-soft aspect-[4/5] rotate-[-2deg] hover:rotate-0 transition-transform duration-700">
-            <img src={portrait} alt={t.portraitAlt} loading="lazy" />
+          <div className="frame-soft aspect-[4/5] rotate-[-2deg] hover:rotate-0 transition-transform duration-700 glass-card p-2">
+            <img src={editorialPortrait.url} alt={t.portraitAlt} loading="lazy" className="rounded-[1.25rem]" />
           </div>
         </div>
 
         <div className="col-span-12 md:col-span-6 md:col-start-5 md:-ml-16 md:-mt-10 reveal" style={{ transitionDelay: "150ms" }}>
-          <LaptopMockup screens={[project1, project2, project4]} alt={t.mockupAlt} />
+          <LaptopMockup screens={[dentalluxMockup.url, creditpathMockup.url, nuernbergGuideMockup.url]} alt={t.mockupAlt} />
         </div>
 
         <div className="col-span-5 md:col-span-3 md:col-start-10 md:-mt-32 reveal" style={{ transitionDelay: "300ms" }}>
-          <div className="frame-soft aspect-square rotate-[3deg] hover:rotate-0 transition-transform duration-700">
-            <img src={workspace} alt={t.deskAlt} loading="lazy" />
+          <div className="frame-soft aspect-square rotate-[3deg] hover:rotate-0 transition-transform duration-700 glass-card p-2">
+            <img src={closePortrait.url} alt={t.deskAlt} loading="lazy" className="rounded-[1.25rem]" />
           </div>
         </div>
 
         <div className="hidden md:block absolute left-[34%] bottom-4 sticky-note rotate-[-4deg]">
           {t.note}
+        </div>
+
+        <div className="hidden lg:block absolute right-[8%] bottom-[2%] w-[22%] frame-soft glass-card p-2 reveal" style={{ transitionDelay: "420ms" }}>
+          <img src={holzwerkMockup.url} alt="Holzwerk Nürnberg mockup" loading="lazy" className="rounded-[1.25rem]" />
         </div>
       </div>
 

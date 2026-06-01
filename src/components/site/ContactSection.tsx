@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import { z } from "zod";
 import { Send, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import portrait from "@/assets/portrait.jpg";
+import editorialPortrait from "@/assets/uploads/marianna-portrait-editorial.jpeg.asset.json";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 export const ContactSection = () => {
@@ -101,7 +101,7 @@ export const ContactSection = () => {
           <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">{t.lead}</p>
 
           <div className="frame-soft aspect-[4/5] max-w-sm mb-8">
-            <img src={portrait} alt={t.portraitAlt} loading="lazy" />
+            <img src={editorialPortrait.url} alt={t.portraitAlt} loading="lazy" />
           </div>
 
           <ul className="space-y-3 text-sm">
