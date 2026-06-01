@@ -1,331 +1,419 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-
 import { IconCard } from "@/components/site/IconCard";
-import { FloatingNote } from "@/components/site/FloatingNote";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ContactSection } from "@/components/site/ContactSection";
 import { WaveDivider } from "@/components/site/WaveDivider";
-import { Whisper } from "@/components/site/Whisper";
 import { LaptopMockup } from "@/components/site/LaptopMockup";
 import { EinblickSection } from "@/components/site/EinblickSection";
-import { useParallax } from "@/hooks/useParallax";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import {
-  ArrowUpRight,
-  Palette,
-  Layers,
-  Code2,
-  Search,
   ArrowRight,
+  ArrowUpRight,
+  BadgeCheck,
+  Building2,
+  Code2,
   Compass,
-  PenTool,
-  Rocket,
+  Globe2,
+  Layers,
   LineChart,
-  Sparkles,
-  Heart,
-  Clock,
+  MapPin,
+  Search,
   ShieldCheck,
-  Star,
-  TrendingUp,
-  MessageCircle,
-  Eye,
-  Minus,
-  Plus,
+  Sparkles,
 } from "lucide-react";
-import portrait from "@/assets/portrait.jpg";
-import logo from "@/assets/logo.png";
-import pPfotenhaus from "@/assets/projects/pfotenhaus.png";
-import pDentallux from "@/assets/projects/dentallux.png";
-import pLior from "@/assets/projects/lior-friseur.png";
-import pLush from "@/assets/projects/lush-bloom.png";
-import pNova from "@/assets/projects/atelier-nova.png";
-import pFour from "@/assets/projects/four-elements.png";
-import pCredit from "@/assets/projects/creditpath.png";
-import pRaum from "@/assets/projects/raumform.png";
-import pNein from "@/assets/projects/nein-studio.png";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
-
-const useHeadlineMorph = () => {
-  const [morphed, setMorphed] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setMorphed(window.scrollY > 280);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  return morphed;
-};
+import closePortrait from "@/assets/uploads/marianna-portrait-close.jpeg.asset.json";
+import editorialPortrait from "@/assets/uploads/marianna-portrait-editorial.jpeg.asset.json";
+import holzwerkMockup from "@/assets/uploads/holzwerk-mockup.png.asset.json";
+import therapistMockup from "@/assets/uploads/therapist-mockup.png.asset.json";
+import hartmannMockup from "@/assets/uploads/hartmann-mockup.png.asset.json";
+import autowerkMockup from "@/assets/uploads/autowerk-mockup.png.asset.json";
+import nuernbergGuideMockup from "@/assets/uploads/nuernberg-guide-mockup.png.asset.json";
+import muellerSohnMockup from "@/assets/uploads/mueller-sohn-mockup.png.asset.json";
+import dentalluxMockup from "@/assets/uploads/dentallux-mockup.png.asset.json";
+import creditpathMockup from "@/assets/uploads/creditpath-mockup.png.asset.json";
 
 const Index = () => {
   const { lang, path } = useLang();
-  const morphed = useHeadlineMorph();
-  const blobRef1 = useParallax(0.08);
-  const blobRef2 = useParallax(-0.06);
 
-  const t = pick(lang,
+  const t = pick(
+    lang,
     {
-      seoTitle: "Webdesigner & Webentwicklung in Deutschland — Marianna Kuzmenko",
-      seoDesc: "Moderne Websites, UX/UI Design und SEO Optimierung in Deutschland. Webdesigner & SEO Freelancer mit klarer Strategie statt Templates.",
-      chip: "Verfügbar für neue Projekte · Q3 2026",
-      heroA: "Webdesign,",
-      heroB: "das sich",
-      heroC: "leise ",
-      heroD1: "behauptet.",
-      heroD2: "durchsetzt.",
-      portraitAlt: "Marianna Kuzmenko, Webdesignerin in Deutschland",
-      mockupAlt: "Beispielprojekt im Browser",
-      lead1a: "Ich bin ",
-      leadAccent1: "Webdesignerin und Entwicklerin",
-      lead1b: " in Deutschland. Ich baue moderne Websites mit klarer Struktur, ruhigem Design und nachhaltiger ",
-      leadAccent2: "SEO Optimierung",
-      lead1c: " — für Menschen, die mehr wollen als ein Template.",
-      note1: <>„Schön ist gut. <br />Verständlich ist besser."</>,
-      ctaPrimary: "Ein kleiner Einblick",
-      ctaSecondary: "Schreib mir",
-      whisper1: "ein kleiner Einblick ↓",
-      marquee: ["Webdesign", "UX / UI", "SEO Optimierung", "Webentwicklung", "Strategie"],
-      // Section 02 — not me
-      s2eye: "02 — Was ich nicht bin",
-      s2titleA: "Das bin ich",
-      s2titleB: "nicht.",
-      s2lead: <>Manchmal sagt es mehr, was man <em>nicht</em> macht. Drei Dinge, die du bei mir nicht bekommst.</>,
-      notMe: [
-        ["Keine Templates", "von der Stange.", "Jede Website beginnt mit deiner Geschichte — nicht mit einem Layout."],
-        ["Kein Design", "ohne Strategie.", "Ästhetik ist wichtig. Aber sie kommt nach dem Verstehen."],
-        ["Keine SEO", "ohne Ergebnis.", "Sichtbarkeit, die bleibt. Keine Tricks, keine kurzfristigen Hacks."],
-      ] as [string, string, string][],
-      whisper2: "noch ein bisschen scrollen …",
-      // Services
-      s3eye: "03 — Leistungen",
-      s3titleA: "Website erstellen lassen",
-      s3titleB: "— aber richtig.",
-      s3lead: "Vier Bereiche, die zusammengehören. Eine Website, die wirkt.",
+      seoTitle:
+        "Webdesign Nürnberg, Webentwicklung & SEO Nürnberg — Marianna Kuzmenko",
+      seoDesc:
+        "Marianna Kuzmenko gestaltet moderne Webseiten für Nürnberg, Fürth, Erlangen, München und ganz Deutschland: Webdesign, Webentwicklung, SEO und UX/UI Design mit hochwertiger Markenwirkung.",
+      heroEyebrow: "Marianna Kuzmenko · Webdesign & SEO",
+      heroTitle: "Webdesign Nürnberg für Marken, die klarer, sichtbarer und hochwertiger auftreten wollen.",
+      heroLead:
+        "Ich entwickle moderne Webseiten mit strategischem Webdesign, technischer Webentwicklung, UX/UI Design und SEO Nürnberg — für Unternehmen in Nürnberg, Fürth, Erlangen, München, in Bayern, im deutschsprachigen Raum und für internationale Projekte in ganz Deutschland.",
+      heroMeta: [
+        "Webdesigner Fürth",
+        "Webdesigner Erlangen",
+        "Webdesign München",
+        "moderne Webseiten Deutschland",
+      ],
+      ctaPrimary: "Projekte ansehen",
+      ctaSecondary: "Projekt anfragen",
+      heroCardTitle: "Positionierung",
+      heroCardText:
+        "Webdesignerin für Nürnberg und darüber hinaus — mit Fokus auf Sichtbarkeit, Vertrauen und ruhige Premium-Ästhetik.",
+      heroPhotoAlt: "Marianna Kuzmenko im schwarzen Blazer vor einem hellen Fenster",
+      heroStudioAlt: "Editorial Portrait von Marianna Kuzmenko",
+      heroMockupAlt: "Auswahl realer Website-Projekte auf Laptop und Tablet",
+      trustEyebrow: "01 — Klarer Mehrwert",
+      trustTitleA: "Moderne Webseiten, die",
+      trustTitleB: "Vertrauen aufbauen.",
+      trustLead:
+        "Eine gute Website zeigt nicht nur Arbeit. Sie ordnet Wahrnehmung, erklärt Qualität und macht aus Aufmerksamkeit echte Anfragen.",
+      trustPoints: [
+        {
+          title: "Sichtbarkeit mit Substanz",
+          desc: "SEO Nürnberg, klare Struktur und starke Inhalte sorgen dafür, dass deine Marke gefunden und verstanden wird.",
+        },
+        {
+          title: "Professionelle Markenwirkung",
+          desc: "Design beeinflusst Wahrnehmung. Eine hochwertige Website macht Qualität sichtbar, bevor jemand Kontakt aufnimmt.",
+        },
+        {
+          title: "Conversion ohne Druck",
+          desc: "UX/UI Design, klare Nutzerführung und ruhige Botschaften führen Besucher:innen elegant zur Anfrage.",
+        },
+      ],
+      serviceEyebrow: "02 — Leistungen",
+      serviceTitleA: "Webdesign, Webentwicklung",
+      serviceTitleB: "und SEO aus einer Hand.",
+      serviceLead:
+        "Für Markenauftritte, die nicht nur schön aussehen, sondern strukturiert verkaufen, Vertrauen schaffen und langfristig sichtbar bleiben.",
       services: [
-        { title: "Individuelles Webdesign", desc: "Visuelle Identität, die zu dir passt — keine Vorlagen, kein Bauchgefühl." },
-        { title: "UX/UI mit klarer Struktur", desc: "Nutzerführung, Hierarchie und Microinteractions, die Conversions bringen." },
-        { title: "Technische Webentwicklung", desc: "Schnell, sauber gebaut, wartbar. React, Performance, Accessibility." },
-        { title: "SEO Optimierung von Anfang an", desc: "Sichtbarkeit ist kein Nachgedanke. SEO-Strategie ist im Design eingebaut." },
+        {
+          title: "Webdesign Nürnberg",
+          desc: "Individuelle Gestaltung für Unternehmen, Studios und Dienstleister — klar, hochwertig und markengerecht.",
+        },
+        {
+          title: "UX/UI Design Nürnberg",
+          desc: "Nutzerführung, Inhalte und Interfaces, die verständlich wirken und ruhig zu Conversion führen.",
+        },
+        {
+          title: "Webentwicklung Nürnberg",
+          desc: "Saubere Frontend-Entwicklung, schnelle Ladezeiten, klare Systematik und moderne technische Basis.",
+        },
+        {
+          title: "SEO Nürnberg",
+          desc: "Technische und inhaltliche SEO-Struktur von Anfang an — für Bayern, ganz Deutschland und nachhaltige Reichweite.",
+        },
       ],
       moreWeb: "Mehr zu Web Development",
       moreSeo: "Mehr zu SEO",
-      // Projects
-      s4eye: "04 — Werk",
-      s4titleA: "Ausgewählte",
-      s4titleB: "Projekte.",
-      s4lead: "Ein paar Projekte, die zeigen, wie Strategie, Design und Entwicklung zusammenkommen.",
-      projects: [
-        { name: "Pfotenhaus", category: "Pet Hotel · UX/UI", desc: "Markenwebsite für ein Tierhotel. Warme Bildsprache, klare Buchungsstruktur, ruhige Animationen." },
-        { name: "Dentallux", category: "Zahnklinik · SEO", desc: "Premium-Auftritt für eine Zahnklinik. Vertrauen durch Klarheit, technisches SEO von Anfang an." },
-        { name: "Lior Friseur", category: "Salon · Web Design", desc: "Editorial Friseur-Site mit feiner Typografie und sanften Übergängen." },
-        { name: "Lush & Bloom", category: "Florist · UX/UI", desc: "Botanischer Online-Auftritt. Atmosphäre, Produktwelt und ein leiser Shop-Funnel." },
-        { name: "Atelier Nova", category: "Studio · Branding", desc: "Designstudio-Site mit eigenem System. Editorial Layout, +180% organische Reichweite." },
-        { name: "Four Elements", category: "Restaurant · Web Dev", desc: "Restaurant-Erlebnis mit cinematic Hero, Reservierung und schneller Performance." },
+      projectsEyebrow: "03 — Ausgewählte Arbeiten",
+      projectsTitleA: "Reale Projekte,",
+      projectsTitleB: "editorial inszeniert.",
+      projectsLead:
+        "Die Homepage zeigt echte Arbeiten sofort: Websites auf Laptop-, Tablet- und mobilen Mockups, damit Qualität, Stil und Branchenvielfalt direkt sichtbar werden.",
+      featuredTitle: "Projektportfolio für Nürnberg, Bayern und moderne Marken in Deutschland.",
+      featuredText:
+        "Von Zahnarztpraxis bis Premium-Kanzlei, von Küchenstudio bis Beratung — jedes Projekt verbindet Markenwirkung, klare Struktur und Conversion-orientierte Gestaltung.",
+      projectLabels: [
+        "Restaurant Website",
+        "UX/UI Design",
+        "SEO Optimized",
+        "Premium Law Firm",
+        "Modern Digital Experience",
+        "Craft & Service Brand",
+      ],
+      projectItems: [
+        {
+          name: "Dentallux",
+          category: "Zahnklinik · SEO · Berlin",
+          desc: "Ruhige Premium-Ästhetik, medizinisches Vertrauen und klare Terminführung.",
+        },
+        {
+          name: "Holzwerk Nürnberg",
+          category: "Interior & Handwerk · Nürnberg",
+          desc: "Editorialer Markenauftritt für hochwertige Innenausbau-Projekte.",
+        },
+        {
+          name: "Dr. Sarah Mitchell",
+          category: "Therapy Practice · International",
+          desc: "Sanfte Conversion, Wärme und professionelle Ruhe in einem digitalen Raum.",
+        },
+        {
+          name: "Erb. Hartmann",
+          category: "Kanzlei · Nürnberg",
+          desc: "Dunkle Luxusästhetik mit präziser Typografie und diskreter Autorität.",
+        },
+        {
+          name: "AUTOWERK",
+          category: "Automotive · Nürnberg",
+          desc: "Technische Klarheit, starke Kontraste und performante Markenpräsenz.",
+        },
+        {
+          name: "Müller & Sohn",
+          category: "Handwerk · Berlin",
+          desc: "Vertrauen, Kompetenz und Angebotsfokus für einen modernen Handwerksbetrieb.",
+        },
       ],
       allProjects: "Alle Projekte ansehen",
-      whisper3: "fast geschafft …",
-      // Process
-      s5eye: "05 — Ablauf",
-      s5titleA: "So läuft ein",
-      s5titleB: "Projekt.",
-      s5lead: "Ein klarer Weg vom ersten Gespräch bis zum Launch — ohne Überraschungen, mit viel Sorgfalt.",
+      regionEyebrow: "04 — Positionierung",
+      regionTitleA: "In Nürnberg verwurzelt,",
+      regionTitleB: "international anschlussfähig.",
+      regionLead:
+        "Ich arbeite für Unternehmen in Nürnberg, Fürth, Erlangen, München und in ganz Bayern — genauso wie für Marken im deutschsprachigen Raum und internationale Zusammenarbeit mit klarem europäischen Stilverständnis.",
+      regionPoints: [
+        "Nürnberg · Fürth · Erlangen · München",
+        "Bayern · ganz Deutschland · DACH",
+        "deutschsprachiger Raum · internationale Projekte",
+      ],
+      processEyebrow: "05 — Ablauf",
+      processTitleA: "Strukturiert, ruhig,",
+      processTitleB: "professionell umgesetzt.",
+      processLead:
+        "Vom ersten Gespräch bis zum Launch bleibt das Projekt klar geführt — mit Fokus auf Strategie, Inhalt, Design und technischer Qualität.",
       process: [
-        { step: "01", title: "Verstehen", desc: "Ich höre zu. Ziele, Zielgruppe, Markt — bevor irgendein Pixel entsteht." },
-        { step: "02", title: "Gestalten", desc: "Struktur und Design entstehen gemeinsam. Du bekommst klare Entwürfe statt 30 Versionen." },
-        { step: "03", title: "Bauen", desc: "Saubere Entwicklung mit React, Performance und SEO direkt eingebaut." },
-        { step: "04", title: "Launchen", desc: "Wir gehen live. Danach: Pflege, Optimierung, weiterdenken." },
+        {
+          title: "Strategie & Positionierung",
+          desc: "Ziele, Zielgruppe, Suchintention und Markenbild werden zuerst geschärft.",
+        },
+        {
+          title: "UX/UI & Copy-Struktur",
+          desc: "Inhalte, Nutzerführung und Seitendramaturgie werden präzise aufgebaut.",
+        },
+        {
+          title: "Design & Webentwicklung",
+          desc: "Die Website wird hochwertig gestaltet und technisch sauber umgesetzt.",
+        },
+        {
+          title: "SEO & Launch",
+          desc: "Zum Schluss wird auf Sichtbarkeit, Performance und Anfragen optimiert.",
+        },
       ],
-      // Why
-      s6eye: "06 — Warum",
-      s6titleA: "Warum mit",
-      s6titleB: "mir arbeiten.",
-      s6lead: "Nicht für jede Person das Richtige — und genau das ist gut so.",
+      whyEyebrow: "06 — Warum das wirkt",
+      whyTitleA: "Professionelles Design",
+      whyTitleB: "verändert Wahrnehmung.",
+      whyLead:
+        "Menschen entscheiden schnell. Eine moderne Website schafft Klarheit, signalisiert Qualität und macht den nächsten Schritt leichter.",
       why: [
-        { title: "Design mit Substanz", desc: "Schön ist nicht genug. Jede Entscheidung hat einen Grund — und einen messbaren Effekt." },
-        { title: "SEO von Anfang an", desc: "Sichtbarkeit beginnt in der Struktur. Keine Add-ons, keine teuren Nachbesserungen." },
-        { title: "Technisch sauber", desc: "Wartbare Codebasis, schnelle Ladezeiten, Accessibility — Standard, kein Aufpreis." },
-        { title: "Menschlich & klar", desc: "Klare Kommunikation, ehrliche Antworten. Keine Buzzwords, keine Schwammigkeit." },
-        { title: "Pünktlich & verlässlich", desc: "Du weißt jederzeit, wo wir stehen. Termine sind Zusagen, keine Wünsche." },
-        { title: "Sorgfalt im Detail", desc: "Spacing, Mikrocopy, Animation — die kleinen Dinge machen den Unterschied." },
+        {
+          title: "Klarheit schafft Vertrauen",
+          desc: "Wenn Inhalte logisch geführt sind, wirkt ein Unternehmen sicherer und professioneller.",
+        },
+        {
+          title: "Design beeinflusst Wahrnehmung",
+          desc: "Hochwertige Gestaltung hebt Qualität, Preiswürdigkeit und Markenwert sichtbar an.",
+        },
+        {
+          title: "SEO bringt die richtigen Besucher:innen",
+          desc: "Relevante Reichweite ist wertvoller als bloße Klicks — besonders lokal und im DACH-Markt.",
+        },
       ],
-      // Ending
-      endEye: "— Anfang —",
-      endA: "Vielleicht ist das",
-      endB: "Anfang.",
-      endBefore: "der ",
-      endLead: "Wenn dich etwas davon berührt hat, ist das schon mehr als die meisten Websites schaffen. Schreib mir — auch wenn du noch nicht genau weißt, wohin es gehen soll.",
-      endCta: "Lass uns reden",
-      // Why a website matters
-      mEye: "— Warum eine Website zählt",
-      mTitleA: "Eine Website ist mehr",
-      mTitleB: "als ein Schaufenster.",
-      mLead: "Sie ist oft der erste Eindruck deiner Marke — und entscheidet in Sekunden, ob jemand bleibt.",
-      matters: [
-        { title: "Vertrauen aufbauen", desc: "Eine professionelle Website schafft Vertrauen bereits in den ersten Sekunden." },
-        { title: "Mehr Sichtbarkeit", desc: "SEO und moderne Webentwicklung helfen dabei, online besser gefunden zu werden." },
-        { title: "Starker erster Eindruck", desc: "Deine Website ist oft der erste Kontakt mit potenziellen Kund:innen." },
-        { title: "Mehr Anfragen", desc: "Klare Struktur und gutes UX-Design unterstützen mehr Anfragen und Verkäufe." },
-        { title: "Langfristige Präsenz", desc: "Eine Website arbeitet langfristig für deine Marke und dein Business." },
-        { title: "Wahrnehmung gestalten", desc: "Design beeinflusst, wie Menschen deine Arbeit und deinen Wert einschätzen." },
-      ],
-      // Storytelling
-      storyEye: "— Ein Gedanke",
-      storyA: "Eine Website ist heute mehr",
-      storyB: "als nur eine Online-Präsenz.",
-      storyC: "Sie ist oft der erste Eindruck deiner Marke — leise, präzise, ehrlich.",
-      storyD: "Vertrauen entsteht im Detail. Wahrnehmung folgt der Form. Professionalität spürt man, bevor man sie liest.",
-      // Contrast
-      cEye: "— Ein Vergleich",
-      cTitleA: "Mit, oder",
-      cTitleB: "ohne.",
-      cLead: "Zwei Welten — und der ruhige Unterschied dazwischen.",
-      cWithoutTitle: "Ohne professionelle Website",
-      cWithout: [
-        "Unternehmen wirken weniger vertrauenswürdig",
-        "Potenzielle Kund:innen springen schneller ab",
-        "Sichtbarkeit in Suchmaschinen geht verloren",
-        "Die Marke fühlt sich austauschbar an",
-      ],
-      cWithTitle: "Mit einer modernen Website",
-      cWith: [
-        "Deine Marke wirkt klarer und professioneller",
-        "Vertrauen entsteht in den ersten Sekunden",
-        "Du wirst online besser gefunden",
-        "Anfragen kommen qualifizierter herein",
-      ],
+      endEye: "— Kontakt —",
+      endA: "Wenn du eine Website willst,",
+      endB: "die wirklich trägt.",
+      endLead:
+        "Dann lass uns über einen digitalen Auftritt sprechen, der professionell aussieht, klar kommuniziert und in Suchmaschinen sichtbar wird.",
+      endCta: "Projekt starten",
     },
     {
-      seoTitle: "Web Designer & Web Developer in Germany — Marianna Kuzmenko",
-      seoDesc: "Modern websites, UX/UI design and SEO for European and US clients. Freelance web designer & developer based in Germany — strategy first, never templates.",
-      chip: "Available for new projects · Q3 2026",
-      heroA: "Web design",
-      heroB: "that quietly",
-      heroC: "earns ",
-      heroD1: "attention.",
-      heroD2: "results.",
-      portraitAlt: "Marianna Kuzmenko, web designer based in Germany",
-      mockupAlt: "Sample project shown in browser",
-      lead1a: "I’m a ",
-      leadAccent1: "web designer and developer",
-      lead1b: " based in Germany, building modern websites with clear structure, calm design, and sustainable ",
-      leadAccent2: "SEO",
-      lead1c: " — for people who want more than a template.",
-      note1: <>“Beautiful is good.<br />Clear is better.”</>,
-      ctaPrimary: "See selected work",
-      ctaSecondary: "Write me",
-      whisper1: "a small look inside ↓",
-      marquee: ["Web Design", "UX / UI", "SEO", "Web Development", "Strategy"],
-      s2eye: "02 — What I’m not",
-      s2titleA: "What I’m",
-      s2titleB: "not.",
-      s2lead: <>Sometimes it’s clearer to say what you <em>don’t</em> do. Three things you won’t get from me.</>,
-      notMe: [
-        ["No off-the-shelf", "templates.", "Every website starts with your story — not with a layout."],
-        ["No design", "without strategy.", "Aesthetics matter. But they come after understanding."],
-        ["No SEO", "without results.", "Visibility that lasts. No tricks, no short-term hacks."],
-      ] as [string, string, string][],
-      whisper2: "keep scrolling, gently …",
-      s3eye: "03 — Services",
-      s3titleA: "Have a website built",
-      s3titleB: "— done properly.",
-      s3lead: "Four areas that belong together. One website that actually performs.",
+      seoTitle:
+        "Web Design, Web Development & SEO in Germany — Marianna Kuzmenko",
+      seoDesc:
+        "Marianna Kuzmenko creates modern websites, UX/UI systems and SEO-led digital experiences for clients in Germany, the DACH region and international markets.",
+      heroEyebrow: "Marianna Kuzmenko · Web Design & SEO",
+      heroTitle: "Premium web design and development for brands that need clarity, trust and visibility.",
+      heroLead:
+        "I create modern websites with strategic web design, thoughtful UX/UI, clean frontend development and SEO — for clients in Germany, across the DACH region and in international collaborations.",
+      heroMeta: [
+        "Based in Nuremberg",
+        "Working across Germany",
+        "DACH market focus",
+        "International projects",
+      ],
+      ctaPrimary: "View projects",
+      ctaSecondary: "Start a project",
+      heroCardTitle: "Positioning",
+      heroCardText:
+        "A calm, premium digital presence for brands that want to look more established and convert with more intent.",
+      heroPhotoAlt: "Marianna Kuzmenko in a black blazer by a bright window",
+      heroStudioAlt: "Editorial portrait of Marianna Kuzmenko",
+      heroMockupAlt: "Selection of real website projects on laptop and tablet",
+      trustEyebrow: "01 — Value",
+      trustTitleA: "Modern websites that",
+      trustTitleB: "build trust.",
+      trustLead:
+        "A strong website does more than display work. It shapes perception, communicates quality, and turns attention into meaningful inquiries.",
+      trustPoints: [
+        {
+          title: "Visibility with substance",
+          desc: "Clear structure, SEO and considered content help the right people find and understand your brand.",
+        },
+        {
+          title: "Professional brand presence",
+          desc: "Design affects perception. A refined website makes quality legible before a conversation even begins.",
+        },
+        {
+          title: "Conversion without pressure",
+          desc: "Thoughtful UX/UI and calm messaging gently guide visitors toward the next step.",
+        },
+      ],
+      serviceEyebrow: "02 — Services",
+      serviceTitleA: "Web design, development",
+      serviceTitleB: "and SEO together.",
+      serviceLead:
+        "For brand presences that do more than look good — they structure the message, earn trust and support growth.",
       services: [
-        { title: "Custom Web Design", desc: "Visual identity that fits you — no templates, no guesswork." },
-        { title: "UX/UI with clear structure", desc: "User flow, hierarchy and microinteractions that drive conversions." },
-        { title: "Modern Web Development", desc: "Fast, clean, maintainable. React, performance, accessibility." },
-        { title: "SEO from day one", desc: "Visibility isn’t an afterthought. SEO strategy is built into the design." },
+        {
+          title: "Custom Web Design",
+          desc: "Distinct visual systems for service brands, studios and businesses that need a premium online presence.",
+        },
+        {
+          title: "UX/UI Design",
+          desc: "Clear journeys, hierarchy and interfaces that feel intuitive and conversion-aware.",
+        },
+        {
+          title: "Web Development",
+          desc: "Fast, maintainable frontend work with a modern technical foundation and clean execution.",
+        },
+        {
+          title: "SEO Strategy",
+          desc: "Technical and content SEO built into the site from the start for durable visibility.",
+        },
       ],
       moreWeb: "More on Web Development",
       moreSeo: "More on SEO",
-      s4eye: "04 — Work",
-      s4titleA: "Selected",
-      s4titleB: "projects.",
-      s4lead: "A few projects that show how strategy, design and development come together.",
-      projects: [
-        { name: "Pfotenhaus", category: "Pet Hotel · UX/UI", desc: "Brand site for a pet hotel. Warm imagery, calm booking flow, gentle animations." },
-        { name: "Dentallux", category: "Dental Clinic · SEO", desc: "Premium presence for a dental clinic. Trust through clarity, technical SEO from day one." },
-        { name: "Lior Hair", category: "Salon · Web Design", desc: "Editorial salon site with fine typography and soft transitions." },
-        { name: "Lush & Bloom", category: "Florist · UX/UI", desc: "Botanical web experience. Atmosphere, product world, and a quiet shop funnel." },
-        { name: "Atelier Nova", category: "Studio · Branding", desc: "Studio site with its own system. Editorial layout, +180% organic reach." },
-        { name: "Four Elements", category: "Restaurant · Web Dev", desc: "Restaurant experience with a cinematic hero, reservations, and fast performance." },
+      projectsEyebrow: "03 — Selected Work",
+      projectsTitleA: "Real projects,",
+      projectsTitleB: "editorially framed.",
+      projectsLead:
+        "The homepage showcases real work immediately: websites presented on laptop, tablet and mobile mockups so the quality feels tangible from the first screen onward.",
+      featuredTitle: "A portfolio designed to feel polished, credible and immediate.",
+      featuredText:
+        "From premium clinics to service businesses and advisory brands, each project balances structure, atmosphere and conversion-minded clarity.",
+      projectLabels: [
+        "Restaurant Website",
+        "UX/UI Design",
+        "SEO Optimized",
+        "Premium Law Firm",
+        "Modern Digital Experience",
+        "Craft & Service Brand",
+      ],
+      projectItems: [
+        {
+          name: "Dentallux",
+          category: "Dental Clinic · SEO · Berlin",
+          desc: "Premium calm, medical trust and clear booking direction.",
+        },
+        {
+          name: "Holzwerk Nürnberg",
+          category: "Interior Craft · Nuremberg",
+          desc: "An editorial identity for a high-end craft business.",
+        },
+        {
+          name: "Dr. Sarah Mitchell",
+          category: "Therapy Practice · International",
+          desc: "Warmth, reassurance and soft conversion in a quiet digital space.",
+        },
+        {
+          name: "Erb. Hartmann",
+          category: "Law Firm · Nuremberg",
+          desc: "Dark luxury styling with typographic restraint and authority.",
+        },
+        {
+          name: "AUTOWERK",
+          category: "Automotive · Nuremberg",
+          desc: "Sharp contrast, technical clarity and a high-performance brand presence.",
+        },
+        {
+          name: "Müller & Sohn",
+          category: "Craft Business · Berlin",
+          desc: "A clear, trustworthy site built to support inquiries.",
+        },
       ],
       allProjects: "View all projects",
-      whisper3: "almost there …",
-      s5eye: "05 — Process",
-      s5titleA: "How a project",
-      s5titleB: "unfolds.",
-      s5lead: "A clear path from first conversation to launch — no surprises, plenty of care.",
+      regionEyebrow: "04 — Positioning",
+      regionTitleA: "Rooted in Nuremberg,",
+      regionTitleB: "ready for international work.",
+      regionLead:
+        "I work with businesses in Nuremberg and across Germany, as well as brands in the wider DACH market and international collaborations that need a modern European visual language.",
+      regionPoints: [
+        "Nuremberg · Germany · DACH",
+        "German-speaking audiences",
+        "International collaboration",
+      ],
+      processEyebrow: "05 — Process",
+      processTitleA: "Structured, calm,",
+      processTitleB: "professionally executed.",
+      processLead:
+        "From the first conversation to launch, the process stays focused — with strategy, content, design and technical quality moving together.",
       process: [
-        { step: "01", title: "Listen", desc: "I listen. Goals, audience, market — before a single pixel is drawn." },
-        { step: "02", title: "Design", desc: "Structure and design grow together. You get clear drafts, not 30 variations." },
-        { step: "03", title: "Build", desc: "Clean React development with performance and SEO baked in." },
-        { step: "04", title: "Launch", desc: "We go live. Then: care, optimization, keep thinking forward." },
+        {
+          title: "Strategy & Positioning",
+          desc: "Goals, audience, search intent and brand direction are clarified first.",
+        },
+        {
+          title: "UX/UI & Content Structure",
+          desc: "Messaging, flow and page narrative are shaped with precision.",
+        },
+        {
+          title: "Design & Development",
+          desc: "The site is crafted with a premium visual system and clean frontend execution.",
+        },
+        {
+          title: "SEO & Launch",
+          desc: "Visibility, performance and conversion details are refined before going live.",
+        },
       ],
-      s6eye: "06 — Why",
-      s6titleA: "Why work",
-      s6titleB: "with me.",
-      s6lead: "Not the right fit for everyone — and that’s exactly the point.",
+      whyEyebrow: "06 — Why it works",
+      whyTitleA: "Professional design",
+      whyTitleB: "changes perception.",
+      whyLead:
+        "People decide quickly. A modern site creates clarity, signals quality and makes the next step feel easier.",
       why: [
-        { title: "Design with substance", desc: "Pretty isn’t enough. Every decision has a reason — and a measurable effect." },
-        { title: "SEO from day one", desc: "Visibility starts in the structure. No add-ons, no expensive rework." },
-        { title: "Technically clean", desc: "Maintainable code, fast load times, accessibility — standard, not extra." },
-        { title: "Human & clear", desc: "Honest answers, plain language. No buzzwords, no fog." },
-        { title: "On time, reliable", desc: "You always know where we stand. Deadlines are promises, not wishes." },
-        { title: "Care in the details", desc: "Spacing, microcopy, animation — the small things make the difference." },
+        {
+          title: "Clarity builds trust",
+          desc: "When information is well structured, a business feels more confident and more established.",
+        },
+        {
+          title: "Design shapes value perception",
+          desc: "Refined design quietly elevates quality, credibility and brand value.",
+        },
+        {
+          title: "SEO attracts the right audience",
+          desc: "Relevant visibility matters more than empty traffic — especially for local and high-intent markets.",
+        },
       ],
-      endEye: "— A beginning —",
-      endA: "Maybe this is",
-      endB: "beginning.",
-      endBefore: "the ",
-      endLead: "If something here resonated, that’s already more than most websites manage. Write me — even if you don’t yet know where it should go.",
-      endCta: "Let’s talk",
-      // Why a website matters
-      mEye: "— Why a website matters",
-      mTitleA: "A website is more",
-      mTitleB: "than a storefront.",
-      mLead: "It’s often the first impression of your brand — and decides in seconds whether someone stays.",
-      matters: [
-        { title: "Build trust", desc: "A professional website earns trust within the first few seconds." },
-        { title: "Be more visible", desc: "SEO and modern web development help you get found online." },
-        { title: "A strong first impression", desc: "Your website is often the first contact with future clients." },
-        { title: "More inquiries", desc: "Clear structure and thoughtful UX gently invite more inquiries and sales." },
-        { title: "Long-term presence", desc: "A website keeps working for your brand and business in the background." },
-        { title: "Shape perception", desc: "Design quietly influences how people read your work and its value." },
-      ],
-      storyEye: "— A thought",
-      storyA: "A website today is more",
-      storyB: "than just an online presence.",
-      storyC: "It’s often the first impression of your brand — quiet, precise, honest.",
-      storyD: "Trust grows in the details. Perception follows form. Professionalism is felt before it’s read.",
-      cEye: "— A comparison",
-      cTitleA: "With, or",
-      cTitleB: "without.",
-      cLead: "Two worlds — and the calm difference between them.",
-      cWithoutTitle: "Without a professional site",
-      cWithout: [
-        "Your business feels less trustworthy",
-        "Visitors leave faster than you’d think",
-        "You lose visibility in search",
-        "The brand starts to feel interchangeable",
-      ],
-      cWithTitle: "With a modern site",
-      cWith: [
-        "Your brand reads as clearer and more professional",
-        "Trust forms within the first seconds",
-        "You get found online with intent",
-        "Inquiries arrive better qualified",
-      ],
+      endEye: "— Contact —",
+      endA: "If you want a website",
+      endB: "that truly carries the brand.",
+      endLead:
+        "Let’s create a digital presence that looks professional, communicates clearly and performs in search.",
+      endCta: "Start a project",
     }
   );
 
-  const services = t.services;
-  const projectImgs = [pPfotenhaus, pDentallux, pLior, pLush, pNova, pFour];
-  const projects = t.projects.map((p, i) => ({ ...p, img: projectImgs[i] }));
-  const heroScreens = [pNova, pDentallux, pLush, pFour];
-  const processIcons = [Compass, PenTool, Code2, Rocket];
-  const whyIcons = [Sparkles, LineChart, ShieldCheck, Heart, Clock, PenTool];
-  const serviceIcons = [Palette, Layers, Code2, Search];
-  const serviceVariants: ("default"|"blue"|"pink")[] = ["default", "blue", "pink", "default"];
+  const services = [
+    { icon: Compass, ...t.services[0], variant: "default" as const },
+    { icon: Layers, ...t.services[1], variant: "blue" as const },
+    { icon: Code2, ...t.services[2], variant: "default" as const },
+    { icon: Search, ...t.services[3], variant: "pink" as const },
+  ];
+
+  const trustIcons = [LineChart, ShieldCheck, Sparkles];
+  const whyIcons = [BadgeCheck, Building2, Globe2];
+  const heroScreens = [
+    dentalluxMockup.url,
+    holzwerkMockup.url,
+    therapistMockup.url,
+    hartmannMockup.url,
+  ];
+  const projectImages = [
+    dentalluxMockup.url,
+    holzwerkMockup.url,
+    therapistMockup.url,
+    hartmannMockup.url,
+    autowerkMockup.url,
+    muellerSohnMockup.url,
+  ];
 
   return (
     <Layout>
@@ -337,167 +425,134 @@ const Index = () => {
         pathEn={ROUTES.home.en}
       />
 
-      {/* HERO */}
-      <section className="container-editorial pt-12 md:pt-20 pb-24 relative overflow-hidden">
-        <div ref={blobRef1} className="blob blob-pink animate-float-slow" style={{ width: 460, height: 460, top: "-100px", right: "-120px" }} />
-        <div ref={blobRef2} className="blob blob-blue animate-float-slower" style={{ width: 380, height: 380, top: "200px", left: "-150px" }} />
-        <div className="hero-shape hero-shape-ring" style={{ width: 220, height: 220, top: "8%", left: "42%" }} />
-        <div className="hero-shape hero-shape-dot" style={{ width: 14, height: 14, top: "30%", right: "12%" }} />
-        <div className="hero-shape hero-shape-square" style={{ width: 90, height: 90, bottom: "8%", left: "38%" }} />
+      <section className="container-editorial pt-10 md:pt-16 pb-24 relative overflow-hidden">
+        <div className="blob blob-pink animate-float-slow" style={{ width: 420, height: 420, top: "-120px", right: "-110px" }} />
+        <div className="blob blob-blue animate-float-slower" style={{ width: 360, height: 360, bottom: "40px", left: "-120px" }} />
 
-        <div className="grid grid-cols-12 gap-6 items-end relative">
-          <div className="col-span-12 md:col-span-7 reveal-stagger">
-            <div className="chip mb-8 reveal-line">
-              <span className="w-2 h-2 rounded-full bg-rose animate-pulse" />
-              {t.chip}
-            </div>
-            <img
-              src={logo}
-              alt="Marianna Kuzmenko — Web Design & Development"
-              className="w-full max-w-[720px] h-auto mb-10 reveal-line"
-              style={{ filter: "drop-shadow(0 8px 32px hsl(208 70% 45% / 0.4))" }}
-            />
-            <h1 className="display-xl reveal-line">
-              <span className={`inline-block transition-all duration-1000 ${morphed ? "opacity-90" : "opacity-100"}`}>
-                {t.heroA}
-              </span>
-              <br />
-              <span className="italic font-light reveal-line">{t.heroB}</span><br />
-              <span className="text-rose marker reveal-line">{t.heroC}</span>
-              <span className="italic reveal-line">
-                {morphed ? t.heroD2 : t.heroD1}
-              </span>
-            </h1>
-          </div>
-
-          <div className="col-span-12 md:col-span-5 hidden md:block relative">
-            <div className="frame-soft aspect-[3/4] max-w-[260px] ml-auto reveal" style={{ transitionDelay: "200ms" }}>
-              <img src={portrait} alt={t.portraitAlt} loading="eager" />
-            </div>
-            <div className="absolute -bottom-12 -left-8 w-[72%] reveal" style={{ transitionDelay: "500ms" }}>
-              <LaptopMockup screens={heroScreens} alt={t.mockupAlt} />
-            </div>
-            <div
-              className="absolute -bottom-4 right-2 w-[34%] aspect-[9/19] rounded-[28px] overflow-hidden border border-white/70 shadow-[0_30px_60px_-25px_hsl(211_50%_30%_/_0.45)] bg-white reveal animate-float-slow"
-              style={{ transitionDelay: "700ms" }}
-              aria-hidden
-            >
-              <img src={pPfotenhaus} alt="" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-12 gap-6 mt-20 md:mt-28 relative">
-          <div className="col-span-12 md:col-span-6 reveal" style={{ transitionDelay: "200ms" }}>
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85">
-              {t.lead1a}<span className="hover-accent">{t.leadAccent1}</span>{t.lead1b}<span className="hover-accent">{t.leadAccent2}</span>{t.lead1c}
+        <div className="grid grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
+          <div className="col-span-12 lg:col-span-5 reveal-stagger">
+            <p className="eyebrow mb-5 reveal-line">{t.heroEyebrow}</p>
+            <h1 className="display-lg reveal-line max-w-[14ch]">{t.heroTitle}</h1>
+            <p className="mt-7 text-base md:text-lg leading-relaxed text-foreground/85 max-w-xl reveal-line">
+              {t.heroLead}
             </p>
+
+            <div className="mt-7 flex flex-wrap gap-2 reveal-line">
+              {t.heroMeta.map((item) => (
+                <span key={item} className="chip-pink">
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-4 reveal-line">
+              <Link to={path("work")} className="btn-pink btn-press">
+                {t.ctaPrimary} <ArrowUpRight size={16} />
+              </Link>
+              <a href="#kontakt" className="btn-ghost-soft btn-press">
+                {t.ctaSecondary} <ArrowRight size={16} />
+              </a>
+            </div>
+
+            <div className="mt-10 glass-panel p-6 reveal-line">
+              <p className="eyebrow mb-3">{t.heroCardTitle}</p>
+              <p className="leading-relaxed text-foreground/80">{t.heroCardText}</p>
+            </div>
           </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end">
-            <FloatingNote rotate={-4}>{t.note1}</FloatingNote>
+
+          <div className="col-span-12 lg:col-span-7 relative min-h-[620px] lg:min-h-[720px] reveal">
+            <div className="absolute top-0 right-0 w-[44%] md:w-[38%] frame-soft glass-card p-2 animate-float-slow">
+              <div className="frame-soft aspect-[4/5]">
+                <img src={editorialPortrait.url} alt={t.heroStudioAlt} loading="eager" />
+              </div>
+            </div>
+
+            <div className="absolute top-[18%] left-[2%] w-[72%] md:w-[70%] reveal" style={{ transitionDelay: "120ms" }}>
+              <LaptopMockup screens={heroScreens} alt={t.heroMockupAlt} interval={3200} />
+            </div>
+
+            <div className="absolute bottom-[6%] right-[6%] w-[34%] md:w-[28%] frame-soft glass-card p-2 animate-float-slower reveal" style={{ transitionDelay: "240ms" }}>
+              <div className="frame-soft aspect-[4/5] bg-card">
+                <img src={closePortrait.url} alt={t.heroPhotoAlt} loading="eager" />
+              </div>
+            </div>
+
+            <div className="absolute bottom-[20%] left-[0] md:left-[4%] w-[34%] md:w-[28%] frame-soft glass-card p-2 reveal" style={{ transitionDelay: "360ms" }}>
+              <div className="frame-soft aspect-[10/14] bg-card">
+                <img src={dentalluxMockup.url} alt="Dentallux project mockup" loading="lazy" />
+              </div>
+            </div>
+
+            <div className="floating-tag top-[8%] left-[2%]">SEO · UX/UI · Performance</div>
+            <div className="floating-tag bottom-[8%] right-[24%]">Nürnberg · Bayern · Deutschland</div>
           </div>
         </div>
-
-        <div className="mt-16 flex flex-wrap items-center gap-4 relative reveal" style={{ transitionDelay: "400ms" }}>
-          <Link to={path("work")} className="btn-pink btn-press group">
-            {t.ctaPrimary}
-            <ArrowUpRight size={16} className="transition-transform group-hover:rotate-45 duration-500" />
-          </Link>
-          <a href="#kontakt" className="btn-ghost-soft btn-press">
-            {t.ctaSecondary}
-          </a>
-        </div>
-
-        <Whisper className="mt-12">{t.whisper1}</Whisper>
       </section>
 
       <WaveDivider />
 
-      {/* NOT ME */}
-      <section className="container-editorial py-28">
-        <div className="grid grid-cols-12 gap-8 items-start">
-          <div className="col-span-12 md:col-span-5 reveal-stagger">
-            <p className="eyebrow mb-4 reveal-line">{t.s2eye}</p>
-            <h2 className="display-lg reveal-line">
-              {t.s2titleA}<br />
-              <span className="italic text-rose">{t.s2titleB}</span>
-            </h2>
-            <p className="mt-8 text-muted-foreground leading-relaxed max-w-md reveal-line">{t.s2lead}</p>
-          </div>
-          <div className="col-span-12 md:col-span-7 space-y-5">
-            {t.notMe.map(([a, b, c], i) => (
-              <div key={i} className="reveal card-soft group flex flex-col md:flex-row md:items-center gap-6" style={{ transitionDelay: `${i * 100}ms` }}>
-                <span className="font-mono text-xs text-muted-foreground md:w-12">0{i + 1}</span>
-                <div className="flex-1">
-                  <p className="font-display text-2xl md:text-3xl group-hover:text-rose transition-colors duration-500">
-                    {a} <span className="italic text-muted-foreground">{b}</span>
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{c}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <Whisper className="mt-16 text-center">{t.whisper2}</Whisper>
-      </section>
-
-      <WaveDivider flip />
-
-      {/* WHY A WEBSITE MATTERS */}
-      <section className="container-editorial py-28">
-        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
+      <section className="container-editorial py-24">
+        <div className="grid grid-cols-12 gap-8 items-start mb-14 reveal-stagger">
           <div className="col-span-12 md:col-span-7">
-            <p className="eyebrow mb-4 reveal-line">{t.mEye}</p>
+            <p className="eyebrow mb-4 reveal-line">{t.trustEyebrow}</p>
             <h2 className="display-lg reveal-line">
-              {t.mTitleA}<br />
-              <span className="italic text-rose">{t.mTitleB}</span>
+              {t.trustTitleA}
+              <br />
+              <span className="italic text-rose">{t.trustTitleB}</span>
             </h2>
           </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
-            <p className="text-muted-foreground leading-relaxed">{t.mLead}</p>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 reveal-line">
+            <p className="text-muted-foreground leading-relaxed">{t.trustLead}</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {t.matters.map((m, i) => {
-            const Icon = [ShieldCheck, TrendingUp, MessageCircle, Rocket, Clock, Eye][i];
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {t.trustPoints.map((item, i) => {
+            const Icon = trustIcons[i];
             return (
-              <div key={i} className="reveal glass-panel p-7 group" style={{ transitionDelay: `${i * 70}ms` }}>
-                <div className="w-12 h-12 rounded-2xl bg-rose-soft flex items-center justify-center mb-5 transition-transform duration-500 group-hover:-rotate-6">
-                  <Icon size={20} strokeWidth={1.4} className="text-rose" />
+              <div key={item.title} className="glass-panel p-7 reveal" style={{ transitionDelay: `${i * 100}ms` }}>
+                <div className="w-12 h-12 rounded-2xl bg-rose-soft flex items-center justify-center mb-5">
+                  <Icon size={20} strokeWidth={1.5} className="text-rose" />
                 </div>
-                <h3 className="font-display text-2xl mb-2">{m.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+                <h3 className="font-display text-2xl mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{item.desc}</p>
               </div>
             );
           })}
         </div>
       </section>
 
-      <WaveDivider />
+      <WaveDivider flip />
 
-      {/* SERVICES */}
-      <section className="container-editorial py-28">
-        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
+      <section className="container-editorial py-24">
+        <div className="grid grid-cols-12 gap-8 items-end mb-14 reveal-stagger">
           <div className="col-span-12 md:col-span-7">
-            <p className="eyebrow mb-4 reveal-line">{t.s3eye}</p>
+            <p className="eyebrow mb-4 reveal-line">{t.serviceEyebrow}</p>
             <h2 className="display-lg reveal-line">
-              {t.s3titleA}<br />
-              <span className="italic text-rose">{t.s3titleB}</span>
+              {t.serviceTitleA}
+              <br />
+              <span className="italic text-rose">{t.serviceTitleB}</span>
             </h2>
           </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
-            <p className="text-muted-foreground leading-relaxed">{t.s3lead}</p>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 reveal-line">
+            <p className="text-muted-foreground leading-relaxed">{t.serviceLead}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((s, i) => (
-            <IconCard key={i} icon={serviceIcons[i]} title={s.title} desc={s.desc} variant={serviceVariants[i] === "default" ? undefined : serviceVariants[i]} index={i} />
+          {services.map((service, i) => (
+            <IconCard
+              key={service.title}
+              icon={service.icon}
+              title={service.title}
+              desc={service.desc}
+              variant={service.variant}
+              index={i}
+            />
           ))}
         </div>
 
-        <div className="mt-12 flex flex-wrap gap-4">
+        <div className="mt-10 flex flex-wrap gap-4">
           <Link to={path("web")} className="btn-ghost-soft btn-press">
             {t.moreWeb} <ArrowRight size={14} />
           </Link>
@@ -509,258 +564,202 @@ const Index = () => {
 
       <WaveDivider />
 
-      {/* STORYTELLING */}
-      <section className="container-editorial py-32 md:py-40 scene-fade">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="eyebrow mb-8 reveal-line">{t.storyEye}</p>
-          <h2 className="display-xl leading-[1.1] reveal-stagger">
-            <span className="reveal-line block">{t.storyA}</span>
-            <span className="reveal-line block italic text-rose">{t.storyB}</span>
-          </h2>
-          <p className="mt-12 text-xl md:text-2xl font-display italic text-foreground/80 leading-relaxed reveal">
-            {t.storyC}
-          </p>
-          <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto reveal" style={{ transitionDelay: "200ms" }}>
-            {t.storyD}
-          </p>
-        </div>
-      </section>
-
-      <WaveDivider flip />
-
-      {/* PROJECTS */}
-      <section className="container-editorial py-28 relative">
-        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
+      <section className="container-editorial py-24 relative overflow-hidden">
+        <div className="grid grid-cols-12 gap-8 items-start mb-14 reveal-stagger">
           <div className="col-span-12 md:col-span-7">
-            <p className="eyebrow mb-4 reveal-line">{t.s4eye}</p>
+            <p className="eyebrow mb-4 reveal-line">{t.projectsEyebrow}</p>
             <h2 className="display-lg reveal-line">
-              {t.s4titleA}<br />
-              <span className="italic">{t.s4titleB}</span>
+              {t.projectsTitleA}
+              <br />
+              <span className="italic">{t.projectsTitleB}</span>
             </h2>
           </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
-            <p className="text-lg leading-relaxed text-muted-foreground">{t.s4lead}</p>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 reveal-line">
+            <p className="text-muted-foreground leading-relaxed">{t.projectsLead}</p>
           </div>
         </div>
 
-        {/* Editorial asymmetric showcase */}
-        <div className="grid grid-cols-12 gap-6 md:gap-8">
-          {/* Featured large */}
-          <Link to={path("work")} className="reveal group block col-span-12 md:col-span-8 md:row-span-2" style={{ transitionDelay: "0ms" }}>
-            <div className="project-card frame-soft aspect-[16/11] mb-5">
-              <img src={projects[0].img} alt={`${projects[0].name}`} loading="lazy" />
-              <div className="project-overlay text-white">
-                <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{projects[0].category}</p>
-                <h3 className="font-display text-3xl md:text-4xl mt-2">{projects[0].name}</h3>
-                <p className="text-sm leading-relaxed opacity-90 mt-3 max-w-md">{projects[0].desc}</p>
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-start">
+          <div className="col-span-12 lg:col-span-7 reveal">
+            <div className="glass-panel p-4 md:p-6 relative overflow-hidden">
+              <div className="grid grid-cols-12 gap-4 items-center">
+                <div className="col-span-12 md:col-span-8">
+                  <div className="frame-soft aspect-[16/11] bg-card">
+                    <img src={dentalluxMockup.url} alt={t.projectItems[0].name} loading="lazy" />
+                  </div>
+                </div>
+                <div className="col-span-12 md:col-span-4 md:-ml-8 md:pt-16">
+                  <div className="frame-soft aspect-[4/5] bg-card shadow-[0_30px_60px_-30px_hsl(211_50%_30%_/_0.45)]">
+                    <img src={holzwerkMockup.url} alt={t.projectItems[1].name} loading="lazy" />
+                  </div>
+                </div>
               </div>
+              <div className="floating-tag top-6 left-6">{t.projectLabels[0]}</div>
+              <div className="floating-tag bottom-6 right-6">{t.projectLabels[1]}</div>
             </div>
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h3 className="font-display text-2xl md:text-3xl group-hover:text-rose transition-colors duration-500">{projects[0].name}</h3>
-                <p className="text-xs text-muted-foreground font-mono uppercase tracking-widest mt-1.5">{projects[0].category}</p>
-              </div>
-              <ArrowUpRight className="transition-transform group-hover:rotate-45 duration-500 text-muted-foreground group-hover:text-rose mt-1" size={22} />
-            </div>
-          </Link>
+          </div>
 
-          {/* Two stacked right */}
-          {[1, 2].map((i) => (
-            <Link
-              to={path("work")}
-              key={i}
-              className="reveal group block col-span-12 md:col-span-4"
-              style={{ transitionDelay: `${i * 120}ms` }}
-            >
-              <div className="project-card frame-soft aspect-[4/5] mb-4">
-                <img src={projects[i].img} alt={`${projects[i].name}`} loading="lazy" />
-                <div className="project-overlay text-white">
-                  <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{projects[i].category}</p>
-                  <h3 className="font-display text-2xl mt-2">{projects[i].name}</h3>
-                </div>
+          <div className="col-span-12 lg:col-span-5 space-y-6 reveal" style={{ transitionDelay: "120ms" }}>
+            <div className="panel-white">
+              <p className="eyebrow mb-4">Featured</p>
+              <h3 className="font-display text-3xl leading-tight mb-4">{t.featuredTitle}</h3>
+              <p className="text-muted-foreground leading-relaxed">{t.featuredText}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="frame-soft aspect-[4/5] glass-card p-2">
+                <img src={therapistMockup.url} alt={t.projectItems[2].name} loading="lazy" className="rounded-[1.25rem]" />
               </div>
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h4 className="font-display text-xl group-hover:text-rose transition-colors duration-500">{projects[i].name}</h4>
-                  <p className="text-[11px] text-muted-foreground font-mono uppercase tracking-widest mt-1">{projects[i].category}</p>
+              <div className="frame-soft aspect-[4/5] glass-card p-2 mt-8">
+                <img src={hartmannMockup.url} alt={t.projectItems[3].name} loading="lazy" className="rounded-[1.25rem]" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {t.projectItems.map((item, i) => (
+            <Link key={item.name} to={path("work")} className="group reveal block" style={{ transitionDelay: `${i * 80}ms` }}>
+              <div className="glass-panel p-4 h-full">
+                <div className="frame-soft aspect-[16/11] mb-5 bg-card">
+                  <img src={projectImages[i]} alt={item.name} loading="lazy" />
                 </div>
-                <ArrowUpRight className="transition-transform group-hover:rotate-45 duration-500 text-muted-foreground group-hover:text-rose" size={18} />
+                <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-muted-foreground mb-2">{item.category}</p>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="font-display text-2xl group-hover:text-rose transition-colors duration-500">{item.name}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mt-2">{item.desc}</p>
+                  </div>
+                  <ArrowUpRight className="mt-1 shrink-0 text-muted-foreground group-hover:text-rose transition-all duration-500 group-hover:rotate-45" size={18} />
+                </div>
               </div>
             </Link>
           ))}
-
-          {/* Three across bottom — different sizes */}
-          {[3, 4, 5].map((i, idx) => {
-            const span = idx === 1 ? "md:col-span-6" : "md:col-span-3";
-            const ratio = idx === 1 ? "aspect-[16/10]" : "aspect-[4/5]";
-            const offset = idx === 0 ? "md:mt-12" : idx === 2 ? "md:-mt-6" : "";
-            return (
-              <Link
-                to={path("work")}
-                key={i}
-                className={`reveal group block col-span-12 ${span} ${offset}`}
-                style={{ transitionDelay: `${(idx + 3) * 100}ms` }}
-              >
-                <div className={`project-card frame-soft ${ratio} mb-4`}>
-                  <img src={projects[i].img} alt={`${projects[i].name}`} loading="lazy" />
-                  <div className="project-overlay text-white">
-                    <p className="font-mono text-[11px] uppercase tracking-widest opacity-80">{projects[i].category}</p>
-                    <h3 className="font-display text-2xl mt-2">{projects[i].name}</h3>
-                  </div>
-                </div>
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <h4 className="font-display text-lg md:text-xl group-hover:text-rose transition-colors duration-500">{projects[i].name}</h4>
-                    <p className="text-[11px] text-muted-foreground font-mono uppercase tracking-widest mt-1">{projects[i].category}</p>
-                  </div>
-                  <ArrowUpRight className="transition-transform group-hover:rotate-45 duration-500 text-muted-foreground group-hover:text-rose" size={16} />
-                </div>
-              </Link>
-            );
-          })}
         </div>
 
-        <div className="mt-12">
+        <div className="mt-10 flex flex-wrap gap-3">
+          {t.projectLabels.map((label) => (
+            <span key={label} className="chip" >
+              {label}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-10">
           <Link to={path("work")} className="btn-pink btn-press">
             {t.allProjects} <ArrowUpRight size={16} />
           </Link>
         </div>
-        <Whisper className="mt-10">{t.whisper3}</Whisper>
       </section>
 
       <WaveDivider flip />
 
-      {/* CONTRAST */}
-      <section className="container-editorial py-28">
-        <div className="text-center mb-16 reveal-stagger">
-          <p className="eyebrow mb-4 reveal-line">{t.cEye}</p>
-          <h2 className="display-lg reveal-line">
-            {t.cTitleA} <span className="italic text-rose">{t.cTitleB}</span>
-          </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed reveal-line max-w-xl mx-auto">{t.cLead}</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 relative">
-          <div className="hidden md:block absolute left-1/2 top-6 bottom-6 w-px bg-gradient-to-b from-transparent via-rose/30 to-transparent" aria-hidden />
-
-          <div className="reveal card-soft bg-secondary/40 relative overflow-hidden">
-            <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">{t.cWithoutTitle}</p>
-            <ul className="space-y-4">
-              {t.cWithout.map((line, i) => (
-                <li key={i} className="flex items-start gap-3 text-foreground/70">
-                  <span className="mt-1.5 w-7 h-7 rounded-full bg-background/60 flex items-center justify-center shrink-0">
-                    <Minus size={14} strokeWidth={1.6} className="text-muted-foreground" />
-                  </span>
-                  <span className="leading-relaxed">{line}</span>
-                </li>
-              ))}
-            </ul>
+      <section className="container-editorial py-24">
+        <div className="grid grid-cols-12 gap-8 items-center">
+          <div className="col-span-12 lg:col-span-5 reveal">
+            <div className="frame-soft aspect-[4/5] glass-card p-3 max-w-[420px]">
+              <img src={editorialPortrait.url} alt={t.heroStudioAlt} loading="lazy" className="rounded-[1.5rem]" />
+            </div>
           </div>
-
-          <div className="reveal card-soft bg-rose-soft/40 relative overflow-hidden" style={{ transitionDelay: "120ms" }}>
-            <p className="font-mono text-[11px] uppercase tracking-widest text-rose mb-4">{t.cWithTitle}</p>
-            <ul className="space-y-4">
-              {t.cWith.map((line, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-7 h-7 rounded-full bg-rose/15 flex items-center justify-center shrink-0">
-                    <Plus size={14} strokeWidth={1.6} className="text-rose" />
-                  </span>
-                  <span className="leading-relaxed">{line}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <WaveDivider flip />
-
-      {/* PROCESS */}
-      <section className="container-editorial py-28">
-        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
-          <div className="col-span-12 md:col-span-7">
-            <p className="eyebrow mb-4 reveal-line">{t.s5eye}</p>
+          <div className="col-span-12 lg:col-span-7 reveal-stagger">
+            <p className="eyebrow mb-4 reveal-line">{t.regionEyebrow}</p>
             <h2 className="display-lg reveal-line">
-              {t.s5titleA}<br />
-              <span className="italic text-rose">{t.s5titleB}</span>
+              {t.regionTitleA}
+              <br />
+              <span className="italic text-rose">{t.regionTitleB}</span>
+            </h2>
+            <p className="mt-6 text-muted-foreground leading-relaxed max-w-2xl reveal-line">{t.regionLead}</p>
+            <div className="mt-8 space-y-3 reveal-line">
+              {t.regionPoints.map((point) => (
+                <div key={point} className="glass-panel px-5 py-4 flex items-center gap-3">
+                  <MapPin size={16} className="text-rose shrink-0" />
+                  <span>{point}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <WaveDivider />
+
+      <section className="container-editorial py-24">
+        <div className="grid grid-cols-12 gap-8 items-end mb-14 reveal-stagger">
+          <div className="col-span-12 md:col-span-7">
+            <p className="eyebrow mb-4 reveal-line">{t.processEyebrow}</p>
+            <h2 className="display-lg reveal-line">
+              {t.processTitleA}
+              <br />
+              <span className="italic text-rose">{t.processTitleB}</span>
             </h2>
           </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
-            <p className="text-muted-foreground leading-relaxed">{t.s5lead}</p>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 reveal-line">
+            <p className="text-muted-foreground leading-relaxed">{t.processLead}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {t.process.map((p, i) => {
-            const Icon = processIcons[i];
-            return (
-              <div key={i} className="reveal glass-panel p-7" style={{ transitionDelay: `${i * 90}ms` }}>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-11 h-11 rounded-2xl bg-rose-soft flex items-center justify-center">
-                    <Icon size={20} strokeWidth={1.5} className="text-rose" />
-                  </div>
-                  <span className="font-mono text-xs text-muted-foreground tracking-widest">{p.step}</span>
-                </div>
-                <h3 className="font-display text-2xl mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <WaveDivider />
-
-      {/* WHY */}
-      <section className="container-editorial py-28">
-        <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
-          <div className="col-span-12 md:col-span-7">
-            <p className="eyebrow mb-4 reveal-line">{t.s6eye}</p>
-            <h2 className="display-lg reveal-line">
-              {t.s6titleA}<br />
-              <span className="italic text-rose">{t.s6titleB}</span>
-            </h2>
-          </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end reveal-line">
-            <p className="text-muted-foreground leading-relaxed">{t.s6lead}</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {t.why.map((p, i) => {
-            const Icon = whyIcons[i];
-            return (
-              <div key={i} className="reveal card-soft" style={{ transitionDelay: `${i * 80}ms` }}>
-                <div className="w-11 h-11 rounded-2xl bg-secondary flex items-center justify-center mb-5">
-                  <Icon size={20} strokeWidth={1.5} className="text-foreground" />
-                </div>
-                <h3 className="font-display text-xl md:text-2xl mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-              </div>
-            );
-          })}
+          {t.process.map((step, i) => (
+            <div key={step.title} className="glass-panel p-7 reveal" style={{ transitionDelay: `${i * 90}ms` }}>
+              <p className="eyebrow mb-4">0{i + 1}</p>
+              <h3 className="font-display text-2xl mb-3">{step.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       <WaveDivider flip />
 
-      <EinblickSection />
+      <section className="container-editorial py-24">
+        <div className="grid grid-cols-12 gap-8 items-start mb-14 reveal-stagger">
+          <div className="col-span-12 md:col-span-7">
+            <p className="eyebrow mb-4 reveal-line">{t.whyEyebrow}</p>
+            <h2 className="display-lg reveal-line">
+              {t.whyTitleA}
+              <br />
+              <span className="italic text-rose">{t.whyTitleB}</span>
+            </h2>
+          </div>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 reveal-line">
+            <p className="text-muted-foreground leading-relaxed">{t.whyLead}</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {t.why.map((item, i) => {
+            const Icon = whyIcons[i];
+            return (
+              <div key={item.title} className="card-soft reveal" style={{ transitionDelay: `${i * 90}ms` }}>
+                <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center mb-5">
+                  <Icon size={20} strokeWidth={1.5} className="text-foreground" />
+                </div>
+                <h3 className="font-display text-2xl mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{item.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
       <WaveDivider />
+
+      <EinblickSection />
+
+      <WaveDivider flip />
 
       <Testimonials />
 
       <WaveDivider />
 
-      {/* ENDING */}
       <section className="ending-scene scene-fade">
         <div className="container-editorial relative">
           <p className="eyebrow mb-6 reveal-line">{t.endEye}</p>
           <h2 className="ending-headline">
-            {t.endA}<br />
-            {t.endBefore}<span className="italic text-rose marker">{t.endB}</span>
+            {t.endA}
+            <br />
+            <span className="italic text-rose marker">{t.endB}</span>
           </h2>
-          <p className="mt-8 max-w-xl mx-auto text-muted-foreground leading-relaxed">{t.endLead}</p>
+          <p className="mt-8 max-w-2xl mx-auto text-muted-foreground leading-relaxed">{t.endLead}</p>
           <div className="mt-10 flex justify-center">
             <a href="#kontakt" className="btn-pink btn-press">
               {t.endCta} <ArrowUpRight size={16} />
