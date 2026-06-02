@@ -23,16 +23,30 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
-import closePortrait from "@/assets/uploads/marianna-portrait-close.jpeg.asset.json";
-import editorialPortrait from "@/assets/uploads/marianna-portrait-editorial.jpeg.asset.json";
-import holzwerkMockup from "@/assets/uploads/holzwerk-mockup.png.asset.json";
-import therapistMockup from "@/assets/uploads/therapist-mockup.png.asset.json";
-import hartmannMockup from "@/assets/uploads/hartmann-mockup.png.asset.json";
-import autowerkMockup from "@/assets/uploads/autowerk-mockup.png.asset.json";
-import nuernbergGuideMockup from "@/assets/uploads/nuernberg-guide-mockup.png.asset.json";
-import muellerSohnMockup from "@/assets/uploads/mueller-sohn-mockup.png.asset.json";
-import dentalluxMockup from "@/assets/uploads/dentallux-mockup.png.asset.json";
-import creditpathMockup from "@/assets/uploads/creditpath-mockup.png.asset.json";
+import portraitWindow from "@/assets/uploads/marianna-portrait-window.jpeg.asset.json";
+import portraitPampas from "@/assets/uploads/marianna-portrait-pampas.jpeg.asset.json";
+import portraitSuit from "@/assets/uploads/marianna-portrait-suit.jpeg.asset.json";
+import portraitLaptop from "@/assets/uploads/marianna-laptop-coffee.jpeg.asset.json";
+import dentalluxImg from "@/assets/projects/dentallux.png";
+import raumformImg from "@/assets/projects/raumform.png";
+import atelierNovaImg from "@/assets/projects/atelier-nova.png";
+import neinStudioImg from "@/assets/projects/nein-studio.png";
+import liorImg from "@/assets/projects/lior-friseur.png";
+import fourElementsImg from "@/assets/projects/four-elements.png";
+import pfotenhausImg from "@/assets/projects/pfotenhaus.png";
+import lushBloomImg from "@/assets/projects/lush-bloom.png";
+
+// Aliases preserved for readability across the page
+const editorialPortrait = { url: portraitWindow.url };
+const closePortrait = { url: portraitPampas.url };
+const dentalluxMockup = { url: dentalluxImg };
+const holzwerkMockup = { url: raumformImg };
+const therapistMockup = { url: atelierNovaImg };
+const hartmannMockup = { url: neinStudioImg };
+const autowerkMockup = { url: liorImg };
+const muellerSohnMockup = { url: fourElementsImg };
+const nuernbergGuideMockup = { url: pfotenhausImg };
+const creditpathMockup = { url: lushBloomImg };
 
 const Index = () => {
   const { lang, path } = useLang();
@@ -460,31 +474,35 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-7 relative min-h-[620px] lg:min-h-[720px] reveal">
-            <div className="absolute top-0 right-0 w-[44%] md:w-[38%] frame-soft glass-card p-2 animate-float-slow">
-              <div className="frame-soft aspect-[4/5]">
-                <img src={editorialPortrait.url} alt={t.heroStudioAlt} loading="eager" />
+          <div className="col-span-12 lg:col-span-7 relative min-h-[640px] lg:min-h-[760px] reveal">
+            {/* Editorial portrait — top right */}
+            <div className="absolute top-0 right-[2%] w-[42%] md:w-[34%] frame-soft glass-card p-2 animate-float-slow shadow-[0_40px_80px_-40px_hsl(220_40%_30%_/_0.35)]">
+              <div className="frame-soft aspect-[3/4]">
+                <img src={portraitSuit.url} alt={t.heroStudioAlt} loading="eager" className="object-cover" />
               </div>
             </div>
 
-            <div className="absolute top-[18%] left-[2%] w-[72%] md:w-[70%] reveal" style={{ transitionDelay: "120ms" }}>
+            {/* Main laptop mockup — center-left */}
+            <div className="absolute top-[20%] left-[0] md:left-[2%] w-[74%] md:w-[68%] reveal" style={{ transitionDelay: "120ms" }}>
               <LaptopMockup screens={heroScreens} alt={t.heroMockupAlt} interval={3200} />
             </div>
 
-            <div className="absolute bottom-[6%] right-[6%] w-[34%] md:w-[28%] frame-soft glass-card p-2 animate-float-slower reveal" style={{ transitionDelay: "240ms" }}>
-              <div className="frame-soft aspect-[4/5] bg-card">
-                <img src={closePortrait.url} alt={t.heroPhotoAlt} loading="eager" />
+            {/* Second portrait — bottom right */}
+            <div className="absolute bottom-[4%] right-[4%] w-[36%] md:w-[30%] frame-soft glass-card p-2 animate-float-slower reveal shadow-[0_40px_80px_-40px_hsl(220_40%_30%_/_0.35)]" style={{ transitionDelay: "240ms" }}>
+              <div className="frame-soft aspect-[3/4] bg-card">
+                <img src={portraitLaptop.url} alt={t.heroPhotoAlt} loading="eager" className="object-cover" />
               </div>
             </div>
 
-            <div className="absolute bottom-[20%] left-[0] md:left-[4%] w-[34%] md:w-[28%] frame-soft glass-card p-2 reveal" style={{ transitionDelay: "360ms" }}>
-              <div className="frame-soft aspect-[10/14] bg-card">
-                <img src={dentalluxMockup.url} alt="Dentallux project mockup" loading="lazy" />
+            {/* Floating phone-style project tile */}
+            <div className="absolute bottom-[18%] left-[2%] md:left-[6%] w-[26%] md:w-[22%] frame-soft glass-card p-2 reveal animate-float-slow shadow-[0_30px_60px_-30px_hsl(220_40%_30%_/_0.4)]" style={{ transitionDelay: "360ms" }}>
+              <div className="frame-soft aspect-[9/16] bg-card">
+                <img src={dentalluxMockup.url} alt="Dentallux project mockup" loading="lazy" className="object-cover" />
               </div>
             </div>
 
-            <div className="floating-tag top-[8%] left-[2%]">SEO · UX/UI · Performance</div>
-            <div className="floating-tag bottom-[8%] right-[24%]">Nürnberg · Bayern · Deutschland</div>
+            <div className="floating-tag top-[6%] left-[2%]">SEO · UX/UI · Performance</div>
+            <div className="floating-tag bottom-[6%] right-[28%]">Nürnberg · Bayern · DACH</div>
           </div>
         </div>
       </section>
