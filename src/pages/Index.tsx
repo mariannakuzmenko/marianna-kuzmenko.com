@@ -23,16 +23,30 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
-import closePortrait from "@/assets/uploads/marianna-portrait-close.jpeg.asset.json";
-import editorialPortrait from "@/assets/uploads/marianna-portrait-editorial.jpeg.asset.json";
-import holzwerkMockup from "@/assets/uploads/holzwerk-mockup.png.asset.json";
-import therapistMockup from "@/assets/uploads/therapist-mockup.png.asset.json";
-import hartmannMockup from "@/assets/uploads/hartmann-mockup.png.asset.json";
-import autowerkMockup from "@/assets/uploads/autowerk-mockup.png.asset.json";
-import nuernbergGuideMockup from "@/assets/uploads/nuernberg-guide-mockup.png.asset.json";
-import muellerSohnMockup from "@/assets/uploads/mueller-sohn-mockup.png.asset.json";
-import dentalluxMockup from "@/assets/uploads/dentallux-mockup.png.asset.json";
-import creditpathMockup from "@/assets/uploads/creditpath-mockup.png.asset.json";
+import portraitWindow from "@/assets/uploads/marianna-portrait-window.jpeg.asset.json";
+import portraitPampas from "@/assets/uploads/marianna-portrait-pampas.jpeg.asset.json";
+import portraitSuit from "@/assets/uploads/marianna-portrait-suit.jpeg.asset.json";
+import portraitLaptop from "@/assets/uploads/marianna-laptop-coffee.jpeg.asset.json";
+import dentalluxImg from "@/assets/projects/dentallux.png";
+import raumformImg from "@/assets/projects/raumform.png";
+import atelierNovaImg from "@/assets/projects/atelier-nova.png";
+import neinStudioImg from "@/assets/projects/nein-studio.png";
+import liorImg from "@/assets/projects/lior-friseur.png";
+import fourElementsImg from "@/assets/projects/four-elements.png";
+import pfotenhausImg from "@/assets/projects/pfotenhaus.png";
+import lushBloomImg from "@/assets/projects/lush-bloom.png";
+
+// Aliases preserved for readability across the page
+const editorialPortrait = { url: portraitWindow.url };
+const closePortrait = { url: portraitPampas.url };
+const dentalluxMockup = { url: dentalluxImg };
+const holzwerkMockup = { url: raumformImg };
+const therapistMockup = { url: atelierNovaImg };
+const hartmannMockup = { url: neinStudioImg };
+const autowerkMockup = { url: liorImg };
+const muellerSohnMockup = { url: fourElementsImg };
+const nuernbergGuideMockup = { url: pfotenhausImg };
+const creditpathMockup = { url: lushBloomImg };
 
 const Index = () => {
   const { lang, path } = useLang();
