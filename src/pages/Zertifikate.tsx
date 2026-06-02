@@ -3,13 +3,13 @@ import { Seo } from "@/components/site/Seo";
 import { GraduationCap, Award } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
-import sheReact from "@/assets/certificates/shecodes-react.png.asset.json";
-import sheResponsive from "@/assets/certificates/shecodes-responsive.png.asset.json";
-import shePlus from "@/assets/certificates/shecodes-plus.png.asset.json";
-import sheBasics from "@/assets/certificates/shecodes-basics.png.asset.json";
-import geniusUxUi from "@/assets/certificates/genius-uxui.jpeg.asset.json";
-import canShe from "@/assets/certificates/canshecode-html-css.png.asset.json";
-import para from "@/assets/certificates/para-marketing.jpeg.asset.json";
+import sheReact from "@/assets/certificates/shecodes-react.png";
+import sheResponsive from "@/assets/certificates/shecodes-responsive.png";
+import shePlus from "@/assets/certificates/shecodes-plus.png";
+import sheBasics from "@/assets/certificates/shecodes-basics.png";
+import geniusUxUi from "@/assets/certificates/genius-uxui.jpg";
+import canShe from "@/assets/certificates/canshecode-html-css.png";
+import para from "@/assets/certificates/para-marketing.jpg";
 
 interface Cert {
   title: string;
