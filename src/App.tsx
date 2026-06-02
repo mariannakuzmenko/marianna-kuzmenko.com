@@ -12,6 +12,12 @@ import SeoPage from "./pages/SeoPage.tsx";
 import Projekte from "./pages/Projekte.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
+import Preise from "./pages/Preise.tsx";
+import Zertifikate from "./pages/Zertifikate.tsx";
+import Faq from "./pages/Faq.tsx";
+import Impressum from "./pages/Impressum.tsx";
+import Datenschutz from "./pages/Datenschutz.tsx";
+import Agb from "./pages/Agb.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -33,6 +39,12 @@ const App = () => (
               <Route path="/projekte" element={<Projekte />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/preise" element={<Preise />} />
+              <Route path="/zertifikate" element={<Zertifikate />} />
+              <Route path="/faq" element={<Faq />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="/datenschutz" element={<Datenschutz />} />
+              <Route path="/agb" element={<Agb />} />
 
               {/* English */}
               <Route path="/en" element={<Index />} />
@@ -42,6 +54,9 @@ const App = () => (
               <Route path="/en/projects" element={<Projekte />} />
               <Route path="/en/blog" element={<Blog />} />
               <Route path="/en/blog/:slug" element={<BlogPost />} />
+              <Route path="/en/pricing" element={<Preise />} />
+              <Route path="/en/certificates" element={<Zertifikate />} />
+              <Route path="/en/faq" element={<Faq />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>
