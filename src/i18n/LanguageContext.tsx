@@ -15,6 +15,12 @@ export const ROUTES: Record<string, { de: string; en: string }> = {
   seo:     { de: "/seo",             en: "/en/seo" },
   work:    { de: "/projekte",        en: "/en/projects" },
   blog:    { de: "/blog",            en: "/en/blog" },
+  pricing: { de: "/preise",          en: "/en/pricing" },
+  certs:   { de: "/zertifikate",     en: "/en/certificates" },
+  faq:     { de: "/faq",             en: "/en/faq" },
+  imprint:    { de: "/impressum",    en: "/impressum" },
+  privacy:    { de: "/datenschutz",  en: "/datenschutz" },
+  terms:      { de: "/agb",          en: "/agb" },
 };
 
 interface Ctx {

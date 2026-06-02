@@ -35,12 +35,21 @@ export const Footer = () => {
           <div className="md:col-span-3">
             <p className="eyebrow mb-4">{pick(lang, "Navigation", "Navigation")}</p>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to={path("home")}  className="underline-draw">{pick(lang, "Startseite", "Home")}</Link></li>
-              <li><Link to={path("about")} className="underline-draw">{pick(lang, "Über mich", "About")}</Link></li>
-              <li><Link to={path("web")}   className="underline-draw">{pick(lang, "Webentwicklung", "Web Development")}</Link></li>
-              <li><Link to={path("seo")}   className="underline-draw">{pick(lang, "SEO Optimierung", "SEO Optimization")}</Link></li>
-              <li><Link to={path("work")}  className="underline-draw">{pick(lang, "Projekte", "Work")}</Link></li>
-              <li><Link to={path("blog")}  className="underline-draw">Blog</Link></li>
+              <li><Link to={path("home")}    className="underline-draw">{pick(lang, "Startseite", "Home")}</Link></li>
+              <li><Link to={path("about")}   className="underline-draw">{pick(lang, "Über mich", "About")}</Link></li>
+              <li><Link to={path("web")}     className="underline-draw">{pick(lang, "Webentwicklung", "Web Development")}</Link></li>
+              <li><Link to={path("seo")}     className="underline-draw">{pick(lang, "SEO Optimierung", "SEO Optimization")}</Link></li>
+              <li><Link to={path("work")}    className="underline-draw">{pick(lang, "Projekte", "Work")}</Link></li>
+              <li><Link to={path("pricing")} className="underline-draw">{pick(lang, "Preise", "Pricing")}</Link></li>
+              <li><Link to={path("certs")}   className="underline-draw">{pick(lang, "Zertifikate", "Certificates")}</Link></li>
+              <li><Link to={path("faq")}     className="underline-draw">FAQ</Link></li>
+              <li><Link to={path("blog")}    className="underline-draw">Blog</Link></li>
+            </ul>
+            <p className="eyebrow mt-8 mb-4">{pick(lang, "Rechtliches", "Legal")}</p>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link to={path("imprint")} className="underline-draw">Impressum</Link></li>
+              <li><Link to={path("privacy")} className="underline-draw">{pick(lang, "Datenschutz", "Privacy")}</Link></li>
+              <li><Link to={path("terms")}   className="underline-draw">AGB</Link></li>
             </ul>
           </div>
 
