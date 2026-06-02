@@ -9,12 +9,14 @@ export const Nav = () => {
   const { lang, path, altPath } = useLang();
 
   const links = [
-    { to: path("home"),  label: pick(lang, "Start", "Home") },
-    { to: path("about"), label: pick(lang, "Über mich", "About") },
-    { to: path("web"),   label: pick(lang, "Web Development", "Web Development") },
-    { to: path("seo"),   label: pick(lang, "SEO", "SEO") },
-    { to: path("work"),  label: pick(lang, "Projekte", "Work") },
-    { to: path("blog"),  label: pick(lang, "Blog", "Blog") },
+    { to: path("home"),    label: pick(lang, "Start", "Home") },
+    { to: path("about"),   label: pick(lang, "Über mich", "About") },
+    { to: path("web"),     label: pick(lang, "Web Development", "Web Development") },
+    { to: path("seo"),     label: pick(lang, "SEO", "SEO") },
+    { to: path("work"),    label: pick(lang, "Projekte", "Work") },
+    { to: path("pricing"), label: pick(lang, "Preise", "Pricing") },
+    { to: path("faq"),     label: pick(lang, "FAQ", "FAQ") },
+    { to: path("blog"),    label: pick(lang, "Blog", "Blog") },
   ];
 
   const ctaLabel = pick(lang, "Projekt starten →", "Start a project →");
