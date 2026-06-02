@@ -23,13 +23,13 @@ const Zertifikate = () => {
   const { lang } = useLang();
 
   const certs: Cert[] = [
-    { title: "UX/UI Designer Diploma", issuer: "Genius.Space", date: "2024", img: geniusUxUi.url, tag: pick(lang, "UX/UI Design", "UX/UI Design") },
-    { title: "Integrated Internet Marketing", issuer: "Para — School of Digital Skills", date: "Sep 2025", img: para.url, tag: pick(lang, "Marketing & SEO", "Marketing & SEO") },
-    { title: "React Development", issuer: "SheCodes", date: "Aug 2023", img: sheReact.url, tag: pick(lang, "Frontend", "Frontend") },
-    { title: "Responsive Web Development", issuer: "SheCodes", date: "Jan 2023", img: sheResponsive.url, tag: pick(lang, "Responsive Design", "Responsive Design") },
-    { title: "Introduction to Web Development (HTML5, CSS3)", issuer: "Can She Code Inc., Montreal", date: "Oct 2022", img: canShe.url, tag: pick(lang, "Web Development", "Web Development") },
-    { title: "Web Development", issuer: "SheCodes Plus", date: "Aug 2022", img: shePlus.url, tag: pick(lang, "Web Development", "Web Development") },
-    { title: "Introduction to Coding", issuer: "SheCodes Basics", date: "Jun 2022", img: sheBasics.url, tag: pick(lang, "Foundations", "Foundations") },
+    { title: "UX/UI Designer Diploma", issuer: "Genius.Space", date: "2024", img: geniusUxUi, tag: pick(lang, "UX/UI Design", "UX/UI Design") },
+    { title: "Integrated Internet Marketing", issuer: "Para — School of Digital Skills", date: "Sep 2025", img: para, tag: pick(lang, "Marketing & SEO", "Marketing & SEO") },
+    { title: "React Development", issuer: "SheCodes", date: "Aug 2023", img: sheReact, tag: pick(lang, "Frontend", "Frontend") },
+    { title: "Responsive Web Development", issuer: "SheCodes", date: "Jan 2023", img: sheResponsive, tag: pick(lang, "Responsive Design", "Responsive Design") },
+    { title: "Introduction to Web Development (HTML5, CSS3)", issuer: "Can She Code Inc., Montreal", date: "Oct 2022", img: canShe, tag: pick(lang, "Web Development", "Web Development") },
+    { title: "Web Development", issuer: "SheCodes Plus", date: "Aug 2022", img: shePlus, tag: pick(lang, "Web Development", "Web Development") },
+    { title: "Introduction to Coding", issuer: "SheCodes Basics", date: "Jun 2022", img: sheBasics, tag: pick(lang, "Foundations", "Foundations") },
   ];
 
   const t = pick(lang,
