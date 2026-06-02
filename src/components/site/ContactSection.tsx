@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import { z } from "zod";
 import { Send, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import editorialPortrait from "@/assets/uploads/marianna-portrait-editorial.jpeg.asset.json";
+import editorialPortrait from "@/assets/uploads/marianna-portrait-window.jpeg.asset.json";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 export const ContactSection = () => {
