@@ -23,10 +23,10 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
-import portraitWindow from "@/assets/uploads/marianna-portrait-window.jpeg.asset.json";
-import portraitPampas from "@/assets/uploads/marianna-portrait-pampas.jpeg.asset.json";
-import portraitSuit from "@/assets/uploads/marianna-portrait-suit.jpeg.asset.json";
-import portraitLaptop from "@/assets/uploads/marianna-laptop-coffee.jpeg.asset.json";
+import portraitWindowSrc from "@/assets/portraits/marianna-portrait-window.jpeg";
+import portraitPampasSrc from "@/assets/portraits/marianna-portrait-pampas.jpeg";
+import portraitSuitSrc from "@/assets/portraits/marianna-portrait-suit.jpeg";
+import portraitLaptopSrc from "@/assets/portraits/marianna-laptop-coffee.jpeg";
 import dentalluxImg from "@/assets/projects/dentallux.png";
 import raumformImg from "@/assets/projects/raumform.png";
 import atelierNovaImg from "@/assets/projects/atelier-nova.png";
@@ -37,8 +37,11 @@ import pfotenhausImg from "@/assets/projects/pfotenhaus.png";
 import lushBloomImg from "@/assets/projects/lush-bloom.png";
 
 // Aliases preserved for readability across the page
-const editorialPortrait = { url: portraitWindow.url };
-const closePortrait = { url: portraitPampas.url };
+const portraitWindow = { url: portraitWindowSrc };
+const portraitSuit = { url: portraitSuitSrc };
+const portraitLaptop = { url: portraitLaptopSrc };
+const editorialPortrait = { url: portraitWindowSrc };
+const closePortrait = { url: portraitPampasSrc };
 const dentalluxMockup = { url: dentalluxImg };
 const holzwerkMockup = { url: raumformImg };
 const therapistMockup = { url: atelierNovaImg };
