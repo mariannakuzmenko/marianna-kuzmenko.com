@@ -1,6 +1,7 @@
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { GraduationCap, Award } from "lucide-react";
+import { GraduationCap, Award, X, Maximize2 } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 import sheReact from "@/assets/certificates/shecodes-react.png";
