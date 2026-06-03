@@ -1,5 +1,7 @@
-import editorialPortrait from "@/assets/uploads/marianna-portrait-window.jpeg.asset.json";
-import closePortrait from "@/assets/uploads/marianna-portrait-pampas.jpeg.asset.json";
+import editorialPortraitSrc from "@/assets/portraits/marianna-portrait-window.jpeg";
+import closePortraitSrc from "@/assets/portraits/marianna-portrait-pampas.jpeg";
+const editorialPortrait = { url: editorialPortraitSrc };
+const closePortrait = { url: closePortraitSrc };
 import dentalluxImg from "@/assets/projects/dentallux.png";
 import lushImg from "@/assets/projects/lush-bloom.png";
 import pfotenhausImg from "@/assets/projects/pfotenhaus.png";
