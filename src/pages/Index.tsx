@@ -442,73 +442,23 @@ const Index = () => {
         pathEn={ROUTES.home.en}
       />
 
-      <section className="container-editorial pt-10 md:pt-16 pb-24 relative overflow-hidden">
-        <div className="blob blob-pink animate-float-slow" style={{ width: 420, height: 420, top: "-120px", right: "-110px" }} />
-        <div className="blob blob-blue animate-float-slower" style={{ width: 360, height: 360, bottom: "40px", left: "-120px" }} />
-
-        <div className="grid grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
-          <div className="col-span-12 lg:col-span-5 reveal-stagger">
-            <p className="eyebrow mb-5 reveal-line">{t.heroEyebrow}</p>
-            <h1 className="display-lg reveal-line max-w-[14ch]">{t.heroTitle}</h1>
-            <p className="mt-7 text-base md:text-lg leading-relaxed text-foreground/85 max-w-xl reveal-line">
-              {t.heroLead}
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-2 reveal-line">
-              {t.heroMeta.map((item) => (
-                <span key={item} className="chip-pink">
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-4 reveal-line">
-              <Link to={path("work")} className="btn-pink btn-press">
-                {t.ctaPrimary} <ArrowUpRight size={16} />
-              </Link>
-              <a href="#kontakt" className="btn-ghost-soft btn-press">
-                {t.ctaSecondary} <ArrowRight size={16} />
-              </a>
-            </div>
-
-            <div className="mt-10 glass-panel p-6 reveal-line">
-              <p className="eyebrow mb-3">{t.heroCardTitle}</p>
-              <p className="leading-relaxed text-foreground/80">{t.heroCardText}</p>
-            </div>
-          </div>
-
-          <div className="col-span-12 lg:col-span-7 relative min-h-[640px] lg:min-h-[760px] reveal">
-            {/* Editorial portrait — top right */}
-            <div className="absolute top-0 right-[2%] w-[42%] md:w-[34%] frame-soft glass-card p-2 animate-float-slow shadow-[0_40px_80px_-40px_hsl(220_40%_30%_/_0.35)]">
-              <div className="frame-soft aspect-[3/4]">
-                <img src={portraitSuit.url} alt={t.heroStudioAlt} loading="eager" className="object-cover" />
-              </div>
-            </div>
-
-            {/* Main laptop mockup — center-left */}
-            <div className="absolute top-[20%] left-[0] md:left-[2%] w-[74%] md:w-[68%] reveal" style={{ transitionDelay: "120ms" }}>
-              <LaptopMockup screens={heroScreens} alt={t.heroMockupAlt} interval={3200} />
-            </div>
-
-            {/* Second portrait — bottom right */}
-            <div className="absolute bottom-[4%] right-[4%] w-[36%] md:w-[30%] frame-soft glass-card p-2 animate-float-slower reveal shadow-[0_40px_80px_-40px_hsl(220_40%_30%_/_0.35)]" style={{ transitionDelay: "240ms" }}>
-              <div className="frame-soft aspect-[3/4] bg-card">
-                <img src={portraitLaptop.url} alt={t.heroPhotoAlt} loading="eager" className="object-cover" />
-              </div>
-            </div>
-
-            {/* Floating phone-style project tile */}
-            <div className="absolute bottom-[18%] left-[2%] md:left-[6%] w-[26%] md:w-[22%] frame-soft glass-card p-2 reveal animate-float-slow shadow-[0_30px_60px_-30px_hsl(220_40%_30%_/_0.4)]" style={{ transitionDelay: "360ms" }}>
-              <div className="frame-soft aspect-[9/16] bg-card">
-                <img src={dentalluxMockup.url} alt="Dentallux project mockup" loading="lazy" className="object-cover" />
-              </div>
-            </div>
-
-            <div className="floating-tag top-[6%] left-[2%]">SEO · UX/UI · Performance</div>
-            <div className="floating-tag bottom-[6%] right-[28%]">Nürnberg · Bayern · DACH</div>
-          </div>
-        </div>
-      </section>
+      <HeroStudio
+        eyebrow={t.heroEyebrow}
+        titleParts={
+          lang === "de"
+            ? { plain: "Design.", accent: "Develop.", tail: "Rank." }
+            : { plain: "Design.", accent: "Develop.", tail: "Rank." }
+        }
+        lead={t.heroLead}
+        metaTags={t.heroMeta}
+        ctaPrimary={t.ctaPrimary}
+        ctaSecondary={t.ctaSecondary}
+        ctaPrimaryHref={path("work")}
+        ctaSecondaryHref="#kontakt"
+        browserImage={heroScreens[0]}
+        browserImageAlt={t.heroMockupAlt}
+        boardImages={[holzwerkMockup.url, therapistMockup.url, hartmannMockup.url]}
+      />
 
       <WaveDivider />
 
