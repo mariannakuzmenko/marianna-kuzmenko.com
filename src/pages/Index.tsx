@@ -5,7 +5,7 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { ContactSection } from "@/components/site/ContactSection";
 import { WaveDivider } from "@/components/site/WaveDivider";
 import { LaptopMockup } from "@/components/site/LaptopMockup";
-import { HeroStudio } from "@/components/site/HeroStudio";
+import { HeroBlueprint } from "@/components/site/HeroBlueprint";
 import { EinblickSection } from "@/components/site/EinblickSection";
 import { Link } from "react-router-dom";
 import {
