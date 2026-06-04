@@ -460,7 +460,7 @@ export const HeroBlueprint = (p: HeroBlueprintProps) => {
 interface ZoneCardProps {
   index: string;
   label: string;
-  icon: React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
+  icon: LucideIcon;
   align?: "left" | "right";
   children: React.ReactNode;
 }
