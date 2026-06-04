@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowRight, TrendingUp, Layers, Code2, Search } from "lucide-react";
+import { ArrowUpRight, ArrowRight, TrendingUp, Layers, Code2, Search, type LucideIcon } from "lucide-react";
 
 interface HeroBlueprintProps {
   eyebrow: string;
