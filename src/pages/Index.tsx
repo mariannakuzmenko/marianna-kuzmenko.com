@@ -443,12 +443,12 @@ const Index = () => {
         pathEn={ROUTES.home.en}
       />
 
-      <HeroStudio
+      <HeroBlueprint
         eyebrow={t.heroEyebrow}
         titleParts={
           lang === "de"
-            ? { plain: "Design.", accent: "Develop.", tail: "Rank." }
-            : { plain: "Design.", accent: "Develop.", tail: "Rank." }
+            ? { l1: "Design.", l2: "Entwicklung.", l3: "Wachstum." }
+            : { l1: "Design.", l2: "Development.", l3: "Growth." }
         }
         lead={t.heroLead}
         metaTags={t.heroMeta}
@@ -456,10 +456,18 @@ const Index = () => {
         ctaSecondary={t.ctaSecondary}
         ctaPrimaryHref={path("work")}
         ctaSecondaryHref="#kontakt"
-        browserImage={heroScreens[0]}
-        browserImageAlt={t.heroMockupAlt}
-        boardImages={[holzwerkMockup.url, therapistMockup.url, hartmannMockup.url]}
+        zoneLabels={
+          lang === "de"
+            ? { design: "UX/UI Design", develop: "Webentwicklung", growth: "SEO & Strategie" }
+            : { design: "UX/UI Design", develop: "Development", growth: "SEO & Growth" }
+        }
+        flowLabels={
+          lang === "de"
+            ? { idea: "Idee", design: "Design", build: "Entwicklung", grow: "Wachstum" }
+            : { idea: "Idea", design: "Design", build: "Build", grow: "Grow" }
+        }
       />
+
 
       <WaveDivider />
 
