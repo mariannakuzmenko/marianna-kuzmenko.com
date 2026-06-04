@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { FloatingFeedback } from "./FloatingFeedback";
+import { StickyCta } from "./StickyCta";
 import { BreathingBackground } from "./BreathingBackground";
 import { ScrollLine } from "./ScrollLine";
 import { useReveal } from "@/hooks/useReveal";
@@ -15,7 +15,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       <div className="relative z-10">
         <Nav />
         <main className="pt-20 md:pt-28">{children}</main>
-        <FloatingFeedback />
+        <StickyCta />
         <Footer />
       </div>
     </div>
