@@ -7,6 +7,11 @@ import { WaveDivider } from "@/components/site/WaveDivider";
 import { LaptopMockup } from "@/components/site/LaptopMockup";
 import { HeroBlueprint } from "@/components/site/HeroBlueprint";
 import { EinblickSection } from "@/components/site/EinblickSection";
+import { ConversionCta } from "@/components/site/ConversionCta";
+import { ThreePerspectives } from "@/components/site/ThreePerspectives";
+import { BeforeAfterSection } from "@/components/site/BeforeAfterSection";
+import { ClientJourney } from "@/components/site/ClientJourney";
+import { WebsiteDiagnosis } from "@/components/site/WebsiteDiagnosis";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
