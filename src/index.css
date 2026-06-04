@@ -958,3 +958,184 @@
 @media (prefers-reduced-motion: reduce) {
   .fw-word { animation: none; }
 }
+
+/* ==========================================================
+   Premium CTA System — High-conversion buttons & bands
+   ========================================================== */
+@layer components {
+  /* Primary conversion CTA — large, prominent, premium */
+  .btn-cta {
+    @apply relative inline-flex items-center justify-center gap-3 rounded-full px-8 md:px-10 py-4 md:py-5 text-sm md:text-base font-medium tracking-wide overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--rose)) 0%, hsl(var(--rose-hover)) 100%);
+    color: white;
+    box-shadow:
+      0 10px 30px -8px hsl(var(--rose) / 0.55),
+      0 2px 6px -2px hsl(var(--rose) / 0.3),
+      inset 0 1px 0 hsl(0 0% 100% / 0.25);
+    transition: transform 0.45s var(--transition-smooth), box-shadow 0.45s var(--transition-smooth);
+  }
+  .btn-cta::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 25%, hsl(0 0% 100% / 0.35) 50%, transparent 75%);
+    transform: translateX(-120%);
+    transition: transform 0.9s var(--transition-smooth);
+    pointer-events: none;
+  }
+  .btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 22px 48px -14px hsl(var(--rose) / 0.7),
+      0 4px 10px -2px hsl(var(--rose) / 0.4),
+      inset 0 1px 0 hsl(0 0% 100% / 0.35);
+  }
+  .btn-cta:hover::before { transform: translateX(120%); }
+  .btn-cta:active { transform: translateY(-1px) scale(0.99); }
+  .btn-cta > svg { transition: transform 0.45s var(--transition-smooth); }
+  .btn-cta:hover > svg { transform: translateX(4px) rotate(-2deg); }
+
+  /* Secondary CTA — bold outline, premium */
+  .btn-cta-outline {
+    @apply inline-flex items-center justify-center gap-3 rounded-full px-7 md:px-9 py-4 md:py-[1.05rem] text-sm md:text-base font-medium tracking-wide;
+    background: hsl(0 0% 100% / 0.7);
+    color: hsl(var(--ink));
+    border: 1.5px solid hsl(var(--ink) / 0.18);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s var(--transition-smooth);
+  }
+  .btn-cta-outline:hover {
+    background: hsl(var(--ink));
+    color: white;
+    border-color: hsl(var(--ink));
+    transform: translateY(-3px);
+    box-shadow: 0 18px 36px -16px hsl(var(--ink) / 0.5);
+  }
+  .btn-cta-outline > svg { transition: transform 0.45s var(--transition-smooth); }
+  .btn-cta-outline:hover > svg { transform: translateX(4px); }
+
+  /* Inline CTA band — repeatable section divider that converts */
+  .cta-band {
+    @apply relative rounded-[2rem] overflow-hidden px-6 md:px-12 py-12 md:py-16 my-4;
+    background:
+      radial-gradient(120% 80% at 20% 0%, hsl(var(--rose-soft)) 0%, transparent 60%),
+      radial-gradient(100% 80% at 100% 100%, hsl(var(--sky) / 0.45) 0%, transparent 60%),
+      linear-gradient(180deg, hsl(0 0% 100% / 0.7), hsl(213 100% 99% / 0.4));
+    border: 1px solid hsl(0 0% 100% / 0.6);
+    box-shadow: 0 30px 80px -40px hsl(211 50% 30% / 0.25);
+    backdrop-filter: blur(20px);
+  }
+  .cta-band::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(60% 60% at 50% 100%, hsl(var(--rose) / 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Sticky desktop CTA */
+  .sticky-cta-desk {
+    @apply fixed z-40 hidden md:inline-flex items-center gap-2 rounded-full pl-2 pr-5 py-2 text-sm font-medium;
+    right: 1.75rem; bottom: 1.75rem;
+    background: hsl(var(--ink));
+    color: white;
+    box-shadow: 0 18px 40px -14px hsl(var(--ink) / 0.55), 0 0 0 4px hsl(0 0% 100% / 0.6);
+    transition: transform 0.4s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth), padding 0.4s var(--transition-smooth);
+  }
+  .sticky-cta-desk:hover {
+    transform: translateY(-3px);
+    padding-right: 1.5rem;
+    box-shadow: 0 24px 50px -16px hsl(var(--ink) / 0.65), 0 0 0 4px hsl(0 0% 100% / 0.7);
+  }
+  .sticky-cta-desk .dot {
+    @apply inline-block w-8 h-8 rounded-full flex items-center justify-center;
+    background: hsl(var(--rose));
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.3);
+  }
+
+  /* Mobile bottom action bar */
+  .mobile-cta-bar {
+    @apply fixed md:hidden left-0 right-0 z-40 px-3 pb-3 pt-2 flex gap-2;
+    bottom: env(safe-area-inset-bottom, 0);
+    background: linear-gradient(180deg, transparent 0%, hsl(213 100% 99% / 0.95) 35%);
+    backdrop-filter: blur(12px);
+  }
+  .mobile-cta-bar a {
+    @apply flex-1 inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-medium;
+    transition: transform 0.3s ease;
+  }
+  .mobile-cta-bar .primary {
+    background: hsl(var(--rose));
+    color: white;
+    box-shadow: 0 10px 22px -8px hsl(var(--rose) / 0.6);
+  }
+  .mobile-cta-bar .secondary {
+    background: hsl(0 0% 100%);
+    color: hsl(var(--ink));
+    border: 1px solid hsl(var(--border));
+  }
+  .mobile-cta-bar a:active { transform: scale(0.97); }
+
+  /* Live availability pill */
+  .availability-pill {
+    @apply inline-flex items-center gap-2 rounded-full pl-2 pr-4 py-1.5 text-xs font-medium tracking-wide;
+    background: hsl(0 0% 100% / 0.75);
+    border: 1px solid hsl(var(--border));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 18px -8px hsl(211 50% 30% / 0.18);
+  }
+  .availability-pill .pulse-dot {
+    @apply relative inline-flex w-2.5 h-2.5 rounded-full;
+    background: hsl(142 60% 50%);
+    box-shadow: 0 0 0 0 hsl(142 60% 50% / 0.6);
+    animation: pulse-ring 2.2s ease-out infinite;
+  }
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 hsl(142 60% 50% / 0.5); }
+    70%  { box-shadow: 0 0 0 10px hsl(142 60% 50% / 0); }
+    100% { box-shadow: 0 0 0 0 hsl(142 60% 50% / 0); }
+  }
+
+  /* Hide the legacy floating feedback on mobile so it doesn't overlap the bottom bar */
+  body:has(.mobile-cta-bar) .floating-feedback { display: none; }
+
+  /* Padding for mobile bar */
+  @media (max-width: 767px) {
+    main { padding-bottom: 5.5rem; }
+  }
+
+  /* Three Perspectives connector lines */
+  .perspective-col { @apply relative; }
+  .perspective-col::after {
+    content: "";
+    position: absolute;
+    top: 38px; right: -1rem;
+    width: 2rem; height: 1px;
+    background: linear-gradient(90deg, hsl(var(--rose) / 0.4), transparent);
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .perspective-col:not(:last-child)::after { display: block; }
+  }
+
+  /* Journey vertical line */
+  .journey-step {
+    @apply relative pl-12 pb-10;
+  }
+  .journey-step::before {
+    content: "";
+    position: absolute;
+    left: 1.125rem; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, hsl(var(--rose) / 0.5), hsl(var(--sky-deep) / 0.4));
+  }
+  .journey-step:last-child::before { background: linear-gradient(180deg, hsl(var(--rose) / 0.5), transparent); }
+  .journey-step .marker-dot {
+    position: absolute;
+    left: 0.5rem; top: 0.25rem;
+    width: 1.25rem; height: 1.25rem;
+    border-radius: 999px;
+    background: white;
+    border: 2px solid hsl(var(--rose));
+    box-shadow: 0 0 0 4px hsl(var(--rose-soft));
+  }
+}
+

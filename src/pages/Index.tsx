@@ -7,6 +7,11 @@ import { WaveDivider } from "@/components/site/WaveDivider";
 import { LaptopMockup } from "@/components/site/LaptopMockup";
 import { HeroBlueprint } from "@/components/site/HeroBlueprint";
 import { EinblickSection } from "@/components/site/EinblickSection";
+import { ConversionCta } from "@/components/site/ConversionCta";
+import { ThreePerspectives } from "@/components/site/ThreePerspectives";
+import { BeforeAfterSection } from "@/components/site/BeforeAfterSection";
+import { ClientJourney } from "@/components/site/ClientJourney";
+import { WebsiteDiagnosis } from "@/components/site/WebsiteDiagnosis";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -542,6 +547,24 @@ const Index = () => {
         </div>
       </section>
 
+      <ConversionCta
+        eyebrow={lang === "de" ? "Nächster Schritt" : "Next step"}
+        title={
+          lang === "de" ? (
+            <>Bereit für eine Website, die <span className="italic text-rose">wirklich verkauft</span>?</>
+          ) : (
+            <>Ready for a website that <span className="italic text-rose">actually converts</span>?</>
+          )
+        }
+        lead={
+          lang === "de"
+            ? "30 Minuten Erstgespräch, ehrliche Einschätzung, klare nächste Schritte — kostenlos und unverbindlich."
+            : "A 30-minute intro call, an honest assessment and a clear next step — free, no strings attached."
+        }
+        primary={{ label: lang === "de" ? "Kostenloses Beratungsgespräch" : "Request a Free Consultation", href: "#kontakt" }}
+        secondary={{ label: lang === "de" ? "Portfolio ansehen" : "View Portfolio", href: path("work") }}
+      />
+
       <WaveDivider />
 
       <section className="container-editorial py-24 relative overflow-hidden">
@@ -625,11 +648,52 @@ const Index = () => {
         </div>
 
         <div className="mt-10">
-          <Link to={path("work")} className="btn-pink btn-press">
+          <Link to={path("work")} className="btn-cta">
             {t.allProjects} <ArrowUpRight size={16} />
           </Link>
         </div>
       </section>
+
+      <ConversionCta
+        title={
+          lang === "de" ? (
+            <>Du hast ein <span className="italic text-rose">ähnliches Projekt</span> im Kopf?</>
+          ) : (
+            <>Have a <span className="italic text-rose">similar project</span> in mind?</>
+          )
+        }
+        lead={
+          lang === "de"
+            ? "Schreib mir kurz, worum es geht. Ich melde mich innerhalb von 48 Stunden mit einer ehrlichen Einschätzung zurück."
+            : "Tell me briefly what you have in mind. I'll come back within 48 hours with an honest take."
+        }
+        primary={{ label: lang === "de" ? "Projekt besprechen" : "Discuss Your Project", href: "#kontakt" }}
+      />
+
+      <WaveDivider flip />
+
+      <ThreePerspectives />
+
+      <ConversionCta
+        title={
+          lang === "de" ? (
+            <>Lass uns deine <span className="italic text-rose">Website planen</span>.</>
+          ) : (
+            <>Let's <span className="italic text-rose">plan your website</span>.</>
+          )
+        }
+        lead={
+          lang === "de"
+            ? "Design, Entwicklung und SEO — strategisch geplant, ruhig umgesetzt, messbar wirksam."
+            : "Design, development and SEO — strategically planned, calmly executed, measurably effective."
+        }
+        primary={{ label: lang === "de" ? "Projekt starten" : "Start Your Project", href: "#kontakt" }}
+        secondary={{ label: lang === "de" ? "Leistungen ansehen" : "See Services", href: path("web") }}
+      />
+
+      <WaveDivider />
+
+      <BeforeAfterSection />
 
       <WaveDivider flip />
 
@@ -662,31 +726,7 @@ const Index = () => {
 
       <WaveDivider />
 
-      <section className="container-editorial py-24">
-        <div className="grid grid-cols-12 gap-8 items-end mb-14 reveal-stagger">
-          <div className="col-span-12 md:col-span-7">
-            <p className="eyebrow mb-4 reveal-line">{t.processEyebrow}</p>
-            <h2 className="display-lg reveal-line">
-              {t.processTitleA}
-              <br />
-              <span className="italic text-rose">{t.processTitleB}</span>
-            </h2>
-          </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 reveal-line">
-            <p className="text-muted-foreground leading-relaxed">{t.processLead}</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {t.process.map((step, i) => (
-            <div key={step.title} className="glass-panel p-7 reveal" style={{ transitionDelay: `${i * 90}ms` }}>
-              <p className="eyebrow mb-4">0{i + 1}</p>
-              <h3 className="font-display text-2xl mb-3">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ClientJourney />
 
       <WaveDivider flip />
 
@@ -723,6 +763,10 @@ const Index = () => {
 
       <WaveDivider />
 
+      <WebsiteDiagnosis />
+
+      <WaveDivider flip />
+
       <EinblickSection />
 
       <WaveDivider flip />
@@ -740,9 +784,12 @@ const Index = () => {
             <span className="italic text-rose marker">{t.endB}</span>
           </h2>
           <p className="mt-8 max-w-2xl mx-auto text-muted-foreground leading-relaxed">{t.endLead}</p>
-          <div className="mt-10 flex justify-center">
-            <a href="#kontakt" className="btn-pink btn-press">
-              {t.endCta} <ArrowUpRight size={16} />
+          <div className="mt-10 flex flex-wrap gap-4 justify-center">
+            <a href="#kontakt" className="btn-cta">
+              {lang === "de" ? "Projekt starten" : "Start Your Project"} <ArrowUpRight size={18} />
+            </a>
+            <a href="mailto:hello@mariannakuzmenko.de" className="btn-cta-outline">
+              {lang === "de" ? "Beratung buchen" : "Book a Consultation"}
             </a>
           </div>
         </div>
