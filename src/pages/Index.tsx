@@ -547,6 +547,24 @@ const Index = () => {
         </div>
       </section>
 
+      <ConversionCta
+        eyebrow={lang === "de" ? "Nächster Schritt" : "Next step"}
+        title={
+          lang === "de" ? (
+            <>Bereit für eine Website, die <span className="italic text-rose">wirklich verkauft</span>?</>
+          ) : (
+            <>Ready for a website that <span className="italic text-rose">actually converts</span>?</>
+          )
+        }
+        lead={
+          lang === "de"
+            ? "30 Minuten Erstgespräch, ehrliche Einschätzung, klare nächste Schritte — kostenlos und unverbindlich."
+            : "A 30-minute intro call, an honest assessment and a clear next step — free, no strings attached."
+        }
+        primary={{ label: lang === "de" ? "Kostenloses Beratungsgespräch" : "Request a Free Consultation", href: "#kontakt" }}
+        secondary={{ label: lang === "de" ? "Portfolio ansehen" : "View Portfolio", href: path("work") }}
+      />
+
       <WaveDivider />
 
       <section className="container-editorial py-24 relative overflow-hidden">
