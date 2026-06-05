@@ -210,8 +210,8 @@ const Webentwicklung = () => {
                   </li>
                 ))}
               </ul>
-              <Link to={path("work")} className="btn-pink mt-12">
-                {t.viewWork}
+              <Link to={path("work")} className="btn-cta mt-12">
+                {t.viewWork} <ArrowRight size={16} />
               </Link>
             </div>
           </div>
