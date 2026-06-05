@@ -2,6 +2,7 @@ import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { IconCard } from "@/components/site/IconCard";
 import { ProcessStep } from "@/components/site/ProcessStep";
+import { ConversionCta } from "@/components/site/ConversionCta";
 import { Link } from "react-router-dom";
 import {
   Wrench,
@@ -12,6 +13,15 @@ import {
   Building2,
   MapPin,
   ArrowRight,
+  Gauge,
+  Layers,
+  MousePointer2,
+  Check,
+  X as XIcon,
+  Sprout,
+  LineChart,
+  Trophy,
+  AlertTriangle,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
