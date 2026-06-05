@@ -1,5 +1,6 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
+import { ConversionCta } from "@/components/site/ConversionCta";
 
 import { ProcessStep } from "@/components/site/ProcessStep";
 import { IconCard } from "@/components/site/IconCard";
@@ -14,6 +15,17 @@ import {
   LayoutGrid,
   Globe,
   ArrowRight,
+  Smartphone,
+  Gauge,
+  Accessibility,
+  ShieldCheck,
+  Sparkles,
+  Check,
+  X as XIcon,
+  Lightbulb,
+  Layers,
+  TestTube2,
+  TrendingUp,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
