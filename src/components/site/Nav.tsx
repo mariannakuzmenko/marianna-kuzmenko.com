@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLang, ROUTES, pick } from "@/i18n/LanguageContext";
 
@@ -11,7 +11,7 @@ export const Nav = () => {
   const links = [
     { to: path("home"),    label: pick(lang, "Start", "Home") },
     { to: path("about"),   label: pick(lang, "Über mich", "About") },
-    { to: path("web"),     label: pick(lang, "Web Development", "Web Development") },
+    { to: path("web"),     label: pick(lang, "Web Dev", "Web Dev") },
     { to: path("seo"),     label: pick(lang, "SEO", "SEO") },
     { to: path("work"),    label: pick(lang, "Projekte", "Work") },
     { to: path("pricing"), label: pick(lang, "Preise", "Pricing") },
@@ -19,29 +19,29 @@ export const Nav = () => {
     { to: path("blog"),    label: pick(lang, "Blog", "Blog") },
   ];
 
-  const ctaLabel = pick(lang, "Projekt starten →", "Start a project →");
+  const ctaLabel = pick(lang, "Projekt starten", "Start a project");
   const contactHash = `${path("home")}#kontakt`;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/60">
-      <div className="container-editorial flex items-center justify-between h-20 md:h-28">
-        <Link to={path("home")} className="group flex items-center py-2" aria-label="Marianna Kuzmenko — Web Design & Development">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/60">
+      <div className="container-editorial flex items-center justify-between h-16 md:h-20 xl:h-24 gap-4">
+        <Link to={path("home")} className="group flex items-center py-2 shrink-0" aria-label="Marianna Kuzmenko — Web Design & Development">
           <img
             src={logo}
             alt="Marianna Kuzmenko"
-            className="h-14 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+            className="h-10 md:h-14 xl:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
             style={{ filter: "drop-shadow(0 4px 18px hsl(208 70% 50% / 0.35))" }}
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center gap-6 2xl:gap-8 min-w-0">
           {links.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               end={l.to === ROUTES.home.de || l.to === ROUTES.home.en}
               className={({ isActive }) =>
-                `swap-link text-sm tracking-wide ${isActive ? "text-rose" : "text-foreground"}`
+                `swap-link text-sm tracking-wide whitespace-nowrap ${isActive ? "text-rose" : "text-foreground"}`
               }
             >
               <span>{l.label}</span>
@@ -50,15 +50,21 @@ export const Nav = () => {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-5">
+        <div className="hidden xl:flex items-center gap-4 shrink-0">
           <LangSwitcher />
-          <Link to={contactHash} className="btn-pink">
-            {ctaLabel}
+          <Link to={contactHash} className="btn-cta !py-3 !px-6 !text-sm whitespace-nowrap">
+            {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
           </Link>
         </div>
 
-        <div className="lg:hidden flex items-center gap-3">
+        <div className="xl:hidden flex items-center gap-2 shrink-0">
           <LangSwitcher compact />
+          <Link
+            to={contactHash}
+            className="hidden sm:inline-flex btn-cta !py-2.5 !px-4 !text-xs whitespace-nowrap"
+          >
+            {pick(lang, "Projekt", "Project")} <ArrowUpRight size={14} strokeWidth={2} />
+          </Link>
           <button
             onClick={() => setOpen(!open)}
             className="p-2 rounded-full bg-secondary"
@@ -70,8 +76,8 @@ export const Nav = () => {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-paper/95 backdrop-blur-xl animate-fade-in">
-          <div className="container-editorial py-8 flex flex-col gap-3">
+        <div className="xl:hidden border-t border-border bg-paper/95 backdrop-blur-xl animate-fade-in max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="container-editorial py-6 flex flex-col gap-2">
             {links.map((l) => (
               <NavLink
                 key={l.to}
@@ -79,7 +85,7 @@ export const Nav = () => {
                 end={l.to === ROUTES.home.de || l.to === ROUTES.home.en}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
-                  `font-display text-3xl py-2 ${isActive ? "text-rose italic" : ""}`
+                  `font-display text-2xl md:text-3xl py-1.5 ${isActive ? "text-rose italic" : ""}`
                 }
               >
                 {l.label}
@@ -88,9 +94,9 @@ export const Nav = () => {
             <Link
               to={contactHash}
               onClick={() => setOpen(false)}
-              className="btn-pink mt-4 self-start"
+              className="btn-cta mt-4 self-start"
             >
-              {ctaLabel}
+              {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
             </Link>
           </div>
         </div>
@@ -99,10 +105,9 @@ export const Nav = () => {
   );
 
   function LangSwitcher({ compact = false }: { compact?: boolean }) {
-    const otherLang: "de" | "en" = lang === "en" ? "de" : "en";
     const base = "font-mono text-[11px] uppercase tracking-[0.2em] transition-colors duration-300";
     return (
-      <div className={`inline-flex items-center gap-1 ${compact ? "" : ""}`}>
+      <div className="inline-flex items-center gap-1 shrink-0">
         <Link
           to={lang === "de" ? "#" : altPath("de")}
           className={`${base} px-2 py-1 rounded-full ${lang === "de" ? "text-rose bg-rose-soft" : "text-muted-foreground hover:text-foreground"}`}
