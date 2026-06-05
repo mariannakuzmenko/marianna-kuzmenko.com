@@ -416,10 +416,10 @@ export const HeroBlueprint = (p: HeroBlueprintProps) => {
             {p.lead}
           </p>
           <div className="col-span-12 md:col-span-6 lg:col-span-6 lg:col-start-7 flex flex-wrap gap-3 md:gap-4 md:justify-end">
-            <Link to={p.ctaPrimaryHref} className="btn-pink btn-press">
-              {p.ctaPrimary} <ArrowUpRight size={16} />
+            <Link to={p.ctaPrimaryHref} className="btn-cta btn-press">
+              {p.ctaPrimary} <ArrowUpRight size={18} strokeWidth={2} />
             </Link>
-            <a href={p.ctaSecondaryHref} className="btn-ghost-soft btn-press">
+            <a href={p.ctaSecondaryHref} className="btn-cta-outline btn-press">
               {p.ctaSecondary} <ArrowRight size={16} />
             </a>
           </div>
