@@ -2,6 +2,7 @@ import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { IconCard } from "@/components/site/IconCard";
 import { ProcessStep } from "@/components/site/ProcessStep";
+import { ConversionCta } from "@/components/site/ConversionCta";
 import { Link } from "react-router-dom";
 import {
   Wrench,
@@ -12,6 +13,15 @@ import {
   Building2,
   MapPin,
   ArrowRight,
+  Gauge,
+  Layers,
+  MousePointer2,
+  Check,
+  X as XIcon,
+  Sprout,
+  LineChart,
+  Trophy,
+  AlertTriangle,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
@@ -199,6 +209,182 @@ const SeoPage = () => {
           </Link>
         </div>
       </section>
+
+      {/* SEO is more than keywords */}
+      <section className="container-editorial py-20 md:py-28">
+        <div className="mb-12 md:mb-16 max-w-3xl">
+          <p className="eyebrow mb-4">{pick(lang, "Mehr als Keywords", "More than keywords")}</p>
+          <h2 className="display-lg">
+            {pick(lang, "SEO ist mehr als ", "SEO is more than ")}
+            <span className="italic text-rose">{pick(lang, "Keywords.", "keywords.")}</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
+            {pick(lang,
+              "Echte Sichtbarkeit entsteht, wenn vier Disziplinen zusammenspielen — Technik, Struktur, Performance und Nutzererfahrung.",
+              "Real visibility happens when four disciplines align — technical SEO, structure, performance and user experience."
+            )}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            { icon: Wrench, t: pick(lang, "Technisches SEO", "Technical SEO"), d: pick(lang, "Crawlbarkeit, Indexierung, Schema — das unsichtbare Fundament.", "Crawlability, indexing, schema — the invisible foundation.") },
+            { icon: Layers, t: pick(lang, "Website-Struktur", "Site Structure"), d: pick(lang, "Klare Hierarchie, die Nutzer und Google sofort verstehen.", "Clear hierarchy that users and Google instantly understand.") },
+            { icon: Gauge, t: pick(lang, "Performance", "Performance"), d: pick(lang, "Schnelle Seiten ranken besser und konvertieren stärker.", "Fast pages rank better and convert stronger.") },
+            { icon: MousePointer2, t: pick(lang, "Nutzererfahrung", "User Experience"), d: pick(lang, "Verweildauer, Klarheit, Vertrauen — die neuen Ranking-Signale.", "Time on site, clarity, trust — the new ranking signals.") },
+          ].map((it, i) => (
+            <div key={i} className="panel-white reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+              <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5" style={{ background: "hsl(var(--rose-soft))" }}>
+                <it.icon size={20} className="text-rose" strokeWidth={1.6} />
+              </div>
+              <h3 className="font-display text-xl mb-2">{it.t}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{it.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SEO Growth Journey */}
+      <section className="container-editorial py-20 md:py-28">
+        <div className="mb-12 md:mb-16 max-w-3xl">
+          <p className="eyebrow mb-4">{pick(lang, "Die SEO-Reise", "The SEO journey")}</p>
+          <h2 className="display-lg">
+            {pick(lang, "Von Sichtbarkeit ", "From visibility ")}
+            <span className="italic text-rose">{pick(lang, "zur Autorität.", "to authority.")}</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
+            {pick(lang,
+              "SEO ist kein Schalter, sondern ein Prozess. So sieht eine ehrliche Zeitleiste aus.",
+              "SEO isn't a switch — it's a process. Here's an honest timeline."
+            )}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            { icon: Sprout, eye: pick(lang, "Monat 1", "Month 1"), t: pick(lang, "Fundament", "Foundation"), d: pick(lang, "Audit, technische Basis, Keyword-Strategie.", "Audit, technical baseline, keyword strategy."), p: 25 },
+            { icon: Wrench, eye: pick(lang, "Monat 2", "Month 2"), t: pick(lang, "Optimierung", "Optimization"), d: pick(lang, "On-Page, Inhalte, Struktur, interne Verlinkung.", "On-page, content, structure, internal linking."), p: 50 },
+            { icon: LineChart, eye: pick(lang, "Monat 3", "Month 3"), t: pick(lang, "Wachstum", "Growth"), d: pick(lang, "Erste Rankings, Traffic-Zuwachs, Feinjustierung.", "First rankings, traffic growth, fine-tuning."), p: 75 },
+            { icon: Trophy, eye: pick(lang, "Langfristig", "Long-term"), t: pick(lang, "Autorität", "Authority"), d: pick(lang, "Stabile Positionen, organisches Wachstum, Vertrauen.", "Stable positions, organic growth, trust."), p: 100 },
+          ].map((it, i) => (
+            <div key={i} className="relative panel-white reveal" style={{ transitionDelay: `${i * 100}ms` }}>
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{it.eye}</span>
+                <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "hsl(var(--rose-soft))" }}>
+                  <it.icon size={16} className="text-rose" strokeWidth={1.6} />
+                </div>
+              </div>
+              <h3 className="font-display text-2xl mb-2">{it.t}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{it.d}</p>
+              <div className="mt-5 h-1 rounded-full bg-muted overflow-hidden">
+                <div className="h-full rounded-full" style={{ width: `${it.p}%`, background: "linear-gradient(90deg, hsl(var(--rose)), hsl(var(--rose-hover)))" }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why businesses lose visibility */}
+      <section className="container-editorial py-20 md:py-28">
+        <div className="card-soft p-8 md:p-16" style={{ background: "var(--gradient-sky)" }}>
+          <div className="grid grid-cols-12 gap-8">
+            <div className="col-span-12 md:col-span-5">
+              <p className="eyebrow mb-4">{pick(lang, "Häufige Fehler", "Common mistakes")}</p>
+              <h2 className="display-lg">
+                {pick(lang, "Warum Unternehmen ", "Why businesses ")}
+                <span className="italic">{pick(lang, "Sichtbarkeit verlieren.", "lose visibility.")}</span>
+              </h2>
+              <p className="mt-6 text-muted-foreground leading-relaxed">
+                {pick(lang,
+                  "Die meisten Websites scheitern nicht an Inhalten, sondern an unsichtbaren technischen Lücken. Professionelles SEO schließt sie systematisch.",
+                  "Most sites don't fail on content — they fail on invisible technical gaps. Professional SEO closes them systematically."
+                )}
+              </p>
+            </div>
+            <div className="col-span-12 md:col-span-7 space-y-3">
+              {[
+                { t: pick(lang, "Langsame Websites", "Slow websites"), d: pick(lang, "Jede Sekunde Ladezeit kostet Rankings und Conversions.", "Every second of load time costs rankings and conversions.") },
+                { t: pick(lang, "Schwache Struktur", "Poor structure"), d: pick(lang, "Ohne klare Hierarchie versteht Google den Inhalt nicht.", "Without clear hierarchy, Google can't understand the content.") },
+                { t: pick(lang, "Schwaches technisches SEO", "Weak technical SEO"), d: pick(lang, "Fehlende Meta-Daten, schlechte Indexierung, kaputtes Schema-Markup.", "Missing meta, poor indexing, broken schema markup.") },
+                { t: pick(lang, "Fehlende Optimierung", "Missing optimization"), d: pick(lang, "Keine kontinuierliche Pflege — Rankings rutschen langsam ab.", "No ongoing care — rankings slowly slip away.") },
+              ].map((it, i) => (
+                <div key={i} className="flex items-start gap-4 rounded-2xl bg-white/80 backdrop-blur p-5 reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ background: "hsl(38 80% 88%)" }}>
+                    <AlertTriangle size={16} className="text-foreground/70" strokeWidth={1.6} />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-lg mb-1">{it.t}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{it.d}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Without / With SEO */}
+      <section className="container-editorial py-20 md:py-28">
+        <div className="mb-12 md:mb-16 max-w-3xl">
+          <p className="eyebrow mb-4">{pick(lang, "Was steht auf dem Spiel?", "What's at stake?")}</p>
+          <h2 className="display-lg">
+            {pick(lang, "Was passiert ", "What if you ")}
+            <span className="italic text-rose">{pick(lang, "ohne SEO?", "ignore SEO?")}</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="rounded-3xl p-8 md:p-10 border border-border bg-white/60">
+            <p className="eyebrow mb-5">{pick(lang, "Ohne SEO", "Without SEO")}</p>
+            <ul className="space-y-3">
+              {[
+                pick(lang, "Geringere Sichtbarkeit bei Google", "Lower visibility on Google"),
+                pick(lang, "Weniger qualifizierter Traffic", "Less qualified traffic"),
+                pick(lang, "Abhängigkeit von bezahlter Werbung", "Dependence on paid advertising"),
+                pick(lang, "Schwankende, unvorhersehbare Anfragen", "Volatile, unpredictable inquiries"),
+              ].map((it, i) => (
+                <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="mt-1 w-5 h-5 rounded-full bg-muted flex items-center justify-center shrink-0">
+                    <XIcon size={12} strokeWidth={2.5} />
+                  </span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-3xl p-8 md:p-10 relative overflow-hidden" style={{ background: "var(--gradient-rose)" }}>
+            <p className="eyebrow mb-5 !text-white/80">{pick(lang, "Mit professionellem SEO", "With professional SEO")}</p>
+            <ul className="space-y-3 text-white">
+              {[
+                pick(lang, "Bessere Rankings bei Google", "Better rankings on Google"),
+                pick(lang, "Konstanter, organischer Traffic", "Consistent organic traffic"),
+                pick(lang, "Langfristiges Wachstum", "Long-term growth"),
+                pick(lang, "Mehr Geschäftsmöglichkeiten", "More business opportunities"),
+              ].map((it, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1 w-5 h-5 rounded-full bg-white/25 flex items-center justify-center shrink-0">
+                    <Check size={12} strokeWidth={2.5} />
+                  </span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <ConversionCta
+        eyebrow={pick(lang, "Sichtbarkeit aufbauen", "Build visibility")}
+        title={
+          <>
+            {pick(lang, "Hol dir einen ", "Get a ")}
+            <span className="italic text-rose">{pick(lang, "kostenlosen Website-Check.", "free website review.")}</span>
+          </>
+        }
+        lead={pick(lang,
+          "Ich werfe einen ehrlichen Blick auf deine Website — technisches SEO, Struktur, Performance — und sage dir, wo der größte Hebel liegt.",
+          "I'll take an honest look at your site — technical SEO, structure, performance — and tell you where the biggest lever is."
+        )}
+        primary={{ label: pick(lang, "Website-Check anfragen", "Request a website review"), href: `${path("home")}#kontakt` }}
+        secondary={{ label: pick(lang, "Projekt besprechen", "Discuss your project"), href: "mailto:hello@mariannakuzmenko.de" }}
+      />
     </Layout>
   );
 };

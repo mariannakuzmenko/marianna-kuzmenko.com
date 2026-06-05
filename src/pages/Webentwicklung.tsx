@@ -1,5 +1,6 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
+import { ConversionCta } from "@/components/site/ConversionCta";
 
 import { ProcessStep } from "@/components/site/ProcessStep";
 import { IconCard } from "@/components/site/IconCard";
@@ -14,6 +15,15 @@ import {
   LayoutGrid,
   Globe,
   ArrowRight,
+  Smartphone,
+  Gauge,
+  Accessibility,
+  ShieldCheck,
+  Check,
+  X as XIcon,
+  Layers,
+  TestTube2,
+  TrendingUp,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
@@ -198,13 +208,187 @@ const Webentwicklung = () => {
                   </li>
                 ))}
               </ul>
-              <Link to={path("work")} className="btn-pink mt-12">
-                {t.viewWork}
+              <Link to={path("work")} className="btn-cta mt-12">
+                {t.viewWork} <ArrowRight size={16} />
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Behind Every Great Website */}
+      <section className="container-editorial py-20 md:py-28">
+        <div className="mb-12 md:mb-16 max-w-3xl">
+          <p className="eyebrow mb-4">{pick(lang, "Hinter den Kulissen", "Behind the scenes")}</p>
+          <h2 className="display-lg">
+            {pick(lang, "Hinter jeder ", "Behind every ")}
+            <span className="italic text-rose">{pick(lang, "großartigen Website.", "great website.")}</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
+            {pick(lang,
+              "Webentwicklung ist weit mehr als das Erstellen von Seiten. Es sind fünf Disziplinen, die zusammenspielen — unsichtbar für den Nutzer, entscheidend für den Erfolg.",
+              "Web development is far more than building pages. Five disciplines work together — invisible to the user, decisive for success."
+            )}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+          {[
+            { icon: Smartphone, t: pick(lang, "Responsive Entwicklung", "Responsive Development"), d: pick(lang, "Pixelgenau auf jedem Gerät — vom Smartphone bis zum 4K-Display.", "Pixel-perfect on every device — from phone to 4K display.") },
+            { icon: Gauge, t: pick(lang, "Performance", "Performance"), d: pick(lang, "Schnelle Ladezeiten, optimierte Assets, Core Web Vitals im grünen Bereich.", "Fast load times, optimized assets, Core Web Vitals in the green.") },
+            { icon: Accessibility, t: pick(lang, "Barrierefreiheit", "Accessibility"), d: pick(lang, "WCAG-konform — eine Website, die wirklich alle Menschen nutzen können.", "WCAG-compliant — a site truly usable for everyone.") },
+            { icon: Search, t: pick(lang, "SEO Fundament", "SEO Foundation"), d: pick(lang, "Semantisches HTML, sauberes Markup, ranking-bereit ab Tag eins.", "Semantic HTML, clean markup, ranking-ready from day one.") },
+            { icon: ShieldCheck, t: pick(lang, "Wartbarer Code", "Clean Code"), d: pick(lang, "Modular, dokumentiert, langfristig erweiterbar — kein technisches Schuldenmeer.", "Modular, documented, scalable long-term — no technical debt.") },
+          ].map((it, i) => (
+            <div key={i} className="panel-white reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+              <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5" style={{ background: "hsl(var(--rose-soft))" }}>
+                <it.icon size={20} className="text-rose" strokeWidth={1.6} />
+              </div>
+              <h3 className="font-display text-xl mb-2">{it.t}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{it.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why Development Quality Matters */}
+      <section className="container-editorial py-20 md:py-28">
+        <div className="card-soft p-8 md:p-16" style={{ background: "var(--gradient-sky)" }}>
+          <div className="grid grid-cols-12 gap-8">
+            <div className="col-span-12 md:col-span-5">
+              <p className="eyebrow mb-4">{pick(lang, "Warum es zählt", "Why it matters")}</p>
+              <h2 className="display-lg">
+                {pick(lang, "Warum ", "Why ")}
+                <span className="italic">{pick(lang, "Qualität ", "quality ")}</span>
+                {pick(lang, "in der Entwicklung entscheidet.", "in development decides.")}
+              </h2>
+              <p className="mt-6 text-muted-foreground leading-relaxed">
+                {pick(lang,
+                  "Was im Code passiert, sieht der Nutzer nicht — aber er spürt es bei jedem Klick.",
+                  "What happens in the code is invisible — but felt with every click."
+                )}
+              </p>
+            </div>
+            <div className="col-span-12 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { t: pick(lang, "Nutzererlebnis", "User Experience"), d: pick(lang, "Flüssige Interaktionen schaffen Vertrauen ab der ersten Sekunde.", "Smooth interactions build trust from the first second.") },
+                { t: pick(lang, "Vertrauen", "Trust"), d: pick(lang, "Eine technisch saubere Seite signalisiert Professionalität.", "A technically clean site signals professionalism.") },
+                { t: pick(lang, "Geschwindigkeit", "Speed"), d: pick(lang, "Jede Sekunde Ladezeit kostet bis zu 7 % Conversion.", "Every second of load time costs up to 7% conversion.") },
+                { t: pick(lang, "Sichtbarkeit", "Search Visibility"), d: pick(lang, "Google bevorzugt schnelle, semantische, mobile Seiten.", "Google favors fast, semantic, mobile-first sites.") },
+                { t: pick(lang, "Conversion", "Conversion"), d: pick(lang, "Klare Struktur + Performance = mehr Anfragen.", "Clear structure + performance = more inquiries.") },
+                { t: pick(lang, "Zukunftssicher", "Future-proof"), d: pick(lang, "Sauberer Code wächst mit deinem Unternehmen mit.", "Clean code grows with your business.") },
+              ].map((it, i) => (
+                <div key={i} className="rounded-2xl bg-white/80 backdrop-blur p-5 reveal" style={{ transitionDelay: `${i * 60}ms` }}>
+                  <h4 className="font-display text-lg mb-1.5">{it.t}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{it.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Process Flow */}
+      <section className="container-editorial py-20 md:py-28">
+        <div className="mb-12 md:mb-16 max-w-3xl">
+          <p className="eyebrow mb-4">{pick(lang, "Der Weg zur Website", "The path")}</p>
+          <h2 className="display-lg">
+            {pick(lang, "Von der Strategie ", "From strategy ")}
+            <span className="italic text-rose">{pick(lang, "zum Wachstum.", "to growth.")}</span>
+          </h2>
+        </div>
+        <div className="relative flex flex-col lg:flex-row lg:items-stretch gap-3 lg:gap-2">
+          {[
+            { icon: Compass, t: pick(lang, "Strategie", "Strategy") },
+            { icon: Layers, t: pick(lang, "Struktur", "Structure") },
+            { icon: Code2, t: pick(lang, "Entwicklung", "Development") },
+            { icon: TestTube2, t: pick(lang, "Testing", "Testing") },
+            { icon: Rocket, t: pick(lang, "Launch", "Launch") },
+            { icon: TrendingUp, t: pick(lang, "Wachstum", "Growth") },
+          ].map((step, i, arr) => (
+            <div key={i} className="flex-1 flex lg:flex-col items-center gap-3 lg:gap-0">
+              <div className="panel-white flex-1 w-full text-center !p-5 lg:!p-6">
+                <div className="w-11 h-11 mx-auto rounded-full flex items-center justify-center mb-3" style={{ background: "hsl(var(--rose-soft))" }}>
+                  <step.icon size={18} className="text-rose" strokeWidth={1.6} />
+                </div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mb-1">{`0${i + 1}`}</p>
+                <p className="font-display text-lg">{step.t}</p>
+              </div>
+              {i < arr.length - 1 && (
+                <div className="text-rose/60 text-2xl lg:text-3xl shrink-0 lg:py-2" aria-hidden>
+                  <span className="hidden lg:inline">→</span>
+                  <span className="lg:hidden">↓</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Without / With Professional Development */}
+      <section className="container-editorial py-20 md:py-28">
+        <div className="mb-12 md:mb-16 max-w-3xl">
+          <p className="eyebrow mb-4">{pick(lang, "Was steht auf dem Spiel?", "What's at stake?")}</p>
+          <h2 className="display-lg">
+            {pick(lang, "Was passiert, wenn man ", "What if you ")}
+            <span className="italic text-rose">{pick(lang, "das ignoriert?", "ignore this?")}</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="rounded-3xl p-8 md:p-10 border border-border bg-white/60">
+            <p className="eyebrow mb-5">{pick(lang, "Ohne professionelle Entwicklung", "Without professional development")}</p>
+            <ul className="space-y-3">
+              {[
+                pick(lang, "Langsame, träge Website", "Slow, sluggish website"),
+                pick(lang, "Schlechte mobile Erfahrung", "Poor mobile experience"),
+                pick(lang, "Technische Probleme & Bugs", "Technical issues & bugs"),
+                pick(lang, "Verlorene Anfragen und Umsatz", "Lost inquiries and revenue"),
+              ].map((it, i) => (
+                <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="mt-1 w-5 h-5 rounded-full bg-muted flex items-center justify-center shrink-0">
+                    <XIcon size={12} strokeWidth={2.5} />
+                  </span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-3xl p-8 md:p-10 relative overflow-hidden" style={{ background: "var(--gradient-rose)" }}>
+            <p className="eyebrow mb-5 !text-white/80">{pick(lang, "Mit professioneller Entwicklung", "With professional development")}</p>
+            <ul className="space-y-3 text-white">
+              {[
+                pick(lang, "Bessere Performance", "Better performance"),
+                pick(lang, "Erstklassige Nutzererfahrung", "Outstanding user experience"),
+                pick(lang, "Stärkeres Vertrauen", "Stronger trust"),
+                pick(lang, "Mehr qualifizierte Anfragen", "More qualified inquiries"),
+              ].map((it, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1 w-5 h-5 rounded-full bg-white/25 flex items-center justify-center shrink-0">
+                    <Check size={12} strokeWidth={2.5} />
+                  </span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <ConversionCta
+        eyebrow={pick(lang, "Bereit?", "Ready?")}
+        title={
+          <>
+            {pick(lang, "Lass uns ", "Let's ")}
+            <span className="italic text-rose">{pick(lang, "dein Website-Projekt", "plan your website")}</span>
+            {pick(lang, " planen.", " project.")}
+          </>
+        }
+        lead={pick(lang,
+          "Erzähl mir von deinem Vorhaben — ich melde mich innerhalb von 24 Stunden mit ersten Ideen und einer ehrlichen Einschätzung.",
+          "Tell me about your project — I'll get back within 24 hours with first ideas and an honest take."
+        )}
+        primary={{ label: pick(lang, "Projekt starten", "Start your project"), href: `${path("home")}#kontakt` }}
+        secondary={{ label: pick(lang, "Beratung anfragen", "Request a consultation"), href: "mailto:hello@mariannakuzmenko.de" }}
+      />
     </Layout>
   );
 };

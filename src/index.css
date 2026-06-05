@@ -93,7 +93,7 @@
 
 @layer base {
   * { @apply border-border; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     @apply text-foreground;
     background: transparent;
@@ -102,6 +102,7 @@
     font-weight: 300;
     letter-spacing: 0.005em;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   ::selection { background: hsl(var(--rose) / 0.6); color: hsl(var(--foreground)); }
 

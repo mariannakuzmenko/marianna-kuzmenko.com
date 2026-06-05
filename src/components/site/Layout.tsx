@@ -9,12 +9,12 @@ import { useReveal } from "@/hooks/useReveal";
 export const Layout = ({ children }: { children: ReactNode }) => {
   useReveal();
   return (
-    <div className="min-h-screen text-foreground relative">
+    <div className="min-h-screen text-foreground relative overflow-x-hidden">
       <BreathingBackground />
       <ScrollLine />
       <div className="relative z-10">
         <Nav />
-        <main className="pt-20 md:pt-28">{children}</main>
+        <main className="pt-16 md:pt-20 xl:pt-24">{children}</main>
         <StickyCta />
         <Footer />
       </div>
