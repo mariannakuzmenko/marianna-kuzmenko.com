@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 export const StickyCta = () => {
-  const { lang } = useLang();
+  const { lang, path } = useLang();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -15,14 +16,16 @@ export const StickyCta = () => {
 
   const t = pick(
     lang,
-    { desk: "Projekt starten", primary: "Projekt starten", secondary: "Beratung buchen" },
-    { desk: "Start a Project", primary: "Start a Project", secondary: "Book a Call" },
+    { desk: "Projekt starten", primary: "Projekt starten", secondary: "Schreib mir", avail: "Verfügbar für neue Projekte" },
+    { desk: "Start a Project", primary: "Start a Project", secondary: "Email me", avail: "Available for new projects" },
   );
+
+  const inquiry = path("inquiry");
 
   return (
     <>
-      <a
-        href="#kontakt"
+      <Link
+        to={inquiry}
         aria-label={t.desk}
         className="sticky-cta-desk"
         style={{
@@ -32,12 +35,15 @@ export const StickyCta = () => {
         }}
       >
         <span className="dot"><Sparkles size={14} className="text-white" strokeWidth={1.8} /></span>
+        <span className="hidden lg:inline text-[11px] font-mono uppercase tracking-[0.18em] opacity-80 mr-1">
+          ● {t.avail}
+        </span>
         {t.desk}
         <ArrowUpRight size={14} />
-      </a>
+      </Link>
 
       <div className="mobile-cta-bar" role="navigation" aria-label="Quick actions">
-        <a href="#kontakt" className="primary">{t.primary} <ArrowUpRight size={14} /></a>
+        <Link to={inquiry} className="primary">{t.primary} <ArrowUpRight size={14} /></Link>
         <a href="mailto:hello@mariannakuzmenko.de" className="secondary">{t.secondary}</a>
       </div>
     </>

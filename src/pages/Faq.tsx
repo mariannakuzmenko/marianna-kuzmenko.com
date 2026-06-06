@@ -133,7 +133,7 @@ const Faq = () => {
           <p className="eyebrow mb-4">{t.moreEye}</p>
           <h2 className="display-md mb-4">{t.moreTitle}</h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">{t.moreLead}</p>
-          <Link to={`${path("home")}#kontakt`} className="btn-pink inline-flex">
+          <Link to={path("inquiry")} className="btn-pink inline-flex">
             {t.moreCta} <ArrowRight size={14} />
           </Link>
         </div>

@@ -23,13 +23,15 @@ export const Footer = () => {
               {pick(lang, <>Bereit für eine Website,<br />die wirklich <em className="text-rose not-italic">funktioniert</em>?</>,
                           <>Ready for a website<br />that actually <em className="text-rose not-italic">works</em>?</>)}
             </h2>
-            <a
-              href="mailto:hello@mariannakuzmenko.de"
-              className="btn-pink"
-            >
-              <Mail size={16} strokeWidth={1.6} />
-              hello@mariannakuzmenko.de
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <Link to={path("inquiry")} className="btn-cta">
+                {pick(lang, "Projekt starten", "Start a Project")}
+                <Mail size={16} strokeWidth={1.6} />
+              </Link>
+              <a href="mailto:hello@mariannakuzmenko.de" className="btn-cta-outline">
+                hello@mariannakuzmenko.de
+              </a>
+            </div>
           </div>
 
           <div className="md:col-span-3">
@@ -41,6 +43,7 @@ export const Footer = () => {
               <li><Link to={path("seo")}     className="underline-draw">{pick(lang, "SEO Optimierung", "SEO Optimization")}</Link></li>
               <li><Link to={path("work")}    className="underline-draw">{pick(lang, "Projekte", "Work")}</Link></li>
               <li><Link to={path("pricing")} className="underline-draw">{pick(lang, "Preise", "Pricing")}</Link></li>
+              <li><Link to={path("inquiry")} className="underline-draw">{pick(lang, "Projektanfrage", "Project Inquiry")}</Link></li>
               <li><Link to={path("certs")}   className="underline-draw">{pick(lang, "Zertifikate", "Certificates")}</Link></li>
               <li><Link to={path("faq")}     className="underline-draw">FAQ</Link></li>
               <li><Link to={path("blog")}    className="underline-draw">Blog</Link></li>

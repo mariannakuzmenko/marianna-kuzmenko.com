@@ -382,7 +382,7 @@ const SeoPage = () => {
           "Ich werfe einen ehrlichen Blick auf deine Website — technisches SEO, Struktur, Performance — und sage dir, wo der größte Hebel liegt.",
           "I'll take an honest look at your site — technical SEO, structure, performance — and tell you where the biggest lever is."
         )}
-        primary={{ label: pick(lang, "Website-Check anfragen", "Request a website review"), href: `${path("home")}#kontakt` }}
+        primary={{ label: pick(lang, "Website-Check anfragen", "Request a website review"), href: path("inquiry") }}
         secondary={{ label: pick(lang, "Projekt besprechen", "Discuss your project"), href: "mailto:hello@mariannakuzmenko.de" }}
       />
     </Layout>

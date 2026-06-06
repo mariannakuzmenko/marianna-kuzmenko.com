@@ -146,7 +146,7 @@ const Preise = () => {
                   </li>
                 ))}
               </ul>
-              <Link to={`${path("home")}#kontakt`} className={p.highlight ? "btn-pink justify-center" : "btn-pink-outline justify-center"}>
+              <Link to={path("inquiry")} className={p.highlight ? "btn-pink justify-center" : "btn-pink-outline justify-center"}>
                 {t.cta} <ArrowRight size={14} />
               </Link>
             </div>
@@ -163,7 +163,7 @@ const Preise = () => {
                 <span className="font-display text-xl text-rose">{a.price}</span>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6">{a.desc}</p>
-              <Link to={`${path("home")}#kontakt`} className="btn-pink-outline self-start">
+              <Link to={path("inquiry")} className="btn-pink-outline self-start">
                 {t.ctaCustom} <ArrowRight size={14} />
               </Link>
             </div>
