@@ -460,7 +460,7 @@ const Index = () => {
         ctaPrimary={t.ctaPrimary}
         ctaSecondary={t.ctaSecondary}
         ctaPrimaryHref={path("work")}
-        ctaSecondaryHref=path("inquiry")
+        ctaSecondaryHref={path("inquiry")}
         zoneLabels={
           lang === "de"
             ? { design: "UX/UI Design", develop: "Webentwicklung", growth: "SEO & Strategie" }
@@ -785,9 +785,9 @@ const Index = () => {
           </h2>
           <p className="mt-8 max-w-2xl mx-auto text-muted-foreground leading-relaxed">{t.endLead}</p>
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
-            <a href=path("inquiry") className="btn-cta">
+            <Link to={path("inquiry")} className="btn-cta">
               {lang === "de" ? "Projekt starten" : "Start Your Project"} <ArrowUpRight size={18} />
-            </a>
+            </Link>
             <a href="mailto:hello@mariannakuzmenko.de" className="btn-cta-outline">
               {lang === "de" ? "Beratung buchen" : "Book a Consultation"}
             </a>
