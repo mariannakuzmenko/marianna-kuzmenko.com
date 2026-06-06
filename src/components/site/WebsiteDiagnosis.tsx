@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Gauge, Palette, Search, MousePointer2, ArrowUpRight, Sparkles } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
