@@ -111,7 +111,7 @@ export const ThreePerspectives = () => {
           “{t.footer}”
         </p>
         <div className="mt-8 flex justify-center">
-          <a href="#kontakt" className="btn-cta">
+          <a href=path("inquiry") className="btn-cta">
             {t.cta} <ArrowUpRight size={18} />
           </a>
         </div>

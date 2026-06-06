@@ -146,7 +146,7 @@ export const WebsiteDiagnosis = () => {
                 <h3 className="font-display text-2xl mb-3">{tier.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed max-w-md mx-auto mb-8">{tier.desc}</p>
                 <div className="flex flex-wrap gap-3 justify-center">
-                  <a href="#kontakt" className="btn-cta">{t.cta} <ArrowUpRight size={16} /></a>
+                  <a href=path("inquiry") className="btn-cta">{t.cta} <ArrowUpRight size={16} /></a>
                   <button onClick={() => setSubmitted(false)} className="btn-cta-outline">{t.again}</button>
                 </div>
               </div>

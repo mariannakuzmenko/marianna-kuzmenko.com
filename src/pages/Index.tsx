@@ -460,7 +460,7 @@ const Index = () => {
         ctaPrimary={t.ctaPrimary}
         ctaSecondary={t.ctaSecondary}
         ctaPrimaryHref={path("work")}
-        ctaSecondaryHref="#kontakt"
+        ctaSecondaryHref=path("inquiry")
         zoneLabels={
           lang === "de"
             ? { design: "UX/UI Design", develop: "Webentwicklung", growth: "SEO & Strategie" }
@@ -561,7 +561,7 @@ const Index = () => {
             ? "30 Minuten Erstgespräch, ehrliche Einschätzung, klare nächste Schritte — kostenlos und unverbindlich."
             : "A 30-minute intro call, an honest assessment and a clear next step — free, no strings attached."
         }
-        primary={{ label: lang === "de" ? "Kostenloses Beratungsgespräch" : "Request a Free Consultation", href: "#kontakt" }}
+        primary={{ label: lang === "de" ? "Kostenloses Beratungsgespräch" : "Request a Free Consultation", href: path("inquiry") }}
         secondary={{ label: lang === "de" ? "Portfolio ansehen" : "View Portfolio", href: path("work") }}
       />
 
@@ -667,7 +667,7 @@ const Index = () => {
             ? "Schreib mir kurz, worum es geht. Ich melde mich innerhalb von 48 Stunden mit einer ehrlichen Einschätzung zurück."
             : "Tell me briefly what you have in mind. I'll come back within 48 hours with an honest take."
         }
-        primary={{ label: lang === "de" ? "Projekt besprechen" : "Discuss Your Project", href: "#kontakt" }}
+        primary={{ label: lang === "de" ? "Projekt besprechen" : "Discuss Your Project", href: path("inquiry") }}
       />
 
       <WaveDivider flip />
@@ -687,7 +687,7 @@ const Index = () => {
             ? "Design, Entwicklung und SEO — strategisch geplant, ruhig umgesetzt, messbar wirksam."
             : "Design, development and SEO — strategically planned, calmly executed, measurably effective."
         }
-        primary={{ label: lang === "de" ? "Projekt starten" : "Start Your Project", href: "#kontakt" }}
+        primary={{ label: lang === "de" ? "Projekt starten" : "Start Your Project", href: path("inquiry") }}
         secondary={{ label: lang === "de" ? "Leistungen ansehen" : "See Services", href: path("web") }}
       />
 
@@ -785,7 +785,7 @@ const Index = () => {
           </h2>
           <p className="mt-8 max-w-2xl mx-auto text-muted-foreground leading-relaxed">{t.endLead}</p>
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
-            <a href="#kontakt" className="btn-cta">
+            <a href=path("inquiry") className="btn-cta">
               {lang === "de" ? "Projekt starten" : "Start Your Project"} <ArrowUpRight size={18} />
             </a>
             <a href="mailto:hello@mariannakuzmenko.de" className="btn-cta-outline">

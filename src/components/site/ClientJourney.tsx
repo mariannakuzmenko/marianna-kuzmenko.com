@@ -103,7 +103,7 @@ export const ClientJourney = () => {
                 ? "30 Minuten Erstgespräch — unverbindlich, persönlich und mit konkreten ersten Empfehlungen."
                 : "30-minute intro call — no obligation, personal, with concrete first recommendations."}
             </p>
-            <a href="#kontakt" className="btn-cta w-full">
+            <a href=path("inquiry") className="btn-cta w-full">
               {lang === "de" ? "Beratung anfragen" : "Request a Consultation"}
             </a>
           </div>

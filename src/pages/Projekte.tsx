@@ -271,7 +271,7 @@ const Projekte = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to={path("web")} className="btn-ghost-soft">{t.bWeb} <ArrowRight size={14} /></Link>
             <Link to={path("seo")} className="btn-ghost-soft">{t.bSeo} <ArrowRight size={14} /></Link>
-            <a href={`${path("home")}#kontakt`} className="glow-btn">{t.bStart} <ArrowUpRight size={16} /></a>
+            <a href={path("inquiry")} className="glow-btn">{t.bStart} <ArrowUpRight size={16} /></a>
           </div>
         </div>
       </section>
