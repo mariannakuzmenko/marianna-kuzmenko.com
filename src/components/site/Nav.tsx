@@ -52,7 +52,7 @@ export const Nav = () => {
 
         <div className="hidden xl:flex items-center gap-4 shrink-0">
           <LangSwitcher />
-          <Link to={contactHash} className="btn-cta !py-3 !px-6 !text-sm whitespace-nowrap">
+          <Link to={ctaHref} className="btn-cta !py-3 !px-6 !text-sm whitespace-nowrap">
             {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
           </Link>
         </div>
@@ -60,7 +60,7 @@ export const Nav = () => {
         <div className="xl:hidden flex items-center gap-2 shrink-0">
           <LangSwitcher compact />
           <Link
-            to={contactHash}
+            to={ctaHref}
             className="hidden sm:inline-flex btn-cta !py-2.5 !px-4 !text-xs whitespace-nowrap"
           >
             {pick(lang, "Projekt", "Project")} <ArrowUpRight size={14} strokeWidth={2} />
@@ -92,7 +92,7 @@ export const Nav = () => {
               </NavLink>
             ))}
             <Link
-              to={contactHash}
+              to={ctaHref}
               onClick={() => setOpen(false)}
               className="btn-cta mt-4 self-start"
             >
