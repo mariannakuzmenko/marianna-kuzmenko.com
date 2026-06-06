@@ -6,7 +6,7 @@ import { useLang, pick } from "@/i18n/LanguageContext";
 interface Metric { key: string; icon: typeof Gauge; label: string; question: string }
 
 export const WebsiteDiagnosis = () => {
-  const { lang } = useLang();
+  const { lang, path } = useLang();
   const [scores, setScores] = useState<Record<string, number>>({ design: 6, speed: 6, seo: 5, ux: 6 });
   const [submitted, setSubmitted] = useState(false);
 
@@ -147,7 +147,7 @@ export const WebsiteDiagnosis = () => {
                 <h3 className="font-display text-2xl mb-3">{tier.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed max-w-md mx-auto mb-8">{tier.desc}</p>
                 <div className="flex flex-wrap gap-3 justify-center">
-                  <a href=path("inquiry") className="btn-cta">{t.cta} <ArrowUpRight size={16} /></a>
+                  <Link to={path("inquiry")} className="btn-cta">{t.cta} <ArrowUpRight size={16} /></Link>
                   <button onClick={() => setSubmitted(false)} className="btn-cta-outline">{t.again}</button>
                 </div>
               </div>

@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Compass, PenTool, Code2, Rocket, TrendingUp, ChevronDown } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 export const ClientJourney = () => {
-  const { lang } = useLang();
+  const { lang, path } = useLang();
   const [open, setOpen] = useState<number | null>(0);
 
   const t = pick(
@@ -103,9 +104,9 @@ export const ClientJourney = () => {
                 ? "30 Minuten Erstgespräch — unverbindlich, persönlich und mit konkreten ersten Empfehlungen."
                 : "30-minute intro call — no obligation, personal, with concrete first recommendations."}
             </p>
-            <a href=path("inquiry") className="btn-cta w-full">
+            <Link to={path("inquiry")} className="btn-cta w-full">
               {lang === "de" ? "Beratung anfragen" : "Request a Consultation"}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

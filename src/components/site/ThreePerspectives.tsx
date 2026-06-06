@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { Brush, Code2, TrendingUp, ArrowUpRight } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 export const ThreePerspectives = () => {
-  const { lang } = useLang();
+  const { lang, path } = useLang();
   const t = pick(
     lang,
     {
@@ -111,9 +112,9 @@ export const ThreePerspectives = () => {
           “{t.footer}”
         </p>
         <div className="mt-8 flex justify-center">
-          <a href=path("inquiry") className="btn-cta">
+          <Link to={path("inquiry")} className="btn-cta">
             {t.cta} <ArrowUpRight size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
