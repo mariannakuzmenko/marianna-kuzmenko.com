@@ -19,8 +19,8 @@ export const Nav = () => {
     { to: path("blog"),    label: pick(lang, "Blog", "Blog") },
   ];
 
-  const ctaLabel = pick(lang, "Projekt starten", "Start a project");
-  const contactHash = `${path("home")}#kontakt`;
+  const ctaLabel = pick(lang, "Projekt starten", "Start a Project");
+  const ctaHref = path("inquiry");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/60">
