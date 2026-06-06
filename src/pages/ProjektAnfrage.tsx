@@ -333,9 +333,9 @@ const ProjektAnfrage = () => {
         <Seo
           title={t.seoTitle}
           description={t.seoDesc}
-          path={path("inquiry" as any)}
-          pathDe={ROUTES.inquiry?.de}
-          pathEn={ROUTES.inquiry?.en}
+          path={path("inquiry")}
+          pathDe={ROUTES.inquiry.de}
+          pathEn={ROUTES.inquiry.en}
         />
         <section className="container-editorial py-20 md:py-32">
           <div className="max-w-2xl mx-auto text-center">
@@ -359,9 +359,9 @@ const ProjektAnfrage = () => {
       <Seo
         title={t.seoTitle}
         description={t.seoDesc}
-        path={path("inquiry" as any)}
-        pathDe={ROUTES.inquiry?.de}
-        pathEn={ROUTES.inquiry?.en}
+        path={path("inquiry")}
+        pathDe={ROUTES.inquiry.de}
+        pathEn={ROUTES.inquiry.en}
       />
 
       {/* HERO */}
