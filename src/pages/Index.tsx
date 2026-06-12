@@ -81,11 +81,11 @@ const Index = () => {
       ctaSecondary: "Projekt anfragen",
       heroCardTitle: "Positionierung",
       heroCardText:
-        "Webdesignerin für Nürnberg und darüber hinaus — mit Fokus auf Sichtbarkeit, Vertrauen und ruhige Premium-Ästhetik.",
+        "Webdesignerin für Nürnberg und darüber hinaus - mit Fokus auf Sichtbarkeit, Vertrauen und ruhige Premium-Ästhetik.",
       heroPhotoAlt: "Marianna Kuzmenko im schwarzen Blazer vor einem hellen Fenster",
       heroStudioAlt: "Editorial Portrait von Marianna Kuzmenko",
       heroMockupAlt: "Auswahl realer Website-Projekte auf Laptop und Tablet",
-      trustEyebrow: "01 — Klarer Mehrwert",
+      trustEyebrow: "01 - Klarer Mehrwert",
       trustTitleA: "Moderne Webseiten, die",
       trustTitleB: "Vertrauen aufbauen.",
       trustLead:
