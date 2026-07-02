@@ -731,7 +731,12 @@ const Index = () => {
 
       <ClientJourney />
 
+      <WaveDivider />
+
+      <DigitalJourney />
+
       <WaveDivider flip />
+
 
       <section className="container-editorial py-24">
         <div className="grid grid-cols-12 gap-8 items-start mb-14 reveal-stagger">
