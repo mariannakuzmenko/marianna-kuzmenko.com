@@ -12,6 +12,9 @@ import { ThreePerspectives } from "@/components/site/ThreePerspectives";
 import { BeforeAfterSection } from "@/components/site/BeforeAfterSection";
 import { ClientJourney } from "@/components/site/ClientJourney";
 import { WebsiteDiagnosis } from "@/components/site/WebsiteDiagnosis";
+import { DigitalJourney } from "@/components/site/DigitalJourney";
+import { ResultsSection } from "@/components/site/ResultsSection";
+
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
