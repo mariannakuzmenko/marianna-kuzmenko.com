@@ -771,7 +771,12 @@ const Index = () => {
 
       <WaveDivider />
 
+      <ResultsSection />
+
+      <WaveDivider flip />
+
       <WebsiteDiagnosis />
+
 
       <WaveDivider flip />
 
