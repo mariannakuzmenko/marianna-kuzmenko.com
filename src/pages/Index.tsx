@@ -12,6 +12,9 @@ import { ThreePerspectives } from "@/components/site/ThreePerspectives";
 import { BeforeAfterSection } from "@/components/site/BeforeAfterSection";
 import { ClientJourney } from "@/components/site/ClientJourney";
 import { WebsiteDiagnosis } from "@/components/site/WebsiteDiagnosis";
+import { DigitalJourney } from "@/components/site/DigitalJourney";
+import { ResultsSection } from "@/components/site/ResultsSection";
+
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -728,7 +731,12 @@ const Index = () => {
 
       <ClientJourney />
 
+      <WaveDivider />
+
+      <DigitalJourney />
+
       <WaveDivider flip />
+
 
       <section className="container-editorial py-24">
         <div className="grid grid-cols-12 gap-8 items-start mb-14 reveal-stagger">
@@ -763,7 +771,12 @@ const Index = () => {
 
       <WaveDivider />
 
+      <ResultsSection />
+
+      <WaveDivider flip />
+
       <WebsiteDiagnosis />
+
 
       <WaveDivider flip />
 
