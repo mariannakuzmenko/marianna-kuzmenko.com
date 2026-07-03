@@ -17,18 +17,45 @@ const BlogPost = () => {
   const related = getRelated(post.related);
 
   const ui = pick(lang,
-    { back: "Zurück zum Blog", relatedTo: "Passend dazu", helpQ: "Brauchst du Hilfe damit?", view: "ansehen", prev: "Vorheriger Artikel", next: "Nächster Artikel", relatedH: "Weiterlesen", relatedEye: "Ähnliche Artikel", read: "Lesen" },
-    { back: "Back to journal", relatedTo: "Related", helpQ: "Need help with this?", view: "view", prev: "Previous article", next: "Next article", relatedH: "Keep reading", relatedEye: "Related articles", read: "Read" },
+    { back: "Zurück zum Blog", relatedTo: "Passend dazu", helpQ: "Brauchst du Hilfe damit?", view: "ansehen", prev: "Vorheriger Artikel", next: "Nächster Artikel", relatedH: "Weiterlesen", relatedEye: "Ähnliche Artikel", read: "Lesen", authorEye: "Über die Autorin", authorRole: "Webdesignerin · Webentwicklerin · SEO Freelancerin", authorBio: "Ich gestalte, entwickle und optimiere Websites für Selbstständige und kleine Unternehmen in Nürnberg, Bayern und ganz DACH — persönlich, strukturiert, langfristig.", authorLink: "Mehr über mich", ctaEye: "Nächster Schritt", ctaTitle: "Bereit für deine Website?", ctaLead: "Erzähl mir kurz von deinem Projekt — ich melde mich innerhalb von 48 Stunden.", ctaBtn: "Projekt anfragen" },
+    { back: "Back to journal", relatedTo: "Related", helpQ: "Need help with this?", view: "view", prev: "Previous article", next: "Next article", relatedH: "Keep reading", relatedEye: "Related articles", read: "Read", authorEye: "About the author", authorRole: "Web Designer · Web Developer · SEO Freelancer", authorBio: "I design, build and optimize websites for independents and small businesses in Nuremberg, Bavaria and across DACH — personal, structured, long-term.", authorLink: "More about me", ctaEye: "Next step", ctaTitle: "Ready for your website?", ctaLead: "Tell me briefly about your project — I reply within 48 hours.", ctaBtn: "Start inquiry" },
   );
+
+  const canonical = `${blogBase}/${post.slug}`;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      image: `https://mariannakuzmenko.de${post.image}`,
+      datePublished: post.date,
+      inLanguage: lang === "en" ? "en" : "de",
+      author: { "@type": "Person", "@id": "https://mariannakuzmenko.de/#person", name: "Marianna Kuzmenko" },
+      publisher: { "@id": "https://mariannakuzmenko.de/#person" },
+      mainEntityOfPage: `https://mariannakuzmenko.de${canonical}`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: lang === "en" ? "Home" : "Startseite", item: `https://mariannakuzmenko.de${lang === "en" ? "/en" : "/"}` },
+        { "@type": "ListItem", position: 2, name: lang === "en" ? "Journal" : "Blog", item: `https://mariannakuzmenko.de${blogBase}` },
+        { "@type": "ListItem", position: 3, name: post.title, item: `https://mariannakuzmenko.de${canonical}` },
+      ],
+    },
+  ];
 
   return (
     <Layout>
       <Seo
         title={`${post.title} — Marianna Kuzmenko`}
         description={post.excerpt}
-        path={`${blogBase}/${post.slug}`}
+        path={canonical}
         pathDe={`/blog/${post.slug}`}
         pathEn={`/en/blog/${post.slug}`}
+        type="article"
+        jsonLd={jsonLd}
       />
 
       <article className="container-editorial pt-12 md:pt-16 pb-20">
@@ -107,6 +134,30 @@ const BlogPost = () => {
                 </Link>
               </div>
             )}
+
+            {/* Author box */}
+            <aside className="mt-16 panel-white p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
+              <div className="w-16 h-16 rounded-full bg-rose-soft flex items-center justify-center font-display text-2xl text-rose shrink-0">MK</div>
+              <div className="flex-1">
+                <p className="eyebrow mb-2">{ui.authorEye}</p>
+                <p className="font-display text-xl mb-1">Marianna Kuzmenko</p>
+                <p className="text-sm text-muted-foreground mb-3">{ui.authorRole}</p>
+                <p className="text-sm text-foreground/80 leading-relaxed mb-4">{ui.authorBio}</p>
+                <Link to={path("about")} className="text-sm font-mono uppercase tracking-widest text-rose-hover hover:text-rose">
+                  {ui.authorLink} →
+                </Link>
+              </div>
+            </aside>
+
+            {/* End-of-article CTA */}
+            <div className="mt-8 card-soft bg-secondary text-center">
+              <p className="eyebrow mb-3">{ui.ctaEye}</p>
+              <h3 className="font-display text-2xl md:text-3xl mb-3">{ui.ctaTitle}</h3>
+              <p className="text-muted-foreground mb-6 max-w-lg mx-auto">{ui.ctaLead}</p>
+              <Link to={path("inquiry")} className="btn-pink inline-flex">
+                {ui.ctaBtn} <ArrowRight size={14} />
+              </Link>
+            </div>
           </div>
         </div>
       </article>

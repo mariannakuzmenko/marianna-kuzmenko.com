@@ -22,12 +22,52 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Marianna Kuzmenko",
-      "jobTitle": "Webdesignerin, Webentwicklerin, SEO Freelancer",
-      "url": "https://mariannakuzmenko.de",
-      "address": { "@type": "PostalAddress", "addressCountry": "DE" },
-      "knowsAbout": ["Webdesign", "Webentwicklung", "UX/UI Design", "SEO Optimierung"]
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://mariannakuzmenko.de/#person",
+          "name": "Marianna Kuzmenko",
+          "jobTitle": "Webdesignerin, Webentwicklerin & SEO Freelancerin",
+          "url": "https://mariannakuzmenko.de",
+          "image": "https://mariannakuzmenko.de/og-cover.jpg",
+          "email": "mailto:mari1992.kuzmenko@gmail.com",
+          "telephone": "+49 179 1111607",
+          "address": { "@type": "PostalAddress", "addressLocality": "Nürnberg", "addressRegion": "Bayern", "addressCountry": "DE" },
+          "knowsAbout": ["Webdesign", "Webentwicklung", "UX/UI Design", "SEO Optimierung", "Responsive Design"],
+          "knowsLanguage": ["de", "en", "uk", "ru"]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://mariannakuzmenko.de/#business",
+          "name": "Marianna Kuzmenko — Webdesign & SEO",
+          "url": "https://mariannakuzmenko.de",
+          "image": "https://mariannakuzmenko.de/og-cover.jpg",
+          "priceRange": "€€",
+          "email": "mari1992.kuzmenko@gmail.com",
+          "telephone": "+49 179 1111607",
+          "founder": { "@id": "https://mariannakuzmenko.de/#person" },
+          "address": { "@type": "PostalAddress", "addressLocality": "Nürnberg", "addressRegion": "Bayern", "addressCountry": "DE" },
+          "areaServed": [
+            { "@type": "City", "name": "Nürnberg" },
+            { "@type": "City", "name": "Fürth" },
+            { "@type": "City", "name": "Erlangen" },
+            { "@type": "City", "name": "München" },
+            { "@type": "AdministrativeArea", "name": "Bayern" },
+            { "@type": "Country", "name": "Deutschland" },
+            { "@type": "Country", "name": "Österreich" },
+            { "@type": "Country", "name": "Schweiz" }
+          ],
+          "serviceType": ["Webdesign", "Webentwicklung", "SEO Optimierung", "UX/UI Design"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mariannakuzmenko.de/#website",
+          "url": "https://mariannakuzmenko.de",
+          "name": "Marianna Kuzmenko",
+          "inLanguage": ["de", "en"],
+          "publisher": { "@id": "https://mariannakuzmenko.de/#person" }
+        }
+      ]
     }
     </script>
   </head>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mariannakuzmenko.de/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/ueber-mich</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/ueber-mich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/ueber-mich"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/ueber-mich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/ueber-mich"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/webentwicklung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/webentwicklung"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/web-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/webentwicklung"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/web-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/webentwicklung"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/web-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/webentwicklung"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/seo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/seo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/seo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/seo"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/seo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/seo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/seo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/seo"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/projekte</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/projekte"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/projekte"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/projects</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/projekte"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/projekte"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/preise</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/preise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/preise"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/pricing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/preise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/preise"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/zertifikate</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/zertifikate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/certificates"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/zertifikate"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/certificates</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/zertifikate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/certificates"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/zertifikate"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/faq"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/faq"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/projektanfrage</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/projektanfrage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/project-inquiry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/projektanfrage"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/project-inquiry</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/projektanfrage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/project-inquiry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/projektanfrage"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/blog/website-erstellen-lassen</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog/website-erstellen-lassen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog/website-erstellen-lassen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog/website-erstellen-lassen"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/blog/website-erstellen-lassen</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog/website-erstellen-lassen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog/website-erstellen-lassen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog/website-erstellen-lassen"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/blog/seo-nuernberg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog/seo-nuernberg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog/seo-nuernberg"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog/seo-nuernberg"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/blog/seo-nuernberg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog/seo-nuernberg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog/seo-nuernberg"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog/seo-nuernberg"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/blog/webdesign-trends-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog/webdesign-trends-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog/webdesign-trends-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog/webdesign-trends-2026"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/blog/webdesign-trends-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog/webdesign-trends-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog/webdesign-trends-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog/webdesign-trends-2026"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/blog/ux-ui-fuer-kmu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog/ux-ui-fuer-kmu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog/ux-ui-fuer-kmu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog/ux-ui-fuer-kmu"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/en/blog/ux-ui-fuer-kmu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mariannakuzmenko.de/blog/ux-ui-fuer-kmu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariannakuzmenko.de/en/blog/ux-ui-fuer-kmu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariannakuzmenko.de/blog/ux-ui-fuer-kmu"/>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/impressum</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/datenschutz</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mariannakuzmenko.de/agb</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
