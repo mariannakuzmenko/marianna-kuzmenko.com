@@ -77,9 +77,26 @@ const Faq = () => {
     }
   );
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: t.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <Layout>
-      <Seo title={t.title} description={t.desc} path={lang === "en" ? "/en/faq" : "/faq"} />
+      <Seo
+        title={t.title}
+        description={t.desc}
+        path={lang === "en" ? "/en/faq" : "/faq"}
+        pathDe="/faq"
+        pathEn="/en/faq"
+        jsonLd={faqSchema}
+      />
 
       <section className="container-editorial pt-12 pb-16">
         <p className="eyebrow mb-6">{t.eye}</p>
