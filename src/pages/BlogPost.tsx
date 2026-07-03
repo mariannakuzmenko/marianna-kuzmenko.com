@@ -134,6 +134,30 @@ const BlogPost = () => {
                 </Link>
               </div>
             )}
+
+            {/* Author box */}
+            <aside className="mt-16 panel-white p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
+              <div className="w-16 h-16 rounded-full bg-rose-soft flex items-center justify-center font-display text-2xl text-rose shrink-0">MK</div>
+              <div className="flex-1">
+                <p className="eyebrow mb-2">{ui.authorEye}</p>
+                <p className="font-display text-xl mb-1">Marianna Kuzmenko</p>
+                <p className="text-sm text-muted-foreground mb-3">{ui.authorRole}</p>
+                <p className="text-sm text-foreground/80 leading-relaxed mb-4">{ui.authorBio}</p>
+                <Link to={path("about")} className="text-sm font-mono uppercase tracking-widest text-rose-hover hover:text-rose">
+                  {ui.authorLink} →
+                </Link>
+              </div>
+            </aside>
+
+            {/* End-of-article CTA */}
+            <div className="mt-8 card-soft bg-secondary text-center">
+              <p className="eyebrow mb-3">{ui.ctaEye}</p>
+              <h3 className="font-display text-2xl md:text-3xl mb-3">{ui.ctaTitle}</h3>
+              <p className="text-muted-foreground mb-6 max-w-lg mx-auto">{ui.ctaLead}</p>
+              <Link to={path("inquiry")} className="btn-pink inline-flex">
+                {ui.ctaBtn} <ArrowRight size={14} />
+              </Link>
+            </div>
           </div>
         </div>
       </article>
