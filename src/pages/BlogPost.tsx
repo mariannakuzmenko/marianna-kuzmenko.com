@@ -17,18 +17,45 @@ const BlogPost = () => {
   const related = getRelated(post.related);
 
   const ui = pick(lang,
-    { back: "Zurück zum Blog", relatedTo: "Passend dazu", helpQ: "Brauchst du Hilfe damit?", view: "ansehen", prev: "Vorheriger Artikel", next: "Nächster Artikel", relatedH: "Weiterlesen", relatedEye: "Ähnliche Artikel", read: "Lesen" },
-    { back: "Back to journal", relatedTo: "Related", helpQ: "Need help with this?", view: "view", prev: "Previous article", next: "Next article", relatedH: "Keep reading", relatedEye: "Related articles", read: "Read" },
+    { back: "Zurück zum Blog", relatedTo: "Passend dazu", helpQ: "Brauchst du Hilfe damit?", view: "ansehen", prev: "Vorheriger Artikel", next: "Nächster Artikel", relatedH: "Weiterlesen", relatedEye: "Ähnliche Artikel", read: "Lesen", authorEye: "Über die Autorin", authorRole: "Webdesignerin · Webentwicklerin · SEO Freelancerin", authorBio: "Ich gestalte, entwickle und optimiere Websites für Selbstständige und kleine Unternehmen in Nürnberg, Bayern und ganz DACH — persönlich, strukturiert, langfristig.", authorLink: "Mehr über mich", ctaEye: "Nächster Schritt", ctaTitle: "Bereit für deine Website?", ctaLead: "Erzähl mir kurz von deinem Projekt — ich melde mich innerhalb von 48 Stunden.", ctaBtn: "Projekt anfragen" },
+    { back: "Back to journal", relatedTo: "Related", helpQ: "Need help with this?", view: "view", prev: "Previous article", next: "Next article", relatedH: "Keep reading", relatedEye: "Related articles", read: "Read", authorEye: "About the author", authorRole: "Web Designer · Web Developer · SEO Freelancer", authorBio: "I design, build and optimize websites for independents and small businesses in Nuremberg, Bavaria and across DACH — personal, structured, long-term.", authorLink: "More about me", ctaEye: "Next step", ctaTitle: "Ready for your website?", ctaLead: "Tell me briefly about your project — I reply within 48 hours.", ctaBtn: "Start inquiry" },
   );
+
+  const canonical = `${blogBase}/${post.slug}`;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      image: `https://mariannakuzmenko.de${post.image}`,
+      datePublished: post.date,
+      inLanguage: lang === "en" ? "en" : "de",
+      author: { "@type": "Person", "@id": "https://mariannakuzmenko.de/#person", name: "Marianna Kuzmenko" },
+      publisher: { "@id": "https://mariannakuzmenko.de/#person" },
+      mainEntityOfPage: `https://mariannakuzmenko.de${canonical}`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: lang === "en" ? "Home" : "Startseite", item: `https://mariannakuzmenko.de${lang === "en" ? "/en" : "/"}` },
+        { "@type": "ListItem", position: 2, name: lang === "en" ? "Journal" : "Blog", item: `https://mariannakuzmenko.de${blogBase}` },
+        { "@type": "ListItem", position: 3, name: post.title, item: `https://mariannakuzmenko.de${canonical}` },
+      ],
+    },
+  ];
 
   return (
     <Layout>
       <Seo
         title={`${post.title} — Marianna Kuzmenko`}
         description={post.excerpt}
-        path={`${blogBase}/${post.slug}`}
+        path={canonical}
         pathDe={`/blog/${post.slug}`}
         pathEn={`/en/blog/${post.slug}`}
+        type="article"
+        jsonLd={jsonLd}
       />
 
       <article className="container-editorial pt-12 md:pt-16 pb-20">
