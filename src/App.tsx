@@ -45,6 +45,7 @@ const App = () => (
               <Route path="/zertifikate" element={<Zertifikate />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/projektanfrage" element={<ProjektAnfrage />} />
+              <Route path="/kontakt" element={<Kontakt />} />
               <Route path="/impressum" element={<Impressum />} />
               <Route path="/datenschutz" element={<Datenschutz />} />
               <Route path="/agb" element={<Agb />} />
