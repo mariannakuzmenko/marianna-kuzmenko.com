@@ -47,6 +47,7 @@ export const Footer = () => {
               <li><Link to={path("certs")}   className="underline-draw">{pick(lang, "Zertifikate", "Certificates")}</Link></li>
               <li><Link to={path("faq")}     className="underline-draw">FAQ</Link></li>
               <li><Link to={path("blog")}    className="underline-draw">Blog</Link></li>
+              <li><Link to={path("contact")} className="underline-draw">{pick(lang, "Kontakt", "Contact")}</Link></li>
             </ul>
             <p className="eyebrow mt-8 mb-4">{pick(lang, "Rechtliches", "Legal")}</p>
             <ul className="space-y-2.5 text-sm">
