@@ -44,7 +44,7 @@ export const StickyCta = () => {
 
       <div className="mobile-cta-bar" role="navigation" aria-label="Quick actions">
         <Link to={inquiry} className="primary">{t.primary} <ArrowUpRight size={14} /></Link>
-        <a href="mailto:hello@mariannakuzmenko.de" className="secondary">{t.secondary}</a>
+        <a href="mailto:mari1992.kuzmenko@gmail.com" className="secondary">{t.secondary}</a>
       </div>
     </>
   );

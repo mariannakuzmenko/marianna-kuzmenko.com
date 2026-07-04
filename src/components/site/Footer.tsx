@@ -28,8 +28,8 @@ export const Footer = () => {
                 {pick(lang, "Projekt starten", "Start a Project")}
                 <Mail size={16} strokeWidth={1.6} />
               </Link>
-              <a href="mailto:hello@mariannakuzmenko.de" className="btn-cta-outline">
-                hello@mariannakuzmenko.de
+              <a href="mailto:mari1992.kuzmenko@gmail.com" className="btn-cta-outline">
+                mari1992.kuzmenko@gmail.com
               </a>
             </div>
           </div>

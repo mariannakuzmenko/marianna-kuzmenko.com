@@ -801,7 +801,7 @@ const Index = () => {
             <Link to={path("inquiry")} className="btn-cta">
               {lang === "de" ? "Projekt starten" : "Start Your Project"} <ArrowUpRight size={18} />
             </Link>
-            <a href="mailto:hello@mariannakuzmenko.de" className="btn-cta-outline">
+            <a href="mailto:mari1992.kuzmenko@gmail.com" className="btn-cta-outline">
               {lang === "de" ? "Beratung buchen" : "Book a Consultation"}
             </a>
           </div>

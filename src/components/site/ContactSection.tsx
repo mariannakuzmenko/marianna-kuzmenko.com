@@ -108,7 +108,7 @@ export const ContactSection = () => {
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-3">
               <span className="w-9 h-9 rounded-full bg-rose-soft flex items-center justify-center"><Mail size={14} strokeWidth={1.5} /></span>
-              <a href="mailto:hello@mariannakuzmenko.de" className="underline-draw">hello@mariannakuzmenko.de</a>
+              <a href="mailto:mari1992.kuzmenko@gmail.com" className="underline-draw">mari1992.kuzmenko@gmail.com</a>
             </li>
             <li className="flex items-center gap-3">
               <span className="w-9 h-9 rounded-full bg-rose-soft flex items-center justify-center"><MapPin size={14} strokeWidth={1.5} /></span>
@@ -140,7 +140,7 @@ export const ContactSection = () => {
                 {loading ? t.submitting : t.submit}
                 <Send size={14} strokeWidth={1.6} />
               </button>
-              <a href="mailto:hello@mariannakuzmenko.de" className="btn-pink-outline">{t.more}</a>
+              <a href="mailto:mari1992.kuzmenko@gmail.com" className="btn-pink-outline">{t.more}</a>
             </div>
             <p className="text-xs text-muted-foreground/80 pt-2">{t.consent}</p>
           </form>
