@@ -16,6 +16,7 @@ import Preise from "./pages/Preise.tsx";
 import Zertifikate from "./pages/Zertifikate.tsx";
 import Faq from "./pages/Faq.tsx";
 import ProjektAnfrage from "./pages/ProjektAnfrage.tsx";
+import Kontakt from "./pages/Kontakt.tsx";
 import Impressum from "./pages/Impressum.tsx";
 import Datenschutz from "./pages/Datenschutz.tsx";
 import Agb from "./pages/Agb.tsx";
