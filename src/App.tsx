@@ -16,6 +16,7 @@ import Preise from "./pages/Preise.tsx";
 import Zertifikate from "./pages/Zertifikate.tsx";
 import Faq from "./pages/Faq.tsx";
 import ProjektAnfrage from "./pages/ProjektAnfrage.tsx";
+import Kontakt from "./pages/Kontakt.tsx";
 import Impressum from "./pages/Impressum.tsx";
 import Datenschutz from "./pages/Datenschutz.tsx";
 import Agb from "./pages/Agb.tsx";
@@ -44,6 +45,7 @@ const App = () => (
               <Route path="/zertifikate" element={<Zertifikate />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/projektanfrage" element={<ProjektAnfrage />} />
+              <Route path="/kontakt" element={<Kontakt />} />
               <Route path="/impressum" element={<Impressum />} />
               <Route path="/datenschutz" element={<Datenschutz />} />
               <Route path="/agb" element={<Agb />} />
@@ -60,6 +62,7 @@ const App = () => (
               <Route path="/en/certificates" element={<Zertifikate />} />
               <Route path="/en/faq" element={<Faq />} />
               <Route path="/en/project-inquiry" element={<ProjektAnfrage />} />
+              <Route path="/en/contact" element={<Kontakt />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -14,6 +14,7 @@ import { ClientJourney } from "@/components/site/ClientJourney";
 import { WebsiteDiagnosis } from "@/components/site/WebsiteDiagnosis";
 import { DigitalJourney } from "@/components/site/DigitalJourney";
 import { ResultsSection } from "@/components/site/ResultsSection";
+import { StatsSection } from "@/components/site/StatsSection";
 
 import { Link } from "react-router-dom";
 import {
@@ -783,6 +784,10 @@ const Index = () => {
       <EinblickSection />
 
       <WaveDivider flip />
+
+      <StatsSection />
+
+      <WaveDivider />
 
       <Testimonials />
 
