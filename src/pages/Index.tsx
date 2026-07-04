@@ -785,6 +785,10 @@ const Index = () => {
 
       <WaveDivider flip />
 
+      <StatsSection />
+
+      <WaveDivider />
+
       <Testimonials />
 
       <WaveDivider />
