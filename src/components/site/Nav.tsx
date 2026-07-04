@@ -17,6 +17,7 @@ export const Nav = () => {
     { to: path("pricing"), label: pick(lang, "Preise", "Pricing") },
     { to: path("faq"),     label: pick(lang, "FAQ", "FAQ") },
     { to: path("blog"),    label: pick(lang, "Blog", "Blog") },
+    { to: path("contact"), label: pick(lang, "Kontakt", "Contact") },
   ];
 
   const ctaLabel = pick(lang, "Projekt starten", "Start a Project");
