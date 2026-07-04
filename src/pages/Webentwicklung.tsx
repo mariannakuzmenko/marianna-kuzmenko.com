@@ -387,7 +387,7 @@ const Webentwicklung = () => {
           "Tell me about your project — I'll get back within 24 hours with first ideas and an honest take."
         )}
         primary={{ label: pick(lang, "Projekt starten", "Start your project"), href: path("inquiry") }}
-        secondary={{ label: pick(lang, "Beratung anfragen", "Request a consultation"), href: "mailto:hello@mariannakuzmenko.de" }}
+        secondary={{ label: pick(lang, "Beratung anfragen", "Request a consultation"), href: "mailto:mari1992.kuzmenko@gmail.com" }}
       />
     </Layout>
   );

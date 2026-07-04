@@ -32,7 +32,7 @@ const Datenschutz = () => (
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
             <PH>Vollständiger Name</PH><br />
             <PH>Anschrift</PH><br />
-            E-Mail: <a href="mailto:hello@mariannakuzmenko.de" className="underline-draw">hello@mariannakuzmenko.de</a>
+            E-Mail: <a href="mailto:mari1992.kuzmenko@gmail.com" className="underline-draw">mari1992.kuzmenko@gmail.com</a>
           </p>
         </Section>
 
@@ -97,7 +97,7 @@ const Datenschutz = () => (
         <Section title="9. Kontakt zu Datenschutzanfragen">
           <p>
             Für Fragen zum Datenschutz und zur Ausübung deiner Rechte erreichst du mich jederzeit per E-Mail unter{" "}
-            <a href="mailto:hello@mariannakuzmenko.de" className="underline-draw">hello@mariannakuzmenko.de</a>.
+            <a href="mailto:mari1992.kuzmenko@gmail.com" className="underline-draw">mari1992.kuzmenko@gmail.com</a>.
           </p>
         </Section>
 

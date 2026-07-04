@@ -32,7 +32,7 @@ const Impressum = () => (
           <h2 className="font-display text-2xl mb-3">Kontakt</h2>
           <p>
             Telefon: <Placeholder>Telefonnummer</Placeholder><br />
-            E-Mail: <a href="mailto:hello@mariannakuzmenko.de" className="underline-draw">hello@mariannakuzmenko.de</a>
+            E-Mail: <a href="mailto:mari1992.kuzmenko@gmail.com" className="underline-draw">mari1992.kuzmenko@gmail.com</a>
           </p>
         </div>
 
