@@ -1,0 +1,446 @@
+import pfotenhaus from "@/assets/projects/pfotenhaus.png";
+import neinStudio from "@/assets/projects/nein-studio.png";
+import fourElements from "@/assets/projects/four-elements.png";
+import atelierNova from "@/assets/projects/atelier-nova.png";
+import lushBloom from "@/assets/projects/lush-bloom.png";
+import liorFriseur from "@/assets/projects/lior-friseur.png";
+import raumform from "@/assets/projects/raumform.png";
+import creditpath from "@/assets/projects/creditpath.png";
+import dentallux from "@/assets/projects/dentallux.png";
+
+export type Mood =
+  | "warm" | "pastel" | "beige" | "bold" | "emotion"
+  | "dark" | "luxury" | "corporate" | "clinic";
+
+export type Layout = "left" | "right" | "full" | "split" | "floating";
+export type Device = "phone" | "phones" | "laptop-tablet" | "tablet-laptop";
+
+export interface ProjectContent {
+  intro: string;
+  overview: string;
+  client: string;
+  goals: string[];
+  challenge: string;
+  research: string;
+  ux: string;
+  ui: string;
+  development: string;
+  seo: string;
+  responsive: string;
+  result: string;
+  feedback: { quote: string; author: string };
+}
+
+export interface Project {
+  slug: string;
+  year: string;
+  name: string;
+  category: string;
+  categoryTags: string[];   // filter tags (industry)
+  serviceTags: string[];    // filter tags (services)
+  tech: string[];
+  tags: string[];           // display badges
+  image: string;
+  gallery: string[];
+  mood: Mood;
+  device: Device;
+  layout: Layout;
+  liveUrl?: string;
+  de: ProjectContent;
+  en: ProjectContent;
+}
+
+export const projects: Project[] = [
+  {
+    slug: "pfotenhaus",
+    year: "2026",
+    name: "Pfotenhaus",
+    category: "Tierhotel · Storytelling",
+    categoryTags: ["Veterinary", "Pet Business"],
+    serviceTags: ["Web Design", "Web Development", "UX/UI"],
+    tech: ["React", "Vite", "Tailwind", "Framer Motion"],
+    tags: ["Webdesign", "Brand Voice", "UX Writing"],
+    image: pfotenhaus, gallery: [pfotenhaus], mood: "emotion", device: "phones", layout: "left",
+    de: {
+      intro: "Eine Geschichte, gespürt von zwei Herzen. Eine Website, die wie eine warme Umarmung wirkt.",
+      overview: "Ein familiengeführtes Pfotenhaus wollte online spürbar machen, was es offline auszeichnet: echte Zuwendung.",
+      client: "Kleines Pfotenhaus im süddeutschen Raum, geführt von einem Ehepaar mit über 15 Jahren Erfahrung.",
+      goals: ["Emotionale Bindung vor der Buchung", "Höhere Buchungsrate", "Weniger Stornierungen"],
+      challenge: "Ein Pfotenhaus brauchte mehr als Buchungsformulare — es brauchte eine Stimme. Eine, die Trennungsschmerz versteht und Vertrauen aufbaut, bevor das Tier den ersten Pfotenabdruck setzt.",
+      research: "Interviews mit 12 Kund:innen zeigten: Der Buchungsentscheid fällt emotional. Fakten allein reichen nicht.",
+      ux: "Klare, ruhige Struktur mit Kapiteln statt Menüpunkten. Buchung nie mehr als zwei Klicks entfernt.",
+      ui: "Warme Erdtöne, weiche Blobs, handgesetzte Serif-Headlines. Jede Section ein Kapitel.",
+      development: "React + Vite mit Tailwind. Bilder als AVIF/WebP, Lazy Loading, unter 100 KB initial JS.",
+      seo: "Lokale Schema.org-Auszeichnung, Long-Tail-Keywords rund um Betreuung, Fütterung, Notfall.",
+      responsive: "Mobile-first, Buchungs-Flow auf einer Handfläche bedienbar.",
+      result: "Aus Besuchern werden Begleiter:innen. Die Conversion-Rate verdoppelte sich, die Stornoquote sank — weil Menschen sich verstanden fühlen, bevor sie buchen.",
+      feedback: { quote: "Unsere Website fühlt sich endlich an wie wir. Kunden schreiben uns Mails, in denen sie sagen, sie hätten Tränen in den Augen.", author: "Inhaberin, Pfotenhaus" },
+    },
+    en: {
+      intro: "A story felt by two hearts. A website that lands like a warm hug.",
+      overview: "A family-run pet hotel wanting to convey online what defines them offline: real care.",
+      client: "Small pet hotel in southern Germany, run by a couple with 15+ years of experience.",
+      goals: ["Emotional bond before booking", "Higher conversion rate", "Fewer cancellations"],
+      challenge: "A pet hotel needed more than booking forms — it needed a voice. One that understands separation anxiety and builds trust before the first paw print.",
+      research: "Interviews with 12 clients showed: booking decisions are emotional. Facts alone don't cut it.",
+      ux: "Calm, chapter-based structure instead of menu items. Booking never more than two clicks away.",
+      ui: "Warm earth tones, soft blobs, hand-set serif headlines. Each section a chapter.",
+      development: "React + Vite with Tailwind. AVIF/WebP images, lazy loading, under 100 KB initial JS.",
+      seo: "Local schema.org markup, long-tail keywords around care, feeding, emergencies.",
+      responsive: "Mobile-first, booking flow operable one-handed.",
+      result: "Visitors became companions. Conversions doubled, cancellations dropped — because people feel understood before they book.",
+      feedback: { quote: "Our website finally feels like us. Clients email us saying they had tears in their eyes.", author: "Owner, Pfotenhaus" },
+    },
+  },
+  {
+    slug: "nein-studio",
+    year: "2025",
+    name: "NEIN / STUDIO",
+    category: "Anti-Agentur · Editorial",
+    categoryTags: ["Corporate"],
+    serviceTags: ["Web Design", "UX/UI"],
+    tech: ["React", "GSAP", "Tailwind"],
+    tags: ["Branding", "Typografie", "Webdesign"],
+    image: neinStudio, gallery: [neinStudio], mood: "bold", device: "phone", layout: "right",
+    de: {
+      intro: "Wir sind wahrscheinlich nichts für dich. Eine Website, die Haltung zeigt — und genau dadurch anzieht.",
+      overview: "Eine junge Kreativagentur wollte sich in einem gesättigten Markt polarisierend positionieren.",
+      client: "Zweiköpfiges Studio aus Hamburg mit Fokus auf Brand & Editorial.",
+      goals: ["Klare Positionierung", "Qualifizierte Anfragen", "Presseaufmerksamkeit"],
+      challenge: "Wie sticht eine Kreativagentur in einem Meer austauschbarer Studio-Sites hervor? Indem sie aufhört, sich anzubiedern.",
+      research: "Analyse von 40 Studio-Sites zeigte: 90 % nutzten dieselben drei Layouts. Eine Nische durch Haltung entstand.",
+      ux: "Klare, plakative Navigation. Jede Section wie ein Statement.",
+      ui: "Brutalistische Typografie, säuerliches Limonengrün als Signature, Stockfoto-Verbot.",
+      development: "React mit GSAP-Scroll-Choreografie. Fokus auf Performance trotz starker Typografie.",
+      seo: "Semantische HTML-Struktur, klare Meta-Storys, Portfolio-Deeplinks.",
+      responsive: "Layouts brechen bewusst — auch mobil bleibt der Charakter erhalten.",
+      result: "Ein Auftritt, der polarisiert — und qualifiziert. Anfragen kommen seltener, passen dafür präzise. Erste Erwähnung in zwei Branchenmagazinen innerhalb von 8 Wochen.",
+      feedback: { quote: "Die Website filtert uns unsere Wunschkunden vor. Wir sagen seltener nein.", author: "Co-Founder, NEIN / STUDIO" },
+    },
+    en: {
+      intro: "We're probably not for you. A site that takes a stance — and attracts because of it.",
+      overview: "A young creative studio wanting to polarize its way into a saturated market.",
+      client: "Two-person studio from Hamburg focused on brand and editorial.",
+      goals: ["Clear positioning", "Qualified inquiries", "Press attention"],
+      challenge: "How does a creative agency stand out in a sea of look-alike studio sites? By refusing to please everyone.",
+      research: "Analysis of 40 studio sites showed 90% used the same three layouts. A niche opened through attitude.",
+      ux: "Bold, poster-like navigation. Each section reads as a statement.",
+      ui: "Brutalist typography, sour lime green signature, no stock photos.",
+      development: "React with GSAP scroll choreography. Performance-first despite heavy typography.",
+      seo: "Semantic HTML, clear meta stories, portfolio deep links.",
+      responsive: "Layouts break on purpose — character stays intact on mobile.",
+      result: "A presence that polarizes — and qualifies. Two industry mentions within 8 weeks.",
+      feedback: { quote: "The site pre-filters our dream clients. We say no less often.", author: "Co-Founder, NEIN / STUDIO" },
+    },
+  },
+  {
+    slug: "four-elements",
+    year: "2025",
+    name: "Four Elements",
+    category: "Spa & Ritual · Cinematic",
+    categoryTags: ["Hotels", "Beauty"],
+    serviceTags: ["Web Design", "UX/UI"],
+    tech: ["React", "Framer Motion", "Sanity CMS"],
+    tags: ["Editorial", "Animation", "Luxury UX"],
+    image: fourElements, gallery: [fourElements], mood: "dark", device: "phone", layout: "left",
+    de: {
+      intro: "Step beyond the veil. Eine digitale Schwelle, die Stille verspricht — und sie hält.",
+      overview: "Ein Wellness-Konzept rund um die vier Elemente sollte digital erlebbar werden.",
+      client: "Spa-Marke mit drei Standorten in Süddeutschland und Österreich.",
+      goals: ["Höherpreisige Rituale positionieren", "Verweildauer steigern", "Direktbuchungen"],
+      challenge: "Ein Wellness-Konzept rund um die vier Elemente brauchte eine Website, die nicht erklärt, sondern atmen lässt.",
+      research: "Session Recordings zeigten: Nutzer wollen Atmosphäre, keine Preislisten in Sekunde 1.",
+      ux: "Cinematic Scrollflow: erst Stimmung, dann Angebot, dann Buchung.",
+      ui: "Tiefe Schattenwelt, langsame Übergänge, Kalligrafie-Akzente.",
+      development: "React + Framer Motion, Inhalte über Sanity CMS pflegbar.",
+      seo: "Ritual-spezifische Landing Pages, strukturierte Daten für Angebote.",
+      responsive: "Auch mobil bleibt das cinematic Gefühl erhalten — reduzierte Animationen für Performance.",
+      result: "Buchungen für höherpreisige Rituale stiegen um 38 %. Die durchschnittliche Verweildauer verdreifachte sich.",
+      feedback: { quote: "Unsere Gäste sagen, sie fühlten sich schon beim Scrollen entspannt.", author: "Spa Director, Four Elements" },
+    },
+    en: {
+      intro: "Step beyond the veil. A digital threshold that promises stillness — and keeps it.",
+      overview: "A wellness concept built around the four elements, made tangible online.",
+      client: "Spa brand with three locations across southern Germany and Austria.",
+      goals: ["Position higher-priced rituals", "Increase dwell time", "Direct bookings"],
+      challenge: "A wellness brand needed a website that doesn't explain — it lets you breathe.",
+      research: "Session recordings showed: users want atmosphere, not price lists in second one.",
+      ux: "Cinematic scroll flow: mood first, offering second, booking third.",
+      ui: "Deep shadow palette, slow transitions, calligraphy accents.",
+      development: "React + Framer Motion, content managed via Sanity CMS.",
+      seo: "Ritual-specific landing pages, structured data for offers.",
+      responsive: "Cinematic feel preserved on mobile with reduced animations for performance.",
+      result: "Bookings of higher-priced rituals rose 38%. Average dwell time tripled.",
+      feedback: { quote: "Guests say they feel relaxed just from scrolling.", author: "Spa Director, Four Elements" },
+    },
+  },
+  {
+    slug: "atelier-nova",
+    year: "2025",
+    name: "Atelier Nova",
+    category: "Architektur · Minimal",
+    categoryTags: ["Corporate"],
+    serviceTags: ["Web Design", "UX/UI", "SEO"],
+    tech: ["Next.js", "Tailwind", "Contentful"],
+    tags: ["Webdesign", "Editorial", "Photography"],
+    image: atelierNova, gallery: [atelierNova], mood: "beige", device: "phone", layout: "full",
+    de: {
+      intro: "We create spaces that resonate. Eine Website, die der Architektur den Vortritt lässt.",
+      overview: "Ein Architektur-Atelier wollte online wie ein Bildband wirken.",
+      client: "Etabliertes Atelier mit Fokus auf Wohn- und Kulturbauten.",
+      goals: ["Größere Projektvolumina", "Wettbewerbsvorteile", "Talent-Recruiting"],
+      challenge: "Das Atelier wollte keine Galerie, sondern ein Manifest.",
+      research: "Wettbewerbsanalyse zeigte: Architekt:innen zeigen zu viel. Reduktion war der Hebel.",
+      ux: "Wenige, große Kapitel. Jede Referenz mit Raum zum Atmen.",
+      ui: "Beige-Töne, klassische Display-Serife, dünne Outline-Akzente.",
+      development: "Next.js mit statischer Generierung, Bilder über Contentful.",
+      seo: "Projektspezifische Long-Tail-Optimierung, saubere Sitemap-Struktur.",
+      responsive: "Auf Mobil werden vertikale Bildstrecken zum Erlebnis.",
+      result: "Anfragen verschoben sich messbar nach oben — kleinere Projekte werden seltener angefragt. Drei Wettbewerbszuschläge in 5 Monaten.",
+      feedback: { quote: "Die Website erzählt unsere Architektur, ohne sie zu erklären.", author: "Partner, Atelier Nova" },
+    },
+    en: {
+      intro: "We create spaces that resonate. A website that lets the architecture lead.",
+      overview: "An architecture atelier wanting to feel like a photo book online.",
+      client: "Established studio focused on residential and cultural buildings.",
+      goals: ["Larger project volumes", "Competitive edge", "Talent recruiting"],
+      challenge: "The atelier didn't want a gallery, it wanted a manifesto.",
+      research: "Competitive analysis showed: architects show too much. Reduction was the lever.",
+      ux: "Few, large chapters. Every project given room to breathe.",
+      ui: "Beige tones, classical display serif, thin outline accents.",
+      development: "Next.js with static generation, images via Contentful.",
+      seo: "Project-specific long-tail optimization, clean sitemap structure.",
+      responsive: "On mobile, vertical image sequences become an experience.",
+      result: "Inquiries shifted measurably upmarket. Three competition wins in five months.",
+      feedback: { quote: "The website tells our architecture without explaining it.", author: "Partner, Atelier Nova" },
+    },
+  },
+  {
+    slug: "lush-bloom",
+    year: "2025",
+    name: "Lush & Bloom",
+    category: "Beauty Studio · Soft",
+    categoryTags: ["Beauty"],
+    serviceTags: ["Web Design", "UX/UI", "Web Development"],
+    tech: ["React", "Vite", "Tailwind", "Cal.com"],
+    tags: ["UX/UI", "Conversion", "Pastel Design"],
+    image: lushBloom, gallery: [lushBloom], mood: "pastel", device: "phone", layout: "split",
+    de: {
+      intro: "Beauty that feels like a reset. Eine Pause für die Augen, lange bevor sie zur Pause für den Körper wird.",
+      overview: "Ein Berliner Beauty-Studio mit Premium-Anspruch und veralteter Website.",
+      client: "Beauty-Studio mit zwei Behandlungsräumen und Wartelisten.",
+      goals: ["Online-Buchungen steigern", "No-Show-Rate senken", "Markenwahrnehmung modernisieren"],
+      challenge: "Ein Berliner Beauty-Studio mit hoher Qualität, aber überladener Altsite.",
+      research: "Heatmaps zeigten: 60 % Absprünge im alten Buchungsflow. Menüführung war das Problem.",
+      ux: "Ein Ziel pro Section: Termin buchen. Alles andere wird zurückgestellt.",
+      ui: "Aquarellige Pastell-Verläufe, runde Pill-Buttons, Display-Serif mit Atem.",
+      development: "React + Vite, Buchungen über Cal.com integriert.",
+      seo: "Behandlungs-spezifische Landing Pages, Local SEO, Google-Business-Sync.",
+      responsive: "Mobile-first, Buchungsflow in 3 Schritten abschließbar.",
+      result: "Online-Buchungen +210 %. No-Show-Rate halbiert dank klarerer Vorab-Kommunikation.",
+      feedback: { quote: "Die neue Website hat uns unsere Vormittage zurückgegeben — keine ständigen Buchungsanrufe mehr.", author: "Gründerin, Lush & Bloom" },
+    },
+    en: {
+      intro: "Beauty that feels like a reset. A pause for the eyes, long before the body's.",
+      overview: "A premium Berlin beauty studio with an outdated site.",
+      client: "Beauty studio with two treatment rooms and waiting lists.",
+      goals: ["Grow online bookings", "Lower no-show rate", "Modernize brand perception"],
+      challenge: "High-quality Berlin studio stuck on an overloaded legacy site.",
+      research: "Heatmaps showed 60% drop-off in the old booking flow. Menu logic was the culprit.",
+      ux: "One goal per section: book a slot. Everything else takes a back seat.",
+      ui: "Watercolor pastel gradients, rounded pill buttons, display serif with room to breathe.",
+      development: "React + Vite, bookings via Cal.com.",
+      seo: "Treatment-specific landing pages, local SEO, Google Business sync.",
+      responsive: "Mobile-first, booking flow completable in three steps.",
+      result: "Online bookings +210%. No-show rate halved through clearer pre-visit communication.",
+      feedback: { quote: "The new site gave us our mornings back — no more constant booking calls.", author: "Founder, Lush & Bloom" },
+    },
+  },
+  {
+    slug: "lior-friseur",
+    year: "2024",
+    name: "Lior. Friseur",
+    category: "Salon · Cinematic Dark",
+    categoryTags: ["Beauty"],
+    serviceTags: ["Web Design", "SEO", "Web Development"],
+    tech: ["React", "Vite", "Tailwind"],
+    tags: ["Webdesign", "Local SEO", "Branding"],
+    image: liorFriseur, gallery: [liorFriseur], mood: "luxury", device: "phone", layout: "right",
+    de: {
+      intro: "Farbe, die dich verändert. Eine Website, die wirkt wie der Moment vor dem ersten Schnitt.",
+      overview: "Ein Premium-Friseursalon in Nürnberg wollte sich von Standard-Branchenseiten absetzen.",
+      client: "Salon mit fünf Stylist:innen und Fokus auf Coloration.",
+      goals: ["Premium-Terminfenster füllen", "Walk-Ins steigern", "Standort stärken"],
+      challenge: "Keine Stock-Lächeln, keine Preislisten-Friedhöfe.",
+      research: "Kundenbefragung zeigte: Emotionale Bilder überzeugen mehr als Vorher/Nachher.",
+      ux: "Terminbuchung als Held der Startseite, sonst pure Atmosphäre.",
+      ui: "Dunkler Hintergrund, glänzende Haarpartien als Hero, warmes Champagner-Gold als Akzent.",
+      development: "React + Vite mit optimierten Videoflächen.",
+      seo: "Local SEO für Nürnberg, strukturierte Daten für Öffnungszeiten und Bewertungen.",
+      responsive: "Mobile-first, One-Tap-Anruf und Terminbuchung.",
+      result: "Termine im Premium-Segment ausgebucht 6 Wochen im Voraus. Walk-Ins verdoppelt.",
+      feedback: { quote: "Unsere Kundinnen erwähnen die Website beim ersten Termin. Das ist neu.", author: "Inhaber, Lior. Friseur" },
+    },
+    en: {
+      intro: "Color that changes you. A site that lands like the moment before the first cut.",
+      overview: "A premium hair salon in Nuremberg wanting to break away from generic industry sites.",
+      client: "Salon with five stylists focused on coloration.",
+      goals: ["Fill premium slots", "Grow walk-ins", "Strengthen location"],
+      challenge: "No stock smiles, no price-list graveyards.",
+      research: "Client survey: emotional imagery convinces more than before/after shots.",
+      ux: "Booking as the hero, everything else pure atmosphere.",
+      ui: "Dark background, glossy hair shots as hero, warm champagne gold as accent.",
+      development: "React + Vite with optimized video sections.",
+      seo: "Local SEO for Nuremberg, structured data for hours and reviews.",
+      responsive: "Mobile-first, one-tap call and booking.",
+      result: "Premium slots booked out 6 weeks ahead. Walk-ins doubled.",
+      feedback: { quote: "Clients mention the website at the first appointment. That's new.", author: "Owner, Lior. Friseur" },
+    },
+  },
+  {
+    slug: "raumform-atelier",
+    year: "2024",
+    name: "Raumform Atelier",
+    category: "Innenarchitektur · Editorial",
+    categoryTags: ["Corporate"],
+    serviceTags: ["Web Design", "UX/UI"],
+    tech: ["Astro", "Tailwind"],
+    tags: ["Editorial Web", "Photography", "Brand"],
+    image: raumform, gallery: [raumform], mood: "warm", device: "phone", layout: "floating",
+    de: {
+      intro: "Räume, die man fühlt — nicht nur sieht. Eine Website, die haptisch wirkt, ohne es zu sein.",
+      overview: "Ein Innenarchitektur-Atelier brauchte eine Bühne für Materialität.",
+      client: "Atelier mit Fokus auf Wohnräume und Boutique-Hotels.",
+      goals: ["Größere Projekte gewinnen", "Ästhetik-Alignment schon vor dem Erstgespräch"],
+      challenge: "Materialien auf einem Bildschirm zeigen, der keines davon kennt.",
+      research: "Referenz-Recherche in Print-Magazinen, um digitale Haptik zu übersetzen.",
+      ux: "Vollflächige Hero-Bilder, die wie Räume durchschritten werden.",
+      ui: "Naturholz-Töne als Hintergrund, transparente Outline-Buttons, Serifen-Headlines im Italic.",
+      development: "Astro für schnelle statische Auslieferung, Bilder in AVIF.",
+      seo: "Content-Silos rund um Wohn-, Retail- und Hospitality-Projekte.",
+      responsive: "Mobil bleibt der Fokus auf einer Materialität pro Screen.",
+      result: "Drei Großprojekte über die Site akquiriert. Briefings kommen mit klarer Ästhetik-Vorstellung.",
+      feedback: { quote: "Endlich eine Website, die unsere Materialien nicht flach macht.", author: "Gründerin, Raumform" },
+    },
+    en: {
+      intro: "Spaces you feel — not just see. A website with a tactile pulse.",
+      overview: "An interior design atelier needed a stage for materiality.",
+      client: "Studio focused on living spaces and boutique hotels.",
+      goals: ["Win larger projects", "Aesthetic alignment before first meeting"],
+      challenge: "Show materials on a screen that knows none of them.",
+      research: "Reference research in print magazines, translating tactile feel to digital.",
+      ux: "Full-bleed hero images you walk through, not look at.",
+      ui: "Natural-wood tones as background, transparent outline buttons, italic serif headlines.",
+      development: "Astro for fast static delivery, images in AVIF.",
+      seo: "Content silos around residential, retail and hospitality projects.",
+      responsive: "On mobile, one material stays in focus per screen.",
+      result: "Three large projects acquired through the site. Briefings arrive with a clear aesthetic intent.",
+      feedback: { quote: "Finally a website that doesn't flatten our materials.", author: "Founder, Raumform" },
+    },
+  },
+  {
+    slug: "creditpath",
+    year: "2024",
+    name: "CreditPath",
+    category: "Fintech · Trust",
+    categoryTags: ["Corporate"],
+    serviceTags: ["Web Design", "UX/UI", "Web Development", "SEO"],
+    tech: ["Next.js", "Tailwind", "HubSpot"],
+    tags: ["Fintech UX", "Conversion", "Trust Design"],
+    image: creditpath, gallery: [creditpath], mood: "corporate", device: "laptop-tablet", layout: "right",
+    de: {
+      intro: "Get approved for your dream home — even if your credit isn't perfect. Vertrauen, in Pixel gegossen.",
+      overview: "Eine Kredit- und Hypothekenberatung brauchte einen Auftritt, der Seriosität ausstrahlt.",
+      client: "Beratungsteam mit Standorten in München und Wien.",
+      goals: ["Qualifizierte Pre-Qualification-Leads", "Höhere Erstgespräch-Abschlussquote"],
+      challenge: "Vertrauen ist hier die Conversion — ohne kalt zu wirken.",
+      research: "Interviews mit 20 Interessent:innen zeigten: Ängste um Ablehnung dominieren.",
+      ux: "Pre-Qualification-Wizard mit klarer Fortschrittsanzeige, keine Sackgassen.",
+      ui: "Tiefes Mitternachtsblau, warmes Sonnengelb als Akzent.",
+      development: "Next.js mit HubSpot-CRM-Anbindung, DSGVO-konform.",
+      seo: "Themen-Hub rund um Bonität, Zinsen, Erstfinanzierung.",
+      responsive: "Wizard voll mobiloptimiert.",
+      result: "Pre-Qualification-Submissions +180 %. Abschlussquote im Erstgespräch von 22 % auf 41 %.",
+      feedback: { quote: "Unsere Kundinnen und Kunden kommen vorbereiteter — das spart uns Stunden.", author: "Head of Advisory, CreditPath" },
+    },
+    en: {
+      intro: "Get approved for your dream home — even if your credit isn't perfect. Trust, cast in pixels.",
+      overview: "A credit and mortgage advisor needing a presence that radiates seriousness.",
+      client: "Advisory team with offices in Munich and Vienna.",
+      goals: ["Qualified pre-qualification leads", "Higher first-meeting close rate"],
+      challenge: "Trust is the conversion here — without feeling cold.",
+      research: "Interviews with 20 prospects showed: fears of rejection dominate.",
+      ux: "Pre-qualification wizard with clear progress and no dead ends.",
+      ui: "Deep midnight blue, warm sun-yellow accent.",
+      development: "Next.js with HubSpot CRM integration, GDPR compliant.",
+      seo: "Topic hub around creditworthiness, rates, first financing.",
+      responsive: "Wizard fully mobile-optimized.",
+      result: "Pre-qualification submissions +180%. First-meeting close rate from 22% to 41%.",
+      feedback: { quote: "Our clients arrive better prepared — it saves us hours.", author: "Head of Advisory, CreditPath" },
+    },
+  },
+  {
+    slug: "dentallux",
+    year: "2024",
+    name: "DentalLux",
+    category: "Premium Zahnmedizin · Berlin",
+    categoryTags: ["Healthcare"],
+    serviceTags: ["Web Design", "UX/UI", "SEO"],
+    tech: ["React", "Vite", "Tailwind"],
+    tags: ["Healthcare UX", "Premium", "Local SEO"],
+    image: dentallux, gallery: [dentallux], mood: "clinic", device: "tablet-laptop", layout: "left",
+    de: {
+      intro: "Ihr Lächeln in besten Händen. Medizin, die sich anfühlt wie ein gutes Hotel.",
+      overview: "Eine Premium-Zahnarztpraxis wollte raus aus dem klinischen Standard.",
+      client: "Praxis mit sechs Behandlungsräumen und Fokus auf ästhetische Zahnmedizin.",
+      goals: ["Selbstzahler-Anteil erhöhen", "Online-Terminbuchungen", "Team-Recruiting"],
+      challenge: "Kompetenz vermitteln, ohne Distanz zu erzeugen.",
+      research: "Analyse der Suchintention zeigte: Patient:innen wollen Nähe, dann Kompetenz, dann Preis.",
+      ux: "Menschliches Hero-Portrait, klare Behandlungsstruktur, Trust-Marker ruhig integriert.",
+      ui: "Salbei-Grün und gedämpftes Beige, weiche Display-Serife.",
+      development: "React + Vite, Terminbuchung über Doctolib eingebettet.",
+      seo: "Local SEO für Berlin, medizinisches Content-Hub.",
+      responsive: "Mobile-first, Terminanfrage in zwei Schritten.",
+      result: "Online-Terminbuchungen verdreifacht. Anteil an Selbstzahler-Behandlungen stieg signifikant.",
+      feedback: { quote: "Patient:innen sagen, sie fühlten sich schon vor dem ersten Termin willkommen.", author: "Praxisinhaberin, DentalLux" },
+    },
+    en: {
+      intro: "Your smile in the best hands. Medicine that feels like a great hotel.",
+      overview: "A premium dental practice wanting to escape clinical defaults.",
+      client: "Practice with six treatment rooms focused on aesthetic dentistry.",
+      goals: ["Grow self-pay share", "Online appointments", "Team recruiting"],
+      challenge: "Convey expertise without creating distance.",
+      research: "Search intent analysis: patients want warmth first, expertise second, price third.",
+      ux: "Human hero portrait, clear treatment structure, trust markers integrated quietly.",
+      ui: "Sage green and muted beige, soft display serif.",
+      development: "React + Vite, appointments embedded via Doctolib.",
+      seo: "Local SEO for Berlin, medical content hub.",
+      responsive: "Mobile-first, appointment request in two steps.",
+      result: "Online appointments tripled. Self-pay treatment share rose significantly.",
+      feedback: { quote: "Patients say they feel welcome before the first appointment.", author: "Owner, DentalLux" },
+    },
+  },
+];
+
+export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+export const getRelated = (slug: string, n = 3) => {
+  const cur = getProject(slug);
+  if (!cur) return [];
+  return projects
+    .filter((p) => p.slug !== slug)
+    .sort((a, b) => {
+      const overlap = (p: Project) =>
+        p.categoryTags.filter((t) => cur.categoryTags.includes(t)).length +
+        p.serviceTags.filter((t) => cur.serviceTags.includes(t)).length;
+      return overlap(b) - overlap(a);
+    })
+    .slice(0, n);
+};
+export const getNeighbors = (slug: string) => {
+  const i = projects.findIndex((p) => p.slug === slug);
+  if (i < 0) return { prev: null, next: null };
+  return {
+    prev: projects[(i - 1 + projects.length) % projects.length],
+    next: projects[(i + 1) % projects.length],
+  };
+};

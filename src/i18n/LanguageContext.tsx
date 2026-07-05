@@ -60,6 +60,16 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
         const slug = pathname.replace("/en/blog/", "");
         return other === "en" ? `/en/blog/${slug}` : `/blog/${slug}`;
       }
+      // Case study: /projekte/:slug ↔ /en/projects/:slug
+      if (pathname.startsWith("/projekte/")) {
+        const slug = pathname.replace("/projekte/", "");
+        return other === "en" ? `/en/projects/${slug}` : `/projekte/${slug}`;
+      }
+      if (pathname.startsWith("/en/projects/")) {
+        const slug = pathname.replace("/en/projects/", "");
+        return other === "en" ? `/en/projects/${slug}` : `/projekte/${slug}`;
+      }
+
       // Fallback to home.
       return ROUTES.home[other];
     };
