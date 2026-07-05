@@ -28,13 +28,14 @@ const Mockup = ({ p, className = "" }: { p: Project; className?: string }) => (
   </div>
 );
 
-const ProjectScene = ({ p, index, caseHref, t }: {
-  p: Project; index: number; caseHref: string;
+const ProjectScene = ({ p, index, caseHref, t, lang }: {
+  p: Project; index: number; caseHref: string; lang: "de" | "en";
   t: { visit: string; discover: string; services: string; tech: string; year: string };
 }) => {
   const isLeft = p.layout === "left" || p.layout === "floating";
   const isFull = p.layout === "full";
   const isSplit = p.layout === "split";
+  const content = pick(lang, p.de, p.en);
 
   const Info = (
     <div>
@@ -45,11 +46,12 @@ const ProjectScene = ({ p, index, caseHref, t }: {
         {p.name}
       </h2>
       <p className="text-lg md:text-xl font-display italic leading-snug mb-6 opacity-90">
-        {pick(useLang().lang, p.de.intro, p.en.intro)}
+        {content.intro}
       </p>
       <p className="text-muted-foreground leading-relaxed mb-6">
-        {pick(useLang().lang, p.de.overview, p.en.overview)}
+        {content.overview}
       </p>
+
 
       <dl className="grid grid-cols-2 gap-4 mb-6 text-sm">
         <div>
