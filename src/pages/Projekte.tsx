@@ -245,10 +245,11 @@ const Projekte = () => {
           filtered.map((p, i) => (
             <div key={p.slug} className="animate-fade-in">
               <ProjectScene
-                p={p} index={i}
+                p={p} index={i} lang={lang}
                 caseHref={`${caseBase}${p.slug}`}
                 t={{ visit: t.visit, discover: t.discover, services: t.services, tech: t.tech, year: t.year }}
               />
+
             </div>
           ))
         )}
