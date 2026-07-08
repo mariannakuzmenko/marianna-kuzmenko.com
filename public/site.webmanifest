@@ -1,0 +1,13 @@
+{
+  "name": "Marianna Kuzmenko — Webdesign & SEO",
+  "short_name": "M. Kuzmenko",
+  "description": "Webdesignerin, Webentwicklerin und SEO Freelancerin in Deutschland.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#c9184a",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }
+  ]
+}

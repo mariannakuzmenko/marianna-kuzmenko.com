@@ -73,6 +73,8 @@ export const ContactSection = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
+    // Honeypot: bots fill hidden field
+    if (fd.get("website")) return;
     const parsed = schema.safeParse({
       name: fd.get("name"),
       email: fd.get("email"),
@@ -122,7 +124,8 @@ export const ContactSection = () => {
         </div>
 
         <div className="col-span-12 lg:col-span-7">
-          <form onSubmit={onSubmit} className="panel-white space-y-5">
+          <form onSubmit={onSubmit} className="panel-white space-y-5" noValidate aria-label={pick(lang, "Kontaktformular", "Contact form")}>
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="sr-only" />
             <div>
               <label htmlFor="name" className="block text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">{t.name}</label>
               <input id="name" name="name" type="text" maxLength={100} placeholder={t.namePh} className="input-soft" required />
