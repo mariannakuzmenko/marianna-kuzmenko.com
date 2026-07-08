@@ -5,7 +5,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import { ConsentProvider } from "@/consent/ConsentContext";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
+import { CookieBanner } from "@/components/site/CookieBanner";
+import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
 import Index from "./pages/Index.tsx";
 import UeberMich from "./pages/UeberMich.tsx";
 import Webentwicklung from "./pages/Webentwicklung.tsx";
@@ -22,6 +25,8 @@ import Kontakt from "./pages/Kontakt.tsx";
 import Impressum from "./pages/Impressum.tsx";
 import Datenschutz from "./pages/Datenschutz.tsx";
 import Agb from "./pages/Agb.tsx";
+import CookieRichtlinie from "./pages/CookieRichtlinie.tsx";
+import Disclaimer from "./pages/Disclaimer.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -48,6 +53,10 @@ const AppRoutes = () => {
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Datenschutz />} />
         <Route path="/agb" element={<Agb />} />
+        <Route path="/cookie-richtlinie" element={<CookieRichtlinie />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/en/cookie-policy" element={<CookieRichtlinie />} />
+        <Route path="/en/disclaimer" element={<Disclaimer />} />
 
         {/* English */}
         <Route path="/en" element={<Index />} />
@@ -78,8 +87,12 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <LanguageProvider>
-            <ScrollToTop />
-            <AppRoutes />
+            <ConsentProvider>
+              <ScrollToTop />
+              <GoogleAnalytics />
+              <AppRoutes />
+              <CookieBanner />
+            </ConsentProvider>
           </LanguageProvider>
         </BrowserRouter>
       </TooltipProvider>
