@@ -25,7 +25,7 @@ const CookieRichtlinie = () => {
           { k: "Marketing", v: "Aktuell nicht aktiv — vorbereitet für zukünftige Kampagnen (z.B. Meta Pixel, LinkedIn Insight). Speicherdauer bis zu 12 Monate." },
           { k: "Externe Medien", v: "Eingebettete Inhalte wie Google Maps, YouTube oder Vimeo. Werden erst nach Einwilligung geladen." },
         ] },
-      { h: "4. Widerruf & Verwaltung", p: "Du kannst deine Einwilligung jederzeit über den Button „Cookie-Einstellungen" (auch im Footer verlinkt) widerrufen oder anpassen. Die Rechtmäßigkeit bereits erfolgter Verarbeitung bleibt davon unberührt." },
+      { h: "4. Widerruf & Verwaltung", p: "Du kannst deine Einwilligung jederzeit über den Button \u201ECookie-Einstellungen\u201C (auch im Footer verlinkt) widerrufen oder anpassen. Die Rechtmäßigkeit bereits erfolgter Verarbeitung bleibt davon unberührt." },
       { h: "5. Drittanbieter", p: "Beim Einsatz von Diensten wie Google Analytics werden Daten ggf. in Drittländer außerhalb der EU/des EWR (insbesondere USA) übertragen. Grundlage sind Standardvertragsklauseln gemäß Art. 46 DSGVO." },
     ],
   }, {
