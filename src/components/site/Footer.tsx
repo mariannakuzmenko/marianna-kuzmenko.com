@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Github, Mail } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLang, pick } from "@/i18n/LanguageContext";
+import { useConsent } from "@/consent/ConsentContext";
 
 export const Footer = () => {
   const { lang, path } = useLang();
+  const { openSettings } = useConsent();
   return (
     <footer className="relative mt-32 overflow-hidden">
       <div className="absolute inset-0" style={{ background: "var(--gradient-soft)" }} />
@@ -54,6 +56,9 @@ export const Footer = () => {
               <li><Link to={path("imprint")} className="underline-draw">Impressum</Link></li>
               <li><Link to={path("privacy")} className="underline-draw">{pick(lang, "Datenschutz", "Privacy")}</Link></li>
               <li><Link to={path("terms")}   className="underline-draw">AGB</Link></li>
+              <li><Link to={path("cookie")} className="underline-draw">{pick(lang, "Cookie-Richtlinie", "Cookie policy")}</Link></li>
+              <li><Link to={path("disclaimer")} className="underline-draw">{pick(lang, "Haftungsausschluss", "Disclaimer")}</Link></li>
+              <li><button type="button" onClick={openSettings} className="underline-draw text-left">{pick(lang, "Cookie-Einstellungen", "Cookie settings")}</button></li>
             </ul>
           </div>
 

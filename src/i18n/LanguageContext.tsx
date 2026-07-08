@@ -23,6 +23,8 @@ export const ROUTES: Record<string, { de: string; en: string }> = {
   imprint:    { de: "/impressum",    en: "/impressum" },
   privacy:    { de: "/datenschutz",  en: "/datenschutz" },
   terms:      { de: "/agb",          en: "/agb" },
+  cookie:     { de: "/cookie-richtlinie", en: "/en/cookie-policy" },
+  disclaimer: { de: "/disclaimer",   en: "/en/disclaimer" },
 };
 
 interface Ctx {
