@@ -1,450 +1,425 @@
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { IconCard } from "@/components/site/IconCard";
-import { FloatingNote } from "@/components/site/FloatingNote";
 import { ConversionCta } from "@/components/site/ConversionCta";
 import { LaptopMockup } from "@/components/site/LaptopMockup";
+import { StatsSection } from "@/components/site/StatsSection";
+import { Testimonials } from "@/components/site/Testimonials";
+import { ResultsSection } from "@/components/site/ResultsSection";
+import { useParallax } from "@/hooks/useParallax";
 import {
   ArrowUpRight,
   GraduationCap,
-  Eye,
-  Feather,
-  Compass,
-  Layers,
-  Search,
-  Rocket,
-  Sparkles,
-  ShieldCheck,
-  Handshake,
-  MessageCircle,
-  Zap,
-  Code2,
-  BookOpen,
-  HeartHandshake,
   Palette,
+  Layers,
+  Code2,
+  Search,
   Users,
-  Award,
-  Gauge,
+  Sparkles,
   Smartphone,
-  TrendingUp,
-  Coffee,
-  Globe2,
-  MapPin,
-  Wifi,
-  Clock,
-  Heart,
-  Pencil,
-  Monitor,
-  FileCode2,
+  Compass,
+  ShieldCheck,
+  MessageCircle,
+  Gauge,
+  Handshake,
+  PenTool,
   Braces,
   Component,
   Boxes,
+  Monitor,
   ImageIcon,
   Brush,
-  Camera,
+  BarChart3,
   Building2,
   Leaf,
   Cloud,
   Type,
+  Camera,
   Lightbulb,
-  Coffee as CoffeeIcon,
+  Coffee,
+  Globe2,
+  BookOpen,
+  Heart,
 } from "lucide-react";
 import portraitWindow from "@/assets/portraits/marianna-portrait-window.jpeg";
 import portraitPampas from "@/assets/portraits/marianna-portrait-pampas.jpeg";
 import portraitSuit from "@/assets/portraits/marianna-portrait-suit.jpeg";
 import portraitLaptop from "@/assets/portraits/marianna-laptop-coffee.jpeg";
 import workspace from "@/assets/workspace.jpg";
-import projectAtelier from "@/assets/projects/atelier-nova.png";
+import projectPfotenhaus from "@/assets/projects/pfotenhaus.png";
 import projectDental from "@/assets/projects/dentallux.png";
+import projectAtelier from "@/assets/projects/atelier-nova.png";
 import projectLush from "@/assets/projects/lush-bloom.png";
 import projectRaum from "@/assets/projects/raumform.png";
-import projectNein from "@/assets/projects/nein-studio.png";
-import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
+import certUxui from "@/assets/certificates/genius-uxui.jpg";
+import certReact from "@/assets/certificates/shecodes-react.png";
+import certResponsive from "@/assets/certificates/shecodes-responsive.png";
+import certMarketing from "@/assets/certificates/para-marketing.jpg";
+import { useLang, pick } from "@/i18n/LanguageContext";
 
 const UeberMich = () => {
   const { lang, path } = useLang();
+  const collageA = useParallax(0.05);
+  const collageB = useParallax(-0.05);
 
   const t = pick(
     lang,
     {
-      seoTitle: "Über mich — Marianna Kuzmenko · Webdesignerin & SEO in Nürnberg",
+      seoTitle: "Über mich | Webdesignerin & Webentwicklerin aus Nürnberg | Marianna Kuzmenko",
       seoDesc:
-        "Marianna Kuzmenko: Webdesignerin, Entwicklerin und SEO-Beraterin aus Nürnberg. Ausgebildet in Portugal und Kanada. Persönlich, transparent, premium.",
+        "Marianna Kuzmenko — Webdesign, Webentwicklung, UX/UI und SEO aus Nürnberg. Moderne, responsive Websites für Unternehmen in Bayern, Deutschland, Österreich und der Schweiz.",
 
-      // HERO
-      heroEye: "02 — Über mich",
-      heroTitleA: "Websites, die",
-      heroTitleB: "Vertrauen schaffen",
-      heroTitleC: "und Unternehmen wachsen lassen.",
+      heroEye: "Über mich",
+      heroTitleA: "Web Design, Entwicklung & SEO —",
+      heroTitleB: "persönlich, kreativ und mit Strategie.",
       heroLead:
-        "Ich bin Marianna — Webdesignerin, Entwicklerin und SEO-Beraterin aus Nürnberg. Ich baue digitale Auftritte, die Marken tragen und Kund:innen bringen.",
-      heroPrimary: "Projekte ansehen",
-      heroSecondary: "Kostenloses Erstgespräch",
-      heroBadge: "Verfügbar für neue Projekte",
-      portraitAlt: "Marianna Kuzmenko, Webdesignerin und Entwicklerin",
+        "Ich bin Marianna Kuzmenko, Webdesignerin und Webentwicklerin aus Nürnberg. Ich gestalte moderne Websites für Unternehmen, die online professionell wirken, Vertrauen aufbauen und bei Google sichtbarer werden möchten.",
+      ctaWork: "Meine Projekte",
+      ctaTalk: "Kostenloses Erstgespräch",
+      heroCap1: "UX/UI Design",
+      heroCap2: "SEO-optimiert",
+      heroCap3: "Responsive",
 
-      // STORY CHAPTERS
-      chaptersEye: "03 — Meine Geschichte",
-      chaptersTitleA: "Wie alles",
-      chaptersTitleB: "begonnen hat.",
-      chapters: [
-        {
-          num: "01",
-          eye: "Der Anfang",
-          title: "Wie es angefangen hat.",
-          body: "Meine Reise begann mit Skizzen, Farben und Neugier. Ich wollte verstehen, warum manche Marken sofort Vertrauen ausstrahlen — und andere nicht. Diese Frage führte mich zum Design.",
-          image: portraitPampas,
-        },
-        {
-          num: "02",
-          eye: "Warum Webdesign",
-          title: "Warum ich Webdesign gewählt habe.",
-          body: "Eine gute Website ist mehr als eine schöne Oberfläche. Sie ist ein stiller Verkäufer, der 24/7 arbeitet. Genau das begeistert mich: Ästhetik, die messbar Ergebnisse liefert.",
-          image: workspace,
-        },
-        {
-          num: "03",
-          eye: "Meine Leidenschaft für UX",
-          title: "Wenn Design zur Führung wird.",
-          body: "UX ist für mich unsichtbare Höflichkeit. Nutzer:innen sollen sich nie fragen müssen, wo sie klicken. Jede Interaktion ist eine kleine Entscheidung — und jede Entscheidung ein Moment für Vertrauen.",
-          image: portraitLaptop,
-        },
-        {
-          num: "04",
-          eye: "Warum SEO zählt",
-          title: "Sichtbarkeit ist kein Zufall.",
-          body: "Die schönste Website nützt nichts, wenn sie niemand findet. Deshalb baue ich SEO von der ersten Zeile Code an ein — nicht als nachträglichen Gedanken.",
-          image: projectDental,
-        },
-        {
-          num: "05",
-          eye: "Was ich am meisten liebe",
-          title: "Die Arbeit mit Menschen.",
-          body: "Am schönsten ist der Moment, wenn Kund:innen ihre neue Website zum ersten Mal sehen — und lächeln. Für dieses Lächeln baue ich jeden Tag weiter.",
-          image: portraitSuit,
-        },
+      introEye: "Persönlich",
+      introTitle: "Schön, dass Sie da sind.",
+      introP: [
+        "Mein Name ist Marianna Kuzmenko. Ich arbeite als Webdesignerin, Webentwicklerin und UX/UI Designerin in Nürnberg — und betreue Kundinnen und Kunden in ganz Bayern, Deutschland, Österreich und der Schweiz.",
+        "Zum Webdesign kam ich über die Neugier: Wie entsteht aus einer Idee eine Seite, die Menschen wirklich verstehen? Seitdem gestalte und entwickle ich Websites selbst — vom ersten Wireframe bis zum fertigen Code.",
+        "UX/UI ist für mich kein Zusatz, sondern der Kern. Eine Website darf schön sein, aber sie muss vor allem führen: klare Struktur, ruhige Navigation, verständliche Inhalte.",
+        "SEO denke ich von Anfang an mit. Struktur, Ladezeit, Inhalte und Technik entscheiden gemeinsam darüber, ob Sie bei Google gefunden werden — nachträglich lässt sich das nur teuer reparieren.",
+        "Am liebsten arbeite ich direkt mit Inhaberinnen und Inhabern zusammen. Kurze Wege, ehrliche Antworten, keine Agentur-Kette dazwischen. So entstehen Websites, die zum Unternehmen passen — nicht zur Vorlage.",
       ],
 
-      // JOURNEY
-      journeyEye: "04 — Mein Weg",
-      journeyTitleA: "Von Design",
-      journeyTitleB: "zur digitalen Strategie.",
-      journey: [
-        { icon: Palette, year: "2015", title: "Learning Design", desc: "Erste Schritte in visueller Gestaltung, Typografie und Bildkomposition." },
-        { icon: Eye, year: "2017", title: "UX/UI Design", desc: "Fokus auf Nutzerführung, Interfaces und digitale Produkte." },
-        { icon: Code2, year: "2019", title: "Frontend Development", desc: "Ausbildung in Portugal und Kanada — moderne Web-Technologien." },
-        { icon: Search, year: "2021", title: "SEO & Marketing", desc: "Vertiefung in technisches SEO, Content-Struktur und Suchintention." },
-        { icon: Sparkles, year: "2022", title: "Professionelle Projekte", desc: "Kundenprojekte für Kliniken, Kanzleien, Studios und Dienstleister." },
-        { icon: Rocket, year: "Heute", title: "Marianna Kuzmenko Studio", desc: "Premium-Webdesign, Entwicklung und SEO aus Nürnberg — persönlich geführt." },
+      wayEye: "Mein Weg",
+      wayTitle: "Vom ersten Wireframe bis heute.",
+      way: [
+        { icon: GraduationCap, k: "Lernen & Ausbildung", d: "Strukturierte Weiterbildungen in Web-Grundlagen, Responsive Design, React und UX/UI." },
+        { icon: Palette, k: "Web Design", d: "Erste Gestaltungsprojekte: Typografie, Farbe, Layout und visuelle Hierarchie." },
+        { icon: Layers, k: "UX/UI Design", d: "Nutzerführung, Wireframes und Prototypen in Figma — Design mit Begründung." },
+        { icon: Code2, k: "Webentwicklung", d: "Eigene Umsetzung in HTML, CSS, JavaScript und React statt Baukasten." },
+        { icon: Search, k: "SEO & Digital Marketing", d: "Technisches SEO, Inhalte und lokale Sichtbarkeit für den DACH-Markt." },
+        { icon: Users, k: "Kundenprojekte", d: "Reale Projekte für Studios, Praxen, Dienstleister und kleine Marken." },
+        { icon: Sparkles, k: "Heute", d: "Websites, die gestalterisch, technisch und strategisch zusammenpassen." },
       ],
 
-      // PRINCIPLES
-      principlesEye: "05 — Meine Design-Prinzipien",
-      principlesTitleA: "Klar. Schnell.",
-      principlesTitleB: "Menschlich.",
-      principles: [
-        { icon: Feather, title: "Minimales Design", desc: "Nur was zählt. Kein visueller Lärm, kein Ballast." },
-        { icon: Gauge, title: "Schnelle Performance", desc: "Optimierte Ladezeiten. Core Web Vitals im grünen Bereich." },
-        { icon: Search, title: "SEO First", desc: "Struktur, die Google versteht — von der ersten Zeile an." },
-        { icon: Smartphone, title: "Responsive", desc: "Perfekt vom iPhone SE bis zum 4K-Monitor." },
-        { icon: ShieldCheck, title: "Accessibility", desc: "Zugänglich für alle. Nach WCAG-Standards gebaut." },
-        { icon: Sparkles, title: "Moderne Technologien", desc: "React, TypeScript, Vite — ein professioneller Stack." },
-        { icon: HeartHandshake, title: "User Experience", desc: "Interfaces, die sich intuitiv anfühlen." },
-        { icon: Code2, title: "Clean Code", desc: "Wartbar, lesbar, dokumentiert — Handwerk in HTML." },
+      svcEye: "Was ich mache",
+      svcTitle: "Sechs Leistungen, ein Ergebnis.",
+      svc: [
+        { icon: Palette, k: "Web Design", d: "Individuelles Design, das Ihre Marke trägt — kein Template.", to: "web" },
+        { icon: Code2, k: "Webentwicklung", d: "Sauber entwickelt, schnell und wartbar in modernem Code.", to: "web" },
+        { icon: Layers, k: "UX/UI Design", d: "Nutzerführung, die Besucher ruhig zum nächsten Schritt bringt.", to: "web" },
+        { icon: Search, k: "SEO", d: "Technische Basis, Struktur und Inhalte für bessere Sichtbarkeit.", to: "seo" },
+        { icon: Compass, k: "Digitale Strategie", d: "Ziele, Zielgruppe und Inhalte werden vor dem Design geklärt.", to: "pricing" },
+        { icon: Smartphone, k: "Responsive Design", d: "Perfekte Darstellung auf Smartphone, Tablet und Desktop.", to: "web" },
+      ],
+      svcLink: "Mehr erfahren",
+
+      philEye: "Design-Philosophie",
+      philQuote:
+        "Eine gute Website muss nicht nur schön aussehen. Sie muss Vertrauen schaffen, Informationen verständlich machen und Menschen zu einer Entscheidung führen.",
+      philPoints: [
+        "Vertrauen aufbauen",
+        "Informationen verständlich machen",
+        "Mobil einwandfrei funktionieren",
+        "Schnell laden",
+        "Bei Google sichtbar sein",
+        "Zur Handlung führen",
+        "Das Unternehmen wachsen lassen",
       ],
 
-      // TOOLKIT
-      toolkitEye: "06 — Mein Werkzeugkasten",
-      toolkitTitleA: "Werkzeuge,",
-      toolkitTitleB: "die ich täglich nutze.",
-      toolkit: [
-        { icon: Pencil, name: "Figma", tag: "Design" },
-        { icon: FileCode2, name: "HTML", tag: "Struktur" },
-        { icon: Brush, name: "CSS", tag: "Style" },
-        { icon: Braces, name: "JavaScript", tag: "Logik" },
-        { icon: Boxes, name: "Bootstrap", tag: "Layout" },
-        { icon: Component, name: "React", tag: "Framework" },
-        { icon: Monitor, name: "VS Code", tag: "Editor" },
-        { icon: ImageIcon, name: "Photoshop", tag: "Bild" },
-        { icon: Palette, name: "Illustrator", tag: "Vektor" },
+      diffEye: "Warum ich anders arbeite",
+      diffTitle: "Acht Dinge, die den Unterschied machen.",
+      diff: [
+        { icon: Brush, k: "Individuelles Design", d: "Jedes Projekt beginnt bei Ihnen — nicht bei einer Vorlage." },
+        { icon: ShieldCheck, k: "Keine Templates", d: "Struktur und Gestaltung entstehen für Ihr Angebot." },
+        { icon: MessageCircle, k: "Persönliche Kommunikation", d: "Sie sprechen direkt mit mir, nicht mit einem Ticketsystem." },
+        { icon: Search, k: "SEO von Anfang an", d: "Sichtbarkeit ist Teil der Planung, nicht ein Nachtrag." },
+        { icon: Smartphone, k: "Responsive Entwicklung", d: "Mobil zuerst gedacht, überall sauber umgesetzt." },
+        { icon: Layers, k: "Klare Struktur", d: "Ruhige Navigation und Inhalte, die man sofort versteht." },
+        { icon: BarChart3, k: "Business-orientiert", d: "Design mit Blick auf Anfragen, nicht nur auf Ästhetik." },
+        { icon: Handshake, k: "Langfristige Betreuung", d: "Auch nach dem Launch bleibe ich ansprechbar." },
       ],
 
-      // INSPIRATION
-      inspEye: "07 — Was mich inspiriert",
-      inspTitleA: "Klarheit,",
-      inspTitleB: "Ruhe, Struktur.",
-      inspLead:
-        "Meine Sprache im Design entsteht abseits des Bildschirms — in Architektur, Natur und Alltag.",
-      inspItems: [
-        { icon: Building2, label: "Moderne Architektur" },
-        { icon: Layers, label: "Minimale Interiors" },
-        { icon: Leaf, label: "Natur" },
-        { icon: Cloud, label: "Blauer Himmel" },
-        { icon: Type, label: "Typografie" },
-        { icon: Lightbulb, label: "Kreative Workspaces" },
-        { icon: Sparkles, label: "Premium-Websites" },
-        { icon: Smartphone, label: "Digitale Produkte" },
+      procEye: "Arbeitsweise",
+      procTitle: "So entsteht eine Website.",
+      proc: [
+        { k: "Discovery", d: "Ziele, Zielgruppe und Wettbewerb verstehen." },
+        { k: "Strategie", d: "Struktur, Inhalte und Keywords festlegen." },
+        { k: "UX/UI Design", d: "Wireframes und Gestaltung in Figma." },
+        { k: "Entwicklung", d: "Saubere Umsetzung in modernem Code." },
+        { k: "SEO", d: "Technik, Metadaten und Inhalte optimieren." },
+        { k: "Testing", d: "Geräte, Browser, Tempo und Barrierefreiheit." },
+        { k: "Launch", d: "Livegang inklusive Einrichtung und Übergabe." },
+        { k: "Support", d: "Pflege, Erweiterungen und Weiterentwicklung." },
       ],
 
-      // BEHIND THE SCENES
-      btsEye: "08 — Behind My Work",
-      btsTitleA: "Hinter",
-      btsTitleB: "den Kulissen.",
-      btsLead:
-        "Bevor eine Website live geht, entstehen Skizzen, Wireframes, Farbstudien und viele Tassen Kaffee.",
-      bts: [
-        { image: workspace, cap: "Der Arbeitsplatz — ruhig, warm, konzentriert." },
-        { image: portraitLaptop, cap: "Design-Sessions mit Kaffee und Notizbuch." },
-        { image: projectAtelier, cap: "Erste Layout-Ideen im Browser." },
-        { image: projectRaum, cap: "Feinschliff an Typografie und Weißraum." },
+      deskEye: "Mein Creative Desk",
+      deskTitle: "Wo die Arbeit entsteht.",
+      deskLead:
+        "Figma, Code-Editor, Kaffee und viel Ruhe. Hier entstehen Layouts, Prototypen und die fertige Website — Schritt für Schritt.",
+      deskTags: ["Figma", "UX Sketches", "Farbpalette", "Responsive Testing"],
+
+      insightEye: "Einblick in meine Arbeit",
+      insightTitle: "Zwischen Skizze und Code.",
+      insightLead: "Ein paar Momente aus dem Alltag: Planen, Gestalten, Entwickeln, Prüfen.",
+
+      toolEye: "Mein Toolkit",
+      toolTitle: "Werkzeuge, mit denen ich täglich arbeite.",
+      tools: [
+        { icon: PenTool, k: "Figma" },
+        { icon: Code2, k: "HTML" },
+        { icon: Boxes, k: "CSS" },
+        { icon: Braces, k: "JavaScript" },
+        { icon: Component, k: "Bootstrap" },
+        { icon: Component, k: "React" },
+        { icon: Monitor, k: "VS Code" },
+        { icon: ImageIcon, k: "Photoshop" },
+        { icon: Brush, k: "Illustrator" },
+        { icon: Search, k: "SEO Tools" },
+        { icon: BarChart3, k: "Google Analytics" },
+        { icon: Gauge, k: "PageSpeed" },
       ],
 
-      // PHILOSOPHY
-      philosophyEye: "09 — Design-Philosophie",
-      philosophyTitleA: "Klarheit ist",
-      philosophyTitleB: "die höchste Form von Luxus.",
-      philosophyLead:
-        "Ich glaube an ruhige, hochwertige Gestaltung — die nicht ablenkt, sondern das Wesentliche stärkt.",
-      philosophy: [
-        { icon: Feather, title: "Ruhig statt laut", desc: "Weißraum, klare Typografie und präzise Details statt visueller Überlastung." },
-        { icon: Compass, title: "Führung statt Chaos", desc: "Jede Seite hat einen klaren Zweck und einen klaren nächsten Schritt." },
-        { icon: ShieldCheck, title: "Substanz statt Trend", desc: "Struktur, SEO und Performance sind wichtiger als kurzlebige Effekte." },
+      inspEye: "Was mich inspiriert",
+      inspTitle: "Woher die Ideen kommen.",
+      insp: [
+        { icon: Building2, k: "Moderne Architektur", d: "Klare Linien und Proportion." },
+        { icon: Leaf, k: "Minimalistische Interiors", d: "Ruhe durch Weglassen." },
+        { icon: Cloud, k: "Himmel & Licht", d: "Weiche Farbverläufe, sanfte Übergänge." },
+        { icon: Type, k: "Typografie", d: "Schrift als Stimme einer Marke." },
+        { icon: Camera, k: "Fotografie", d: "Bildsprache mit Atmosphäre." },
+        { icon: Lightbulb, k: "Digitale Produkte", d: "Interfaces, die sich selbst erklären." },
       ],
 
-      // METHOD
-      methodEye: "10 — Wie ich arbeite",
-      methodTitleA: "Strukturiert,",
-      methodTitleB: "transparent, persönlich.",
-      method: [
-        { icon: Layers, title: "Strukturiert", desc: "Klare Phasen, klare Deliverables. Kein Chaos, kein Bauchgefühl." },
-        { icon: Eye, title: "Transparent", desc: "Du siehst, was passiert. Immer. Updates ohne Marketing-Geschwafel." },
-        { icon: Zap, title: "Ohne Komplexität", desc: "Nur das, was wirklich nötig ist — kein Tool-Overkill." },
-        { icon: HeartHandshake, title: "Langfristig", desc: "Ich baue Beziehungen, nicht nur Websites — für nachhaltige Zusammenarbeit." },
+      factEye: "Ein paar Dinge über mich",
+      facts: [
+        { icon: Sparkles, k: "Kreativ & neugierig" },
+        { icon: BookOpen, k: "Immer am Lernen" },
+        { icon: Heart, k: "Liebe zu minimalem Design" },
+        { icon: Coffee, k: "Kaffee & kreative Arbeit" },
+        { icon: MessageCircle, k: "Mehrsprachig unterwegs" },
+        { icon: Globe2, k: "Kunden in ganz Europa" },
       ],
 
-      // QUICK FACTS
-      quickEye: "11 — Quick Facts",
-      quickTitleA: "Auf einen",
-      quickTitleB: "Blick.",
-      quick: [
-        { icon: Wifi, title: "Remote Work", desc: "Ortsunabhängig, immer erreichbar." },
-        { icon: MapPin, title: "DACH-Region", desc: "Deutschland, Österreich, Schweiz." },
-        { icon: Smartphone, title: "Responsive Design", desc: "Mobile-first, ohne Kompromisse." },
-        { icon: Search, title: "SEO-Optimiert", desc: "Sichtbar in Google — von Anfang an." },
-        { icon: MessageCircle, title: "Persönliche Kommunikation", desc: "Du sprichst direkt mit mir." },
-        { icon: Clock, title: "Schnelle Antwortzeit", desc: "Rückmeldung innerhalb von 24 Stunden." },
-        { icon: Award, title: "Premium-Qualität", desc: "Handgemacht, nicht aus dem Baukasten." },
-        { icon: Globe2, title: "Zwei Sprachen", desc: "Deutsch und Englisch, jederzeit." },
+      certEye: "Zertifikate",
+      certTitle: "Ausbildung, die belegbar ist.",
+      certLead: "UX/UI, React, Responsive Design und Digital Marketing — dokumentiert und nachprüfbar.",
+      certCta: "Alle Zertifikate ansehen",
+
+      projEye: "Ein Blick auf meine Projekte",
+      projTitle: "Drei Arbeiten, drei Branchen.",
+      projCta: "Projekt entdecken",
+      projAll: "Alle Projekte ansehen",
+
+      linkEye: "Weiterlesen",
+      linkTitle: "Wohin als Nächstes?",
+      links: [
+        { k: "Webentwicklung", d: "Wie ich Websites technisch umsetze.", to: "web" as const },
+        { k: "SEO Nürnberg", d: "Sichtbarkeit für den DACH-Markt.", to: "seo" as const },
+        { k: "Preise", d: "Transparente Pakete und Leistungen.", to: "pricing" as const },
+        { k: "Blog", d: "Gedanken zu Design, Technik und SEO.", to: "blog" as const },
+        { k: "Zertifikate", d: "Ausbildung und Nachweise.", to: "certs" as const },
+        { k: "Kontakt", d: "Direkt schreiben oder anrufen.", to: "contact" as const },
       ],
 
-      // FUN FACTS
-      funEye: "12 — Fun Facts",
-      funTitleA: "Kleine Dinge,",
-      funTitleB: "die mich ausmachen.",
-      fun: [
-        { emoji: "☕", label: "Coffee Lover" },
-        { emoji: "💙", label: "Minimalist Design" },
-        { emoji: "🌍", label: "Working Across Europe" },
-        { emoji: "🚀", label: "Always Learning" },
-        { emoji: "🎨", label: "Design with Purpose" },
-      ],
-
-      // CTA
-      ctaEye: "— Bereit? —",
-      ctaTitle: (
-        <>
-          Lass uns etwas <span className="italic text-rose">Großartiges</span> bauen.
-        </>
-      ),
-      ctaLead:
-        "Wenn du eine Website willst, die deine Marke wirklich trägt — sprechen wir darüber.",
-      ctaPrimary: "Projekt starten",
-      ctaSecondary: "Projekte ansehen",
+      finalTitle: "Lassen Sie uns gemeinsam eine Website entwickeln, die Ihr Unternehmen sichtbar macht.",
+      finalLead:
+        "Erzählen Sie mir kurz von Ihrem Vorhaben. Im ersten Gespräch klären wir Ziele, Umfang und Zeitrahmen — unverbindlich und ohne Verkaufsdruck.",
+      finalPrimary: "Kostenloses Erstgespräch",
+      finalSecondary: "Meine Projekte ansehen",
     },
     {
-      seoTitle: "About — Marianna Kuzmenko · Web Designer & SEO in Nuremberg",
+      seoTitle: "About | Web Designer & Developer in Nuremberg | Marianna Kuzmenko",
       seoDesc:
-        "Marianna Kuzmenko: web designer, developer and SEO consultant based in Nuremberg. Trained in Portugal and Canada. Personal, transparent, premium.",
+        "Marianna Kuzmenko — web design, development, UX/UI and SEO from Nuremberg. Modern, responsive websites for businesses in Germany, Austria and Switzerland.",
 
-      heroEye: "02 — About",
-      heroTitleA: "Websites that",
-      heroTitleB: "inspire trust",
-      heroTitleC: "and help businesses grow.",
+      heroEye: "About me",
+      heroTitleA: "Web design, development & SEO —",
+      heroTitleB: "personal, creative and strategic.",
       heroLead:
-        "I'm Marianna — web designer, developer and SEO consultant based in Nuremberg. I build digital presences that carry brands and bring clients.",
-      heroPrimary: "View my projects",
-      heroSecondary: "Book a free consultation",
-      heroBadge: "Available for new projects",
-      portraitAlt: "Marianna Kuzmenko, web designer and developer",
+        "I'm Marianna Kuzmenko, a web designer and developer based in Nuremberg. I build modern websites for businesses that want to look professional online, earn trust and become more visible on Google.",
+      ctaWork: "My projects",
+      ctaTalk: "Free first call",
+      heroCap1: "UX/UI Design",
+      heroCap2: "SEO optimised",
+      heroCap3: "Responsive",
 
-      chaptersEye: "03 — My Story",
-      chaptersTitleA: "How it",
-      chaptersTitleB: "all started.",
-      chapters: [
-        {
-          num: "01",
-          eye: "The beginning",
-          title: "How it all started.",
-          body: "My journey began with sketches, color, and curiosity. I wanted to understand why some brands instantly feel trustworthy — and others don't. That question led me to design.",
-          image: portraitPampas,
-        },
-        {
-          num: "02",
-          eye: "Why web design",
-          title: "Why I chose web design.",
-          body: "A great website is more than a beautiful surface. It's a silent salesperson working 24/7. That's what excites me: aesthetics that deliver measurable results.",
-          image: workspace,
-        },
-        {
-          num: "03",
-          eye: "My passion for UX",
-          title: "When design becomes guidance.",
-          body: "UX, to me, is invisible courtesy. Users should never have to wonder where to click. Every interaction is a small decision — and every decision a moment for trust.",
-          image: portraitLaptop,
-        },
-        {
-          num: "04",
-          eye: "Why SEO matters",
-          title: "Visibility is not a coincidence.",
-          body: "The most beautiful website is useless if nobody finds it. That's why I build SEO in from the very first line of code — never as an afterthought.",
-          image: projectDental,
-        },
-        {
-          num: "05",
-          eye: "What I love most",
-          title: "Working with people.",
-          body: "The best moment is when clients see their new website for the first time — and smile. For that smile, I keep building every day.",
-          image: portraitSuit,
-        },
+      introEye: "Personal",
+      introTitle: "Good to have you here.",
+      introP: [
+        "My name is Marianna Kuzmenko. I work as a web designer, developer and UX/UI designer in Nuremberg — with clients across Bavaria, Germany, Austria and Switzerland.",
+        "I came to web design through curiosity: how does an idea turn into a page people actually understand? Since then I design and build websites myself — from the first wireframe to the finished code.",
+        "UX/UI isn't an add-on for me, it's the core. A website may be beautiful, but above all it has to guide: clear structure, calm navigation, understandable content.",
+        "SEO is part of the plan from day one. Structure, speed, content and technology decide together whether you are found on Google — fixing that later is expensive.",
+        "I prefer working directly with owners. Short paths, honest answers, no agency chain in between. That's how websites end up matching the business, not the template.",
       ],
 
-      journeyEye: "04 — My Journey",
-      journeyTitleA: "From design",
-      journeyTitleB: "to digital strategy.",
-      journey: [
-        { icon: Palette, year: "2015", title: "Learning Design", desc: "First steps in visual design, typography and composition." },
-        { icon: Eye, year: "2017", title: "UX/UI Design", desc: "Focus on user flows, interfaces and digital products." },
-        { icon: Code2, year: "2019", title: "Frontend Development", desc: "Trained in Portugal and Canada — modern web technologies." },
-        { icon: Search, year: "2021", title: "SEO & Marketing", desc: "Deep-dive into technical SEO, content structure and search intent." },
-        { icon: Sparkles, year: "2022", title: "Professional Projects", desc: "Client work for clinics, law firms, studios and service brands." },
-        { icon: Rocket, year: "Today", title: "Marianna Kuzmenko Studio", desc: "Premium web design, development and SEO from Nuremberg — personally led." },
+      wayEye: "My path",
+      wayTitle: "From the first wireframe until today.",
+      way: [
+        { icon: GraduationCap, k: "Learning & education", d: "Structured training in web fundamentals, responsive design, React and UX/UI." },
+        { icon: Palette, k: "Web design", d: "First design work: typography, colour, layout and visual hierarchy." },
+        { icon: Layers, k: "UX/UI design", d: "User flows, wireframes and prototypes in Figma — design with reasons." },
+        { icon: Code2, k: "Web development", d: "Building in HTML, CSS, JavaScript and React instead of page builders." },
+        { icon: Search, k: "SEO & digital marketing", d: "Technical SEO, content and local visibility for the DACH market." },
+        { icon: Users, k: "Client projects", d: "Real work for studios, practices, service businesses and small brands." },
+        { icon: Sparkles, k: "Today", d: "Websites where design, technology and strategy finally align." },
       ],
 
-      principlesEye: "05 — My Design Principles",
-      principlesTitleA: "Clear. Fast.",
-      principlesTitleB: "Human.",
-      principles: [
-        { icon: Feather, title: "Minimal Design", desc: "Only what matters. No visual noise, no ballast." },
-        { icon: Gauge, title: "Fast Performance", desc: "Optimized load times. Core Web Vitals in the green." },
-        { icon: Search, title: "SEO First", desc: "Structure Google understands — from the first line." },
-        { icon: Smartphone, title: "Responsive", desc: "Perfect from iPhone SE to 4K displays." },
-        { icon: ShieldCheck, title: "Accessibility", desc: "Accessible to everyone. Built to WCAG standards." },
-        { icon: Sparkles, title: "Modern Technologies", desc: "React, TypeScript, Vite — a professional stack." },
-        { icon: HeartHandshake, title: "User Experience", desc: "Interfaces that feel intuitive." },
-        { icon: Code2, title: "Clean Code", desc: "Maintainable, readable, documented — craft in HTML." },
+      svcEye: "What I do",
+      svcTitle: "Six services, one outcome.",
+      svc: [
+        { icon: Palette, k: "Web design", d: "Individual design that carries your brand — never a template.", to: "web" },
+        { icon: Code2, k: "Web development", d: "Cleanly built, fast and maintainable modern code.", to: "web" },
+        { icon: Layers, k: "UX/UI design", d: "User flow that calmly leads visitors to the next step.", to: "web" },
+        { icon: Search, k: "SEO", d: "Technical base, structure and content for better visibility.", to: "seo" },
+        { icon: Compass, k: "Digital strategy", d: "Goals, audience and content clarified before design starts.", to: "pricing" },
+        { icon: Smartphone, k: "Responsive design", d: "Perfect rendering on phone, tablet and desktop.", to: "web" },
+      ],
+      svcLink: "Learn more",
+
+      philEye: "Design philosophy",
+      philQuote:
+        "A good website doesn't just have to look beautiful. It has to build trust, make information easy to understand and lead people to a decision.",
+      philPoints: [
+        "Build trust",
+        "Make information clear",
+        "Work perfectly on mobile",
+        "Load quickly",
+        "Be visible on Google",
+        "Guide towards action",
+        "Help the business grow",
       ],
 
-      toolkitEye: "06 — My Toolkit",
-      toolkitTitleA: "Tools I",
-      toolkitTitleB: "use every day.",
-      toolkit: [
-        { icon: Pencil, name: "Figma", tag: "Design" },
-        { icon: FileCode2, name: "HTML", tag: "Structure" },
-        { icon: Brush, name: "CSS", tag: "Style" },
-        { icon: Braces, name: "JavaScript", tag: "Logic" },
-        { icon: Boxes, name: "Bootstrap", tag: "Layout" },
-        { icon: Component, name: "React", tag: "Framework" },
-        { icon: Monitor, name: "VS Code", tag: "Editor" },
-        { icon: ImageIcon, name: "Photoshop", tag: "Image" },
-        { icon: Palette, name: "Illustrator", tag: "Vector" },
+      diffEye: "Why I work differently",
+      diffTitle: "Eight things that make the difference.",
+      diff: [
+        { icon: Brush, k: "Individual design", d: "Every project starts with you — not with a layout file." },
+        { icon: ShieldCheck, k: "No generic templates", d: "Structure and design are made for your offer." },
+        { icon: MessageCircle, k: "Personal communication", d: "You talk to me directly, not to a ticket queue." },
+        { icon: Search, k: "SEO from the start", d: "Visibility is planned in, not added afterwards." },
+        { icon: Smartphone, k: "Responsive development", d: "Mobile-first thinking, clean everywhere." },
+        { icon: Layers, k: "Clear structure", d: "Calm navigation and content you grasp instantly." },
+        { icon: BarChart3, k: "Business-oriented", d: "Design aimed at inquiries, not only aesthetics." },
+        { icon: Handshake, k: "Long-term support", d: "I stay reachable well after launch." },
       ],
 
-      inspEye: "07 — What Inspires Me",
-      inspTitleA: "Clarity,",
-      inspTitleB: "calm, structure.",
-      inspLead:
-        "My design language grows away from the screen — in architecture, nature and everyday moments.",
-      inspItems: [
-        { icon: Building2, label: "Modern Architecture" },
-        { icon: Layers, label: "Minimal Interiors" },
-        { icon: Leaf, label: "Nature" },
-        { icon: Cloud, label: "Blue Sky" },
-        { icon: Type, label: "Typography" },
-        { icon: Lightbulb, label: "Creative Workspaces" },
-        { icon: Sparkles, label: "Premium Websites" },
-        { icon: Smartphone, label: "Digital Products" },
+      procEye: "How I work",
+      procTitle: "How a website comes to life.",
+      proc: [
+        { k: "Discovery", d: "Understand goals, audience and competitors." },
+        { k: "Strategy", d: "Define structure, content and keywords." },
+        { k: "UX/UI design", d: "Wireframes and visual design in Figma." },
+        { k: "Development", d: "Clean implementation in modern code." },
+        { k: "SEO", d: "Technology, metadata and content optimised." },
+        { k: "Testing", d: "Devices, browsers, speed and accessibility." },
+        { k: "Launch", d: "Go live including setup and handover." },
+        { k: "Support", d: "Maintenance, extensions and growth." },
       ],
 
-      btsEye: "08 — Behind My Work",
-      btsTitleA: "Behind",
-      btsTitleB: "the scenes.",
-      btsLead:
-        "Before a website goes live, there are sketches, wireframes, color studies and many cups of coffee.",
-      bts: [
-        { image: workspace, cap: "The workspace — calm, warm, focused." },
-        { image: portraitLaptop, cap: "Design sessions with coffee and notebook." },
-        { image: projectAtelier, cap: "First layout ideas in the browser." },
-        { image: projectRaum, cap: "Refining typography and whitespace." },
+      deskEye: "My creative desk",
+      deskTitle: "Where the work happens.",
+      deskLead:
+        "Figma, a code editor, coffee and a lot of quiet. Layouts, prototypes and the finished website grow here — step by step.",
+      deskTags: ["Figma", "UX sketches", "Colour palette", "Responsive testing"],
+
+      insightEye: "Behind my work",
+      insightTitle: "Between sketch and code.",
+      insightLead: "A few moments from the everyday: planning, designing, building, checking.",
+
+      toolEye: "My toolkit",
+      toolTitle: "Tools I work with every day.",
+      tools: [
+        { icon: PenTool, k: "Figma" },
+        { icon: Code2, k: "HTML" },
+        { icon: Boxes, k: "CSS" },
+        { icon: Braces, k: "JavaScript" },
+        { icon: Component, k: "Bootstrap" },
+        { icon: Component, k: "React" },
+        { icon: Monitor, k: "VS Code" },
+        { icon: ImageIcon, k: "Photoshop" },
+        { icon: Brush, k: "Illustrator" },
+        { icon: Search, k: "SEO tools" },
+        { icon: BarChart3, k: "Google Analytics" },
+        { icon: Gauge, k: "PageSpeed" },
       ],
 
-      philosophyEye: "09 — Design Philosophy",
-      philosophyTitleA: "Clarity is",
-      philosophyTitleB: "the highest form of luxury.",
-      philosophyLead:
-        "I believe in calm, refined design — that never distracts, only strengthens the essential.",
-      philosophy: [
-        { icon: Feather, title: "Calm over loud", desc: "Whitespace, clear typography and precise detail instead of visual overload." },
-        { icon: Compass, title: "Guidance over chaos", desc: "Every page has a clear purpose and a clear next step." },
-        { icon: ShieldCheck, title: "Substance over trend", desc: "Structure, SEO and performance matter more than short-lived effects." },
+      inspEye: "What inspires me",
+      inspTitle: "Where the ideas come from.",
+      insp: [
+        { icon: Building2, k: "Modern architecture", d: "Clear lines and proportion." },
+        { icon: Leaf, k: "Minimal interiors", d: "Calm through subtraction." },
+        { icon: Cloud, k: "Sky & light", d: "Soft gradients, gentle transitions." },
+        { icon: Type, k: "Typography", d: "Type as the voice of a brand." },
+        { icon: Camera, k: "Photography", d: "Visual language with atmosphere." },
+        { icon: Lightbulb, k: "Digital products", d: "Interfaces that explain themselves." },
       ],
 
-      methodEye: "10 — How I work",
-      methodTitleA: "Structured,",
-      methodTitleB: "transparent, personal.",
-      method: [
-        { icon: Layers, title: "Structured", desc: "Clear phases, clear deliverables. No chaos, no guesswork." },
-        { icon: Eye, title: "Transparent", desc: "You see what's happening. Always. Updates without marketing fog." },
-        { icon: Zap, title: "Without complexity", desc: "Only what's actually needed — no tool overkill." },
-        { icon: HeartHandshake, title: "Long-term", desc: "I build relationships, not just websites — for lasting partnerships." },
+      factEye: "A few things about me",
+      facts: [
+        { icon: Sparkles, k: "Creative & curious" },
+        { icon: BookOpen, k: "Always learning" },
+        { icon: Heart, k: "Minimal design lover" },
+        { icon: Coffee, k: "Coffee & creative work" },
+        { icon: MessageCircle, k: "Multilingual" },
+        { icon: Globe2, k: "Clients across Europe" },
       ],
 
-      quickEye: "11 — Quick Facts",
-      quickTitleA: "At a",
-      quickTitleB: "glance.",
-      quick: [
-        { icon: Wifi, title: "Remote Work", desc: "Location-independent, always reachable." },
-        { icon: MapPin, title: "DACH Region", desc: "Germany, Austria, Switzerland." },
-        { icon: Smartphone, title: "Responsive Design", desc: "Mobile-first, no compromises." },
-        { icon: Search, title: "SEO Optimized", desc: "Visible in Google — from day one." },
-        { icon: MessageCircle, title: "Personal Communication", desc: "You talk directly to me." },
-        { icon: Clock, title: "Fast Response", desc: "Reply within 24 hours." },
-        { icon: Award, title: "Premium Quality", desc: "Handcrafted, never templated." },
-        { icon: Globe2, title: "Two Languages", desc: "German and English, anytime." },
+      certEye: "Certificates",
+      certTitle: "Training you can verify.",
+      certLead: "UX/UI, React, responsive design and digital marketing — documented and verifiable.",
+      certCta: "See all certificates",
+
+      projEye: "A look at my projects",
+      projTitle: "Three projects, three industries.",
+      projCta: "Explore project",
+      projAll: "See all projects",
+
+      linkEye: "Keep reading",
+      linkTitle: "Where to next?",
+      links: [
+        { k: "Web development", d: "How I build websites technically.", to: "web" as const },
+        { k: "SEO Nuremberg", d: "Visibility for the DACH market.", to: "seo" as const },
+        { k: "Pricing", d: "Transparent packages and scope.", to: "pricing" as const },
+        { k: "Blog", d: "Notes on design, tech and SEO.", to: "blog" as const },
+        { k: "Certificates", d: "Education and proof.", to: "certs" as const },
+        { k: "Contact", d: "Write or call directly.", to: "contact" as const },
       ],
 
-      funEye: "12 — Fun Facts",
-      funTitleA: "Small things",
-      funTitleB: "that shape me.",
-      fun: [
-        { emoji: "☕", label: "Coffee Lover" },
-        { emoji: "💙", label: "Minimalist Design" },
-        { emoji: "🌍", label: "Working Across Europe" },
-        { emoji: "🚀", label: "Always Learning" },
-        { emoji: "🎨", label: "Design with Purpose" },
-      ],
-
-      ctaEye: "— Ready? —",
-      ctaTitle: (
-        <>
-          Let's build something <span className="italic text-rose">great</span>.
-        </>
-      ),
-      ctaLead:
-        "If you want a website that truly carries your brand — let's talk about it.",
-      ctaPrimary: "Start a project",
-      ctaSecondary: "View projects",
+      finalTitle: "Let's build a website that makes your business visible.",
+      finalLead:
+        "Tell me briefly about your plans. In the first call we clarify goals, scope and timing — free and without sales pressure.",
+      finalPrimary: "Free first call",
+      finalSecondary: "See my projects",
     }
   );
+
+  const featured = [
+    { slug: "pfotenhaus", name: "Pfotenhaus", img: projectPfotenhaus, cat: pick(lang, "Tierhotel · Storytelling", "Pet hotel · Storytelling"), desc: pick(lang, "Warmes Markenbild mit klarer Buchungsführung und mobiler Optimierung.", "A warm brand image with a clear booking flow and mobile optimisation.") },
+    { slug: "dentallux", name: "Dentallux", img: projectDental, cat: pick(lang, "Zahnarztpraxis · Vertrauen", "Dental practice · Trust"), desc: pick(lang, "Ruhige Praxis-Website mit Fokus auf Vertrauen, Team und Terminanfrage.", "A calm practice website focused on trust, team and appointment requests.") },
+    { slug: "atelier-nova", name: "Atelier Nova", img: projectAtelier, cat: pick(lang, "Studio · Editorial", "Studio · Editorial"), desc: pick(lang, "Editoriales Portfolio mit großzügiger Typografie und schneller Ladezeit.", "An editorial portfolio with generous typography and fast loading.") },
+  ];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    mainEntity: {
+      "@type": "Person",
+      name: "Marianna Kuzmenko",
+      jobTitle: pick(lang, "Webdesignerin, Webentwicklerin & SEO-Spezialistin", "Web Designer, Web Developer & SEO Specialist"),
+      address: { "@type": "PostalAddress", addressLocality: "Nürnberg", addressCountry: "DE" },
+      email: "mari1992.kuzmenko@gmail.com",
+      telephone: "+49 179 1111607",
+      knowsAbout: [
+        "Webdesign Nürnberg",
+        "Webentwicklung Nürnberg",
+        "UX/UI Design",
+        "SEO Nürnberg",
+        "Responsive Webdesign",
+      ],
+      areaServed: ["Nürnberg", "Fürth", "Erlangen", "München", "Bayern", "Deutschland", "Österreich", "Schweiz"],
+    },
+  };
 
   return (
     <Layout>
@@ -452,521 +427,447 @@ const UeberMich = () => {
         title={t.seoTitle}
         description={t.seoDesc}
         path={path("about")}
-        pathDe={ROUTES.about.de}
-        pathEn={ROUTES.about.en}
+        pathDe="/ueber-mich"
+        pathEn="/en/about"
+        type="profile"
+        jsonLd={jsonLd}
       />
 
-      {/* ============ HERO ============ */}
-      <section className="container-editorial pt-10 md:pt-16 pb-24 relative overflow-hidden">
-        {/* soft animated background */}
-        <div
-          className="blob blob-blue animate-float-slower"
-          style={{ width: 560, height: 560, top: "-140px", left: "-160px" }}
-        />
-        <div
-          className="blob blob-blue animate-float-slow"
-          style={{ width: 380, height: 380, top: "40%", right: "-120px", opacity: 0.5 }}
-        />
-        <div
-          className="blob blob-pink animate-float-slow"
-          style={{ width: 300, height: 300, bottom: "-60px", left: "10%", opacity: 0.6 }}
-        />
-
-        <p className="eyebrow mb-6 relative">{t.heroEye}</p>
-
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center relative">
-          {/* LEFT: headline + CTAs */}
-          <div className="col-span-12 lg:col-span-7">
-            <h1 className="display-xl">
-              {t.heroTitleA}{" "}
-              <span className="italic text-rose">{t.heroTitleB}</span>
+      {/* 1 — HERO */}
+      <section className="container-editorial pt-10 md:pt-16 pb-16 md:pb-24">
+        <div className="grid grid-cols-12 gap-8 md:gap-10 items-center">
+          <div className="col-span-12 lg:col-span-6 reveal-stagger">
+            <p className="eyebrow mb-5 reveal-line">{t.heroEye}</p>
+            <h1 className="display-lg reveal-line">
+              {t.heroTitleA}
               <br />
-              {t.heroTitleC}
+              <span className="italic text-rose">{t.heroTitleB}</span>
             </h1>
-            <p className="mt-8 max-w-xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="mt-7 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed reveal-line">
               {t.heroLead}
             </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a href={path("work")} className="btn-cta">
-                {t.heroPrimary} <ArrowUpRight size={18} strokeWidth={2} />
-              </a>
-              <a href={path("inquiry")} className="btn-cta-outline">
-                {t.heroSecondary} <ArrowUpRight size={16} strokeWidth={2} />
-              </a>
-            </div>
-
-            <div className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose opacity-60" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose" />
-              </span>
-              {t.heroBadge}
+            <div className="mt-9 flex flex-wrap gap-3 md:gap-4 reveal-line">
+              <Link to={path("work")} className="btn-cta">
+                {t.ctaWork} <ArrowUpRight size={18} strokeWidth={2} />
+              </Link>
+              <Link to={path("inquiry")} className="btn-cta-outline">
+                {t.ctaTalk} <ArrowUpRight size={16} strokeWidth={2} />
+              </Link>
             </div>
           </div>
 
-          {/* RIGHT: portrait + floating mockups */}
-          <div className="col-span-12 lg:col-span-5 relative">
+          <div className="col-span-12 lg:col-span-6 reveal">
             <div className="relative">
-              {/* Floating laptop mockup behind */}
-              <div
-                className="hidden md:block absolute -top-8 -left-16 w-[70%] opacity-90"
-                style={{ transform: "rotate(-4deg)" }}
-                aria-hidden
-              >
-                <div className="glass-panel p-3">
-                  <LaptopMockup
-                    screens={[projectAtelier, projectLush, projectRaum]}
-                    alt=""
-                    interval={4200}
-                  />
-                </div>
+              <div className="relative rounded-[2rem] overflow-hidden shadow-soft">
+                <img
+                  src={portraitWindow}
+                  alt="Marianna Kuzmenko, Webdesignerin und Webentwicklerin aus Nürnberg"
+                  className="w-full aspect-[4/5] object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
               </div>
 
-              {/* Portrait in glass frame */}
-              <div className="glass-panel p-3 relative z-10 max-w-[380px] ml-auto">
-                <div className="frame-soft aspect-[3/4] overflow-hidden">
-                  <img
-                    src={portraitWindow}
-                    alt={t.portraitAlt}
-                    loading="eager"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="hidden md:block absolute -left-10 bottom-6 w-[58%] pointer-events-none">
+                <LaptopMockup screens={[projectPfotenhaus, projectDental, projectAtelier]} alt="Website-Vorschau" />
               </div>
 
-              {/* Floating iPhone mockup */}
-              <div
-                className="hidden md:block absolute -bottom-10 -right-6 w-[130px] z-20"
-                style={{ transform: "rotate(6deg)" }}
-                aria-hidden
-              >
-                <div className="glass-card p-2">
-                  <div
-                    className="relative rounded-[28px] overflow-hidden bg-[#1a2030]"
-                    style={{ aspectRatio: "9/19" }}
-                  >
-                    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full z-10" />
-                    <img
-                      src={projectNein}
-                      alt=""
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+              <div className="absolute -right-2 md:-right-6 top-10 w-20 md:w-28 rounded-[1.4rem] overflow-hidden border-4 border-background shadow-soft bg-background">
+                <img src={projectLush} alt="Mobile Ansicht einer Website" className="w-full aspect-[9/19] object-cover object-top" loading="lazy" />
               </div>
 
-              {/* Floating stat card */}
-              <div
-                className="hidden md:block absolute top-4 -right-4 glass-card px-4 py-3 z-20"
-                style={{ transform: "rotate(-3deg)" }}
-              >
-                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Nürnberg · DACH
+              <div className="glass-panel absolute left-3 md:left-6 -bottom-6 px-4 py-3 md:px-5 md:py-4">
+                <p className="text-[11px] md:text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                  {t.heroCap1} · {t.heroCap2} · {t.heroCap3}
                 </p>
-                <p className="font-display text-sm mt-0.5">Web · UX · SEO</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ PERSONAL STORY — ALTERNATING CHAPTERS ============ */}
-      <section className="container-editorial pb-24">
-        <div className="grid grid-cols-12 gap-6 mb-16">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.chaptersEye}</p>
-            <h2 className="display-lg">
-              {t.chaptersTitleA}{" "}
-              <span className="italic text-rose">{t.chaptersTitleB}</span>
-            </h2>
+      {/* 2 — PERSONAL INTRO */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="grid grid-cols-12 gap-8 md:gap-12 items-start">
+          <div className="col-span-12 md:col-span-5 reveal">
+            <div className="relative">
+              <img
+                src={portraitPampas}
+                alt="Marianna Kuzmenko im Portrait"
+                className="w-full rounded-[2rem] object-cover aspect-[4/5] shadow-soft"
+                loading="lazy"
+              />
+              <img
+                src={portraitSuit}
+                alt="Marianna Kuzmenko bei der Arbeit"
+                className="hidden sm:block absolute -bottom-10 -right-6 w-40 md:w-48 rounded-[1.5rem] object-cover aspect-square border-4 border-background shadow-soft"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div className="col-span-12 md:col-span-6 md:col-start-7 mt-14 sm:mt-16 md:mt-0 reveal-stagger">
+            <p className="eyebrow mb-4 reveal-line">{t.introEye}</p>
+            <h2 className="display-lg reveal-line">{t.introTitle}</h2>
+            <div className="mt-7 space-y-5">
+              {t.introP.map((p, i) => (
+                <p key={i} className="text-muted-foreground leading-relaxed reveal-line">
+                  {p}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
+      </section>
 
-        <div className="space-y-24 md:space-y-32">
-          {t.chapters.map((ch, i) => {
-            const isLeft = i % 2 === 0;
+      {/* 3 — MEIN WEG */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-12 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.wayEye}</p>
+          <h2 className="display-lg reveal-line">{t.wayTitle}</h2>
+        </div>
+
+        <div className="relative pl-8 md:pl-0">
+          <div className="absolute left-[7px] md:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-rose/40 via-primary/25 to-transparent md:-translate-x-1/2" aria-hidden />
+          <div className="space-y-8 md:space-y-12">
+            {t.way.map((s, i) => {
+              const Icon = s.icon;
+              const right = i % 2 === 1;
+              return (
+                <div key={s.k} className="relative md:grid md:grid-cols-2 md:gap-12 items-center">
+                  <span className="absolute -left-8 md:left-1/2 top-6 w-3.5 h-3.5 rounded-full bg-rose ring-4 ring-background md:-translate-x-1/2" aria-hidden />
+                  <div className={`${right ? "md:col-start-2" : "md:col-start-1 md:text-right"}`}>
+                    <div className="glass-panel p-6 md:p-7 reveal" style={{ transitionDelay: `${i * 70}ms` }}>
+                      <div className={`flex items-center gap-3 mb-3 ${!right ? "md:flex-row-reverse" : ""}`}>
+                        <span className="w-10 h-10 rounded-2xl bg-rose-soft flex items-center justify-center shrink-0">
+                          <Icon size={18} strokeWidth={1.5} className="text-rose" />
+                        </span>
+                        <h3 className="font-display text-xl md:text-2xl leading-tight">{s.k}</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 4 — WHAT I DO */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-12 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.svcEye}</p>
+          <h2 className="display-lg reveal-line">{t.svcTitle}</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {t.svc.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <Link
+                key={s.k}
+                to={path(s.to as "web")}
+                className="glass-panel p-7 group reveal transition-transform duration-500 hover:-translate-y-1"
+                style={{ transitionDelay: `${i * 70}ms` }}
+              >
+                <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center mb-5 transition-transform duration-500 group-hover:-rotate-6">
+                  <Icon size={20} strokeWidth={1.5} className="text-foreground" />
+                </div>
+                <h3 className="font-display text-xl md:text-2xl mb-3 leading-tight">{s.k}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm text-rose">
+                  {t.svcLink} <ArrowUpRight size={15} strokeWidth={2} className="transition-transform duration-500 group-hover:translate-x-1" />
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 5 — PHILOSOPHY */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="card-soft p-8 md:p-16 text-center" style={{ background: "var(--gradient-soft)" }}>
+          <p className="eyebrow mb-6 reveal">{t.philEye}</p>
+          <blockquote className="font-display text-2xl md:text-4xl lg:text-5xl leading-[1.15] max-w-4xl mx-auto reveal">
+            <span className="italic text-rose">„</span>
+            {t.philQuote}
+            <span className="italic text-rose">“</span>
+          </blockquote>
+          <div className="mt-10 flex flex-wrap justify-center gap-2.5 md:gap-3">
+            {t.philPoints.map((p, i) => (
+              <span
+                key={p}
+                className="reveal px-4 py-2 rounded-full bg-background/70 backdrop-blur text-xs md:text-sm text-muted-foreground"
+                style={{ transitionDelay: `${i * 60}ms` }}
+              >
+                {p}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6 — WHY DIFFERENT */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-12 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.diffEye}</p>
+          <h2 className="display-lg reveal-line">{t.diffTitle}</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {t.diff.map((d, i) => {
+            const Icon = d.icon;
             return (
               <div
-                key={i}
-                className="reveal grid grid-cols-12 gap-6 md:gap-12 items-center"
+                key={d.k}
+                className="glass-panel p-6 group reveal transition-transform duration-500 hover:-translate-y-1"
+                style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <div className={`col-span-12 md:col-span-6 ${isLeft ? "" : "md:order-2"}`}>
-                  <div
-                    className="frame-soft aspect-[4/5] max-w-[460px]"
-                    style={{ transform: isLeft ? "rotate(-1.5deg)" : "rotate(1.5deg)" }}
-                  >
-                    <img src={ch.image} alt={ch.title} loading="lazy" />
-                  </div>
+                <div className="w-11 h-11 rounded-2xl bg-rose-soft flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                  <Icon size={18} strokeWidth={1.5} className="text-rose" />
                 </div>
-                <div className={`col-span-12 md:col-span-6 ${isLeft ? "" : "md:order-1"}`}>
-                  <div className="flex items-baseline gap-4 mb-4">
-                    <span className="font-mono text-xs uppercase tracking-widest text-rose">
-                      Chapter {ch.num}
-                    </span>
-                    <span className="h-px flex-1 bg-border" />
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                      {ch.eye}
-                    </span>
-                  </div>
-                  <h3 className="font-display text-3xl md:text-4xl leading-tight tracking-tight mb-5">
-                    {ch.title}
-                  </h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                    {ch.body}
-                  </p>
-                </div>
+                <h3 className="font-display text-lg md:text-xl mb-2 leading-tight">{d.k}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{d.d}</p>
               </div>
             );
           })}
         </div>
       </section>
 
-      {/* ============ JOURNEY / TIMELINE ============ */}
-      <section className="container-editorial pb-28">
-        <div className="grid grid-cols-12 gap-6 mb-16">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.journeyEye}</p>
-            <h2 className="display-lg">
-              {t.journeyTitleA}
-              <br />
-              <span className="italic text-rose">{t.journeyTitleB}</span>
-            </h2>
-          </div>
+      {/* 7 — PROCESS */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-12 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.procEye}</p>
+          <h2 className="display-lg reveal-line">{t.procTitle}</h2>
         </div>
-
-        <div className="relative max-w-4xl mx-auto">
-          <div
-            className="absolute left-6 md:left-1/2 top-2 bottom-2 w-px md:-translate-x-1/2"
-            style={{
-              background:
-                "linear-gradient(to bottom, transparent, hsl(var(--rose) / 0.6), hsl(var(--sky-deep) / 0.4), transparent)",
-            }}
-            aria-hidden
-          />
-          <ol className="space-y-10 md:space-y-14">
-            {t.journey.map((step, i) => {
-              const Icon = step.icon;
-              const isLeft = i % 2 === 0;
-              return (
-                <li
-                  key={i}
-                  className="reveal relative grid grid-cols-12 gap-4 md:gap-8 items-center"
-                  style={{ transitionDelay: `${i * 90}ms` }}
-                >
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-rose ring-4 ring-background z-10" />
-                  <div
-                    className={`col-span-12 pl-16 md:pl-0 ${
-                      isLeft ? "md:col-span-5 md:pr-10 md:text-right" : "md:col-start-8 md:col-span-5 md:pl-10"
-                    }`}
-                  >
-                    <div className="card-soft group cursor-default">
-                      <div
-                        className={`flex items-center gap-3 mb-3 ${
-                          isLeft ? "md:justify-end" : ""
-                        }`}
-                      >
-                        <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                          {step.year}
-                        </span>
-                        <div className="w-10 h-10 rounded-2xl bg-paper flex items-center justify-center transition-transform duration-500 group-hover:-rotate-6">
-                          <Icon size={18} strokeWidth={1.5} />
-                        </div>
-                      </div>
-                      <h3 className="font-display text-2xl mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {step.desc}
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
+        <div className="relative">
+          <div className="hidden lg:block absolute left-0 right-0 top-7 h-px bg-gradient-to-r from-transparent via-rose/35 to-transparent" aria-hidden />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {t.proc.map((s, i) => (
+              <div key={s.k} className="relative reveal" style={{ transitionDelay: `${i * 70}ms` }}>
+                <div className="w-14 h-14 rounded-full bg-background border border-border flex items-center justify-center font-mono text-sm text-rose mb-5 relative z-10">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="font-display text-xl mb-2 leading-tight">{s.k}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ============ DESIGN PRINCIPLES ============ */}
-      <section className="container-editorial pb-28">
-        <div className="grid grid-cols-12 gap-6 mb-12">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.principlesEye}</p>
-            <h2 className="display-lg">
-              {t.principlesTitleA}
-              <br />
-              <span className="italic text-rose">{t.principlesTitleB}</span>
-            </h2>
+      {/* 8 — CREATIVE DESK */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="card-soft p-6 md:p-14" style={{ background: "var(--gradient-soft)" }}>
+          <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
+            <div className="col-span-12 md:col-span-5 reveal-stagger">
+              <p className="eyebrow mb-4 reveal-line">{t.deskEye}</p>
+              <h2 className="display-lg reveal-line">{t.deskTitle}</h2>
+              <p className="mt-6 text-muted-foreground leading-relaxed reveal-line">{t.deskLead}</p>
+              <div className="mt-7 flex flex-wrap gap-2.5">
+                {t.deskTags.map((tag) => (
+                  <span key={tag} className="px-4 py-2 rounded-full bg-background/70 backdrop-blur text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-6 md:col-start-7 reveal">
+              <div className="relative">
+                <LaptopMockup screens={[projectRaum, projectAtelier, projectLush]} alt="MacBook mit Website-Projekt" />
+                <div className="absolute -right-1 md:right-4 -bottom-6 w-20 md:w-28 rounded-[1.3rem] overflow-hidden border-4 border-background shadow-soft bg-background">
+                  <img src={projectPfotenhaus} alt="iPhone mit mobiler Website-Ansicht" className="w-full aspect-[9/19] object-cover object-top" loading="lazy" />
+                </div>
+                <div className="hidden sm:block absolute -left-4 -top-6 w-28 md:w-36 rounded-2xl overflow-hidden border-4 border-background shadow-soft">
+                  <img src={portraitLaptop} alt="Arbeitsplatz mit Laptop und Kaffee" className="w-full aspect-square object-cover" loading="lazy" />
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {t.principles.map((p, i) => (
-            <IconCard
-              key={i}
-              icon={p.icon}
-              title={p.title}
-              desc={p.desc}
-              index={i}
-              variant={i % 3 === 1 ? "blue" : i % 3 === 2 ? "pink" : "default"}
-            />
-          ))}
         </div>
       </section>
 
-      {/* ============ TOOLKIT ============ */}
-      <section className="container-editorial pb-28">
-        <div className="grid grid-cols-12 gap-6 mb-12">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.toolkitEye}</p>
-            <h2 className="display-lg">
-              {t.toolkitTitleA}
-              <br />
-              <span className="italic text-rose">{t.toolkitTitleB}</span>
-            </h2>
+      {/* 9 — EDITORIAL COLLAGE */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-12 reveal-stagger max-w-2xl">
+          <p className="eyebrow mb-4 reveal-line">{t.insightEye}</p>
+          <h2 className="display-lg reveal-line">{t.insightTitle}</h2>
+          <p className="mt-5 text-muted-foreground leading-relaxed reveal-line">{t.insightLead}</p>
+        </div>
+
+        <div className="grid grid-cols-12 gap-4 md:gap-6 items-center">
+          <div className="col-span-7 md:col-span-5 reveal" ref={collageA}>
+            <img src={portraitLaptop} alt="Marianna arbeitet am Laptop" className="w-full rounded-[1.8rem] object-cover aspect-[4/5] shadow-soft" loading="lazy" />
+          </div>
+          <div className="col-span-5 md:col-span-3 space-y-4 md:space-y-6 reveal" ref={collageB}>
+            <img src={workspace} alt="Arbeitsplatz mit Notizen und Skizzen" className="w-full rounded-[1.4rem] object-cover aspect-square shadow-soft" loading="lazy" />
+            <img src={portraitSuit} alt="Marianna Kuzmenko im Portrait" className="w-full rounded-[1.4rem] object-cover aspect-[3/4] shadow-soft" loading="lazy" />
+          </div>
+          <div className="col-span-12 md:col-span-4 reveal">
+            <img src={projectRaum} alt="Screenshot eines Website-Projekts" className="w-full rounded-[1.8rem] object-cover aspect-[4/3] md:aspect-[3/4] object-top shadow-soft" loading="lazy" />
           </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
-          {t.toolkit.map((tool, i) => {
+      </section>
+
+      {/* 10 — TOOLKIT */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-12 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.toolEye}</p>
+          <h2 className="display-lg reveal-line">{t.toolTitle}</h2>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+          {t.tools.map((tool, i) => {
             const Icon = tool.icon;
             return (
               <div
-                key={i}
-                className="reveal glass-card p-5 flex flex-col items-start gap-3 group cursor-default"
-                style={{ transitionDelay: `${i * 50}ms` }}
+                key={tool.k}
+                className="glass-panel p-5 text-center group reveal transition-transform duration-500 hover:-translate-y-1"
+                style={{ transitionDelay: `${i * 45}ms` }}
               >
-                <div className="w-12 h-12 rounded-2xl bg-paper flex items-center justify-center transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110">
-                  <Icon size={22} strokeWidth={1.5} className="text-foreground" />
+                <div className="w-11 h-11 mx-auto rounded-2xl bg-secondary flex items-center justify-center mb-3 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
+                  <Icon size={18} strokeWidth={1.5} className="text-foreground" />
                 </div>
-                <div>
-                  <p className="font-display text-lg leading-none">{tool.name}</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-1.5">
-                    {tool.tag}
-                  </p>
-                </div>
+                <p className="text-sm">{tool.k}</p>
               </div>
             );
           })}
         </div>
       </section>
 
-      {/* ============ WHAT INSPIRES ME — COLLAGE ============ */}
-      <section className="container-editorial pb-28">
-        <div className="grid grid-cols-12 gap-6 mb-12">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.inspEye}</p>
-            <h2 className="display-lg">
-              {t.inspTitleA}
-              <br />
-              <span className="italic text-rose">{t.inspTitleB}</span>
-            </h2>
-            <p className="mt-6 max-w-xl text-muted-foreground leading-relaxed">
-              {t.inspLead}
-            </p>
-          </div>
+      {/* 11 — INSPIRATION */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-12 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.inspEye}</p>
+          <h2 className="display-lg reveal-line">{t.inspTitle}</h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-          {t.inspItems.map((item, i) => {
-            const Icon = item.icon;
-            const bg =
-              i % 4 === 0
-                ? "bg-secondary"
-                : i % 4 === 1
-                ? "bg-rose-soft"
-                : i % 4 === 2
-                ? "bg-paper"
-                : "bg-card";
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {t.insp.map((s, i) => {
+            const Icon = s.icon;
             return (
               <div
-                key={i}
-                className={`reveal ${bg} rounded-3xl p-6 md:p-8 aspect-square flex flex-col justify-between group cursor-default transition-transform duration-500 hover:-translate-y-1`}
+                key={s.k}
+                className={`card-soft p-7 reveal ${i % 2 === 0 ? "bg-secondary" : "bg-rose-soft"}`}
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <div className="w-12 h-12 rounded-2xl bg-background/70 backdrop-blur flex items-center justify-center transition-transform duration-500 group-hover:-rotate-6">
-                  <Icon size={22} strokeWidth={1.5} className="text-foreground" />
-                </div>
-                <p className="font-display text-lg md:text-xl leading-tight mt-6">
-                  {item.label}
-                </p>
+                <Icon size={22} strokeWidth={1.5} className="text-foreground mb-4" />
+                <h3 className="font-display text-xl mb-2 leading-tight">{s.k}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
               </div>
             );
           })}
         </div>
       </section>
 
-      {/* ============ BEHIND MY WORK ============ */}
-      <section className="container-editorial pb-28">
-        <div className="grid grid-cols-12 gap-6 mb-12">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.btsEye}</p>
-            <h2 className="display-lg">
-              {t.btsTitleA}
-              <br />
-              <span className="italic text-rose">{t.btsTitleB}</span>
-            </h2>
-            <p className="mt-6 max-w-xl text-muted-foreground leading-relaxed">
-              {t.btsLead}
-            </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-12 gap-4 md:gap-6">
-          {t.bts.map((b, i) => {
-            const spans = ["md:col-span-7", "md:col-span-5", "md:col-span-5", "md:col-span-7"];
-            const rotates = ["-1deg", "1.5deg", "-1.5deg", "1deg"];
+      {/* 12 — FACTS */}
+      <section className="container-editorial py-16 md:py-24">
+        <p className="eyebrow mb-8 reveal">{t.factEye}</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {t.facts.map((f, i) => {
+            const Icon = f.icon;
             return (
-              <figure
-                key={i}
-                className={`reveal col-span-12 ${spans[i]}`}
-                style={{ transitionDelay: `${i * 90}ms` }}
-              >
-                <div
-                  className="frame-soft aspect-[16/10]"
-                  style={{ transform: `rotate(${rotates[i]})` }}
-                >
-                  <img src={b.image} alt={b.cap} loading="lazy" />
-                </div>
-                <figcaption className="mt-4 text-sm text-muted-foreground italic">
-                  — {b.cap}
-                </figcaption>
-              </figure>
+              <div key={f.k} className="glass-panel p-5 reveal" style={{ transitionDelay: `${i * 50}ms` }}>
+                <Icon size={18} strokeWidth={1.5} className="text-rose mb-3" />
+                <p className="text-sm leading-snug">{f.k}</p>
+              </div>
             );
           })}
         </div>
       </section>
 
-      {/* ============ PHILOSOPHY ============ */}
-      <section className="container-editorial pb-28">
-        <div className="grid grid-cols-12 gap-6 mb-12">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.philosophyEye}</p>
-            <h2 className="display-lg">
-              {t.philosophyTitleA}
-              <br />
-              <span className="italic text-rose">{t.philosophyTitleB}</span>
-            </h2>
-            <p className="mt-6 max-w-xl text-muted-foreground leading-relaxed">
-              {t.philosophyLead}
-            </p>
+      {/* 13 — CERTIFICATES PREVIEW */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="grid grid-cols-12 gap-8 items-end mb-10 reveal-stagger">
+          <div className="col-span-12 md:col-span-7">
+            <p className="eyebrow mb-4 reveal-line">{t.certEye}</p>
+            <h2 className="display-lg reveal-line">{t.certTitle}</h2>
           </div>
-          <div className="col-span-12 md:col-span-4 mt-2 md:mt-8">
-            <FloatingNote rotate={4}>
-              {lang === "en" ? (
-                <>
-                  "Structured,
-                  <br />
-                  never stiff."
-                </>
-              ) : (
-                <>
-                  „Strukturiert,
-                  <br />
-                  nicht steif."
-                </>
-              )}
-            </FloatingNote>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 reveal-line">
+            <p className="text-muted-foreground leading-relaxed">{t.certLead}</p>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {t.philosophy.map((p, i) => (
-            <IconCard
-              key={i}
-              icon={p.icon}
-              title={p.title}
-              desc={p.desc}
-              index={i}
-              variant={i === 1 ? "blue" : i === 2 ? "pink" : "default"}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* ============ METHOD ============ */}
-      <section className="container-editorial pb-28">
-        <div className="grid grid-cols-12 gap-6 mb-12">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.methodEye}</p>
-            <h2 className="display-lg">
-              {t.methodTitleA}
-              <br />
-              <span className="italic text-rose">{t.methodTitleB}</span>
-            </h2>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {t.method.map((m, i) => (
-            <IconCard key={i} icon={m.icon} title={m.title} desc={m.desc} index={i} />
-          ))}
-        </div>
-      </section>
-
-      {/* ============ QUICK FACTS ============ */}
-      <section className="container-editorial pb-28">
-        <div className="card-soft p-8 md:p-14" style={{ background: "var(--gradient-soft)" }}>
-          <div className="grid grid-cols-12 gap-6 mb-10">
-            <div className="col-span-12 md:col-span-8">
-              <p className="eyebrow mb-4">{t.quickEye}</p>
-              <h2 className="display-lg">
-                {t.quickTitleA}
-                <br />
-                <span className="italic text-rose">{t.quickTitleB}</span>
-              </h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {[certUxui, certReact, certResponsive, certMarketing].map((c, i) => (
+            <div key={i} className="rounded-2xl overflow-hidden bg-background border border-border shadow-soft reveal" style={{ transitionDelay: `${i * 60}ms` }}>
+              <img src={c} alt={`Zertifikat ${i + 1} von Marianna Kuzmenko`} className="w-full aspect-[4/3] object-cover" loading="lazy" />
             </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {t.quick.map((q, i) => {
-              const Icon = q.icon;
-              return (
-                <div
-                  key={i}
-                  className="reveal card-soft group cursor-default bg-background/80 backdrop-blur"
-                  style={{ transitionDelay: `${i * 60}ms` }}
-                >
-                  <div className="w-11 h-11 rounded-2xl bg-paper flex items-center justify-center mb-4 transition-transform duration-500 group-hover:-rotate-6">
-                    <Icon size={20} strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-lg mb-1.5">{q.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {q.desc}
-                  </p>
+          ))}
+        </div>
+        <div className="mt-8">
+          <Link to={path("certs")} className="btn-cta-outline">
+            {t.certCta} <ArrowUpRight size={16} strokeWidth={2} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 14 — FEATURED PROJECTS */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-12 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.projEye}</p>
+          <h2 className="display-lg reveal-line">{t.projTitle}</h2>
+        </div>
+        <div className="space-y-14 md:space-y-20">
+          {featured.map((p, i) => (
+            <article key={p.slug} className={`grid grid-cols-12 gap-8 md:gap-12 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
+              <div className="col-span-12 md:col-span-7 reveal md:[direction:ltr]">
+                <div className="rounded-[1.8rem] overflow-hidden shadow-soft bg-background">
+                  <img src={p.img} alt={`${p.name} — Website-Projekt von Marianna Kuzmenko`} className="w-full aspect-[16/11] object-cover object-top" loading="lazy" />
                 </div>
-              );
-            })}
-          </div>
+              </div>
+              <div className="col-span-12 md:col-span-5 reveal md:[direction:ltr]">
+                <p className="eyebrow mb-3">{p.cat}</p>
+                <h3 className="font-display text-3xl md:text-4xl leading-tight mb-4">{p.name}</h3>
+                <p className="text-muted-foreground leading-relaxed">{p.desc}</p>
+                <Link to={`${path("work")}/${p.slug}`} className="btn-cta mt-7">
+                  {t.projCta} <ArrowUpRight size={18} strokeWidth={2} />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="mt-12">
+          <Link to={path("work")} className="btn-cta-outline">
+            {t.projAll} <ArrowUpRight size={16} strokeWidth={2} />
+          </Link>
         </div>
       </section>
 
-      {/* ============ FUN FACTS ============ */}
-      <section className="container-editorial pb-28">
-        <div className="grid grid-cols-12 gap-6 mb-10">
-          <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow mb-4">{t.funEye}</p>
-            <h2 className="display-lg">
-              {t.funTitleA}
-              <br />
-              <span className="italic text-rose">{t.funTitleB}</span>
-            </h2>
-          </div>
+      {/* 15 — RESULTS */}
+      <ResultsSection />
+
+      {/* 16 — TESTIMONIALS */}
+      <Testimonials />
+
+      {/* 17 — STATS */}
+      <StatsSection />
+
+      {/* 20 — INTERNAL LINKS */}
+      <section className="container-editorial py-16 md:py-24">
+        <div className="mb-10 reveal-stagger">
+          <p className="eyebrow mb-4 reveal-line">{t.linkEye}</p>
+          <h2 className="display-lg reveal-line">{t.linkTitle}</h2>
         </div>
-        <div className="flex flex-wrap gap-3 md:gap-4">
-          {t.fun.map((f, i) => (
-            <div
-              key={i}
-              className="reveal glass-card px-5 py-3 flex items-center gap-3 cursor-default hover:-translate-y-1 transition-transform"
-              style={{ transitionDelay: `${i * 80}ms` }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          {t.links.map((l, i) => (
+            <Link
+              key={l.k}
+              to={path(l.to)}
+              className="glass-panel p-6 group reveal flex items-start justify-between gap-4 transition-transform duration-500 hover:-translate-y-1"
+              style={{ transitionDelay: `${i * 50}ms` }}
             >
-              <span className="text-2xl leading-none">{f.emoji}</span>
-              <span className="font-display text-base md:text-lg">{f.label}</span>
-            </div>
+              <span>
+                <span className="block font-display text-xl mb-1.5">{l.k}</span>
+                <span className="block text-sm text-muted-foreground leading-relaxed">{l.d}</span>
+              </span>
+              <ArrowUpRight size={18} strokeWidth={1.8} className="text-rose shrink-0 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* ============ CTA ============ */}
+      {/* 25 — FINAL CTA */}
       <ConversionCta
-        eyebrow={t.ctaEye}
-        title={t.ctaTitle}
-        lead={t.ctaLead}
-        primary={{ label: t.ctaPrimary, href: path("inquiry") }}
-        secondary={{ label: t.ctaSecondary, href: path("work") }}
+        title={t.finalTitle}
+        lead={t.finalLead}
+        primary={{ label: t.finalPrimary, href: path("inquiry") }}
+        secondary={{ label: t.finalSecondary, href: path("work") }}
       />
     </Layout>
   );
