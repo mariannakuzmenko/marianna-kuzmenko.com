@@ -45,7 +45,16 @@ export interface Project {
   mood: Mood;
   device: Device;
   layout: Layout;
+  /** Live website — opens in a new tab. Easy to update here. */
   liveUrl?: string;
+  /** Internal case study slug is derived from `slug`. */
+  featured?: boolean;
+  /** SEO alt text for the project image. */
+  altText: string;
+  /** Short teaser used on cards and listings. */
+  description: { de: string; en: string };
+  /** True while the final project image is still pending upload. */
+  imagePending?: boolean;
   de: ProjectContent;
   en: ProjectContent;
 }
@@ -54,13 +63,20 @@ export const projects: Project[] = [
   {
     slug: "pfotenhaus",
     year: "2026",
-    name: "Pfotenhaus",
+    name: "Pfotenhaus Berlin",
     category: "Tierhotel · Storytelling",
     categoryTags: ["Veterinary", "Pet Business"],
     serviceTags: ["Web Design", "Web Development", "UX/UI"],
     tech: ["React", "Vite", "Tailwind", "Framer Motion"],
     tags: ["Webdesign", "Brand Voice", "UX Writing"],
     image: pfotenhaus, gallery: [pfotenhaus], mood: "emotion", device: "phones", layout: "left",
+    altText: "Webdesign für ein Tierhotel in Berlin – Pfotenhaus Berlin",
+    description: {
+      de: "Website für ein Tierhotel: warme Bildsprache, klare Informationen und ein einfacher Weg zur Kontaktaufnahme für Tierbesitzer.",
+      en: "Website for a pet hotel: warm imagery, clear information and an easy path to contact for pet owners.",
+    },
+    liveUrl: "https://pfotenhaus-berlin.netlify.app",
+    featured: true,
     de: {
       intro: "Eine Geschichte, gespürt von zwei Herzen. Eine Website, die wie eine warme Umarmung wirkt.",
       overview: "Ein familiengeführtes Pfotenhaus wollte online spürbar machen, was es offline auszeichnet: echte Zuwendung.",
@@ -102,6 +118,13 @@ export const projects: Project[] = [
     tech: ["React", "GSAP", "Tailwind"],
     tags: ["Branding", "Typografie", "Webdesign"],
     image: neinStudio, gallery: [neinStudio], mood: "bold", device: "phone", layout: "right",
+    altText: "Webdesign für ein Kreativstudio – NEIN / STUDIO",
+    description: {
+      de: "Editorial-Website für ein Kreativstudio mit markanter Typografie, Ladesequenz und klarer Haltung statt Standard-Agenturlayout.",
+      en: "Editorial website for a creative studio with bold typography, a scripted loading sequence and a clear point of view.",
+    },
+    liveUrl: "https://nein-studio.netlify.app",
+    featured: true,
     de: {
       intro: "Wir sind wahrscheinlich nichts für dich. Eine Website, die Haltung zeigt — und genau dadurch anzieht.",
       overview: "Eine junge Kreativagentur wollte sich in einem gesättigten Markt polarisierend positionieren.",
@@ -137,53 +160,67 @@ export const projects: Project[] = [
     slug: "four-elements",
     year: "2025",
     name: "Four Elements",
-    category: "Spa & Ritual · Cinematic",
-    categoryTags: ["Hotels", "Beauty"],
+    category: "Asiatisches Restaurant · Cinematic",
+    categoryTags: ["Restaurants"],
     serviceTags: ["Web Design", "UX/UI"],
-    tech: ["React", "Framer Motion", "Sanity CMS"],
-    tags: ["Editorial", "Animation", "Luxury UX"],
+    tech: ["React", "Framer Motion", "Tailwind"],
+    tags: ["Editorial", "Animation", "Restaurant Branding"],
     image: fourElements, gallery: [fourElements], mood: "dark", device: "phone", layout: "left",
+    altText: "Webdesign für ein asiatisches Restaurant – Four Elements",
+    description: {
+      de: "Website für ein asiatisches Restaurant mit besonderer Atmosphäre: immersive Bildwelt, kapitelartige Menüpräsentation, vollständig responsiv.",
+      en: "Website for an Asian cuisine restaurant with a distinctive atmosphere: immersive visuals, chapter-like menu presentation, fully responsive.",
+    },
+    liveUrl: "https://four-elements-asian-restaurant.netlify.app",
+    featured: true,
     de: {
-      intro: "Step beyond the veil. Eine digitale Schwelle, die Stille verspricht — und sie hält.",
-      overview: "Ein Wellness-Konzept rund um die vier Elemente sollte digital erlebbar werden.",
-      client: "Spa-Marke mit drei Standorten in Süddeutschland und Österreich.",
-      goals: ["Höherpreisige Rituale positionieren", "Verweildauer steigern", "Direktbuchungen"],
-      challenge: "Ein Wellness-Konzept rund um die vier Elemente brauchte eine Website, die nicht erklärt, sondern atmen lässt.",
-      research: "Session Recordings zeigten: Nutzer wollen Atmosphäre, keine Preislisten in Sekunde 1.",
-      ux: "Cinematic Scrollflow: erst Stimmung, dann Angebot, dann Buchung.",
-      ui: "Tiefe Schattenwelt, langsame Übergänge, Kalligrafie-Akzente.",
-      development: "React + Framer Motion, Inhalte über Sanity CMS pflegbar.",
-      seo: "Ritual-spezifische Landing Pages, strukturierte Daten für Angebote.",
-      responsive: "Auch mobil bleibt das cinematic Gefühl erhalten — reduzierte Animationen für Performance.",
-      result: "Buchungen für höherpreisige Rituale stiegen um 38 %. Die durchschnittliche Verweildauer verdreifachte sich.",
-      feedback: { quote: "Unsere Gäste sagen, sie fühlten sich schon beim Scrollen entspannt.", author: "Spa Director, Four Elements" },
+      intro: "Step beyond the veil. Ein asiatisches Restaurant, das seine Küche als Reise durch vier Elemente erzählt.",
+      overview: "Ein Restaurant für asiatische Küche mit ausgeprägter eigener Atmosphäre wollte diese Stimmung auch digital erlebbar machen.",
+      client: "Restaurant für asiatische Küche mit einem Konzept rund um die vier Elemente Feuer, Wasser, Luft und Erde.",
+      goals: ["Atmosphäre digital vermitteln", "Speisekarte erlebbar präsentieren", "Reservierungen erleichtern"],
+      challenge: "Die Speisekarte ist hier kein Preisverzeichnis, sondern eine Dramaturgie. Die Website musste diese Dramaturgie übersetzen.",
+      research: "Analyse von Restaurant-Websites zeigte: Gerichte werden meist als Liste gezeigt. Der Auftritt setzt stattdessen auf Szenen.",
+      ux: "Cinematic Scrollflow in vier Kapiteln — je ein Element mit dem dazugehörigen Signature-Gericht, Reservierung stets erreichbar.",
+      ui: "Dunkle Bildwelt, langsame Übergänge, japanische Schriftakzente und viel Raum zwischen den Gängen.",
+      development: "React + Framer Motion mit Tailwind. Bilder lazy geladen, Animationen für schwächere Geräte reduziert.",
+      seo: "Semantische Struktur für Küche, Gerichte und Standort, sprechende Meta-Texte für die Menükapitel.",
+      responsive: "Vom Desktop bis zum kleinen Smartphone bleibt jede Szene vollflächig und lesbar.",
+      result: "Ein Restaurantauftritt, der die besondere Atmosphäre des Hauses schon vor dem Besuch spürbar macht.",
+      feedback: { quote: "Die Website fühlt sich an wie unser Gastraum — nur zum Scrollen.", author: "Inhaber, Four Elements" },
     },
     en: {
-      intro: "Step beyond the veil. A digital threshold that promises stillness — and keeps it.",
-      overview: "A wellness concept built around the four elements, made tangible online.",
-      client: "Spa brand with three locations across southern Germany and Austria.",
-      goals: ["Position higher-priced rituals", "Increase dwell time", "Direct bookings"],
-      challenge: "A wellness brand needed a website that doesn't explain — it lets you breathe.",
-      research: "Session recordings showed: users want atmosphere, not price lists in second one.",
-      ux: "Cinematic scroll flow: mood first, offering second, booking third.",
-      ui: "Deep shadow palette, slow transitions, calligraphy accents.",
-      development: "React + Framer Motion, content managed via Sanity CMS.",
-      seo: "Ritual-specific landing pages, structured data for offers.",
-      responsive: "Cinematic feel preserved on mobile with reduced animations for performance.",
-      result: "Bookings of higher-priced rituals rose 38%. Average dwell time tripled.",
-      feedback: { quote: "Guests say they feel relaxed just from scrolling.", author: "Spa Director, Four Elements" },
+      intro: "Step beyond the veil. An Asian restaurant telling its cuisine as a journey through four elements.",
+      overview: "An Asian cuisine restaurant with a strong atmosphere of its own wanted that mood to carry over online.",
+      client: "Asian cuisine restaurant built around the four elements: fire, water, air and earth.",
+      goals: ["Translate atmosphere online", "Present the menu as an experience", "Make reservations easy"],
+      challenge: "Here the menu is a dramaturgy, not a price list. The website had to translate it.",
+      research: "A review of restaurant websites showed dishes are usually shown as lists. This site uses scenes instead.",
+      ux: "Cinematic scroll flow in four chapters — one element and its signature dish each, reservation always in reach.",
+      ui: "Dark imagery, slow transitions, Japanese type accents and generous space between courses.",
+      development: "React + Framer Motion with Tailwind. Lazy-loaded imagery, reduced motion on weaker devices.",
+      seo: "Semantic structure for cuisine, dishes and location, descriptive meta copy for each menu chapter.",
+      responsive: "From desktop to small phones every scene stays full-bleed and legible.",
+      result: "A restaurant presence that makes the atmosphere of the house tangible before the first visit.",
+      feedback: { quote: "The website feels like our dining room — only scrollable.", author: "Owner, Four Elements" },
     },
   },
   {
     slug: "atelier-nova",
     year: "2025",
-    name: "Atelier Nova",
+    name: "Atelier Nova Tokio",
     category: "Architektur · Minimal",
     categoryTags: ["Corporate"],
     serviceTags: ["Web Design", "UX/UI", "SEO"],
     tech: ["Next.js", "Tailwind", "Contentful"],
     tags: ["Webdesign", "Editorial", "Photography"],
     image: atelierNova, gallery: [atelierNova], mood: "beige", device: "phone", layout: "full",
+    altText: "Webdesign für ein Architekturbüro – Atelier Nova Tokio",
+    description: {
+      de: "Editorial-Website für ein Architektur-Atelier: großzügige Projektstrecken, ruhige Typografie und Fokus auf Material und Licht.",
+      en: "Editorial website for an architecture atelier: generous project spreads, quiet typography, focus on material and light.",
+    },
+    liveUrl: "https://atelier-nova-tokio.netlify.app",
+    featured: true,
     de: {
       intro: "We create spaces that resonate. Eine Website, die der Architektur den Vortritt lässt.",
       overview: "Ein Architektur-Atelier wollte online wie ein Bildband wirken.",
@@ -225,6 +262,11 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind", "Cal.com"],
     tags: ["UX/UI", "Conversion", "Pastel Design"],
     image: lushBloom, gallery: [lushBloom], mood: "pastel", device: "phone", layout: "split",
+    altText: "Webdesign für ein Beauty- und Wellness-Studio – Lush & Bloom",
+    description: {
+      de: "Website für ein Beauty-Studio mit klarer Leistungsübersicht und einfacher Terminanfrage.",
+      en: "Website for a beauty studio with a clear service overview and simple appointment requests.",
+    },
     de: {
       intro: "Beauty that feels like a reset. Eine Pause für die Augen, lange bevor sie zur Pause für den Körper wird.",
       overview: "Ein Berliner Beauty-Studio mit Premium-Anspruch und veralteter Website.",
@@ -266,6 +308,11 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Webdesign", "Local SEO", "Branding"],
     image: liorFriseur, gallery: [liorFriseur], mood: "luxury", device: "phone", layout: "right",
+    altText: "Webdesign für einen Premium-Friseursalon – Lior. Friseur",
+    description: {
+      de: "Website für einen Premium-Friseursalon mit cinematischer Bildsprache und lokaler SEO-Struktur.",
+      en: "Website for a premium hair salon with cinematic imagery and a local SEO structure.",
+    },
     de: {
       intro: "Farbe, die dich verändert. Eine Website, die wirkt wie der Moment vor dem ersten Schnitt.",
       overview: "Ein Premium-Friseursalon in Nürnberg wollte sich von Standard-Branchenseiten absetzen.",
@@ -307,6 +354,13 @@ export const projects: Project[] = [
     tech: ["Astro", "Tailwind"],
     tags: ["Editorial Web", "Photography", "Brand"],
     image: raumform, gallery: [raumform], mood: "warm", device: "phone", layout: "floating",
+    altText: "Webdesign für ein Innenarchitektur-Atelier – Raumform Atelier",
+    description: {
+      de: "Website für ein Innenarchitektur-Atelier: großformatige Raumbilder, ruhige Navigation und ein Auftritt, der Materialität in den Vordergrund stellt.",
+      en: "Website for an interior design atelier: large-format spatial imagery, calm navigation and a presentation that foregrounds materiality.",
+    },
+    liveUrl: "https://raumform-atelier.netlify.app",
+    featured: true,
     de: {
       intro: "Räume, die man fühlt — nicht nur sieht. Eine Website, die haptisch wirkt, ohne es zu sein.",
       overview: "Ein Innenarchitektur-Atelier brauchte eine Bühne für Materialität.",
@@ -348,6 +402,11 @@ export const projects: Project[] = [
     tech: ["Next.js", "Tailwind", "HubSpot"],
     tags: ["Fintech UX", "Conversion", "Trust Design"],
     image: creditpath, gallery: [creditpath], mood: "corporate", device: "laptop-tablet", layout: "right",
+    altText: "Webdesign für eine Finanz- und Kreditberatung – CreditPath",
+    description: {
+      de: "Website für eine Finanzberatung mit vertrauensbildender Struktur und geführtem Anfrage-Prozess.",
+      en: "Website for a financial advisory with a trust-building structure and a guided inquiry flow.",
+    },
     de: {
       intro: "Get approved for your dream home — even if your credit isn't perfect. Vertrauen, in Pixel gegossen.",
       overview: "Eine Kredit- und Hypothekenberatung brauchte einen Auftritt, der Seriosität ausstrahlt.",
@@ -389,6 +448,11 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Healthcare UX", "Premium", "Local SEO"],
     image: dentallux, gallery: [dentallux], mood: "clinic", device: "tablet-laptop", layout: "left",
+    altText: "Webdesign für eine Zahnarztpraxis in Berlin – DentalLux",
+    description: {
+      de: "Website für eine Premium-Zahnarztpraxis mit ruhiger Gestaltung und klarer Terminanfrage.",
+      en: "Website for a premium dental practice with a calm design and clear appointment requests.",
+    },
     de: {
       intro: "Ihr Lächeln in besten Händen. Medizin, die sich anfühlt wie ein gutes Hotel.",
       overview: "Eine Premium-Zahnarztpraxis wollte raus aus dem klinischen Standard.",
