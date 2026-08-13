@@ -178,27 +178,20 @@ const Projekte = () => {
           <div className="col-span-12 md:col-span-4 md:col-start-9 hidden md:block">
             <div className="grid grid-cols-2 gap-4">
               <div className="showcase-mockup rounded-2xl overflow-hidden tilt-left">
-                <img src={projects[2].image} alt="" loading="lazy" className="w-full h-full object-cover" />
+                <ProjectImage project={projects[2]} className="w-full h-full" />
               </div>
               <div className="showcase-mockup rounded-2xl overflow-hidden tilt-right mt-8">
-                <img src={projects[4].image} alt="" loading="lazy" className="w-full h-full object-cover" />
+                <ProjectImage project={projects[4]} className="w-full h-full" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEARCH + FILTERS */}
-      <section className="container-editorial pb-8 sticky top-16 md:top-20 xl:top-24 z-20 bg-background/80 backdrop-blur-md">
-        <div className="flex flex-col md:flex-row md:items-center gap-4 py-4">
-          <div className="relative md:w-80">
-            <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="search" value={query} onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.searchPh}
-              className="w-full h-11 pl-11 pr-4 rounded-full border border-border bg-card/80 focus:outline-none focus:ring-2 focus:ring-primary/40 text-sm"
-            />
-          </div>
+      {/* FILTERS */}
+      <section className="container-editorial pb-6 sticky top-16 md:top-20 xl:top-24 z-20 bg-background/80 backdrop-blur-md">
+        <div className="py-4">
+
           <div className="flex-1 overflow-x-auto scrollbar-none">
             <div className="flex gap-2 min-w-max">
               {filters.map((f) => (
