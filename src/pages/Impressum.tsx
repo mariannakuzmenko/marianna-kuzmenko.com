@@ -1,13 +1,10 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-
-const Placeholder = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-block px-2 py-0.5 rounded-md bg-rose-soft text-rose font-mono text-xs uppercase tracking-widest">[ {children} ]</span>
-);
+import { CONTACT, telLink } from "@/data/contact";
 
 const Impressum = () => (
   <Layout>
-    <Seo title="Impressum — Marianna Kuzmenko" description="Impressum gemäß § 5 TMG der Webdesignerin und SEO-Freelancerin Marianna Kuzmenko." path="/impressum" />
+    <Seo title="Impressum — Marianna Kuzmenko" description="Impressum gemäß § 5 TMG der Webdesignerin und SEO-Freelancerin Marianna Kuzmenko aus Nürnberg." path="/impressum" />
     <section className="container-editorial pt-12 pb-24 max-w-3xl">
       <p className="eyebrow mb-6">Rechtliches</p>
       <h1 className="display-xl mb-10">Impressum</h1>
@@ -16,34 +13,30 @@ const Impressum = () => (
         <div>
           <h2 className="font-display text-2xl mb-3">Angaben gemäß § 5 TMG</h2>
           <p>
-            <Placeholder>Vollständiger Name</Placeholder><br />
-            <Placeholder>Straße und Hausnummer</Placeholder><br />
-            <Placeholder>PLZ Ort</Placeholder><br />
-            Deutschland
+            {CONTACT.name}<br />
+            {CONTACT.street}<br />
+            {CONTACT.zipCity}<br />
+            {CONTACT.country}
           </p>
         </div>
 
         <div>
           <h2 className="font-display text-2xl mb-3">Vertreten durch</h2>
-          <p><Placeholder>Vollständiger Name der Inhaberin</Placeholder></p>
+          <p>{CONTACT.name}</p>
         </div>
 
         <div>
           <h2 className="font-display text-2xl mb-3">Kontakt</h2>
           <p>
-            Telefon: <Placeholder>Telefonnummer</Placeholder><br />
-            E-Mail: <a href="mailto:mari1992.kuzmenko@gmail.com" className="underline-draw">mari1992.kuzmenko@gmail.com</a>
+            Telefon: <a href={telLink} className="underline-draw">{CONTACT.phoneDisplay}</a><br />
+            E-Mail: <a href={`mailto:${CONTACT.email}`} className="underline-draw">{CONTACT.email}</a>
           </p>
         </div>
 
         <div>
-          <h2 className="font-display text-2xl mb-3">Umsatzsteuer-ID</h2>
+          <h2 className="font-display text-2xl mb-3">Umsatzsteuer</h2>
           <p>
-            Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG:<br />
-            <Placeholder>USt-IdNr. — falls vorhanden</Placeholder>
-          </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            Hinweis: Als Kleinunternehmerin im Sinne von § 19 UStG wird keine Umsatzsteuer ausgewiesen — bitte bei Bedarf entsprechend anpassen.
+            Als Kleinunternehmerin im Sinne von § 19 UStG wird keine Umsatzsteuer ausgewiesen.
           </p>
         </div>
 
@@ -54,6 +47,7 @@ const Impressum = () => (
             Verliehen in: Deutschland
           </p>
         </div>
+
 
         <div>
           <h2 className="font-display text-2xl mb-3">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
