@@ -52,8 +52,8 @@ const Impressum = () => (
         <div>
           <h2 className="font-display text-2xl mb-3">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
           <p>
-            <Placeholder>Vollständiger Name</Placeholder><br />
-            <Placeholder>Anschrift wie oben</Placeholder>
+            {CONTACT.name}<br />
+            {CONTACT.street}, {CONTACT.zipCity}
           </p>
         </div>
 
