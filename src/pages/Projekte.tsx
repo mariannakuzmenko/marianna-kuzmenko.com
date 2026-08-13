@@ -192,22 +192,21 @@ const Projekte = () => {
       <section className="container-editorial pb-6 sticky top-16 md:top-20 xl:top-24 z-20 bg-background/80 backdrop-blur-md">
         <div className="py-4">
 
-          <div className="flex-1 overflow-x-auto scrollbar-none">
-            <div className="flex gap-2 min-w-max">
-              {filters.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setFilter(f)}
-                  className={`px-4 h-9 rounded-full text-xs font-medium tracking-wide transition-all whitespace-nowrap ${
-                    filter === f
-                      ? "bg-foreground text-background shadow-md"
-                      : "bg-card/60 text-muted-foreground hover:bg-card hover:text-foreground border border-border"
-                  }`}
-                >
-                  {f}
-                </button>
-              ))}
-            </div>
+        <div className="py-4 overflow-x-auto scrollbar-none">
+          <div className="flex gap-2 min-w-max">
+            {filters.map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-4 h-9 rounded-full text-xs font-medium tracking-wide transition-all whitespace-nowrap ${
+                  filter === f
+                    ? "bg-foreground text-background shadow-md"
+                    : "bg-card/60 text-muted-foreground hover:bg-card hover:text-foreground border border-border"
+                }`}
+              >
+                {f}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -224,7 +223,6 @@ const Projekte = () => {
                 caseHref={`${caseBase}${p.slug}`}
                 t={{ visit: t.visit, discover: t.discover, services: t.services, tech: t.tech, year: t.year }}
               />
-
             </div>
           ))
         )}
@@ -234,7 +232,7 @@ const Projekte = () => {
       <section className="container-editorial pb-28">
         <div className="card-soft p-10 md:p-16 text-center" style={{ background: "var(--gradient-sky)" }}>
           <p className="eyebrow mb-4 flex items-center justify-center gap-2">
-            <Sparkles size={12} /> {t.ctaEye}
+            <Sparkle size={12} className="text-rose" /> {t.ctaEye}
           </p>
           <h2 className="display-md mb-6">
             {t.ctaA}<br />
@@ -242,10 +240,17 @@ const Projekte = () => {
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">{t.ctaLead}</p>
           <div className="flex flex-wrap gap-4 justify-center">
+            <Link to={path("inquiry")} className="btn-cta">{t.bStart} <ArrowUpRight size={16} /></Link>
+            <WhatsAppButton lang={lang} variant="outline" />
             <Link to={path("web")} className="btn-ghost-soft">{t.bWeb} <ArrowRight size={14} /></Link>
             <Link to={path("seo")} className="btn-ghost-soft">{t.bSeo} <ArrowRight size={14} /></Link>
-            <Link to={path("inquiry")} className="glow-btn">{t.bStart} <ArrowUpRight size={16} /></Link>
+            <Link to={path("pricing")} className="btn-ghost-soft">
+              {pick(lang, "Preise ansehen", "See pricing")} <ArrowRight size={14} />
+            </Link>
           </div>
+        </div>
+      </section>
+
         </div>
       </section>
     </Layout>
