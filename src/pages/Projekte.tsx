@@ -108,26 +108,17 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
 const Projekte = () => {
   const { lang, path } = useLang();
   const [filter, setFilter] = useState<string>(lang === "en" ? "All Projects" : "Alle Projekte");
-  const [query, setQuery] = useState("");
   const filters = lang === "en" ? FILTERS_EN : FILTERS_DE;
   const allLabel = filters[0];
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return projects.filter((p) => {
-      const passFilter =
+    return projects.filter(
+      (p) =>
         filter === allLabel ||
         p.serviceTags.includes(filter) ||
-        p.categoryTags.includes(filter);
-      const passQuery =
-        !q ||
-        p.name.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.serviceTags.some((t) => t.toLowerCase().includes(q)) ||
-        p.categoryTags.some((t) => t.toLowerCase().includes(q));
-      return passFilter && passQuery;
-    });
-  }, [filter, query, allLabel]);
+        p.categoryTags.includes(filter),
+    );
+  }, [filter, allLabel]);
 
   const caseBase = lang === "en" ? "/en/projects/" : "/projekte/";
 
