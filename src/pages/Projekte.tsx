@@ -190,8 +190,6 @@ const Projekte = () => {
 
       {/* FILTERS */}
       <section className="container-editorial pb-6 sticky top-16 md:top-20 xl:top-24 z-20 bg-background/80 backdrop-blur-md">
-        <div className="py-4">
-
         <div className="py-4 overflow-x-auto scrollbar-none">
           <div className="flex gap-2 min-w-max">
             {filters.map((f) => (
