@@ -2,8 +2,11 @@ import { useMemo, useState } from "react";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, ExternalLink, Search, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { projects, Project } from "@/data/projects";
+import { ProjectImage } from "@/components/site/ProjectImage";
+import { Sparkle } from "@/components/site/Sparkle";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
 const FILTERS_DE = [
@@ -19,11 +22,10 @@ const FILTERS_EN = [
 
 const Mockup = ({ p, className = "" }: { p: Project; className?: string }) => (
   <div className={`showcase-mockup rounded-[1.75rem] overflow-hidden ${className}`}>
-    <img
-      src={p.image}
-      alt={`${p.name} — ${p.category}`}
-      loading="lazy"
-      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+    <ProjectImage
+      project={p}
+      imgClassName="transition-transform duration-700 group-hover:scale-[1.03]"
+      className="w-full h-full"
     />
   </div>
 );
@@ -45,13 +47,12 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
       <h2 className="font-display leading-[0.95] mb-4" style={{ fontSize: "clamp(2rem, 4.4vw, 3.4rem)", letterSpacing: "-0.02em" }}>
         {p.name}
       </h2>
-      <p className="text-lg md:text-xl font-display italic leading-snug mb-6 opacity-90">
+      <p className="text-lg md:text-xl font-display italic leading-snug mb-5 text-foreground/90">
         {content.intro}
       </p>
       <p className="text-muted-foreground leading-relaxed mb-6">
-        {content.overview}
+        {pick(lang, p.description.de, p.description.en)}
       </p>
-
 
       <dl className="grid grid-cols-2 gap-4 mb-6 text-sm">
         <div>
@@ -65,14 +66,10 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
       </dl>
 
       <div className="flex flex-wrap gap-3">
-        {p.liveUrl ? (
-          <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="glow-btn">
+        {p.liveUrl && (
+          <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-cta">
             {t.visit} <ExternalLink size={14} />
           </a>
-        ) : (
-          <span className="glow-btn opacity-60 cursor-not-allowed" aria-disabled>
-            {t.visit} <ExternalLink size={14} />
-          </span>
         )}
         <Link to={caseHref} className="btn-ghost-soft">
           {t.discover} <ArrowRight size={14} />
@@ -83,27 +80,20 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
 
   return (
     <article className={`showcase-scene mood-${p.mood} scene-fade group`}>
-      <span className="floating-tag" style={{ top: 20, left: 20 }}>
-        {String(index + 1).padStart(2, "0")} · {p.year}
-      </span>
-      <span className="floating-tag hidden md:inline-flex" style={{ top: 20, right: 20 }}>
-        {p.category}
-      </span>
-
       {isFull ? (
-        <div className="mt-14 space-y-10">
+        <div className="space-y-10">
           <Mockup p={p} className="tilt-right" />
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 md:col-span-8 md:col-start-3">{Info}</div>
           </div>
         </div>
       ) : isSplit ? (
-        <div className="mt-14 grid grid-cols-12 gap-8 md:gap-10 items-stretch">
+        <div className="grid grid-cols-12 gap-8 md:gap-10 items-stretch">
           <div className="col-span-12 md:col-span-5"><Mockup p={p} className="tilt-left h-full" /></div>
           <div className="col-span-12 md:col-span-7 flex items-center">{Info}</div>
         </div>
       ) : (
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center mt-12 md:mt-8">
+        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
           <div className={`col-span-12 md:col-span-6 ${isLeft ? "" : "md:order-2"}`}>
             <Mockup p={p} className={isLeft ? "tilt-left" : "tilt-right"} />
           </div>
@@ -113,6 +103,7 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
     </article>
   );
 };
+
 
 const Projekte = () => {
   const { lang, path } = useLang();
