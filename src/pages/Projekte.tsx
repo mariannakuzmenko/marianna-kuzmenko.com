@@ -250,9 +250,6 @@ const Projekte = () => {
           </div>
         </div>
       </section>
-
-        </div>
-      </section>
     </Layout>
   );
 };
