@@ -98,7 +98,7 @@ const Impressum = () => (
         </div>
 
         <p className="text-sm text-muted-foreground pt-6 border-t border-border">
-          Mit <span className="text-rose">[ ... ]</span> markierte Felder sind Platzhalter und müssen vor Veröffentlichung manuell ergänzt werden.
+          Stand: {new Date().getFullYear()}. Bei Änderungen der Angaben wird dieses Impressum entsprechend aktualisiert.
         </p>
       </article>
     </section>
