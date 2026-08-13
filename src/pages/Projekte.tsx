@@ -2,8 +2,11 @@ import { useMemo, useState } from "react";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, ExternalLink, Search, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { projects, Project } from "@/data/projects";
+import { ProjectImage } from "@/components/site/ProjectImage";
+import { Sparkle } from "@/components/site/Sparkle";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
 const FILTERS_DE = [
@@ -19,11 +22,10 @@ const FILTERS_EN = [
 
 const Mockup = ({ p, className = "" }: { p: Project; className?: string }) => (
   <div className={`showcase-mockup rounded-[1.75rem] overflow-hidden ${className}`}>
-    <img
-      src={p.image}
-      alt={`${p.name} — ${p.category}`}
-      loading="lazy"
-      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+    <ProjectImage
+      project={p}
+      imgClassName="transition-transform duration-700 group-hover:scale-[1.03]"
+      className="w-full h-full"
     />
   </div>
 );
@@ -45,13 +47,12 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
       <h2 className="font-display leading-[0.95] mb-4" style={{ fontSize: "clamp(2rem, 4.4vw, 3.4rem)", letterSpacing: "-0.02em" }}>
         {p.name}
       </h2>
-      <p className="text-lg md:text-xl font-display italic leading-snug mb-6 opacity-90">
+      <p className="text-lg md:text-xl font-display italic leading-snug mb-5 text-foreground/90">
         {content.intro}
       </p>
       <p className="text-muted-foreground leading-relaxed mb-6">
-        {content.overview}
+        {pick(lang, p.description.de, p.description.en)}
       </p>
-
 
       <dl className="grid grid-cols-2 gap-4 mb-6 text-sm">
         <div>
@@ -65,14 +66,10 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
       </dl>
 
       <div className="flex flex-wrap gap-3">
-        {p.liveUrl ? (
-          <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="glow-btn">
+        {p.liveUrl && (
+          <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-cta">
             {t.visit} <ExternalLink size={14} />
           </a>
-        ) : (
-          <span className="glow-btn opacity-60 cursor-not-allowed" aria-disabled>
-            {t.visit} <ExternalLink size={14} />
-          </span>
         )}
         <Link to={caseHref} className="btn-ghost-soft">
           {t.discover} <ArrowRight size={14} />
@@ -83,27 +80,20 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
 
   return (
     <article className={`showcase-scene mood-${p.mood} scene-fade group`}>
-      <span className="floating-tag" style={{ top: 20, left: 20 }}>
-        {String(index + 1).padStart(2, "0")} · {p.year}
-      </span>
-      <span className="floating-tag hidden md:inline-flex" style={{ top: 20, right: 20 }}>
-        {p.category}
-      </span>
-
       {isFull ? (
-        <div className="mt-14 space-y-10">
+        <div className="space-y-10">
           <Mockup p={p} className="tilt-right" />
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 md:col-span-8 md:col-start-3">{Info}</div>
           </div>
         </div>
       ) : isSplit ? (
-        <div className="mt-14 grid grid-cols-12 gap-8 md:gap-10 items-stretch">
+        <div className="grid grid-cols-12 gap-8 md:gap-10 items-stretch">
           <div className="col-span-12 md:col-span-5"><Mockup p={p} className="tilt-left h-full" /></div>
           <div className="col-span-12 md:col-span-7 flex items-center">{Info}</div>
         </div>
       ) : (
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center mt-12 md:mt-8">
+        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
           <div className={`col-span-12 md:col-span-6 ${isLeft ? "" : "md:order-2"}`}>
             <Mockup p={p} className={isLeft ? "tilt-left" : "tilt-right"} />
           </div>
@@ -114,29 +104,21 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
   );
 };
 
+
 const Projekte = () => {
   const { lang, path } = useLang();
   const [filter, setFilter] = useState<string>(lang === "en" ? "All Projects" : "Alle Projekte");
-  const [query, setQuery] = useState("");
   const filters = lang === "en" ? FILTERS_EN : FILTERS_DE;
   const allLabel = filters[0];
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return projects.filter((p) => {
-      const passFilter =
+    return projects.filter(
+      (p) =>
         filter === allLabel ||
         p.serviceTags.includes(filter) ||
-        p.categoryTags.includes(filter);
-      const passQuery =
-        !q ||
-        p.name.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.serviceTags.some((t) => t.toLowerCase().includes(q)) ||
-        p.categoryTags.some((t) => t.toLowerCase().includes(q));
-      return passFilter && passQuery;
-    });
-  }, [filter, query, allLabel]);
+        p.categoryTags.includes(filter),
+    );
+  }, [filter, allLabel]);
 
   const caseBase = lang === "en" ? "/en/projects/" : "/projekte/";
 
@@ -196,43 +178,33 @@ const Projekte = () => {
           <div className="col-span-12 md:col-span-4 md:col-start-9 hidden md:block">
             <div className="grid grid-cols-2 gap-4">
               <div className="showcase-mockup rounded-2xl overflow-hidden tilt-left">
-                <img src={projects[2].image} alt="" loading="lazy" className="w-full h-full object-cover" />
+                <ProjectImage project={projects[2]} className="w-full h-full" />
               </div>
               <div className="showcase-mockup rounded-2xl overflow-hidden tilt-right mt-8">
-                <img src={projects[4].image} alt="" loading="lazy" className="w-full h-full object-cover" />
+                <ProjectImage project={projects[4]} className="w-full h-full" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEARCH + FILTERS */}
-      <section className="container-editorial pb-8 sticky top-16 md:top-20 xl:top-24 z-20 bg-background/80 backdrop-blur-md">
-        <div className="flex flex-col md:flex-row md:items-center gap-4 py-4">
-          <div className="relative md:w-80">
-            <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="search" value={query} onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.searchPh}
-              className="w-full h-11 pl-11 pr-4 rounded-full border border-border bg-card/80 focus:outline-none focus:ring-2 focus:ring-primary/40 text-sm"
-            />
-          </div>
-          <div className="flex-1 overflow-x-auto scrollbar-none">
-            <div className="flex gap-2 min-w-max">
-              {filters.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setFilter(f)}
-                  className={`px-4 h-9 rounded-full text-xs font-medium tracking-wide transition-all whitespace-nowrap ${
-                    filter === f
-                      ? "bg-foreground text-background shadow-md"
-                      : "bg-card/60 text-muted-foreground hover:bg-card hover:text-foreground border border-border"
-                  }`}
-                >
-                  {f}
-                </button>
-              ))}
-            </div>
+      {/* FILTERS */}
+      <section className="container-editorial pb-6 sticky top-16 md:top-20 xl:top-24 z-20 bg-background/80 backdrop-blur-md">
+        <div className="py-4 overflow-x-auto scrollbar-none">
+          <div className="flex gap-2 min-w-max">
+            {filters.map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-4 h-9 rounded-full text-xs font-medium tracking-wide transition-all whitespace-nowrap ${
+                  filter === f
+                    ? "bg-foreground text-background shadow-md"
+                    : "bg-card/60 text-muted-foreground hover:bg-card hover:text-foreground border border-border"
+                }`}
+              >
+                {f}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -249,7 +221,6 @@ const Projekte = () => {
                 caseHref={`${caseBase}${p.slug}`}
                 t={{ visit: t.visit, discover: t.discover, services: t.services, tech: t.tech, year: t.year }}
               />
-
             </div>
           ))
         )}
@@ -259,7 +230,7 @@ const Projekte = () => {
       <section className="container-editorial pb-28">
         <div className="card-soft p-10 md:p-16 text-center" style={{ background: "var(--gradient-sky)" }}>
           <p className="eyebrow mb-4 flex items-center justify-center gap-2">
-            <Sparkles size={12} /> {t.ctaEye}
+            <Sparkle size={12} className="text-rose" /> {t.ctaEye}
           </p>
           <h2 className="display-md mb-6">
             {t.ctaA}<br />
@@ -267,9 +238,13 @@ const Projekte = () => {
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">{t.ctaLead}</p>
           <div className="flex flex-wrap gap-4 justify-center">
+            <Link to={path("inquiry")} className="btn-cta">{t.bStart} <ArrowUpRight size={16} /></Link>
+            <WhatsAppButton lang={lang} variant="outline" />
             <Link to={path("web")} className="btn-ghost-soft">{t.bWeb} <ArrowRight size={14} /></Link>
             <Link to={path("seo")} className="btn-ghost-soft">{t.bSeo} <ArrowRight size={14} /></Link>
-            <Link to={path("inquiry")} className="glow-btn">{t.bStart} <ArrowUpRight size={16} /></Link>
+            <Link to={path("pricing")} className="btn-ghost-soft">
+              {pick(lang, "Preise ansehen", "See pricing")} <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>

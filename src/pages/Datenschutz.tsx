@@ -1,9 +1,7 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
+import { CONTACT, telLink } from "@/data/contact";
 
-const PH = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-block px-2 py-0.5 rounded-md bg-rose-soft text-rose font-mono text-xs uppercase tracking-widest">[ {children} ]</span>
-);
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div>
