@@ -102,7 +102,7 @@ const Kontakt = () => {
 
   const contactItems = [
     { icon: Mail, key: "email" as const, href: `mailto:${EMAIL}` },
-    { icon: Phone, key: "phone" as const, href: `tel:${PHONE_TEL}` },
+    { icon: Phone, key: "phone" as const, href: PHONE_TEL },
     { icon: Clock, key: "response" as const, href: null },
     { icon: MapPin, key: "location" as const, href: null },
   ];
