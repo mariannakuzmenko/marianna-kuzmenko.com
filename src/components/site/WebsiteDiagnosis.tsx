@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Gauge, Palette, Search, MousePointer2, ArrowUpRight, Sparkles } from "lucide-react";
+import { Gauge, Palette, Search, MousePointer2, ArrowUpRight, CircleDot } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 interface Metric { key: string; icon: typeof Gauge; label: string; question: string }
@@ -122,7 +122,7 @@ export const WebsiteDiagnosis = () => {
                 </div>
                 <div className="mt-8 flex justify-end">
                   <button onClick={() => setSubmitted(true)} className="btn-cta">
-                    {t.calculate} <Sparkles size={16} />
+                    {t.calculate} <CircleDot size={16} />
                   </button>
                 </div>
               </>

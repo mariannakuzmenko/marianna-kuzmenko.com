@@ -1,7 +1,7 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { Link } from "react-router-dom";
-import { Check, Sparkles, ArrowRight, ShieldCheck, Clock, Heart } from "lucide-react";
+import { Check, CircleDot, ArrowRight, ShieldCheck, Clock, Heart } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 const Preise = () => {
@@ -128,7 +128,7 @@ const Preise = () => {
             <div key={p.name} className={`relative rounded-[1.75rem] p-8 flex flex-col ${p.highlight ? "bg-gradient-to-br from-rose-soft to-paper border border-rose/30 shadow-[var(--shadow-pink)]" : "panel-white"}`}>
               {p.highlight && (
                 <span className="absolute -top-3 left-8 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-rose text-white text-[10px] font-mono uppercase tracking-widest">
-                  <Sparkles size={12} /> {t.mostPopular}
+                  <CircleDot size={12} /> {t.mostPopular}
                 </span>
               )}
               <p className="eyebrow mb-3">{p.tag}</p>

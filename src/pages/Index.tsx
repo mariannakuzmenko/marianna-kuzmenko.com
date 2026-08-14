@@ -30,7 +30,7 @@ import {
   MapPin,
   Search,
   ShieldCheck,
-  Sparkles,
+  CircleDot,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 import portraitWindowSrc from "@/assets/portraits/marianna-portrait-window.jpeg";
@@ -425,7 +425,7 @@ const Index = () => {
     { icon: Search, ...t.services[3], variant: "pink" as const },
   ];
 
-  const trustIcons = [LineChart, ShieldCheck, Sparkles];
+  const trustIcons = [LineChart, ShieldCheck, CircleDot];
   const whyIcons = [BadgeCheck, Building2, Globe2];
   const heroScreens = [
     dentalluxMockup.url,

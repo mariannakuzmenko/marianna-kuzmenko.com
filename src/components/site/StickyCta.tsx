@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, CircleDot } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 export const StickyCta = () => {
@@ -34,7 +34,7 @@ export const StickyCta = () => {
           transform: show ? "translateY(0)" : "translateY(20px)",
         }}
       >
-        <span className="dot"><Sparkles size={14} className="text-white" strokeWidth={1.8} /></span>
+        <span className="dot"><CircleDot size={14} className="text-white" strokeWidth={1.8} /></span>
         <span className="hidden lg:inline text-[11px] font-mono uppercase tracking-[0.18em] opacity-80 mr-1">
           ● {t.avail}
         </span>
