@@ -7,6 +7,15 @@ import liorFriseur from "@/assets/projects/lior-friseur.png";
 import raumform from "@/assets/projects/raumform.png";
 import creditpath from "@/assets/projects/creditpath.png";
 import dentallux from "@/assets/projects/dentallux.png";
+import formaPilatesAsset from "@/assets/projects/forma-pilates.png.asset.json";
+import cafeGruenAsset from "@/assets/projects/cafe-gruen.png.asset.json";
+import guideAsset from "@/assets/projects/guide-stadtfuehrung.jpeg.asset.json";
+import laDolceVitaAsset from "@/assets/projects/la-dolce-vita.png.asset.json";
+
+const formaPilates = formaPilatesAsset.url;
+const cafeGruen = cafeGruenAsset.url;
+const guideStadtfuehrung = guideAsset.url;
+const laDolceVita = laDolceVitaAsset.url;
 
 export type Mood =
   | "warm" | "pastel" | "beige" | "bold" | "emotion"
@@ -493,7 +502,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "Web Development", "UX/UI"],
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Studio Website", "Kursplan", "Booking UX"],
-    image: "", gallery: [], imagePending: true,
+    image: formaPilates, gallery: [formaPilates],
     mood: "pastel", device: "phone", layout: "split",
     altText: "Webdesign für ein Reformer-Pilates-Studio in Nürnberg – Forma Pilates",
     description: {
@@ -542,7 +551,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "Web Development", "SEO"],
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Café Website", "Menükarte", "Local SEO"],
-    image: "", gallery: [], imagePending: true,
+    image: cafeGruen, gallery: [cafeGruen],
     mood: "warm", device: "phone", layout: "left",
     altText: "Webdesign für ein Specialty-Café in Nürnberg – Café GRÜN",
     description: {
@@ -591,7 +600,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "Web Development", "SEO"],
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Tourismus", "Storytelling", "Local SEO"],
-    image: "", gallery: [], imagePending: true,
+    image: guideStadtfuehrung, gallery: [guideStadtfuehrung],
     mood: "beige", device: "phone", layout: "right",
     altText: "Webdesign für private Stadtführungen in Nürnberg – Guide Stadtführung",
     description: {
@@ -640,7 +649,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "Web Development", "SEO"],
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Restaurant Website", "Speisekarte", "Reservierung"],
-    image: "", gallery: [], imagePending: true,
+    image: laDolceVita, gallery: [laDolceVita],
     mood: "warm", device: "phone", layout: "full",
     altText: "Webdesign für ein italienisches Restaurant in Nürnberg – La Dolce Vita",
     description: {
