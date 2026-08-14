@@ -101,7 +101,7 @@ const Datenschutz = () => (
         </Section>
 
         <p className="text-sm text-muted-foreground pt-6 border-t border-border">
-          Mit <span className="text-rose">[ ... ]</span> markierte Felder sind Platzhalter und müssen vor Veröffentlichung manuell ergänzt bzw. juristisch geprüft werden.
+          Stand: {new Date().getFullYear()}. Diese Datenschutzerklärung wird bei Änderungen der Verarbeitung aktualisiert.
         </p>
       </article>
     </section>
