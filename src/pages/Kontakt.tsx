@@ -194,7 +194,8 @@ const Kontakt = () => {
             <h2 className="font-display text-2xl md:text-3xl mb-3">{t.quickTitle}</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">{t.quickLead}</p>
             <div className="flex flex-wrap gap-3">
-              <a href={`mailto:${EMAIL}`} className="btn-cta">
+              <WhatsAppButton lang={lang} />
+              <a href={`mailto:${EMAIL}`} className="btn-cta-outline">
                 {t.quickCta} <Mail size={16} strokeWidth={1.8} />
               </a>
               <a href={PHONE_TEL} className="btn-cta-outline">
