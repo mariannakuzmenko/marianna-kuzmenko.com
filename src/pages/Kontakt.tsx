@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Clock, MapPin, ArrowUpRight, MessageCircle, Send } from "lucide-react";
+import { Mail, Phone, Clock, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { ConversionCta } from "@/components/site/ConversionCta";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { CONTACT, telLink } from "@/data/contact";
 import portraitWindow from "@/assets/portraits/marianna-portrait-window.jpeg";
 import portraitLaptop from "@/assets/portraits/marianna-laptop-coffee.jpeg";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
-const EMAIL = "mari1992.kuzmenko@gmail.com";
-const PHONE_DISPLAY = "+49 179 1111 607";
-const PHONE_TEL = "+491791111607";
+const EMAIL = CONTACT.email;
+const PHONE_DISPLAY = CONTACT.phoneDisplay;
+const PHONE_TEL = telLink;
 
 const Kontakt = () => {
   const { lang, path } = useLang();
@@ -100,7 +102,7 @@ const Kontakt = () => {
 
   const contactItems = [
     { icon: Mail, key: "email" as const, href: `mailto:${EMAIL}` },
-    { icon: Phone, key: "phone" as const, href: `tel:${PHONE_TEL}` },
+    { icon: Phone, key: "phone" as const, href: PHONE_TEL },
     { icon: Clock, key: "response" as const, href: null },
     { icon: MapPin, key: "location" as const, href: null },
   ];
@@ -192,10 +194,11 @@ const Kontakt = () => {
             <h2 className="font-display text-2xl md:text-3xl mb-3">{t.quickTitle}</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">{t.quickLead}</p>
             <div className="flex flex-wrap gap-3">
-              <a href={`mailto:${EMAIL}`} className="btn-cta">
+              <WhatsAppButton lang={lang} />
+              <a href={`mailto:${EMAIL}`} className="btn-cta-outline">
                 {t.quickCta} <Mail size={16} strokeWidth={1.8} />
               </a>
-              <a href={`tel:${PHONE_TEL}`} className="btn-cta-outline">
+              <a href={PHONE_TEL} className="btn-cta-outline">
                 {t.callCta} <Phone size={16} strokeWidth={1.8} />
               </a>
             </div>
