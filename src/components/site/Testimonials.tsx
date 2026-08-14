@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
 type T = { quote: string; name: string; role: string; date: string; rating: number };
@@ -62,7 +62,12 @@ export const Testimonials = () => {
 
           <div className="flex justify-center gap-1.5 mb-8">
             {Array.from({ length: t.rating }).map((_, idx) => (
-              <Star key={`${i}-${idx}`} size={22} strokeWidth={1.4} className="star-pop fill-rose text-rose" style={{ animationDelay: `${idx * 130 + 200}ms` }} />
+              <span
+                key={`${i}-${idx}`}
+                aria-hidden="true"
+                className="star-pop inline-block w-2 h-2 rounded-full bg-rose"
+                style={{ animationDelay: `${idx * 130 + 200}ms` }}
+              />
             ))}
           </div>
 
