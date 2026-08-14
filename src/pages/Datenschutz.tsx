@@ -28,9 +28,10 @@ const Datenschutz = () => (
         <Section title="2. Verantwortliche Stelle">
           <p>
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
-            <PH>Vollständiger Name</PH><br />
-            <PH>Anschrift</PH><br />
-            E-Mail: <a href="mailto:mari1992.kuzmenko@gmail.com" className="underline-draw">mari1992.kuzmenko@gmail.com</a>
+            {CONTACT.name}<br />
+            {CONTACT.street}, {CONTACT.zipCity}, {CONTACT.country}<br />
+            Telefon: <a href={telLink} className="underline-draw">{CONTACT.phoneDisplay}</a><br />
+            E-Mail: <a href={`mailto:${CONTACT.email}`} className="underline-draw">{CONTACT.email}</a>
           </p>
         </Section>
 
