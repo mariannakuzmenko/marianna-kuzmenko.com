@@ -758,11 +758,11 @@
 
   .glow-btn {
     @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all;
-    background: hsl(var(--rose));
+    background: hsl(var(--berry));
     color: white;
-    box-shadow: 0 10px 30px -8px hsl(var(--rose) / 0.6);
+    box-shadow: 0 10px 30px -8px hsl(var(--berry) / 0.6);
   }
-  .glow-btn:hover { box-shadow: 0 0 0 3px hsl(var(--rose) / 0.25), 0 18px 40px -10px hsl(var(--rose) / 0.7); transform: translateY(-2px); }
+  .glow-btn:hover { box-shadow: 0 0 0 3px hsl(var(--berry) / 0.25), 0 18px 40px -10px hsl(var(--berry) / 0.7); transform: translateY(-2px); }
 
   .floating-tag {
     @apply absolute font-mono text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full backdrop-blur-md;
