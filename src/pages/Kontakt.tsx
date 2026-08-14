@@ -197,7 +197,7 @@ const Kontakt = () => {
               <a href={`mailto:${EMAIL}`} className="btn-cta">
                 {t.quickCta} <Mail size={16} strokeWidth={1.8} />
               </a>
-              <a href={`tel:${PHONE_TEL}`} className="btn-cta-outline">
+              <a href={PHONE_TEL} className="btn-cta-outline">
                 {t.callCta} <Phone size={16} strokeWidth={1.8} />
               </a>
             </div>
