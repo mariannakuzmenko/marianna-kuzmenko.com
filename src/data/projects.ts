@@ -262,6 +262,7 @@ export const projects: Project[] = [
     },
   },
   {
+    liveUrl: "https://lushandbloom.netlify.app",
     slug: "lush-bloom",
     year: "2025",
     name: "Lush & Bloom",
@@ -308,6 +309,7 @@ export const projects: Project[] = [
     },
   },
   {
+    liveUrl: "https://lior-friseur.netlify.app",
     slug: "lior-friseur",
     year: "2024",
     name: "Lior. Friseur",
@@ -402,6 +404,7 @@ export const projects: Project[] = [
     },
   },
   {
+    liveUrl: "https://credit-path.netlify.app",
     slug: "creditpath",
     year: "2024",
     name: "CreditPath",
@@ -448,6 +451,7 @@ export const projects: Project[] = [
     },
   },
   {
+    liveUrl: "https://dentalfactory.netlify.app",
     slug: "dentallux",
     year: "2024",
     name: "DentalLux",

@@ -15,7 +15,7 @@ import {
   Code2,
   Search,
   Users,
-  Sparkles,
+  CircleDot,
   Smartphone,
   Compass,
   ShieldCheck,
@@ -99,7 +99,7 @@ const UeberMich = () => {
         { icon: Code2, k: "Webentwicklung", d: "Eigene Umsetzung in HTML, CSS, JavaScript und React statt Baukasten." },
         { icon: Search, k: "SEO & Digital Marketing", d: "Technisches SEO, Inhalte und lokale Sichtbarkeit für den DACH-Markt." },
         { icon: Users, k: "Kundenprojekte", d: "Reale Projekte für Studios, Praxen, Dienstleister und kleine Marken." },
-        { icon: Sparkles, k: "Heute", d: "Websites, die gestalterisch, technisch und strategisch zusammenpassen." },
+        { icon: CircleDot, k: "Heute", d: "Websites, die gestalterisch, technisch und strategisch zusammenpassen." },
       ],
 
       svcEye: "Was ich mache",
@@ -193,7 +193,7 @@ const UeberMich = () => {
 
       factEye: "Ein paar Dinge über mich",
       facts: [
-        { icon: Sparkles, k: "Kreativ & neugierig" },
+        { icon: CircleDot, k: "Kreativ & neugierig" },
         { icon: BookOpen, k: "Immer am Lernen" },
         { icon: Heart, k: "Liebe zu minimalem Design" },
         { icon: Coffee, k: "Kaffee & kreative Arbeit" },
@@ -263,7 +263,7 @@ const UeberMich = () => {
         { icon: Code2, k: "Web development", d: "Building in HTML, CSS, JavaScript and React instead of page builders." },
         { icon: Search, k: "SEO & digital marketing", d: "Technical SEO, content and local visibility for the DACH market." },
         { icon: Users, k: "Client projects", d: "Real work for studios, practices, service businesses and small brands." },
-        { icon: Sparkles, k: "Today", d: "Websites where design, technology and strategy finally align." },
+        { icon: CircleDot, k: "Today", d: "Websites where design, technology and strategy finally align." },
       ],
 
       svcEye: "What I do",
@@ -357,7 +357,7 @@ const UeberMich = () => {
 
       factEye: "A few things about me",
       facts: [
-        { icon: Sparkles, k: "Creative & curious" },
+        { icon: CircleDot, k: "Creative & curious" },
         { icon: BookOpen, k: "Always learning" },
         { icon: Heart, k: "Minimal design lover" },
         { icon: Coffee, k: "Coffee & creative work" },

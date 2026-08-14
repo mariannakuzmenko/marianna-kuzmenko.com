@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { projects, Project } from "@/data/projects";
 import { ProjectImage } from "@/components/site/ProjectImage";
-import { Sparkle } from "@/components/site/Sparkle";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
@@ -230,7 +229,7 @@ const Projekte = () => {
       <section className="container-editorial pb-28">
         <div className="card-soft p-10 md:p-16 text-center" style={{ background: "var(--gradient-sky)" }}>
           <p className="eyebrow mb-4 flex items-center justify-center gap-2">
-            <Sparkle size={12} className="text-rose" /> {t.ctaEye}
+            <span aria-hidden="true" className="inline-block w-6 h-px bg-rose" /> {t.ctaEye}
           </p>
           <h2 className="display-md mb-6">
             {t.ctaA}<br />
