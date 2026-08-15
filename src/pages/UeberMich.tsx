@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { ConversionCta } from "@/components/site/ConversionCta";
-import { LaptopMockup } from "@/components/site/LaptopMockup";
+import { MockupShowcase } from "@/components/site/MockupShowcase";
 import { StatsSection } from "@/components/site/StatsSection";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ResultsSection } from "@/components/site/ResultsSection";
@@ -469,7 +469,7 @@ const UeberMich = () => {
               </div>
 
               <div className="hidden md:block absolute -left-10 bottom-6 w-[58%] pointer-events-none">
-                <LaptopMockup screens={[projectPfotenhaus, projectDental, projectAtelier]} alt="Website-Vorschau" />
+                <MockupShowcase screens={[projectPfotenhaus, projectDental, projectAtelier]} alt="Website-Vorschau" />
               </div>
 
               <div className="absolute -right-2 md:-right-6 top-10 w-20 md:w-28 rounded-[1.4rem] overflow-hidden border-4 border-background shadow-soft bg-background">
@@ -672,7 +672,7 @@ const UeberMich = () => {
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 reveal">
               <div className="relative">
-                <LaptopMockup screens={[projectRaum, projectAtelier, projectLush]} alt="MacBook mit Website-Projekt" />
+                <MockupShowcase screens={[projectRaum, projectAtelier, projectLush]} alt="MacBook mit Website-Projekt" />
                 <div className="absolute -right-1 md:right-4 -bottom-6 w-20 md:w-28 rounded-[1.3rem] overflow-hidden border-4 border-background shadow-soft bg-background">
                   <img src={projectPfotenhaus} alt="iPhone mit mobiler Website-Ansicht" className="w-full aspect-[9/19] object-cover object-top" loading="lazy" />
                 </div>
