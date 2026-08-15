@@ -238,7 +238,7 @@ const Projekte = () => {
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">{t.ctaLead}</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to={path("inquiry")} className="btn-cta">{t.bStart} <ArrowUpRight size={16} /></Link>
-            <WhatsAppButton lang={lang} variant="outline" />
+            <WhatsAppButton lang={lang} />
             <Link to={path("web")} className="btn-ghost-soft">{t.bWeb} <ArrowRight size={14} /></Link>
             <Link to={path("seo")} className="btn-ghost-soft">{t.bSeo} <ArrowRight size={14} /></Link>
             <Link to={path("pricing")} className="btn-ghost-soft">
