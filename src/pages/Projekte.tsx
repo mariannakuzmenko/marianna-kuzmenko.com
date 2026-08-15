@@ -128,7 +128,6 @@ const Projekte = () => {
       eye: "05 — Selected Projects",
       h1A: "Selected", h1B: "Projects.",
       lead: "Jede Website ist individuell designt — mit Fokus auf User Experience, Performance, SEO und messbares Business-Wachstum. Keine Templates. Kein Standard. Nur Arbeit, die für ihre Marke gemacht ist.",
-      searchPh: "Projekte durchsuchen...",
       empty: "Keine Projekte gefunden — probier einen anderen Filter.",
       services: "Leistungen", tech: "Technologie", year: "Jahr",
       visit: "Website besuchen", discover: "Projekt entdecken",
@@ -143,7 +142,6 @@ const Projekte = () => {
       eye: "05 — Selected Projects",
       h1A: "Selected", h1B: "Projects.",
       lead: "Every website is individually designed — with focus on user experience, performance, SEO and measurable business growth. No templates. No defaults. Just work made for its brand.",
-      searchPh: "Search projects...",
       empty: "No projects match — try a different filter.",
       services: "Services", tech: "Technology", year: "Year",
       visit: "Visit website", discover: "Discover project",
@@ -238,7 +236,7 @@ const Projekte = () => {
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">{t.ctaLead}</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to={path("inquiry")} className="btn-cta">{t.bStart} <ArrowUpRight size={16} /></Link>
-            <WhatsAppButton lang={lang} variant="outline" />
+            <WhatsAppButton lang={lang} />
             <Link to={path("web")} className="btn-ghost-soft">{t.bWeb} <ArrowRight size={14} /></Link>
             <Link to={path("seo")} className="btn-ghost-soft">{t.bSeo} <ArrowRight size={14} /></Link>
             <Link to={path("pricing")} className="btn-ghost-soft">

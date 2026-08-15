@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Github, Mail } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLang, pick } from "@/i18n/LanguageContext";
 import { useConsent } from "@/consent/ConsentContext";
+import { WhatsAppButton } from "./WhatsAppButton";
+import { CONTACT, telLink } from "@/data/contact";
 
 export const Footer = () => {
   const { lang, path } = useLang();
   const { openSettings } = useConsent();
   return (
-    <footer className="relative mt-32 overflow-hidden">
+    <footer className="relative mt-20 md:mt-24 overflow-hidden">
       <div className="absolute inset-0" style={{ background: "var(--gradient-soft)" }} />
       <div className="blob blob-pink" style={{ width: 380, height: 380, top: "-80px", right: "10%" }} />
-      <div className="container-editorial py-24 relative">
+      <div className="container-editorial py-16 md:py-20 relative">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-6">
             <img
@@ -30,8 +32,9 @@ export const Footer = () => {
                 {pick(lang, "Projekt starten", "Start a Project")}
                 <Mail size={16} strokeWidth={1.6} />
               </Link>
-              <a href="mailto:mari1992.kuzmenko@gmail.com" className="btn-cta-outline">
-                mari1992.kuzmenko@gmail.com
+              <WhatsAppButton lang={lang} />
+              <a href={`mailto:${CONTACT.email}`} className="btn-cta-outline">
+                {CONTACT.email}
               </a>
             </div>
           </div>
@@ -68,22 +71,25 @@ export const Footer = () => {
               {pick(lang, <>Freelancer Webdesigner<br />Deutschland · Remote weltweit</>,
                           <>Freelance Web Designer<br />Germany · Remote worldwide</>)}
             </p>
-            <p className="eyebrow mt-8 mb-4">{pick(lang, "Folgen", "Follow")}</p>
-            <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 rounded-full bg-paper flex items-center justify-center hover:bg-rose-soft transition-colors duration-500" aria-label="LinkedIn">
-                <Linkedin size={16} strokeWidth={1.6} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-paper flex items-center justify-center hover:bg-rose-soft transition-colors duration-500" aria-label="Instagram">
-                <Instagram size={16} strokeWidth={1.6} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-paper flex items-center justify-center hover:bg-rose-soft transition-colors duration-500" aria-label="GitHub">
-                <Github size={16} strokeWidth={1.6} />
-              </a>
-            </div>
-          </div>
+            <p className="eyebrow mt-8 mb-4">{pick(lang, "Direktkontakt", "Direct contact")}</p>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center gap-2 underline-draw">
+                  <Mail size={14} strokeWidth={1.6} /> {CONTACT.email}
+                </a>
+              </li>
+              <li>
+                <a href={telLink} className="inline-flex items-center gap-2 underline-draw">
+                  <Phone size={14} strokeWidth={1.6} /> {CONTACT.phoneDisplay}
+                </a>
+              </li>
+              <li className="inline-flex items-center gap-2 text-muted-foreground">
+                <MapPin size={14} strokeWidth={1.6} /> {CONTACT.street}, {CONTACT.zipCity}
+              </li>
+            </ul>
         </div>
 
-        <div className="hairline mt-20 mb-6" />
+        <div className="hairline mt-14 mb-6" />
         <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-muted-foreground font-mono uppercase tracking-widest">
           <p>© {new Date().getFullYear()} Marianna Kuzmenko · {pick(lang, "Alle Rechte vorbehalten", "All rights reserved")}</p>
           <p>{pick(lang, "Mit Sorgfalt gemacht — in Deutschland", "Crafted with care — in Germany")}</p>

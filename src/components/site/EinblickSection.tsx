@@ -10,7 +10,7 @@ const dentalluxMockup = { url: dentalluxImg };
 const creditpathMockup = { url: lushImg };
 const nuernbergGuideMockup = { url: pfotenhausImg };
 const holzwerkMockup = { url: raumformImg };
-import { LaptopMockup } from "./LaptopMockup";
+import { MockupShowcase } from "./MockupShowcase";
 import { Whisper } from "./Whisper";
 import { useLang, pick } from "@/i18n/LanguageContext";
 
@@ -44,7 +44,7 @@ export const EinblickSection = () => {
         </div>
 
         <div className="col-span-12 md:col-span-6 md:col-start-5 md:-ml-16 md:-mt-10 reveal" style={{ transitionDelay: "150ms" }}>
-          <LaptopMockup screens={[dentalluxMockup.url, creditpathMockup.url, nuernbergGuideMockup.url]} alt={t.mockupAlt} />
+          <MockupShowcase screens={[dentalluxMockup.url, creditpathMockup.url, nuernbergGuideMockup.url]} alt={t.mockupAlt} />
         </div>
 
         <div className="col-span-5 md:col-span-3 md:col-start-10 md:-mt-32 reveal" style={{ transitionDelay: "300ms" }}>

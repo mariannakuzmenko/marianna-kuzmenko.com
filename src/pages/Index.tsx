@@ -4,7 +4,6 @@ import { IconCard } from "@/components/site/IconCard";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ContactSection } from "@/components/site/ContactSection";
 import { WaveDivider } from "@/components/site/WaveDivider";
-import { LaptopMockup } from "@/components/site/LaptopMockup";
 import { HeroBlueprint } from "@/components/site/HeroBlueprint";
 import { EinblickSection } from "@/components/site/EinblickSection";
 import { ConversionCta } from "@/components/site/ConversionCta";
