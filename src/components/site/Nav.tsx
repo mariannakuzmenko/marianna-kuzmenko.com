@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLang, ROUTES, pick } from "@/i18n/LanguageContext";
+import { WhatsAppButton } from "./WhatsAppButton";
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
@@ -92,13 +93,12 @@ export const Nav = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Link
-              to={ctaHref}
-              onClick={() => setOpen(false)}
-              className="btn-cta mt-4 self-start"
-            >
-              {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
-            </Link>
+            <div className="mt-4 flex flex-col gap-3 items-start">
+              <Link to={ctaHref} onClick={() => setOpen(false)} className="btn-cta">
+                {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
+              </Link>
+              <WhatsAppButton lang={lang} variant="compact" />
+            </div>
           </div>
         </div>
       )}
@@ -109,21 +109,17 @@ export const Nav = () => {
     const base = "font-mono text-[11px] uppercase tracking-[0.2em] transition-colors duration-300";
     return (
       <div className="inline-flex items-center gap-1 shrink-0">
-        <Link
-          to={lang === "de" ? "#" : altPath("de")}
-          className={`${base} px-2 py-1 rounded-full ${lang === "de" ? "text-rose bg-rose-soft" : "text-muted-foreground hover:text-foreground"}`}
-          aria-current={lang === "de" ? "true" : undefined}
-        >
-          DE
-        </Link>
+        {lang === "de" ? (
+          <span className={`${base} px-2 py-1 rounded-full text-rose bg-rose-soft`} aria-current="true">DE</span>
+        ) : (
+          <Link to={altPath("de")} className={`${base} px-2 py-1 rounded-full text-muted-foreground hover:text-foreground`}>DE</Link>
+        )}
         <span className="text-muted-foreground/40 text-[10px]">/</span>
-        <Link
-          to={lang === "en" ? "#" : altPath("en")}
-          className={`${base} px-2 py-1 rounded-full ${lang === "en" ? "text-rose bg-rose-soft" : "text-muted-foreground hover:text-foreground"}`}
-          aria-current={lang === "en" ? "true" : undefined}
-        >
-          EN
-        </Link>
+        {lang === "en" ? (
+          <span className={`${base} px-2 py-1 rounded-full text-rose bg-rose-soft`} aria-current="true">EN</span>
+        ) : (
+          <Link to={altPath("en")} className={`${base} px-2 py-1 rounded-full text-muted-foreground hover:text-foreground`}>EN</Link>
+        )}
       </div>
     );
   }
