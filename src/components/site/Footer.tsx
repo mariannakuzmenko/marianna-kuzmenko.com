@@ -87,7 +87,10 @@ export const Footer = () => {
                 <MapPin size={14} strokeWidth={1.6} /> {CONTACT.street}, {CONTACT.zipCity}
               </li>
             </ul>
+          </div>
         </div>
+
+
 
         <div className="hairline mt-14 mb-6" />
         <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-muted-foreground font-mono uppercase tracking-widest">
