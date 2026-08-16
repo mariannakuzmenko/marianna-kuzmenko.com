@@ -93,7 +93,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="kontakt" className="container-editorial py-28">
+    <section id="kontakt" className="container-editorial py-16 md:py-20">
       <div className="grid grid-cols-12 gap-10 items-stretch">
         <div className="col-span-12 lg:col-span-5">
           <p className="eyebrow mb-4">{t.eyebrow}</p>

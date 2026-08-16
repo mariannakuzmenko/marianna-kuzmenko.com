@@ -40,7 +40,7 @@ export const DigitalJourney = () => {
   const icons = [Lightbulb, Compass, PenTool, Code2, Search, Rocket];
 
   return (
-    <section className="container-editorial py-24 md:py-28">
+    <section className="container-editorial py-24 md:py-16 md:py-20">
       <div className="grid grid-cols-12 gap-8 items-end mb-16 reveal-stagger">
         <div className="col-span-12 md:col-span-7">
           <p className="eyebrow mb-4 reveal-line">{t.eyebrow}</p>

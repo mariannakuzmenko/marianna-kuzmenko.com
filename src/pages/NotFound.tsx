@@ -45,7 +45,7 @@ const NotFound = () => {
         path={location.pathname}
         noindex
       />
-      <section className="container-editorial py-24 md:py-32 min-h-[70vh] flex items-center">
+      <section className="container-editorial py-24 md:py-20 md:py-24 min-h-[70vh] flex items-center">
         <div className="grid grid-cols-12 gap-8 w-full items-center">
           <div className="col-span-12 md:col-span-7">
             <p className="eyebrow mb-6">{t.eyebrow}</p>

@@ -139,7 +139,7 @@ const Webentwicklung = () => {
         ))}
       </div>
 
-      <section className="container-editorial py-28">
+      <section className="container-editorial py-16 md:py-20">
         <div className="grid grid-cols-12 gap-6 mb-16">
           <div className="col-span-12 md:col-span-6">
             <p className="eyebrow mb-4">{t.services2eye}</p>
@@ -155,7 +155,7 @@ const Webentwicklung = () => {
         </div>
       </section>
 
-      <section className="container-editorial py-28 relative">
+      <section className="container-editorial py-16 md:py-20 relative">
         <div className="mb-16">
           <p className="eyebrow mb-4">{t.processEye}</p>
           <h2 className="display-lg">
@@ -189,7 +189,7 @@ const Webentwicklung = () => {
         </div>
       </section>
 
-      <section className="container-editorial py-28">
+      <section className="container-editorial py-16 md:py-20">
         <div className="card-soft p-10 md:p-16" style={{ background: "var(--gradient-sky)" }}>
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-5">
@@ -217,7 +217,7 @@ const Webentwicklung = () => {
       </section>
 
       {/* Behind Every Great Website */}
-      <section className="container-editorial py-20 md:py-28">
+      <section className="container-editorial py-20 md:py-16 md:py-20">
         <div className="mb-12 md:mb-16 max-w-3xl">
           <p className="eyebrow mb-4">{pick(lang, "Hinter den Kulissen", "Behind the scenes")}</p>
           <h2 className="display-lg">
@@ -251,7 +251,7 @@ const Webentwicklung = () => {
       </section>
 
       {/* Why Development Quality Matters */}
-      <section className="container-editorial py-20 md:py-28">
+      <section className="container-editorial py-20 md:py-16 md:py-20">
         <div className="card-soft p-8 md:p-16" style={{ background: "var(--gradient-sky)" }}>
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 md:col-span-5">
@@ -288,7 +288,7 @@ const Webentwicklung = () => {
       </section>
 
       {/* Visual Process Flow */}
-      <section className="container-editorial py-20 md:py-28">
+      <section className="container-editorial py-20 md:py-16 md:py-20">
         <div className="mb-12 md:mb-16 max-w-3xl">
           <p className="eyebrow mb-4">{pick(lang, "Der Weg zur Website", "The path")}</p>
           <h2 className="display-lg">
@@ -325,7 +325,7 @@ const Webentwicklung = () => {
       </section>
 
       {/* Without / With Professional Development */}
-      <section className="container-editorial py-20 md:py-28">
+      <section className="container-editorial py-20 md:py-16 md:py-20">
         <div className="mb-12 md:mb-16 max-w-3xl">
           <p className="eyebrow mb-4">{pick(lang, "Was steht auf dem Spiel?", "What's at stake?")}</p>
           <h2 className="display-lg">
