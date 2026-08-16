@@ -43,6 +43,8 @@ import {
 } from "lucide-react";
 import portraitWindow from "@/assets/portraits/marianna-portrait-window.jpeg";
 import portraitPampas from "@/assets/portraits/marianna-portrait-pampas.jpeg";
+import studioChairAsset from "@/assets/portraits/marianna-studio-chair.jpeg.asset.json";
+const portraitStudio = studioChairAsset.url;
 import portraitSuit from "@/assets/portraits/marianna-portrait-suit.jpeg";
 import portraitLaptop from "@/assets/portraits/marianna-laptop-coffee.jpeg";
 import workspace from "@/assets/workspace.jpg";
@@ -492,8 +494,8 @@ const UeberMich = () => {
           <div className="col-span-12 md:col-span-5 reveal">
             <div className="relative">
               <img
-                src={portraitPampas}
-                alt="Marianna Kuzmenko im Portrait"
+                src={portraitStudio}
+                alt="Marianna Kuzmenko in ihrem Studio in Nürnberg — der Mensch hinter den Websites"
                 className="w-full rounded-[2rem] object-cover aspect-[4/5] shadow-soft"
                 loading="lazy"
               />
