@@ -5,6 +5,8 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { ContactSection } from "@/components/site/ContactSection";
 import { WaveDivider } from "@/components/site/WaveDivider";
 import { HeroBlueprint } from "@/components/site/HeroBlueprint";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { CONTACT } from "@/data/contact";
 import { EinblickSection } from "@/components/site/EinblickSection";
 import { ConversionCta } from "@/components/site/ConversionCta";
 import { ThreePerspectives } from "@/components/site/ThreePerspectives";
@@ -805,8 +807,9 @@ const Index = () => {
             <Link to={path("inquiry")} className="btn-cta">
               {lang === "de" ? "Projekt starten" : "Start Your Project"} <ArrowUpRight size={18} />
             </Link>
-            <a href="mailto:mari1992.kuzmenko@gmail.com" className="btn-cta-outline">
-              {lang === "de" ? "Beratung buchen" : "Book a Consultation"}
+            <WhatsAppButton lang={lang} />
+            <a href={`mailto:${CONTACT.email}`} className="btn-cta-outline">
+              {lang === "de" ? "E-Mail schreiben" : "Send an email"}
             </a>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { Link } from "react-router-dom";
+import { useLang } from "@/i18n/LanguageContext";
 import { ArrowUpRight, ArrowRight, TrendingUp, Layers, Code2, Search, type LucideIcon } from "lucide-react";
 
 interface HeroBlueprintProps {
@@ -23,6 +24,7 @@ interface HeroBlueprintProps {
  * Center stage features an editorial headline integrated into the schematic.
  */
 export const HeroBlueprint = (p: HeroBlueprintProps) => {
+  const { lang } = useLang();
   const stageRef = useRef<HTMLDivElement>(null);
   const [mx, setMx] = useState(0);
   const [my, setMy] = useState(0);
@@ -421,7 +423,15 @@ export const HeroBlueprint = (p: HeroBlueprintProps) => {
               {p.ctaPrimary} <ArrowUpRight size={18} strokeWidth={2} />
             </Link>
             <WhatsAppButton lang={lang} />
-            <CtaSecondary href={p.ctaSecondaryHref} label={p.ctaSecondary} />
+            {p.ctaSecondaryHref.startsWith("/") ? (
+              <Link to={p.ctaSecondaryHref} className="btn-cta-outline btn-press">
+                {p.ctaSecondary} <ArrowRight size={16} />
+              </Link>
+            ) : (
+              <a href={p.ctaSecondaryHref} className="btn-cta-outline btn-press">
+                {p.ctaSecondary} <ArrowRight size={16} />
+              </a>
+            )}
           </div>
         </div>
 
