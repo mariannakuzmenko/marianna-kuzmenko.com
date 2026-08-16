@@ -1089,6 +1089,12 @@
     color: white;
     box-shadow: 0 10px 22px -8px hsl(var(--berry) / 0.6);
   }
+  .mobile-cta-bar .secondary.whatsapp {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 22px -8px rgba(37, 211, 102, 0.6);
+  }
   .mobile-cta-bar .secondary {
     background: hsl(0 0% 100%);
     color: hsl(var(--ink));
