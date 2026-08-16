@@ -36,31 +36,29 @@ export const EinblickSection = () => {
         </div>
       </div>
 
-      <div className="relative grid grid-cols-12 gap-4 md:gap-6 items-center min-h-[560px]">
-        <div className="col-span-7 md:col-span-4 reveal">
-          <div className="frame-soft aspect-[4/5] rotate-[-2deg] hover:rotate-0 transition-transform duration-700 glass-card p-2">
-            <img src={editorialPortrait.url} alt={t.portraitAlt} loading="lazy" className="rounded-[1.25rem]" />
+      <div className="relative grid grid-cols-12 gap-4 md:gap-6 items-center min-h-[520px]">
+        {/* Editorial portrait pair — one large, one smaller overlapping */}
+        <div className="col-span-12 md:col-span-5 relative reveal">
+          <div className="frame-soft aspect-[4/5] rotate-[-1.5deg] hover:rotate-0 transition-transform duration-700 glass-card p-2">
+            <img src={editorialPortrait.url} alt={t.portraitAlt} loading="lazy" className="w-full h-full object-cover rounded-[1.25rem]" />
+          </div>
+          <div
+            className="absolute -bottom-10 -right-4 md:-right-10 w-[42%] frame-soft rotate-[3deg] hover:rotate-0 transition-transform duration-700 glass-card p-2 shadow-xl"
+            style={{ transitionDelay: "180ms" }}
+          >
+            <img src={closePortrait.url} alt={t.deskAlt} loading="lazy" className="w-full aspect-[3/4] object-cover rounded-[1rem]" />
           </div>
         </div>
 
-        <div className="col-span-12 md:col-span-6 md:col-start-5 md:-ml-16 md:-mt-10 reveal" style={{ transitionDelay: "150ms" }}>
+        <div className="col-span-12 md:col-span-6 md:col-start-7 mt-16 md:mt-0 reveal" style={{ transitionDelay: "150ms" }}>
           <MockupShowcase screens={[dentalluxMockup.url, creditpathMockup.url, nuernbergGuideMockup.url]} alt={t.mockupAlt} />
         </div>
 
-        <div className="col-span-5 md:col-span-3 md:col-start-10 md:-mt-20 reveal" style={{ transitionDelay: "300ms" }}>
-          <div className="frame-soft aspect-square rotate-[3deg] hover:rotate-0 transition-transform duration-700 glass-card p-2">
-            <img src={closePortrait.url} alt={t.deskAlt} loading="lazy" className="rounded-[1.25rem]" />
-          </div>
-        </div>
-
-        <div className="hidden md:block absolute left-[34%] bottom-4 sticky-note rotate-[-4deg]">
+        <div className="hidden lg:block absolute left-[40%] bottom-2 sticky-note rotate-[-4deg]">
           {t.note}
         </div>
-
-        <div className="hidden lg:block absolute right-[8%] bottom-[2%] w-[22%] frame-soft glass-card p-2 reveal" style={{ transitionDelay: "420ms" }}>
-          <img src={holzwerkMockup.url} alt="Holzwerk Nürnberg mockup" loading="lazy" className="rounded-[1.25rem]" />
-        </div>
       </div>
+
 
       <Whisper className="mt-16">{t.whisper}</Whisper>
     </section>
