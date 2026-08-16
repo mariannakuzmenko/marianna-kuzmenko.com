@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { WhatsAppButton } from "./WhatsAppButton";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowRight, TrendingUp, Layers, Code2, Search, type LucideIcon } from "lucide-react";
 
@@ -419,9 +420,8 @@ export const HeroBlueprint = (p: HeroBlueprintProps) => {
             <Link to={p.ctaPrimaryHref} className="btn-cta btn-press">
               {p.ctaPrimary} <ArrowUpRight size={18} strokeWidth={2} />
             </Link>
-            <a href={p.ctaSecondaryHref} className="btn-cta-outline btn-press">
-              {p.ctaSecondary} <ArrowRight size={16} />
-            </a>
+            <WhatsAppButton lang={lang} />
+            <CtaSecondary href={p.ctaSecondaryHref} label={p.ctaSecondary} />
           </div>
         </div>
 
