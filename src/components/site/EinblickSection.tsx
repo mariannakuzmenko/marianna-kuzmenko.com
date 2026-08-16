@@ -1,7 +1,7 @@
-import editorialPortraitSrc from "@/assets/portraits/marianna-portrait-window.jpeg";
-import closePortraitSrc from "@/assets/portraits/marianna-portrait-pampas.jpeg";
-const editorialPortrait = { url: editorialPortraitSrc };
-const closePortrait = { url: closePortraitSrc };
+import editorialPortraitAsset from "@/assets/portraits/marianna-office-desk.jpeg.asset.json";
+import closePortraitAsset from "@/assets/portraits/marianna-coffee-street.jpeg.asset.json";
+const editorialPortrait = { url: editorialPortraitAsset.url };
+const closePortrait = { url: closePortraitAsset.url };
 import dentalluxImg from "@/assets/projects/dentallux.png";
 import lushImg from "@/assets/projects/lush-bloom.png";
 import pfotenhausImg from "@/assets/projects/pfotenhaus.png";
