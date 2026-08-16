@@ -703,7 +703,7 @@
 
   /* Final ending moment */
   .ending-scene {
-    @apply relative text-center py-32 md:py-40 overflow-hidden;
+    @apply relative text-center py-20 md:py-28 overflow-hidden;
   }
   .ending-scene .ending-headline {
     font-family: 'Fraunces', serif;
