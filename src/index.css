@@ -703,7 +703,7 @@
 
   /* Final ending moment */
   .ending-scene {
-    @apply relative text-center py-32 md:py-40 overflow-hidden;
+    @apply relative text-center py-20 md:py-28 overflow-hidden;
   }
   .ending-scene .ending-headline {
     font-family: 'Fraunces', serif;
@@ -1088,6 +1088,12 @@
     background: hsl(var(--berry));
     color: white;
     box-shadow: 0 10px 22px -8px hsl(var(--berry) / 0.6);
+  }
+  .mobile-cta-bar .secondary.whatsapp {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 22px -8px rgba(37, 211, 102, 0.6);
   }
   .mobile-cta-bar .secondary {
     background: hsl(0 0% 100%);

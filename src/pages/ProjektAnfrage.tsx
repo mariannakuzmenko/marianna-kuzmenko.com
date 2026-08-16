@@ -337,7 +337,7 @@ const ProjektAnfrage = () => {
           pathDe={ROUTES.inquiry.de}
           pathEn={ROUTES.inquiry.en}
         />
-        <section className="container-editorial py-20 md:py-32">
+        <section className="container-editorial py-20 md:py-20 md:py-24">
           <div className="max-w-2xl mx-auto text-center">
             <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6"
               style={{ background: "hsl(var(--rose-soft))" }}>

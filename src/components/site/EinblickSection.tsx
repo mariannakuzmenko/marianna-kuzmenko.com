@@ -22,7 +22,7 @@ export const EinblickSection = () => {
   );
 
   return (
-    <section className="container-editorial py-28 relative">
+    <section className="container-editorial py-16 md:py-20 relative">
       <div className="grid grid-cols-12 gap-6 mb-16 reveal-stagger">
         <div className="col-span-12 md:col-span-7">
           <p className="eyebrow mb-4 reveal-line">{t.eyebrow}</p>
@@ -47,7 +47,7 @@ export const EinblickSection = () => {
           <MockupShowcase screens={[dentalluxMockup.url, creditpathMockup.url, nuernbergGuideMockup.url]} alt={t.mockupAlt} />
         </div>
 
-        <div className="col-span-5 md:col-span-3 md:col-start-10 md:-mt-32 reveal" style={{ transitionDelay: "300ms" }}>
+        <div className="col-span-5 md:col-span-3 md:col-start-10 md:-mt-20 reveal" style={{ transitionDelay: "300ms" }}>
           <div className="frame-soft aspect-square rotate-[3deg] hover:rotate-0 transition-transform duration-700 glass-card p-2">
             <img src={closePortrait.url} alt={t.deskAlt} loading="lazy" className="rounded-[1.25rem]" />
           </div>

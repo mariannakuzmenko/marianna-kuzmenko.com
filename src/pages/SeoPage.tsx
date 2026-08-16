@@ -145,7 +145,7 @@ const SeoPage = () => {
         </div>
       </section>
 
-      <section className="container-editorial py-28">
+      <section className="container-editorial py-16 md:py-20">
         <div className="grid grid-cols-12 gap-6 mb-16">
           <div className="col-span-12 md:col-span-6">
             <p className="eyebrow mb-4">{t.whatEye}</p>
@@ -161,7 +161,7 @@ const SeoPage = () => {
         </div>
       </section>
 
-      <section className="container-editorial py-28">
+      <section className="container-editorial py-16 md:py-20">
         <div className="card-soft p-10 md:p-20 relative overflow-hidden" style={{ background: "var(--gradient-rose)" }}>
           <div className="grid grid-cols-12 gap-6 relative">
             <div className="col-span-12 md:col-span-4">
@@ -178,7 +178,7 @@ const SeoPage = () => {
         </div>
       </section>
 
-      <section className="container-editorial py-28">
+      <section className="container-editorial py-16 md:py-20">
         <div className="mb-16">
           <p className="eyebrow mb-4">{t.stepsEye}</p>
           <h2 className="display-lg">{t.stepsA}<br /><span className="italic">{t.stepsB}</span></h2>
@@ -193,7 +193,7 @@ const SeoPage = () => {
         </div>
       </section>
 
-      <section className="container-editorial py-28">
+      <section className="container-editorial py-16 md:py-20">
         <p className="eyebrow mb-4">{t.forEye}</p>
         <h2 className="display-lg mb-12">{t.forA}<br /><span className="italic text-rose">{t.forB}</span></h2>
 
@@ -211,7 +211,7 @@ const SeoPage = () => {
       </section>
 
       {/* SEO is more than keywords */}
-      <section className="container-editorial py-20 md:py-28">
+      <section className="container-editorial py-20 md:py-16 md:py-20">
         <div className="mb-12 md:mb-16 max-w-3xl">
           <p className="eyebrow mb-4">{pick(lang, "Mehr als Keywords", "More than keywords")}</p>
           <h2 className="display-lg">
@@ -244,7 +244,7 @@ const SeoPage = () => {
       </section>
 
       {/* SEO Growth Journey */}
-      <section className="container-editorial py-20 md:py-28">
+      <section className="container-editorial py-20 md:py-16 md:py-20">
         <div className="mb-12 md:mb-16 max-w-3xl">
           <p className="eyebrow mb-4">{pick(lang, "Die SEO-Reise", "The SEO journey")}</p>
           <h2 className="display-lg">
@@ -283,7 +283,7 @@ const SeoPage = () => {
       </section>
 
       {/* Why businesses lose visibility */}
-      <section className="container-editorial py-20 md:py-28">
+      <section className="container-editorial py-20 md:py-16 md:py-20">
         <div className="card-soft p-8 md:p-16" style={{ background: "var(--gradient-sky)" }}>
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 md:col-span-5">
@@ -322,7 +322,7 @@ const SeoPage = () => {
       </section>
 
       {/* Without / With SEO */}
-      <section className="container-editorial py-20 md:py-28">
+      <section className="container-editorial py-20 md:py-16 md:py-20">
         <div className="mb-12 md:mb-16 max-w-3xl">
           <p className="eyebrow mb-4">{pick(lang, "Was steht auf dem Spiel?", "What's at stake?")}</p>
           <h2 className="display-lg">

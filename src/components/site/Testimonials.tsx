@@ -45,7 +45,7 @@ export const Testimonials = () => {
   const closeQuote = lang === "en" ? "”" : "“";
 
   return (
-    <section className="container-editorial py-28">
+    <section className="container-editorial py-16 md:py-20">
       <div className="text-center mb-14 reveal-stagger">
         <p className="eyebrow mb-4 reveal-line">{labels.eyebrow}</p>
         <h2 className="display-lg reveal-line">
