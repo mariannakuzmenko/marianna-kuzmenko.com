@@ -18,11 +18,12 @@ export const Nav = () => {
     { to: path("pricing"), label: pick(lang, "Preise", "Pricing") },
     { to: path("faq"),     label: pick(lang, "FAQ", "FAQ") },
     { to: path("blog"),    label: pick(lang, "Blog", "Blog") },
+    { to: path("briefing"), label: pick(lang, "Projekt anfragen", "Start a project") },
     { to: path("contact"), label: pick(lang, "Kontakt", "Contact") },
   ];
 
   const ctaLabel = pick(lang, "Projekt starten", "Start a Project");
-  const ctaHref = path("inquiry");
+  const ctaHref = path("briefing");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/60">

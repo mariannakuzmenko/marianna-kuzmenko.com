@@ -8,8 +8,6 @@ import {
   CircleDot,
   Loader2,
   Paperclip,
-  Search,
-  Sparkle,
   X,
 } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
