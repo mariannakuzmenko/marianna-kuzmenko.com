@@ -36,7 +36,7 @@ export const Nav = () => {
           />
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-6 2xl:gap-8 min-w-0">
+        <nav className="hidden xl:flex items-center gap-4 2xl:gap-7 min-w-0">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -52,8 +52,21 @@ export const Nav = () => {
           ))}
         </nav>
 
-        <div className="hidden xl:flex items-center gap-4 shrink-0">
+        <div className="hidden xl:flex items-center gap-3 shrink-0">
           <LangSwitcher />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="compact"
+            iconOnly
+            className="2xl:hidden"
+          />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="compact"
+            className="hidden 2xl:inline-flex !py-2.5 !px-4 !text-xs whitespace-nowrap"
+          />
           <Link to={ctaHref} className="btn-cta !py-3 !px-6 !text-sm whitespace-nowrap">
             {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
           </Link>
@@ -61,6 +74,13 @@ export const Nav = () => {
 
         <div className="xl:hidden flex items-center gap-2 shrink-0">
           <LangSwitcher compact />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="compact"
+            iconOnly
+            className="!w-9 !h-9"
+          />
           <Link
             to={ctaHref}
             className="hidden sm:inline-flex btn-cta !py-2.5 !px-4 !text-xs whitespace-nowrap"

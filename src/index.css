@@ -9,22 +9,22 @@
 @layer base {
   :root {
     --background: 213 100% 98%;         /* refined porcelain #f8fbff */
-    --foreground: 218 30% 16%;          /* deeper editorial ink */
+    --foreground: 255 8% 15%;           /* graphite #24242A */
 
     --card: 0 0% 100%;
-    --card-foreground: 218 30% 16%;
+    --card-foreground: 255 8% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 218 30% 16%;
+    --popover-foreground: 255 8% 15%;
 
     --primary: 340 35% 74%;             /* dusty rose #d7a4b8 */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 55% 90%;           /* smoky sky #bdd7ee */
-    --secondary-foreground: 218 30% 18%;
+    --secondary-foreground: 255 8% 16%;
 
     --muted: 210 50% 94%;
-    --muted-foreground: 218 14% 44%;
+    --muted-foreground: 258 6% 32%;     /* readable graphite #343238-ish */
 
     --accent: 340 35% 74%;
     --accent-foreground: 0 0% 100%;
@@ -39,12 +39,12 @@
     --radius: 1.25rem;
 
     /* Brand extras — Soft Luxury palette */
-    --ink: 218 30% 16%;
+    --ink: 255 8% 15%;
     --paper: 213 100% 99%;
     --sky: 210 60% 84%;                 /* #bdd7ee smoky sky */
     --sky-deep: 211 50% 70%;            /* deeper atmospheric */
-    --rose: 340 35% 74%;                /* dusty rose #d7a4b8 */
-    --rose-hover: 338 36% 64%;          /* deeper dusty rose */
+    --rose: 345 43% 62%;                /* muted berry #C8758A — accent text */
+    --rose-hover: 345 37% 56%;          /* deeper berry #B9677D */
     --rose-soft: 340 50% 94%;
     --berry: 345 43% 62%;               /* muted berry #C8758A — primary CTA */
     --berry-hover: 345 40% 53%;         /* deeper berry for hover */
@@ -752,8 +752,8 @@
   .tilt-left:hover  { transform: perspective(1400px) rotateY(2deg) rotateX(0) translateY(-10px); }
   .tilt-right:hover { transform: perspective(1400px) rotateY(-2deg) rotateX(0) translateY(-10px); }
 
-  .case-meta { @apply font-mono text-[11px] uppercase tracking-[0.18em] opacity-70; }
-  .case-step-label { @apply font-mono text-[11px] uppercase tracking-[0.22em] mb-2 opacity-80; }
+  .case-meta { @apply font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/75; }
+  .case-step-label { @apply font-mono text-[11px] uppercase tracking-[0.22em] mb-2 text-foreground/80; }
   .case-step + .case-step { @apply mt-7; }
 
   .glow-btn {
