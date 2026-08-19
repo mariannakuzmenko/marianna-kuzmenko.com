@@ -218,6 +218,14 @@ const Kontakt = () => {
             <Link to={path("inquiry")} className="btn-cta">
               {t.formCta} <ArrowUpRight size={16} strokeWidth={1.8} />
             </Link>
+            <div className="mt-8 pt-6 border-t border-border/70">
+              <p className="text-sm text-muted-foreground mb-4">
+                {pick(lang, "Sie möchten direkt ein konkretes Projekt anfragen?", "Ready to request a concrete project?")}
+              </p>
+              <Link to={path("briefing")} className="btn-cta-outline">
+                {pick(lang, "Zum Projekt-Briefing", "Go to project briefing")} <ArrowUpRight size={16} strokeWidth={1.8} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

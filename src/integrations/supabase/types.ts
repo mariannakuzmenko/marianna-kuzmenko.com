@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      briefings: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          email_sent: boolean
+          files: Json
+          id: string
+          location: string | null
+          name: string
+          payload: Json
+          phone: string | null
+          project_type: string
+          website: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          email_sent?: boolean
+          files?: Json
+          id?: string
+          location?: string | null
+          name: string
+          payload?: Json
+          phone?: string | null
+          project_type: string
+          website?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          email_sent?: boolean
+          files?: Json
+          id?: string
+          location?: string | null
+          name?: string
+          payload?: Json
+          phone?: string | null
+          project_type?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

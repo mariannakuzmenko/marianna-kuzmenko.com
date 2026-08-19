@@ -19,6 +19,7 @@ export const ROUTES: Record<string, { de: string; en: string }> = {
   certs:   { de: "/zertifikate",     en: "/en/certificates" },
   faq:     { de: "/faq",             en: "/en/faq" },
   inquiry: { de: "/projektanfrage",  en: "/en/project-inquiry" },
+  briefing: { de: "/briefing",       en: "/en/briefing" },
   contact: { de: "/kontakt",         en: "/en/contact" },
   imprint:    { de: "/impressum",    en: "/impressum" },
   privacy:    { de: "/datenschutz",  en: "/datenschutz" },
