@@ -36,7 +36,7 @@ export const Nav = () => {
           />
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-6 2xl:gap-8 min-w-0">
+        <nav className="hidden xl:flex items-center gap-4 2xl:gap-7 min-w-0">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -58,7 +58,14 @@ export const Nav = () => {
             lang={lang}
             label="WhatsApp"
             variant="compact"
-            className="!py-2.5 !px-4 !text-xs whitespace-nowrap"
+            iconOnly
+            className="2xl:hidden"
+          />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="compact"
+            className="hidden 2xl:inline-flex !py-2.5 !px-4 !text-xs whitespace-nowrap"
           />
           <Link to={ctaHref} className="btn-cta !py-3 !px-6 !text-sm whitespace-nowrap">
             {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
@@ -71,7 +78,8 @@ export const Nav = () => {
             lang={lang}
             label="WhatsApp"
             variant="compact"
-            className="!py-2 !px-3 !text-[11px] whitespace-nowrap"
+            iconOnly
+            className="!w-9 !h-9"
           />
           <Link
             to={ctaHref}
