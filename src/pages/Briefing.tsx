@@ -33,102 +33,129 @@ const ALLOWED = [
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 ];
 
-const TYPE_CARDS: { id: ProjectType; title: string; desc: string }[] = [
-  { id: "website", title: "Neue Website", desc: "Webdesign & Webentwicklung für Ihr Unternehmen" },
+/* ---------- bilingual content ---------- */
+
+type Pair = { de: string; en: string };
+const P = (de: string, en: string): Pair => ({ de, en });
+
+const TYPE_CARDS: { id: ProjectType; title: Pair; desc: Pair }[] = [
+  {
+    id: "website",
+    title: P("Neue Website", "New website"),
+    desc: P("Webdesign & Webentwicklung für Ihr Unternehmen", "Web design & development for your business"),
+  },
   {
     id: "website-seo",
-    title: "Website + SEO",
-    desc: "Website, UX/UI, technische Umsetzung und Suchmaschinenoptimierung",
+    title: P("Website + SEO", "Website + SEO"),
+    desc: P(
+      "Website, UX/UI, technische Umsetzung und Suchmaschinenoptimierung",
+      "Website, UX/UI, technical build and search engine optimisation",
+    ),
   },
-  { id: "seo", title: "SEO", desc: "SEO-Optimierung für eine bestehende Website" },
+  {
+    id: "seo",
+    title: P("SEO", "SEO"),
+    desc: P("SEO-Optimierung für eine bestehende Website", "SEO for an existing website"),
+  },
   {
     id: "unsure",
-    title: "Ich bin mir noch nicht sicher",
-    desc: "Wir finden gemeinsam heraus, was für Ihr Unternehmen sinnvoll ist.",
+    title: P("Ich bin mir noch nicht sicher", "I'm not sure yet"),
+    desc: P(
+      "Wir finden gemeinsam heraus, was für Ihr Unternehmen sinnvoll ist.",
+      "We'll figure out together what makes sense for your business.",
+    ),
   },
 ];
 
-const GOALS = [
-  "Mehr Kundenanfragen",
-  "Mehr Vertrauen",
-  "Professioneller auftreten",
-  "Mehr Sichtbarkeit",
-  "Mehr Verkäufe",
-  "Mehr Buchungen",
-  "Neue Zielgruppen erreichen",
-  "Andere",
+const GOALS: Pair[] = [
+  P("Mehr Kundenanfragen", "More client enquiries"),
+  P("Mehr Vertrauen", "More trust"),
+  P("Professioneller auftreten", "A more professional image"),
+  P("Mehr Sichtbarkeit", "More visibility"),
+  P("Mehr Verkäufe", "More sales"),
+  P("Mehr Buchungen", "More bookings"),
+  P("Neue Zielgruppen erreichen", "Reach new audiences"),
+  P("Andere", "Other"),
 ];
-const PAGES = [
-  "Startseite",
-  "Über uns",
-  "Leistungen",
-  "Produkte",
-  "Projekte / Portfolio",
-  "Blog",
-  "Kontakt",
-  "FAQ",
-  "Andere",
+const PAGES: Pair[] = [
+  P("Startseite", "Home"),
+  P("Über uns", "About"),
+  P("Leistungen", "Services"),
+  P("Produkte", "Products"),
+  P("Projekte / Portfolio", "Projects / Portfolio"),
+  P("Blog", "Blog"),
+  P("Kontakt", "Contact"),
+  P("FAQ", "FAQ"),
+  P("Andere", "Other"),
 ];
-const FEATURES = [
-  "Kontaktformular",
-  "WhatsApp",
-  "Terminbuchung",
-  "Newsletter",
-  "Mehrsprachigkeit",
-  "Online-Shop",
-  "Buchungssystem",
-  "Karten / Standort",
-  "Andere",
+const FEATURES: Pair[] = [
+  P("Kontaktformular", "Contact form"),
+  P("WhatsApp", "WhatsApp"),
+  P("Terminbuchung", "Appointment booking"),
+  P("Newsletter", "Newsletter"),
+  P("Mehrsprachigkeit", "Multiple languages"),
+  P("Online-Shop", "Online shop"),
+  P("Buchungssystem", "Booking system"),
+  P("Karten / Standort", "Maps / location"),
+  P("Andere", "Other"),
 ];
-const STYLES = [
-  "Minimalistisch",
-  "Elegant",
-  "Modern",
-  "Editorial",
-  "Premium",
-  "Natürlich",
-  "Kreativ",
-  "Ich bin offen für Vorschläge",
+const STYLES: Pair[] = [
+  P("Minimalistisch", "Minimal"),
+  P("Elegant", "Elegant"),
+  P("Modern", "Modern"),
+  P("Editorial", "Editorial"),
+  P("Premium", "Premium"),
+  P("Natürlich", "Natural"),
+  P("Kreativ", "Creative"),
+  P("Ich bin offen für Vorschläge", "Open to suggestions"),
 ];
-const MATERIALS = ["Logo", "Texte", "Fotos", "Videos", "Brand Guidelines", "Social Media", "Noch nichts"];
-const REGIONS = [
-  "Nürnberg",
-  "Fürth",
-  "Erlangen",
-  "München",
-  "Deutschland",
-  "Österreich",
-  "Schweiz",
-  "International",
-  "Andere",
+const MATERIALS: Pair[] = [
+  P("Logo", "Logo"),
+  P("Texte", "Copy / texts"),
+  P("Fotos", "Photos"),
+  P("Videos", "Videos"),
+  P("Brand Guidelines", "Brand guidelines"),
+  P("Social Media", "Social media"),
+  P("Noch nichts", "Nothing yet"),
 ];
-const SEO_GOALS = [
-  "Mehr Sichtbarkeit",
-  "Mehr Anfragen",
-  "Mehr lokale Kunden",
-  "Mehr Verkäufe",
-  "Bessere Google Rankings",
-  "Andere",
+const REGIONS: Pair[] = [
+  P("Nürnberg", "Nuremberg"),
+  P("Fürth", "Fürth"),
+  P("Erlangen", "Erlangen"),
+  P("München", "Munich"),
+  P("Deutschland", "Germany"),
+  P("Österreich", "Austria"),
+  P("Schweiz", "Switzerland"),
+  P("International", "International"),
+  P("Andere", "Other"),
 ];
-const BUDGETS = [
-  "unter 1.000 €",
-  "1.000 – 2.500 €",
-  "2.500 – 5.000 €",
-  "5.000 – 10.000 €",
-  "über 10.000 €",
-  "Noch nicht festgelegt",
+const SEO_GOALS: Pair[] = [
+  P("Mehr Sichtbarkeit", "More visibility"),
+  P("Mehr Anfragen", "More enquiries"),
+  P("Mehr lokale Kunden", "More local customers"),
+  P("Mehr Verkäufe", "More sales"),
+  P("Bessere Google Rankings", "Better Google rankings"),
+  P("Andere", "Other"),
 ];
-const TIMELINES = [
-  "So bald wie möglich",
-  "In den nächsten 1–2 Monaten",
-  "In 3–6 Monaten",
-  "Später",
-  "Noch nicht sicher",
+const BUDGETS: Pair[] = [
+  P("unter 1.000 €", "under €1,000"),
+  P("1.000 – 2.500 €", "€1,000 – 2,500"),
+  P("2.500 – 5.000 €", "€2,500 – 5,000"),
+  P("5.000 – 10.000 €", "€5,000 – 10,000"),
+  P("über 10.000 €", "over €10,000"),
+  P("Noch nicht festgelegt", "Not defined yet"),
 ];
-const YESNO = ["Ja", "Nein", "Vielleicht"];
-const YESNO_UNSURE = ["Ja", "Nein", "Noch nicht sicher"];
-const YESNO_DUNNO = ["Ja", "Nein", "Weiß ich nicht"];
-const CONTACT_WAYS = ["E-Mail", "Telefon", "WhatsApp"];
+const TIMELINES: Pair[] = [
+  P("So bald wie möglich", "As soon as possible"),
+  P("In den nächsten 1–2 Monaten", "In the next 1–2 months"),
+  P("In 3–6 Monaten", "In 3–6 months"),
+  P("Später", "Later"),
+  P("Noch nicht sicher", "Not sure yet"),
+];
+const YESNO: Pair[] = [P("Ja", "Yes"), P("Nein", "No"), P("Vielleicht", "Maybe")];
+const YESNO_UNSURE: Pair[] = [P("Ja", "Yes"), P("Nein", "No"), P("Noch nicht sicher", "Not sure yet")];
+const YESNO_DUNNO: Pair[] = [P("Ja", "Yes"), P("Nein", "No"), P("Weiß ich nicht", "I don't know")];
+const CONTACT_WAYS: Pair[] = [P("E-Mail", "Email"), P("Telefon", "Phone"), P("WhatsApp", "WhatsApp")];
 
 /* ---------- small field primitives ---------- */
 
@@ -273,6 +300,9 @@ const ChoiceGroup = ({
 
 const Briefing = () => {
   const { lang, path } = useLang();
+  const t = (de: string, en: string) => pick(lang, de, en);
+  const opts = (arr: Pair[]) => arr.map((o) => pick(lang, o.de, o.en));
+
   const [type, setType] = useState<ProjectType | null>(null);
   const [step, setStep] = useState(0);
   const [a, setA] = useState<Answers>({});
@@ -303,15 +333,15 @@ const Briefing = () => {
   }, [type]);
 
   const stepTitles: Record<string, string> = {
-    type: "Projekt",
-    contact: "Kontakt",
-    business: "Unternehmen & Ziele",
-    design: "Design",
-    content: "Inhalte",
-    seo: "SEO",
-    seoOnly: "SEO",
-    general: "Ihr Vorhaben",
-    project: "Budget & Abschluss",
+    type: t("Projekt", "Project"),
+    contact: t("Kontakt", "Contact"),
+    business: t("Unternehmen & Ziele", "Business & goals"),
+    design: t("Design", "Design"),
+    seo: t("SEO", "SEO"),
+    seoOnly: t("SEO", "SEO"),
+    content: t("Inhalte", "Content"),
+    general: t("Ihr Vorhaben", "Your idea"),
+    project: t("Budget & Abschluss", "Budget & finish"),
   };
 
   const current = steps[step];
@@ -321,15 +351,16 @@ const Briefing = () => {
 
   const validateStep = () => {
     const e: Record<string, string> = {};
-    if (current === "type" && !type) e.type = "Bitte wählen Sie eine Option.";
+    if (current === "type" && !type) e.type = t("Bitte wählen Sie eine Option.", "Please select an option.");
     if (current === "contact") {
-      if (!val("name").trim()) e.name = "Bitte geben Sie Ihren Namen an.";
+      if (!val("name").trim()) e.name = t("Bitte geben Sie Ihren Namen an.", "Please enter your name.");
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val("email").trim()))
-        e.email = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
-      if (!val("company").trim()) e.company = "Bitte geben Sie Ihr Unternehmen an.";
+        e.email = t("Bitte geben Sie eine gültige E-Mail-Adresse an.", "Please enter a valid email address.");
+      if (!val("company").trim())
+        e.company = t("Bitte geben Sie Ihr Unternehmen an.", "Please enter your company name.");
     }
     if (current === "seoOnly" && !val("currentUrl").trim())
-      e.currentUrl = "Bitte geben Sie die URL Ihrer Website an.";
+      e.currentUrl = t("Bitte geben Sie die URL Ihrer Website an.", "Please enter your website URL.");
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -351,11 +382,15 @@ const Briefing = () => {
     const accepted: File[] = [];
     for (const f of Array.from(incoming)) {
       if (!ALLOWED.includes(f.type)) {
-        setFileError(`"${f.name}" hat ein nicht unterstütztes Format.`);
+        setFileError(
+          t(`"${f.name}" hat ein nicht unterstütztes Format.`, `"${f.name}" has an unsupported format.`),
+        );
         continue;
       }
       if (f.size > MAX_FILE_MB * 1024 * 1024) {
-        setFileError(`"${f.name}" ist größer als ${MAX_FILE_MB} MB.`);
+        setFileError(
+          t(`"${f.name}" ist größer als ${MAX_FILE_MB} MB.`, `"${f.name}" is larger than ${MAX_FILE_MB} MB.`),
+        );
         continue;
       }
       accepted.push(f);
@@ -367,7 +402,12 @@ const Briefing = () => {
     if (status === "sending") return;
     if (!validateStep()) return;
     if (!consent) {
-      setErrors({ consent: "Bitte stimmen Sie der Datenschutzerklärung zu." });
+      setErrors({
+        consent: t(
+          "Bitte stimmen Sie der Datenschutzerklärung zu.",
+          "Please accept the privacy policy to continue.",
+        ),
+      });
       return;
     }
     setStatus("sending");
@@ -387,7 +427,7 @@ const Briefing = () => {
       }
 
       const { error } = await supabase.functions.invoke("send-briefing", {
-        body: { projectType: type, answers: a, files: uploaded },
+        body: { projectType: type, answers: a, files: uploaded, lang },
       });
       if (error) throw error;
       setStatus("success");
@@ -398,29 +438,38 @@ const Briefing = () => {
     }
   };
 
-  const seoTitle = "Projekt anfragen | Webdesign & SEO – Marianna Kuzmenko";
-  const seoDesc =
-    "Sie planen eine neue Website oder möchten Ihre bestehende Website mit professionellem SEO verbessern? Erzählen Sie mir von Ihrem Projekt und erhalten Sie eine individuelle Einschätzung.";
+  const seoTitle = t(
+    "Projekt anfragen | Webdesign & SEO – Marianna Kuzmenko",
+    "Start a project | Web design & SEO – Marianna Kuzmenko",
+  );
+  const seoDesc = t(
+    "Sie planen eine neue Website oder möchten Ihre bestehende Website mit professionellem SEO verbessern? Erzählen Sie mir von Ihrem Projekt und erhalten Sie eine individuelle Einschätzung.",
+    "Planning a new website or want to improve your existing one with professional SEO? Tell me about your project and get an individual assessment.",
+  );
+  const seoPath = pick(lang, "/briefing", "/en/briefing");
 
   /* ---------- success ---------- */
   if (status === "success") {
     return (
       <Layout>
-        <Seo title={seoTitle} description={seoDesc} path="/briefing" />
+        <Seo title={seoTitle} description={seoDesc} path={seoPath} pathDe="/briefing" pathEn="/en/briefing" />
         <section className="container-editorial py-24 md:py-32">
           <div className="panel-white max-w-2xl mx-auto text-center p-10 md:p-14">
             <div className="w-14 h-14 rounded-full bg-rose-soft flex items-center justify-center mx-auto mb-8">
               <Check size={22} strokeWidth={1.8} className="text-rose" />
             </div>
-            <h1 className="display-lg mb-5">Vielen Dank für Ihre Anfrage!</h1>
+            <h1 className="display-lg mb-5">{t("Vielen Dank für Ihre Anfrage!", "Thank you for your enquiry!")}</h1>
             <p className="text-muted-foreground leading-relaxed mb-9">
-              Ich habe Ihre Angaben erhalten und melde mich so bald wie möglich bei Ihnen.
+              {t(
+                "Ich habe Ihre Angaben erhalten und melde mich so bald wie möglich bei Ihnen.",
+                "I've received your details and will get back to you as soon as possible.",
+              )}
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link to={path("home")} className="btn-cta">
-                Zur Startseite <ArrowUpRight size={16} strokeWidth={1.8} />
+                {t("Zur Startseite", "Back to home")} <ArrowUpRight size={16} strokeWidth={1.8} />
               </Link>
-              <WhatsAppButton lang={lang} label="WhatsApp schreiben" variant="compact" />
+              <WhatsAppButton lang={lang} label={t("WhatsApp schreiben", "Message on WhatsApp")} variant="compact" />
             </div>
           </div>
         </section>
@@ -434,10 +483,14 @@ const Briefing = () => {
       case "type":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Was möchten Sie anfragen?</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Was möchten Sie anfragen?", "What would you like to enquire about?")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Wählen Sie den Bereich, der am besten zu Ihrem Vorhaben passt — die weiteren Fragen passen sich
-              automatisch an.
+              {t(
+                "Wählen Sie den Bereich, der am besten zu Ihrem Vorhaben passt — die weiteren Fragen passen sich automatisch an.",
+                "Choose what fits your plans best — the following questions adapt automatically.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {TYPE_CARDS.map((c) => {
@@ -459,7 +512,7 @@ const Briefing = () => {
                     }`}
                   >
                     <div className="flex items-start justify-between gap-4 mb-3">
-                      <span className="font-display text-xl md:text-2xl">{c.title}</span>
+                      <span className="font-display text-xl md:text-2xl">{pick(lang, c.title.de, c.title.en)}</span>
                       <span
                         aria-hidden
                         className={`mt-1 w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
@@ -469,7 +522,9 @@ const Briefing = () => {
                         {active && <Check size={12} strokeWidth={3} className="text-background" />}
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {pick(lang, c.desc.de, c.desc.en)}
+                    </p>
                   </button>
                 );
               })}
@@ -485,20 +540,25 @@ const Briefing = () => {
       case "contact":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Wie erreiche ich Sie?</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Wie erreiche ich Sie?", "How can I reach you?")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Nur das Nötigste — damit ich mich persönlich bei Ihnen melden kann.
+              {t(
+                "Nur das Nötigste — damit ich mich persönlich bei Ihnen melden kann.",
+                "Just the essentials — so I can get back to you personally.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <TextField id="name" label="Vorname / Name" required value={val("name")} onChange={(v) => set("name", v)} error={errors.name} />
-              <TextField id="email" label="E-Mail" type="email" required value={val("email")} onChange={(v) => set("email", v)} error={errors.email} />
-              <TextField id="phone" label="Telefon" type="tel" value={val("phone")} onChange={(v) => set("phone", v)} />
-              <TextField id="company" label="Unternehmen" required value={val("company")} onChange={(v) => set("company", v)} error={errors.company} />
-              <TextField id="website" label="Website (optional)" value={val("website")} onChange={(v) => set("website", v)} placeholder="https://" />
-              <TextField id="location" label="Standort" value={val("location")} onChange={(v) => set("location", v)} placeholder="z. B. Nürnberg" />
+              <TextField id="name" label={t("Vorname / Name", "First name / name")} required value={val("name")} onChange={(v) => set("name", v)} error={errors.name} />
+              <TextField id="email" label={t("E-Mail", "Email")} type="email" required value={val("email")} onChange={(v) => set("email", v)} error={errors.email} />
+              <TextField id="phone" label={t("Telefon", "Phone")} type="tel" value={val("phone")} onChange={(v) => set("phone", v)} />
+              <TextField id="company" label={t("Unternehmen", "Company")} required value={val("company")} onChange={(v) => set("company", v)} error={errors.company} />
+              <TextField id="website" label={t("Website (optional)", "Website (optional)")} value={val("website")} onChange={(v) => set("website", v)} placeholder="https://" />
+              <TextField id="location" label={t("Standort", "Location")} value={val("location")} onChange={(v) => set("location", v)} placeholder={t("z. B. Nürnberg", "e.g. Nuremberg")} />
               <ChoiceGroup
-                label="Bevorzugter Kontaktweg"
-                options={CONTACT_WAYS}
+                label={t("Bevorzugter Kontaktweg", "Preferred contact method")}
+                options={opts(CONTACT_WAYS)}
                 values={list("preferredContact")}
                 onToggle={(v) => toggle("preferredContact", v)}
               />
@@ -509,16 +569,21 @@ const Briefing = () => {
       case "business":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Ihr Unternehmen & Ihre Ziele</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Ihr Unternehmen & Ihre Ziele", "Your business & your goals")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Je konkreter, desto besser kann ich Konzept und Aufwand einschätzen.
+              {t(
+                "Je konkreter, desto besser kann ich Konzept und Aufwand einschätzen.",
+                "The more specific, the better I can estimate concept and scope.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <AreaField id="businessDescription" label="Was macht Ihr Unternehmen?" rows={5} value={val("businessDescription")} onChange={(v) => set("businessDescription", v)} />
-              <ChoiceGroup label="Was soll Ihre neue Website erreichen?" options={GOALS} values={list("goals")} onToggle={(v) => toggle("goals", v)} />
-              <AreaField id="highlights" label="Welche Leistungen oder Produkte möchten Sie besonders hervorheben?" value={val("highlights")} onChange={(v) => set("highlights", v)} />
-              <ChoiceGroup label="Welche Seiten benötigen Sie?" options={PAGES} values={list("pages")} onToggle={(v) => toggle("pages", v)} />
-              <ChoiceGroup label="Welche Funktionen benötigen Sie?" options={FEATURES} values={list("features")} onToggle={(v) => toggle("features", v)} />
+              <AreaField id="businessDescription" label={t("Was macht Ihr Unternehmen?", "What does your business do?")} rows={5} value={val("businessDescription")} onChange={(v) => set("businessDescription", v)} />
+              <ChoiceGroup label={t("Was soll Ihre neue Website erreichen?", "What should your new website achieve?")} options={opts(GOALS)} values={list("goals")} onToggle={(v) => toggle("goals", v)} />
+              <AreaField id="highlights" label={t("Welche Leistungen oder Produkte möchten Sie besonders hervorheben?", "Which services or products should stand out?")} value={val("highlights")} onChange={(v) => set("highlights", v)} />
+              <ChoiceGroup label={t("Welche Seiten benötigen Sie?", "Which pages do you need?")} options={opts(PAGES)} values={list("pages")} onToggle={(v) => toggle("pages", v)} />
+              <ChoiceGroup label={t("Welche Funktionen benötigen Sie?", "Which features do you need?")} options={opts(FEATURES)} values={list("features")} onToggle={(v) => toggle("features", v)} />
             </div>
           </div>
         );
@@ -526,16 +591,21 @@ const Briefing = () => {
       case "design":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Ihr Gefühl für Design</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Ihr Gefühl für Design", "Your sense of design")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Es gibt kein Richtig oder Falsch — ich möchte nur Ihren Geschmack verstehen.
+              {t(
+                "Es gibt kein Richtig oder Falsch — ich möchte nur Ihren Geschmack verstehen.",
+                "There's no right or wrong — I just want to understand your taste.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <ChoiceGroup label="Welche Stilrichtung gefällt Ihnen?" options={STYLES} values={list("styles")} onToggle={(v) => toggle("styles", v)} />
-              <TextField id="colorsWanted" label="Welche Farben möchten Sie verwenden?" value={val("colorsWanted")} onChange={(v) => set("colorsWanted", v)} />
-              <TextField id="colorsAvoid" label="Welche Farben möchten Sie vermeiden?" value={val("colorsAvoid")} onChange={(v) => set("colorsAvoid", v)} />
-              <AreaField id="referenceUrls" label="Haben Sie Websites, die Ihnen gefallen?" rows={3} placeholder="https://…" value={val("referenceUrls")} onChange={(v) => set("referenceUrls", v)} />
-              <AreaField id="referenceLikes" label="Was gefällt Ihnen an diesen Websites?" rows={3} value={val("referenceLikes")} onChange={(v) => set("referenceLikes", v)} />
+              <ChoiceGroup label={t("Welche Stilrichtung gefällt Ihnen?", "Which style appeals to you?")} options={opts(STYLES)} values={list("styles")} onToggle={(v) => toggle("styles", v)} />
+              <TextField id="colorsWanted" label={t("Welche Farben möchten Sie verwenden?", "Which colours would you like to use?")} value={val("colorsWanted")} onChange={(v) => set("colorsWanted", v)} />
+              <TextField id="colorsAvoid" label={t("Welche Farben möchten Sie vermeiden?", "Which colours should be avoided?")} value={val("colorsAvoid")} onChange={(v) => set("colorsAvoid", v)} />
+              <AreaField id="referenceUrls" label={t("Haben Sie Websites, die Ihnen gefallen?", "Are there websites you like?")} rows={3} placeholder="https://…" value={val("referenceUrls")} onChange={(v) => set("referenceUrls", v)} />
+              <AreaField id="referenceLikes" label={t("Was gefällt Ihnen an diesen Websites?", "What do you like about those websites?")} rows={3} value={val("referenceLikes")} onChange={(v) => set("referenceLikes", v)} />
             </div>
           </div>
         );
@@ -543,14 +613,19 @@ const Briefing = () => {
       case "content":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Inhalte & Materialien</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Inhalte & Materialien", "Content & materials")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Falls noch nichts vorhanden ist: kein Problem, wir bauen das gemeinsam auf.
+              {t(
+                "Falls noch nichts vorhanden ist: kein Problem, wir bauen das gemeinsam auf.",
+                "If nothing exists yet: no problem, we'll build it together.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <ChoiceGroup label="Welche Materialien sind bereits vorhanden?" options={MATERIALS} values={list("materials")} onToggle={(v) => toggle("materials", v)} />
-              <ChoiceGroup label="Benötigen Sie Unterstützung bei Texten?" options={YESNO} values={list("copySupport")} onToggle={(v) => toggle("copySupport", v, false)} multi={false} />
-              <ChoiceGroup label="Benötigen Sie professionelle SEO-Texte?" options={YESNO_UNSURE} values={list("seoCopy")} onToggle={(v) => toggle("seoCopy", v, false)} multi={false} />
+              <ChoiceGroup label={t("Welche Materialien sind bereits vorhanden?", "Which materials do you already have?")} options={opts(MATERIALS)} values={list("materials")} onToggle={(v) => toggle("materials", v)} />
+              <ChoiceGroup label={t("Benötigen Sie Unterstützung bei Texten?", "Do you need support with copywriting?")} options={opts(YESNO)} values={list("copySupport")} onToggle={(v) => toggle("copySupport", v, false)} multi={false} />
+              <ChoiceGroup label={t("Benötigen Sie professionelle SEO-Texte?", "Do you need professional SEO copy?")} options={opts(YESNO_UNSURE)} values={list("seoCopy")} onToggle={(v) => toggle("seoCopy", v, false)} multi={false} />
             </div>
           </div>
         );
@@ -558,20 +633,25 @@ const Briefing = () => {
       case "seo":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Sichtbarkeit bei Google</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Sichtbarkeit bei Google", "Visibility on Google")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Damit die Website von Anfang an auf Suchanfragen ausgerichtet ist.
+              {t(
+                "Damit die Website von Anfang an auf Suchanfragen ausgerichtet ist.",
+                "So the website is built around real search demand from day one.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <ChoiceGroup label="In welchen Regionen möchten Sie gefunden werden?" options={REGIONS} values={list("regions")} onToggle={(v) => toggle("regions", v)} />
-              <TextField id="regionsOther" label="Weitere Regionen" value={val("regionsOther")} onChange={(v) => set("regionsOther", v)} />
-              <TextField id="seoVisibleServices" label="Welche Leistungen sollen bei Google sichtbar sein?" value={val("seoVisibleServices")} onChange={(v) => set("seoVisibleServices", v)} />
-              <AreaField id="targetCustomers" label="Wer sind Ihre wichtigsten Kunden?" rows={3} value={val("targetCustomers")} onChange={(v) => set("targetCustomers", v)} />
-              <AreaField id="competitors" label="Welche Unternehmen sehen Sie als Ihre wichtigsten Wettbewerber?" rows={3} value={val("competitors")} onChange={(v) => set("competitors", v)} />
-              <AreaField id="keywords" label="Welche Suchbegriffe sind Ihnen bereits bekannt?" rows={3} value={val("keywords")} onChange={(v) => set("keywords", v)} />
-              <ChoiceGroup label="Verfügen Sie bereits über ein Google Unternehmensprofil?" options={YESNO_DUNNO} values={list("googleBusiness")} onToggle={(v) => toggle("googleBusiness", v, false)} multi={false} />
-              <ChoiceGroup label="Verwenden Sie Google Analytics?" options={YESNO_DUNNO} values={list("googleAnalytics")} onToggle={(v) => toggle("googleAnalytics", v, false)} multi={false} />
-              <ChoiceGroup label="Verwenden Sie Google Search Console?" options={YESNO_DUNNO} values={list("searchConsole")} onToggle={(v) => toggle("searchConsole", v, false)} multi={false} />
+              <ChoiceGroup label={t("In welchen Regionen möchten Sie gefunden werden?", "In which regions do you want to be found?")} options={opts(REGIONS)} values={list("regions")} onToggle={(v) => toggle("regions", v)} />
+              <TextField id="regionsOther" label={t("Weitere Regionen", "Other regions")} value={val("regionsOther")} onChange={(v) => set("regionsOther", v)} />
+              <TextField id="seoVisibleServices" label={t("Welche Leistungen sollen bei Google sichtbar sein?", "Which services should be visible on Google?")} value={val("seoVisibleServices")} onChange={(v) => set("seoVisibleServices", v)} />
+              <AreaField id="targetCustomers" label={t("Wer sind Ihre wichtigsten Kunden?", "Who are your most important customers?")} rows={3} value={val("targetCustomers")} onChange={(v) => set("targetCustomers", v)} />
+              <AreaField id="competitors" label={t("Welche Unternehmen sehen Sie als Ihre wichtigsten Wettbewerber?", "Who are your main competitors?")} rows={3} value={val("competitors")} onChange={(v) => set("competitors", v)} />
+              <AreaField id="keywords" label={t("Welche Suchbegriffe sind Ihnen bereits bekannt?", "Which search terms do you already know of?")} rows={3} value={val("keywords")} onChange={(v) => set("keywords", v)} />
+              <ChoiceGroup label={t("Verfügen Sie bereits über ein Google Unternehmensprofil?", "Do you already have a Google Business Profile?")} options={opts(YESNO_DUNNO)} values={list("googleBusiness")} onToggle={(v) => toggle("googleBusiness", v, false)} multi={false} />
+              <ChoiceGroup label={t("Verwenden Sie Google Analytics?", "Do you use Google Analytics?")} options={opts(YESNO_DUNNO)} values={list("googleAnalytics")} onToggle={(v) => toggle("googleAnalytics", v, false)} multi={false} />
+              <ChoiceGroup label={t("Verwenden Sie Google Search Console?", "Do you use Google Search Console?")} options={opts(YESNO_DUNNO)} values={list("searchConsole")} onToggle={(v) => toggle("searchConsole", v, false)} multi={false} />
             </div>
           </div>
         );
@@ -579,19 +659,24 @@ const Briefing = () => {
       case "seoOnly":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Ihre bestehende Website</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Ihre bestehende Website", "Your existing website")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Ich schaue mir Ihre Seite vorab an, bevor wir sprechen.
+              {t(
+                "Ich schaue mir Ihre Seite vorab an, bevor wir sprechen.",
+                "I'll review your site before we talk.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <TextField id="currentUrl" label="URL Ihrer aktuellen Website" required placeholder="https://" value={val("currentUrl")} onChange={(v) => set("currentUrl", v)} error={errors.currentUrl} />
-              <TextField id="seoVisibleServices" label="Welche Leistungen / Produkte sollen besonders sichtbar werden?" value={val("seoVisibleServices")} onChange={(v) => set("seoVisibleServices", v)} />
-              <ChoiceGroup label="Was möchten Sie mit SEO erreichen?" options={SEO_GOALS} values={list("seoGoals")} onToggle={(v) => toggle("seoGoals", v)} />
-              <ChoiceGroup label="Welche Regionen möchten Sie erreichen?" options={REGIONS} values={list("regions")} onToggle={(v) => toggle("regions", v)} />
-              <AreaField id="targetCustomers" label="Wer sind Ihre wichtigsten Zielgruppen?" rows={3} value={val("targetCustomers")} onChange={(v) => set("targetCustomers", v)} />
-              <AreaField id="competitors" label="Wer sind Ihre wichtigsten Wettbewerber?" rows={3} value={val("competitors")} onChange={(v) => set("competitors", v)} />
-              <AreaField id="keywords" label="Welche Keywords möchten Sie aktuell ranken?" rows={3} value={val("keywords")} onChange={(v) => set("keywords", v)} />
-              <AreaField id="seoIssues" label="Was funktioniert auf Ihrer Website derzeit nicht so gut?" rows={3} value={val("seoIssues")} onChange={(v) => set("seoIssues", v)} />
+              <TextField id="currentUrl" label={t("URL Ihrer aktuellen Website", "URL of your current website")} required placeholder="https://" value={val("currentUrl")} onChange={(v) => set("currentUrl", v)} error={errors.currentUrl} />
+              <TextField id="seoVisibleServices" label={t("Welche Leistungen / Produkte sollen besonders sichtbar werden?", "Which services / products should become most visible?")} value={val("seoVisibleServices")} onChange={(v) => set("seoVisibleServices", v)} />
+              <ChoiceGroup label={t("Was möchten Sie mit SEO erreichen?", "What do you want to achieve with SEO?")} options={opts(SEO_GOALS)} values={list("seoGoals")} onToggle={(v) => toggle("seoGoals", v)} />
+              <ChoiceGroup label={t("Welche Regionen möchten Sie erreichen?", "Which regions do you want to reach?")} options={opts(REGIONS)} values={list("regions")} onToggle={(v) => toggle("regions", v)} />
+              <AreaField id="targetCustomers" label={t("Wer sind Ihre wichtigsten Zielgruppen?", "Who are your key target audiences?")} rows={3} value={val("targetCustomers")} onChange={(v) => set("targetCustomers", v)} />
+              <AreaField id="competitors" label={t("Wer sind Ihre wichtigsten Wettbewerber?", "Who are your main competitors?")} rows={3} value={val("competitors")} onChange={(v) => set("competitors", v)} />
+              <AreaField id="keywords" label={t("Welche Keywords möchten Sie aktuell ranken?", "Which keywords do you want to rank for?")} rows={3} value={val("keywords")} onChange={(v) => set("keywords", v)} />
+              <AreaField id="seoIssues" label={t("Was funktioniert auf Ihrer Website derzeit nicht so gut?", "What isn't working well on your website right now?")} rows={3} value={val("seoIssues")} onChange={(v) => set("seoIssues", v)} />
             </div>
           </div>
         );
@@ -599,14 +684,19 @@ const Briefing = () => {
       case "general":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Erzählen Sie mir kurz von Ihrem Vorhaben</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Erzählen Sie mir kurz von Ihrem Vorhaben", "Tell me briefly about your plans")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Ein paar Sätze genügen — den Rest klären wir gemeinsam im Gespräch.
+              {t(
+                "Ein paar Sätze genügen — den Rest klären wir gemeinsam im Gespräch.",
+                "A few sentences are enough — we'll clarify the rest in conversation.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <AreaField id="businessDescription" label="Was macht Ihr Unternehmen?" rows={4} value={val("businessDescription")} onChange={(v) => set("businessDescription", v)} />
-              <ChoiceGroup label="Was möchten Sie erreichen?" options={GOALS} values={list("goals")} onToggle={(v) => toggle("goals", v)} />
-              <AreaField id="seoIssues" label="Was funktioniert aktuell nicht so gut?" rows={3} value={val("seoIssues")} onChange={(v) => set("seoIssues", v)} />
+              <AreaField id="businessDescription" label={t("Was macht Ihr Unternehmen?", "What does your business do?")} rows={4} value={val("businessDescription")} onChange={(v) => set("businessDescription", v)} />
+              <ChoiceGroup label={t("Was möchten Sie erreichen?", "What would you like to achieve?")} options={opts(GOALS)} values={list("goals")} onToggle={(v) => toggle("goals", v)} />
+              <AreaField id="seoIssues" label={t("Was funktioniert aktuell nicht so gut?", "What isn't working well at the moment?")} rows={3} value={val("seoIssues")} onChange={(v) => set("seoIssues", v)} />
             </div>
           </div>
         );
@@ -614,31 +704,43 @@ const Briefing = () => {
       case "project":
         return (
           <div>
-            <h2 className="font-display text-2xl md:text-3xl mb-3">Budget, Zeitrahmen & Abschluss</h2>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              {t("Budget, Zeitrahmen & Abschluss", "Budget, timeline & final details")}
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl">
-              Zum Schluss: ein realistischer Rahmen — und alles, was Sie mir noch mitgeben möchten.
+              {t(
+                "Zum Schluss: ein realistischer Rahmen — und alles, was Sie mir noch mitgeben möchten.",
+                "Finally: a realistic frame — and anything else you'd like to share.",
+              )}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <ChoiceGroup
-                label="Welches Budget haben Sie ungefähr für das Projekt eingeplant?"
-                options={BUDGETS}
+                label={t(
+                  "Welches Budget haben Sie ungefähr für das Projekt eingeplant?",
+                  "Roughly which budget have you planned for the project?",
+                )}
+                options={opts(BUDGETS)}
                 values={list("budget")}
                 onToggle={(v) => toggle("budget", v, false)}
                 multi={false}
               />
               <p className="md:col-span-2 -mt-2 text-xs text-muted-foreground leading-relaxed">
-                Die Angabe hilft mir, den Umfang des Projekts realistisch einzuschätzen. Sie ist keine verbindliche
-                Preiszusage.
+                {t(
+                  "Die Angabe hilft mir, den Umfang des Projekts realistisch einzuschätzen. Sie ist keine verbindliche Preiszusage.",
+                  "This helps me estimate the scope realistically. It is not a binding price commitment.",
+                )}
               </p>
               <ChoiceGroup
-                label="Wann möchten Sie mit dem Projekt starten?"
-                options={TIMELINES}
+                label={t("Wann möchten Sie mit dem Projekt starten?", "When would you like to start the project?")}
+                options={opts(TIMELINES)}
                 values={list("timeline")}
                 onToggle={(v) => toggle("timeline", v, false)}
                 multi={false}
               />
               <div>
-                <FieldLabel htmlFor="deadline">Gibt es einen festen Termin oder eine Deadline?</FieldLabel>
+                <FieldLabel htmlFor="deadline">
+                  {t("Gibt es einen festen Termin oder eine Deadline?", "Is there a fixed date or deadline?")}
+                </FieldLabel>
                 <input
                   id="deadline"
                   type="date"
@@ -649,16 +751,19 @@ const Briefing = () => {
               </div>
               <AreaField
                 id="additional"
-                label="Was sollte ich noch über Ihr Projekt wissen?"
+                label={t("Was sollte ich noch über Ihr Projekt wissen?", "What else should I know about your project?")}
                 rows={5}
-                placeholder="Erzählen Sie mir gerne alles, was Ihnen wichtig ist…"
+                placeholder={t(
+                  "Erzählen Sie mir gerne alles, was Ihnen wichtig ist…",
+                  "Feel free to tell me anything that matters to you…",
+                )}
                 value={val("additional")}
                 onChange={(v) => set("additional", v)}
               />
 
               {/* Files */}
               <div className="md:col-span-2">
-                <FieldLabel>Dateien hochladen – optional</FieldLabel>
+                <FieldLabel>{t("Dateien hochladen – optional", "Upload files – optional")}</FieldLabel>
                 <input
                   ref={fileInput}
                   id="files"
@@ -674,9 +779,17 @@ const Briefing = () => {
                   className="w-full rounded-3xl border border-dashed border-border bg-background/60 px-6 py-8 text-center transition-colors hover:border-rose/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose/60"
                 >
                   <Paperclip size={18} strokeWidth={1.5} className="mx-auto mb-3 text-rose" />
-                  <span className="block text-sm">Logo, Brand Guidelines, Fotos oder Dokumente hinzufügen</span>
+                  <span className="block text-sm">
+                    {t(
+                      "Logo, Brand Guidelines, Fotos oder Dokumente hinzufügen",
+                      "Add logo, brand guidelines, photos or documents",
+                    )}
+                  </span>
                   <span className="block text-xs text-muted-foreground mt-1">
-                    JPG, PNG, WEBP, PDF, DOC, DOCX · max. {MAX_FILE_MB} MB pro Datei · bis zu {MAX_FILES} Dateien
+                    {t(
+                      `JPG, PNG, WEBP, PDF, DOC, DOCX · max. ${MAX_FILE_MB} MB pro Datei · bis zu ${MAX_FILES} Dateien`,
+                      `JPG, PNG, WEBP, PDF, DOC, DOCX · max. ${MAX_FILE_MB} MB per file · up to ${MAX_FILES} files`,
+                    )}
                   </span>
                 </button>
                 {fileError && (
@@ -695,7 +808,7 @@ const Briefing = () => {
                         <button
                           type="button"
                           onClick={() => setFiles((p) => p.filter((_, idx) => idx !== i))}
-                          aria-label={`${f.name} entfernen`}
+                          aria-label={t(`${f.name} entfernen`, `Remove ${f.name}`)}
                           className="text-muted-foreground hover:text-rose transition-colors"
                         >
                           <X size={16} strokeWidth={1.8} />
@@ -718,11 +831,23 @@ const Briefing = () => {
                     className="mt-1 h-4 w-4 rounded border-border accent-[hsl(var(--rose))]"
                   />
                   <span className="text-muted-foreground">
-                    Ich habe die{" "}
-                    <Link to="/datenschutz" className="text-rose underline-offset-4 underline">
-                      Datenschutzerklärung
-                    </Link>{" "}
-                    gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.
+                    {lang === "en" ? (
+                      <>
+                        I have read the{" "}
+                        <Link to="/datenschutz" className="text-rose underline-offset-4 underline">
+                          privacy policy
+                        </Link>{" "}
+                        and consent to my data being processed to handle my enquiry.
+                      </>
+                    ) : (
+                      <>
+                        Ich habe die{" "}
+                        <Link to="/datenschutz" className="text-rose underline-offset-4 underline">
+                          Datenschutzerklärung
+                        </Link>{" "}
+                        gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.
+                      </>
+                    )}
                   </span>
                 </label>
                 {errors.consent && (
@@ -734,9 +859,17 @@ const Briefing = () => {
 
               {status === "error" && (
                 <div role="alert" className="md:col-span-2 rounded-3xl border border-rose/40 bg-rose-soft p-6">
-                  <p className="font-display text-lg mb-2">Leider konnte Ihre Anfrage gerade nicht gesendet werden.</p>
+                  <p className="font-display text-lg mb-2">
+                    {t(
+                      "Leider konnte Ihre Anfrage gerade nicht gesendet werden.",
+                      "Unfortunately your enquiry could not be sent right now.",
+                    )}
+                  </p>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.
+                    {t(
+                      "Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.",
+                      "Please try again or email me directly.",
+                    )}
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a href={`mailto:${CONTACT.email}`} className="btn-cta-outline">
@@ -762,31 +895,43 @@ const Briefing = () => {
       <Seo
         title={seoTitle}
         description={seoDesc}
-        path="/briefing"
+        path={seoPath}
+        pathDe="/briefing"
+        pathEn="/en/briefing"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          name: "Projekt-Briefing",
+          name: t("Projekt-Briefing", "Project briefing"),
           description: seoDesc,
-          url: "https://mariannakuzmenko.de/briefing",
+          url: `https://mariannakuzmenko.de${seoPath}`,
         }}
       />
 
       {/* HERO */}
       <section ref={topRef} className="container-editorial pt-14 md:pt-20 pb-8 md:pb-12 scroll-mt-24">
-        <p className="eyebrow mb-5">— Projekt-Briefing —</p>
+        <p className="eyebrow mb-5">— {t("Projekt-Briefing", "Project briefing")} —</p>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-8">
             <h1 className="display-lg mb-6">
-              Erzählen Sie mir von <span className="italic text-rose">Ihrem Projekt.</span>
+              {lang === "en" ? (
+                <>
+                  Tell me about <span className="italic text-rose">your project.</span>
+                </>
+              ) : (
+                <>
+                  Erzählen Sie mir von <span className="italic text-rose">Ihrem Projekt.</span>
+                </>
+              )}
             </h1>
             <p className="text-muted-foreground leading-relaxed max-w-2xl">
-              Je mehr ich über Ihr Unternehmen, Ihre Ziele und Ihre Wünsche weiß, desto besser kann ich Ihr Projekt
-              einschätzen und Ihnen ein passendes Konzept vorschlagen.
+              {t(
+                "Je mehr ich über Ihr Unternehmen, Ihre Ziele und Ihre Wünsche weiß, desto besser kann ich Ihr Projekt einschätzen und Ihnen ein passendes Konzept vorschlagen.",
+                "The more I know about your business, your goals and your wishes, the better I can assess your project and propose a fitting concept.",
+              )}
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-wrap items-center gap-3 lg:justify-end">
-            <span className="chip">ca. 5–7 Minuten</span>
+            <span className="chip">{t("ca. 5–7 Minuten", "approx. 5–7 minutes")}</span>
             <WhatsAppButton lang={lang} variant="nav" iconOnly />
           </div>
         </div>
@@ -794,7 +939,7 @@ const Briefing = () => {
 
       {/* PROGRESS */}
       <section className="container-editorial pb-6">
-        <ol className="hidden md:flex flex-wrap items-center gap-x-6 gap-y-2" aria-label="Fortschritt">
+        <ol className="hidden md:flex flex-wrap items-center gap-x-6 gap-y-2" aria-label={t("Fortschritt", "Progress")}>
           {steps.map((s, i) => (
             <li key={s} className="flex items-center gap-2">
               <span
@@ -840,7 +985,7 @@ const Briefing = () => {
           }}
           noValidate
           className="panel-white p-6 md:p-10"
-          aria-label="Projekt-Briefing Formular"
+          aria-label={t("Projekt-Briefing Formular", "Project briefing form")}
         >
           {renderStep()}
 
@@ -851,24 +996,24 @@ const Briefing = () => {
               disabled={step === 0}
               className="btn-cta-outline disabled:opacity-40 disabled:pointer-events-none"
             >
-              <ArrowLeft size={16} strokeWidth={1.8} /> Zurück
+              <ArrowLeft size={16} strokeWidth={1.8} /> {t("Zurück", "Back")}
             </button>
 
             {isLast ? (
               <button type="submit" disabled={status === "sending"} className="btn-cta disabled:opacity-60">
                 {status === "sending" ? (
                   <>
-                    Wird gesendet… <Loader2 size={16} className="animate-spin" />
+                    {t("Wird gesendet…", "Sending…")} <Loader2 size={16} className="animate-spin" />
                   </>
                 ) : (
                   <>
-                    Projektanfrage senden <ArrowRight size={16} strokeWidth={1.8} />
+                    {t("Projektanfrage senden", "Send project enquiry")} <ArrowRight size={16} strokeWidth={1.8} />
                   </>
                 )}
               </button>
             ) : (
               <button type="submit" className="btn-cta">
-                Weiter <ArrowRight size={16} strokeWidth={1.8} />
+                {t("Weiter", "Continue")} <ArrowRight size={16} strokeWidth={1.8} />
               </button>
             )}
           </div>

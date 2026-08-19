@@ -67,6 +67,7 @@ Deno.serve(async (req) => {
     const answers = (body?.answers ?? {}) as Record<string, unknown>;
     const files = (Array.isArray(body?.files) ? body.files : []) as FileRef[];
     const projectType = String(body?.projectType ?? "");
+    const lang = body?.lang === "en" ? "en" : "de";
     const name = String(answers.name ?? "").trim();
     const email = String(answers.email ?? "").trim();
     const company = String(answers.company ?? "").trim();
@@ -144,11 +145,11 @@ Deno.serve(async (req) => {
           .join("")}</ul>`
       : "";
 
-    const subject = `Neue Projektanfrage – ${PROJECT_TYPE_LABELS[projectType]} – ${company || name}`;
+    const subject = `${lang === "en" ? "New project enquiry (EN)" : "Neue Projektanfrage"} – ${PROJECT_TYPE_LABELS[projectType]} – ${company || name}`;
     const html = `<div style="font-family:Helvetica,Arial,sans-serif;background:#ffffff;padding:24px">
       <p style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C8758A;margin:0 0 6px">Projekt-Briefing</p>
       <h2 style="margin:0 0 4px;color:#24242A;font-size:22px">${esc(PROJECT_TYPE_LABELS[projectType])}</h2>
-      <p style="margin:0 0 20px;color:#7a7480;font-size:13px">${esc(company || "—")} · ${esc(name)} · ${esc(email)}</p>
+      <p style="margin:0 0 20px;color:#7a7480;font-size:13px">${lang === "en" ? "🇬🇧 English submission · " : ""}${esc(company || "—")} · ${esc(name)} · ${esc(email)}</p>
       <table style="width:100%;border-collapse:collapse;border:1px solid #eee">${rows}</table>
       ${filesHtml}
       <p style="margin-top:24px;color:#a09aa6;font-size:11px">Gesendet über mariannakuzmenko.de${
