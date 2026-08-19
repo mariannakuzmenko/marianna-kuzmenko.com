@@ -51,7 +51,7 @@ import workspace from "@/assets/workspace.jpg";
 import projectPfotenhaus from "@/assets/projects/pfotenhaus.png";
 import projectDental from "@/assets/projects/dentallux.png";
 import projectAtelier from "@/assets/projects/atelier-nova.png";
-import projectLushAsset from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
+import projectLushAsset.urlAsset from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
 import projectRaum from "@/assets/projects/raumform.png";
 import certUxui from "@/assets/certificates/genius-uxui.jpg";
 import certReact from "@/assets/certificates/shecodes-react.png";
@@ -475,7 +475,7 @@ const UeberMich = () => {
               </div>
 
               <div className="absolute -right-2 md:-right-6 top-10 w-20 md:w-28 rounded-[1.4rem] overflow-hidden border-4 border-background shadow-soft bg-background">
-                <img src={projectLush} alt="Mobile Ansicht einer Website" className="w-full aspect-[9/19] object-cover object-top" loading="lazy" />
+                <img src={projectLushAsset.url} alt="Mobile Ansicht einer Website" className="w-full aspect-[9/19] object-cover object-top" loading="lazy" />
               </div>
 
               <div className="glass-panel absolute left-3 md:left-6 -bottom-6 px-4 py-3 md:px-5 md:py-4">
@@ -674,7 +674,7 @@ const UeberMich = () => {
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 reveal">
               <div className="relative">
-                <MockupShowcase screens={[projectRaum, projectAtelier, projectLush]} alt="MacBook mit Website-Projekt" />
+                <MockupShowcase screens={[projectRaum, projectAtelier, projectLushAsset.url]} alt="MacBook mit Website-Projekt" />
                 <div className="absolute -right-1 md:right-4 -bottom-6 w-20 md:w-28 rounded-[1.3rem] overflow-hidden border-4 border-background shadow-soft bg-background">
                   <img src={projectPfotenhaus} alt="iPhone mit mobiler Website-Ansicht" className="w-full aspect-[9/19] object-cover object-top" loading="lazy" />
                 </div>
