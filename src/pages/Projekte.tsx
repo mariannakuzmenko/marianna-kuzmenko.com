@@ -1,4 +1,3 @@
-import { useMemo, useState } from "react";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { Link } from "react-router-dom";
@@ -8,6 +7,7 @@ import { ProjectImage } from "@/components/site/ProjectImage";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
+const Mockup = ({ p, className = "" }: { p: Project; className?: string }) => (
   <div className={`showcase-mockup rounded-[1.75rem] overflow-hidden ${className}`}>
     <ProjectImage
       project={p}
@@ -161,19 +161,15 @@ const Projekte = () => {
       </section>
 
       <section className="container-editorial pb-28 space-y-16 md:space-y-24">
-        {filtered.length === 0 ? (
-          <p className="text-center text-muted-foreground py-24 animate-fade-in">{t.empty}</p>
-        ) : (
-          filtered.map((p, i) => (
-            <div key={p.slug} className="animate-fade-in">
-              <ProjectScene
-                p={p} index={i} lang={lang}
-                caseHref={`${caseBase}${p.slug}`}
-                t={{ visit: t.visit, discover: t.discover, services: t.services, tech: t.tech, year: t.year }}
-              />
-            </div>
-          ))
-        )}
+        {projects.map((p, i) => (
+          <div key={p.slug} className="animate-fade-in">
+            <ProjectScene
+              p={p} index={i} lang={lang}
+              caseHref={`${caseBase}${p.slug}`}
+              t={{ visit: t.visit, discover: t.discover, services: t.services, tech: t.tech, year: t.year }}
+            />
+          </div>
+        ))}
       </section>
 
       {/* CTA */}
