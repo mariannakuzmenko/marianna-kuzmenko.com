@@ -3,7 +3,7 @@ import closePortraitAsset from "@/assets/portraits/marianna-coffee-street.jpeg.a
 const editorialPortrait = { url: editorialPortraitAsset.url };
 const closePortrait = { url: closePortraitAsset.url };
 import dentalluxImg from "@/assets/projects/dentallux.png";
-import lushImg from "@/assets/projects/lush-bloom.png";
+import lushBloomAsset from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
 import pfotenhausImg from "@/assets/projects/pfotenhaus.png";
 const dentalluxMockup = { url: dentalluxImg };
 const creditpathMockup = { url: lushImg };

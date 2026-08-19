@@ -51,7 +51,7 @@ import workspace from "@/assets/workspace.jpg";
 import projectPfotenhaus from "@/assets/projects/pfotenhaus.png";
 import projectDental from "@/assets/projects/dentallux.png";
 import projectAtelier from "@/assets/projects/atelier-nova.png";
-import projectLush from "@/assets/projects/lush-bloom.png";
+import projectLushAsset from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
 import projectRaum from "@/assets/projects/raumform.png";
 import certUxui from "@/assets/certificates/genius-uxui.jpg";
 import certReact from "@/assets/certificates/shecodes-react.png";
