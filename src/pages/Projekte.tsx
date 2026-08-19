@@ -1,4 +1,3 @@
-import { useMemo, useState } from "react";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { Link } from "react-router-dom";
@@ -7,17 +6,6 @@ import { projects, Project } from "@/data/projects";
 import { ProjectImage } from "@/components/site/ProjectImage";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
-
-const FILTERS_DE = [
-  "Alle Projekte", "Web Development", "Web Design", "UX/UI", "SEO",
-  "Restaurants", "Hotels", "Veterinary", "Pet Business",
-  "Beauty", "Healthcare", "E-Commerce", "Corporate",
-];
-const FILTERS_EN = [
-  "All Projects", "Web Development", "Web Design", "UX/UI", "SEO",
-  "Restaurants", "Hotels", "Veterinary", "Pet Business",
-  "Beauty", "Healthcare", "E-Commerce", "Corporate",
-];
 
 const Mockup = ({ p, className = "" }: { p: Project; className?: string }) => (
   <div className={`showcase-mockup rounded-[1.75rem] overflow-hidden ${className}`}>
@@ -106,19 +94,6 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
 
 const Projekte = () => {
   const { lang, path } = useLang();
-  const [filter, setFilter] = useState<string>(lang === "en" ? "All Projects" : "Alle Projekte");
-  const filters = lang === "en" ? FILTERS_EN : FILTERS_DE;
-  const allLabel = filters[0];
-
-  const filtered = useMemo(() => {
-    return projects.filter(
-      (p) =>
-        filter === allLabel ||
-        p.serviceTags.includes(filter) ||
-        p.categoryTags.includes(filter),
-    );
-  }, [filter, allLabel]);
-
   const caseBase = lang === "en" ? "/en/projects/" : "/projekte/";
 
   const t = pick(lang,
@@ -185,42 +160,16 @@ const Projekte = () => {
         </div>
       </section>
 
-      {/* FILTERS */}
-      <section className="container-editorial pb-6 sticky top-16 md:top-20 xl:top-24 z-20 bg-background/80 backdrop-blur-md">
-        <div className="py-4 overflow-x-auto scrollbar-none">
-          <div className="flex gap-2 min-w-max">
-            {filters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-4 h-9 rounded-full text-xs font-medium tracking-wide transition-all whitespace-nowrap ${
-                  filter === f
-                    ? "bg-foreground text-background shadow-md"
-                    : "bg-card/60 text-muted-foreground hover:bg-card hover:text-foreground border border-border"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROJECTS */}
       <section className="container-editorial pb-28 space-y-16 md:space-y-24">
-        {filtered.length === 0 ? (
-          <p className="text-center text-muted-foreground py-24 animate-fade-in">{t.empty}</p>
-        ) : (
-          filtered.map((p, i) => (
-            <div key={p.slug} className="animate-fade-in">
-              <ProjectScene
-                p={p} index={i} lang={lang}
-                caseHref={`${caseBase}${p.slug}`}
-                t={{ visit: t.visit, discover: t.discover, services: t.services, tech: t.tech, year: t.year }}
-              />
-            </div>
-          ))
-        )}
+        {projects.map((p, i) => (
+          <div key={p.slug} className="animate-fade-in">
+            <ProjectScene
+              p={p} index={i} lang={lang}
+              caseHref={`${caseBase}${p.slug}`}
+              t={{ visit: t.visit, discover: t.discover, services: t.services, tech: t.tech, year: t.year }}
+            />
+          </div>
+        ))}
       </section>
 
       {/* CTA */}
