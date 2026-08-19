@@ -8,8 +8,8 @@ interface WhatsAppButtonProps {
   lang?: "de" | "en";
   label?: string;
   message?: string;
-  /** "solid" = WhatsApp green pill (default). "compact" = smaller green pill. */
-  variant?: "solid" | "compact";
+  /** "solid" = WhatsApp green pill (default). "compact" = smaller green pill. "nav" = refined glass icon for navbar. */
+  variant?: "solid" | "compact" | "nav";
   /** Renders only the icon (round button) — for tight navigation space. */
   iconOnly?: boolean;
   className?: string;
@@ -36,18 +36,18 @@ export const WhatsAppButton = ({
     message ?? (lang === "en" ? WHATSAPP_DEFAULT_MESSAGE_EN : WHATSAPP_DEFAULT_MESSAGE_DE);
 
   const compact = variant === "compact" ? "!px-5 !py-3 !text-sm" : "";
-  const iconCls = iconOnly ? "!p-0 !w-10 !h-10 !rounded-full justify-center" : "";
+  const iconCls = iconOnly && variant !== "nav" ? "!p-0 !w-10 !h-10 !rounded-full justify-center" : "";
 
   return (
     <a
       href={whatsappLink(msg)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`btn-whatsapp ${compact} ${iconCls} ${className}`}
+      className={`${variant === "nav" ? "btn-whatsapp-nav" : "btn-whatsapp"} ${compact} ${iconCls} ${className}`}
       aria-label={text}
     >
-      <WhatsAppIcon size={variant === "compact" ? 16 : 18} />
-      {!iconOnly && text}
+      <WhatsAppIcon size={variant === "nav" ? 20 : variant === "compact" ? 16 : 18} />
+      {!iconOnly && variant !== "nav" && text}
     </a>
   );
 };
