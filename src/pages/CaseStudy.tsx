@@ -5,7 +5,7 @@ import { Seo } from "@/components/site/Seo";
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink,
   Target, Search, Palette, Code2, LineChart, Smartphone,
-  Quote, X, Sparkles,
+  Quote, X, CircleDot,
 } from "lucide-react";
 import { getProject, getRelated, getNeighbors, projects } from "@/data/projects";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
@@ -104,7 +104,7 @@ const CaseStudy = () => {
       {/* CHAPTERS */}
       <section className="container-editorial pb-20 space-y-16 max-w-5xl">
         <Chapter icon={<Target size={16} />} label={t.sec.overview}>{c.overview}</Chapter>
-        <Chapter icon={<Sparkles size={16} />} label={t.sec.client}>{c.client}</Chapter>
+        <Chapter icon={<CircleDot size={16} />} label={t.sec.client}>{c.client}</Chapter>
 
         <div>
           <SectionLabel icon={<Target size={16} />}>{t.sec.goals}</SectionLabel>
@@ -118,7 +118,7 @@ const CaseStudy = () => {
           </ul>
         </div>
 
-        <Chapter icon={<Sparkles size={16} />} label={t.sec.challenge}>{c.challenge}</Chapter>
+        <Chapter icon={<CircleDot size={16} />} label={t.sec.challenge}>{c.challenge}</Chapter>
         <Chapter icon={<Search size={16} />} label={t.sec.research}>{c.research}</Chapter>
         <Chapter icon={<Target size={16} />} label={t.sec.ux}>{c.ux}</Chapter>
         <Chapter icon={<Palette size={16} />} label={t.sec.ui}>{c.ui}</Chapter>
@@ -136,7 +136,7 @@ const CaseStudy = () => {
         </div>
 
         <div className="card-soft p-8 md:p-12" style={{ background: "var(--gradient-sky)" }}>
-          <SectionLabel icon={<Sparkles size={16} />}>{t.sec.result}</SectionLabel>
+          <SectionLabel icon={<CircleDot size={16} />}>{t.sec.result}</SectionLabel>
           <p className="text-xl md:text-2xl font-display leading-snug mt-5">{c.result}</p>
         </div>
       </section>
@@ -174,7 +174,7 @@ const CaseStudy = () => {
       {/* RELATED */}
       {related.length > 0 && (
         <section className="container-editorial pb-20">
-          <SectionLabel icon={<Sparkles size={16} />}>{t.sec.related}</SectionLabel>
+          <SectionLabel icon={<CircleDot size={16} />}>{t.sec.related}</SectionLabel>
           <div className="grid md:grid-cols-3 gap-6 mt-8">
             {related.map((r) => {
               const rc = pick(lang, r.de, r.en);

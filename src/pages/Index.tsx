@@ -4,8 +4,9 @@ import { IconCard } from "@/components/site/IconCard";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ContactSection } from "@/components/site/ContactSection";
 import { WaveDivider } from "@/components/site/WaveDivider";
-import { LaptopMockup } from "@/components/site/LaptopMockup";
 import { HeroBlueprint } from "@/components/site/HeroBlueprint";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { CONTACT } from "@/data/contact";
 import { EinblickSection } from "@/components/site/EinblickSection";
 import { ConversionCta } from "@/components/site/ConversionCta";
 import { ThreePerspectives } from "@/components/site/ThreePerspectives";
@@ -30,7 +31,7 @@ import {
   MapPin,
   Search,
   ShieldCheck,
-  Sparkles,
+  CircleDot,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 import portraitWindowSrc from "@/assets/portraits/marianna-portrait-window.jpeg";
@@ -44,7 +45,7 @@ import neinStudioImg from "@/assets/projects/nein-studio.png";
 import liorImg from "@/assets/projects/lior-friseur.png";
 import fourElementsImg from "@/assets/projects/four-elements.png";
 import pfotenhausImg from "@/assets/projects/pfotenhaus.png";
-import lushBloomImg from "@/assets/projects/lush-bloom.png";
+import lushBloomImg from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
 
 // Aliases preserved for readability across the page
 const portraitWindow = { url: portraitWindowSrc };
@@ -425,7 +426,7 @@ const Index = () => {
     { icon: Search, ...t.services[3], variant: "pink" as const },
   ];
 
-  const trustIcons = [LineChart, ShieldCheck, Sparkles];
+  const trustIcons = [LineChart, ShieldCheck, CircleDot];
   const whyIcons = [BadgeCheck, Building2, Globe2];
   const heroScreens = [
     dentalluxMockup.url,
@@ -806,8 +807,9 @@ const Index = () => {
             <Link to={path("inquiry")} className="btn-cta">
               {lang === "de" ? "Projekt starten" : "Start Your Project"} <ArrowUpRight size={18} />
             </Link>
-            <a href="mailto:mari1992.kuzmenko@gmail.com" className="btn-cta-outline">
-              {lang === "de" ? "Beratung buchen" : "Book a Consultation"}
+            <WhatsAppButton lang={lang} />
+            <a href={`mailto:${CONTACT.email}`} className="btn-cta-outline">
+              {lang === "de" ? "E-Mail schreiben" : "Send an email"}
             </a>
           </div>
         </div>

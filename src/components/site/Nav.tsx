@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLang, ROUTES, pick } from "@/i18n/LanguageContext";
+import { WhatsAppButton } from "./WhatsAppButton";
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
@@ -35,7 +36,7 @@ export const Nav = () => {
           />
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-6 2xl:gap-8 min-w-0">
+        <nav className="hidden xl:flex items-center gap-4 2xl:gap-7 min-w-0">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -51,8 +52,21 @@ export const Nav = () => {
           ))}
         </nav>
 
-        <div className="hidden xl:flex items-center gap-4 shrink-0">
+        <div className="hidden xl:flex items-center gap-3 shrink-0">
           <LangSwitcher />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="nav"
+            iconOnly
+            className="2xl:hidden"
+          />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="compact"
+            className="hidden 2xl:inline-flex !py-2.5 !px-4 !text-xs whitespace-nowrap"
+          />
           <Link to={ctaHref} className="btn-cta !py-3 !px-6 !text-sm whitespace-nowrap">
             {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
           </Link>
@@ -60,6 +74,13 @@ export const Nav = () => {
 
         <div className="xl:hidden flex items-center gap-2 shrink-0">
           <LangSwitcher compact />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="nav"
+            iconOnly
+            className="!w-9 !h-9"
+          />
           <Link
             to={ctaHref}
             className="hidden sm:inline-flex btn-cta !py-2.5 !px-4 !text-xs whitespace-nowrap"
@@ -92,13 +113,12 @@ export const Nav = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Link
-              to={ctaHref}
-              onClick={() => setOpen(false)}
-              className="btn-cta mt-4 self-start"
-            >
-              {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
-            </Link>
+            <div className="mt-4 flex flex-col gap-3 items-start">
+              <Link to={ctaHref} onClick={() => setOpen(false)} className="btn-cta">
+                {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
+              </Link>
+              <WhatsAppButton lang={lang} variant="compact" />
+            </div>
           </div>
         </div>
       )}
@@ -109,21 +129,17 @@ export const Nav = () => {
     const base = "font-mono text-[11px] uppercase tracking-[0.2em] transition-colors duration-300";
     return (
       <div className="inline-flex items-center gap-1 shrink-0">
-        <Link
-          to={lang === "de" ? "#" : altPath("de")}
-          className={`${base} px-2 py-1 rounded-full ${lang === "de" ? "text-rose bg-rose-soft" : "text-muted-foreground hover:text-foreground"}`}
-          aria-current={lang === "de" ? "true" : undefined}
-        >
-          DE
-        </Link>
+        {lang === "de" ? (
+          <span className={`${base} px-2 py-1 rounded-full text-rose bg-rose-soft`} aria-current="true">DE</span>
+        ) : (
+          <Link to={altPath("de")} className={`${base} px-2 py-1 rounded-full text-muted-foreground hover:text-foreground`}>DE</Link>
+        )}
         <span className="text-muted-foreground/40 text-[10px]">/</span>
-        <Link
-          to={lang === "en" ? "#" : altPath("en")}
-          className={`${base} px-2 py-1 rounded-full ${lang === "en" ? "text-rose bg-rose-soft" : "text-muted-foreground hover:text-foreground"}`}
-          aria-current={lang === "en" ? "true" : undefined}
-        >
-          EN
-        </Link>
+        {lang === "en" ? (
+          <span className={`${base} px-2 py-1 rounded-full text-rose bg-rose-soft`} aria-current="true">EN</span>
+        ) : (
+          <Link to={altPath("en")} className={`${base} px-2 py-1 rounded-full text-muted-foreground hover:text-foreground`}>EN</Link>
+        )}
       </div>
     );
   }

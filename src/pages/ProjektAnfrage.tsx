@@ -8,7 +8,7 @@ import {
   Check,
   ChevronRight,
   Clock,
-  Sparkles,
+  CircleDot,
   Send,
   Calculator,
   ShieldCheck,
@@ -337,7 +337,7 @@ const ProjektAnfrage = () => {
           pathDe={ROUTES.inquiry.de}
           pathEn={ROUTES.inquiry.en}
         />
-        <section className="container-editorial py-20 md:py-32">
+        <section className="container-editorial py-20 md:py-20 md:py-24">
           <div className="max-w-2xl mx-auto text-center">
             <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6"
               style={{ background: "hsl(var(--rose-soft))" }}>
@@ -381,8 +381,8 @@ const ProjektAnfrage = () => {
                 <div key={i} className="panel-white !p-5">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center mb-3"
                     style={{ background: "hsl(var(--rose-soft))" }}>
-                    {[Sparkles, Clock, MailCheck, ShieldCheck][i % 4] &&
-                      (i === 0 ? <Sparkles size={16} className="text-rose" strokeWidth={1.6}/>
+                    {[CircleDot, Clock, MailCheck, ShieldCheck][i % 4] &&
+                      (i === 0 ? <CircleDot size={16} className="text-rose" strokeWidth={1.6}/>
                       : i === 1 ? <Clock size={16} className="text-rose" strokeWidth={1.6}/>
                       : i === 2 ? <MailCheck size={16} className="text-rose" strokeWidth={1.6}/>
                       : <ShieldCheck size={16} className="text-rose" strokeWidth={1.6}/>)

@@ -2,11 +2,20 @@ import pfotenhaus from "@/assets/projects/pfotenhaus.png";
 import neinStudio from "@/assets/projects/nein-studio.png";
 import fourElements from "@/assets/projects/four-elements.png";
 import atelierNova from "@/assets/projects/atelier-nova.png";
-import lushBloom from "@/assets/projects/lush-bloom.png";
+import lushBloomAsset from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
 import liorFriseur from "@/assets/projects/lior-friseur.png";
 import raumform from "@/assets/projects/raumform.png";
 import creditpath from "@/assets/projects/creditpath.png";
 import dentallux from "@/assets/projects/dentallux.png";
+import formaPilatesAsset from "@/assets/projects/forma-pilates.png.asset.json";
+import cafeGruenAsset from "@/assets/projects/cafe-gruen.png.asset.json";
+import guideAsset from "@/assets/projects/guide-stadtfuehrung.jpeg.asset.json";
+import laDolceVitaAsset from "@/assets/projects/la-dolce-vita.png.asset.json";
+
+const formaPilates = formaPilatesAsset.url;
+const cafeGruen = cafeGruenAsset.url;
+const guideStadtfuehrung = guideAsset.url;
+const laDolceVita = laDolceVitaAsset.url;
 
 export type Mood =
   | "warm" | "pastel" | "beige" | "bold" | "emotion"
@@ -45,7 +54,16 @@ export interface Project {
   mood: Mood;
   device: Device;
   layout: Layout;
+  /** Live website — opens in a new tab. Easy to update here. */
   liveUrl?: string;
+  /** Internal case study slug is derived from `slug`. */
+  featured?: boolean;
+  /** SEO alt text for the project image. */
+  altText: string;
+  /** Short teaser used on cards and listings. */
+  description: { de: string; en: string };
+  /** True while the final project image is still pending upload. */
+  imagePending?: boolean;
   de: ProjectContent;
   en: ProjectContent;
 }
@@ -54,13 +72,20 @@ export const projects: Project[] = [
   {
     slug: "pfotenhaus",
     year: "2026",
-    name: "Pfotenhaus",
+    name: "Pfotenhaus Berlin",
     category: "Tierhotel · Storytelling",
     categoryTags: ["Veterinary", "Pet Business"],
     serviceTags: ["Web Design", "Web Development", "UX/UI"],
     tech: ["React", "Vite", "Tailwind", "Framer Motion"],
     tags: ["Webdesign", "Brand Voice", "UX Writing"],
     image: pfotenhaus, gallery: [pfotenhaus], mood: "emotion", device: "phones", layout: "left",
+    altText: "Webdesign für ein Tierhotel in Berlin – Pfotenhaus Berlin",
+    description: {
+      de: "Website für ein Tierhotel: warme Bildsprache, klare Informationen und ein einfacher Weg zur Kontaktaufnahme für Tierbesitzer.",
+      en: "Website for a pet hotel: warm imagery, clear information and an easy path to contact for pet owners.",
+    },
+    liveUrl: "https://pfotenhaus-berlin.netlify.app",
+    featured: true,
     de: {
       intro: "Eine Geschichte, gespürt von zwei Herzen. Eine Website, die wie eine warme Umarmung wirkt.",
       overview: "Ein familiengeführtes Pfotenhaus wollte online spürbar machen, was es offline auszeichnet: echte Zuwendung.",
@@ -102,6 +127,13 @@ export const projects: Project[] = [
     tech: ["React", "GSAP", "Tailwind"],
     tags: ["Branding", "Typografie", "Webdesign"],
     image: neinStudio, gallery: [neinStudio], mood: "bold", device: "phone", layout: "right",
+    altText: "Webdesign für ein Kreativstudio – NEIN / STUDIO",
+    description: {
+      de: "Editorial-Website für ein Kreativstudio mit markanter Typografie, Ladesequenz und klarer Haltung statt Standard-Agenturlayout.",
+      en: "Editorial website for a creative studio with bold typography, a scripted loading sequence and a clear point of view.",
+    },
+    liveUrl: "https://nein-studio.netlify.app",
+    featured: true,
     de: {
       intro: "Wir sind wahrscheinlich nichts für dich. Eine Website, die Haltung zeigt — und genau dadurch anzieht.",
       overview: "Eine junge Kreativagentur wollte sich in einem gesättigten Markt polarisierend positionieren.",
@@ -137,53 +169,67 @@ export const projects: Project[] = [
     slug: "four-elements",
     year: "2025",
     name: "Four Elements",
-    category: "Spa & Ritual · Cinematic",
-    categoryTags: ["Hotels", "Beauty"],
+    category: "Asiatisches Restaurant · Cinematic",
+    categoryTags: ["Restaurants"],
     serviceTags: ["Web Design", "UX/UI"],
-    tech: ["React", "Framer Motion", "Sanity CMS"],
-    tags: ["Editorial", "Animation", "Luxury UX"],
+    tech: ["React", "Framer Motion", "Tailwind"],
+    tags: ["Editorial", "Animation", "Restaurant Branding"],
     image: fourElements, gallery: [fourElements], mood: "dark", device: "phone", layout: "left",
+    altText: "Webdesign für ein asiatisches Restaurant – Four Elements",
+    description: {
+      de: "Website für ein asiatisches Restaurant mit besonderer Atmosphäre: immersive Bildwelt, kapitelartige Menüpräsentation, vollständig responsiv.",
+      en: "Website for an Asian cuisine restaurant with a distinctive atmosphere: immersive visuals, chapter-like menu presentation, fully responsive.",
+    },
+    liveUrl: "https://four-elements-asian-restaurant.netlify.app",
+    featured: true,
     de: {
-      intro: "Step beyond the veil. Eine digitale Schwelle, die Stille verspricht — und sie hält.",
-      overview: "Ein Wellness-Konzept rund um die vier Elemente sollte digital erlebbar werden.",
-      client: "Spa-Marke mit drei Standorten in Süddeutschland und Österreich.",
-      goals: ["Höherpreisige Rituale positionieren", "Verweildauer steigern", "Direktbuchungen"],
-      challenge: "Ein Wellness-Konzept rund um die vier Elemente brauchte eine Website, die nicht erklärt, sondern atmen lässt.",
-      research: "Session Recordings zeigten: Nutzer wollen Atmosphäre, keine Preislisten in Sekunde 1.",
-      ux: "Cinematic Scrollflow: erst Stimmung, dann Angebot, dann Buchung.",
-      ui: "Tiefe Schattenwelt, langsame Übergänge, Kalligrafie-Akzente.",
-      development: "React + Framer Motion, Inhalte über Sanity CMS pflegbar.",
-      seo: "Ritual-spezifische Landing Pages, strukturierte Daten für Angebote.",
-      responsive: "Auch mobil bleibt das cinematic Gefühl erhalten — reduzierte Animationen für Performance.",
-      result: "Buchungen für höherpreisige Rituale stiegen um 38 %. Die durchschnittliche Verweildauer verdreifachte sich.",
-      feedback: { quote: "Unsere Gäste sagen, sie fühlten sich schon beim Scrollen entspannt.", author: "Spa Director, Four Elements" },
+      intro: "Step beyond the veil. Ein asiatisches Restaurant, das seine Küche als Reise durch vier Elemente erzählt.",
+      overview: "Ein Restaurant für asiatische Küche mit ausgeprägter eigener Atmosphäre wollte diese Stimmung auch digital erlebbar machen.",
+      client: "Restaurant für asiatische Küche mit einem Konzept rund um die vier Elemente Feuer, Wasser, Luft und Erde.",
+      goals: ["Atmosphäre digital vermitteln", "Speisekarte erlebbar präsentieren", "Reservierungen erleichtern"],
+      challenge: "Die Speisekarte ist hier kein Preisverzeichnis, sondern eine Dramaturgie. Die Website musste diese Dramaturgie übersetzen.",
+      research: "Analyse von Restaurant-Websites zeigte: Gerichte werden meist als Liste gezeigt. Der Auftritt setzt stattdessen auf Szenen.",
+      ux: "Cinematic Scrollflow in vier Kapiteln — je ein Element mit dem dazugehörigen Signature-Gericht, Reservierung stets erreichbar.",
+      ui: "Dunkle Bildwelt, langsame Übergänge, japanische Schriftakzente und viel Raum zwischen den Gängen.",
+      development: "React + Framer Motion mit Tailwind. Bilder lazy geladen, Animationen für schwächere Geräte reduziert.",
+      seo: "Semantische Struktur für Küche, Gerichte und Standort, sprechende Meta-Texte für die Menükapitel.",
+      responsive: "Vom Desktop bis zum kleinen Smartphone bleibt jede Szene vollflächig und lesbar.",
+      result: "Ein Restaurantauftritt, der die besondere Atmosphäre des Hauses schon vor dem Besuch spürbar macht.",
+      feedback: { quote: "Die Website fühlt sich an wie unser Gastraum — nur zum Scrollen.", author: "Inhaber, Four Elements" },
     },
     en: {
-      intro: "Step beyond the veil. A digital threshold that promises stillness — and keeps it.",
-      overview: "A wellness concept built around the four elements, made tangible online.",
-      client: "Spa brand with three locations across southern Germany and Austria.",
-      goals: ["Position higher-priced rituals", "Increase dwell time", "Direct bookings"],
-      challenge: "A wellness brand needed a website that doesn't explain — it lets you breathe.",
-      research: "Session recordings showed: users want atmosphere, not price lists in second one.",
-      ux: "Cinematic scroll flow: mood first, offering second, booking third.",
-      ui: "Deep shadow palette, slow transitions, calligraphy accents.",
-      development: "React + Framer Motion, content managed via Sanity CMS.",
-      seo: "Ritual-specific landing pages, structured data for offers.",
-      responsive: "Cinematic feel preserved on mobile with reduced animations for performance.",
-      result: "Bookings of higher-priced rituals rose 38%. Average dwell time tripled.",
-      feedback: { quote: "Guests say they feel relaxed just from scrolling.", author: "Spa Director, Four Elements" },
+      intro: "Step beyond the veil. An Asian restaurant telling its cuisine as a journey through four elements.",
+      overview: "An Asian cuisine restaurant with a strong atmosphere of its own wanted that mood to carry over online.",
+      client: "Asian cuisine restaurant built around the four elements: fire, water, air and earth.",
+      goals: ["Translate atmosphere online", "Present the menu as an experience", "Make reservations easy"],
+      challenge: "Here the menu is a dramaturgy, not a price list. The website had to translate it.",
+      research: "A review of restaurant websites showed dishes are usually shown as lists. This site uses scenes instead.",
+      ux: "Cinematic scroll flow in four chapters — one element and its signature dish each, reservation always in reach.",
+      ui: "Dark imagery, slow transitions, Japanese type accents and generous space between courses.",
+      development: "React + Framer Motion with Tailwind. Lazy-loaded imagery, reduced motion on weaker devices.",
+      seo: "Semantic structure for cuisine, dishes and location, descriptive meta copy for each menu chapter.",
+      responsive: "From desktop to small phones every scene stays full-bleed and legible.",
+      result: "A restaurant presence that makes the atmosphere of the house tangible before the first visit.",
+      feedback: { quote: "The website feels like our dining room — only scrollable.", author: "Owner, Four Elements" },
     },
   },
   {
     slug: "atelier-nova",
     year: "2025",
-    name: "Atelier Nova",
+    name: "Atelier Nova Tokio",
     category: "Architektur · Minimal",
     categoryTags: ["Corporate"],
     serviceTags: ["Web Design", "UX/UI", "SEO"],
     tech: ["Next.js", "Tailwind", "Contentful"],
     tags: ["Webdesign", "Editorial", "Photography"],
     image: atelierNova, gallery: [atelierNova], mood: "beige", device: "phone", layout: "full",
+    altText: "Webdesign für ein Architekturbüro – Atelier Nova Tokio",
+    description: {
+      de: "Editorial-Website für ein Architektur-Atelier: großzügige Projektstrecken, ruhige Typografie und Fokus auf Material und Licht.",
+      en: "Editorial website for an architecture atelier: generous project spreads, quiet typography, focus on material and light.",
+    },
+    liveUrl: "https://atelier-nova-tokio.netlify.app",
+    featured: true,
     de: {
       intro: "We create spaces that resonate. Eine Website, die der Architektur den Vortritt lässt.",
       overview: "Ein Architektur-Atelier wollte online wie ein Bildband wirken.",
@@ -216,6 +262,7 @@ export const projects: Project[] = [
     },
   },
   {
+    liveUrl: "https://lushandbloom.netlify.app",
     slug: "lush-bloom",
     year: "2025",
     name: "Lush & Bloom",
@@ -224,7 +271,12 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI", "Web Development"],
     tech: ["React", "Vite", "Tailwind", "Cal.com"],
     tags: ["UX/UI", "Conversion", "Pastel Design"],
-    image: lushBloom, gallery: [lushBloom], mood: "pastel", device: "phone", layout: "split",
+    image: lushBloomAsset.url, gallery: [lushBloomAsset.url], mood: "pastel", device: "phone", layout: "split",
+    altText: "Webdesign für ein Beauty- und Wellness-Studio – Lush & Bloom",
+    description: {
+      de: "Website für ein Beauty-Studio mit klarer Leistungsübersicht und einfacher Terminanfrage.",
+      en: "Website for a beauty studio with a clear service overview and simple appointment requests.",
+    },
     de: {
       intro: "Beauty that feels like a reset. Eine Pause für die Augen, lange bevor sie zur Pause für den Körper wird.",
       overview: "Ein Berliner Beauty-Studio mit Premium-Anspruch und veralteter Website.",
@@ -257,6 +309,7 @@ export const projects: Project[] = [
     },
   },
   {
+    liveUrl: "https://lior-friseur.netlify.app",
     slug: "lior-friseur",
     year: "2024",
     name: "Lior. Friseur",
@@ -266,6 +319,11 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Webdesign", "Local SEO", "Branding"],
     image: liorFriseur, gallery: [liorFriseur], mood: "luxury", device: "phone", layout: "right",
+    altText: "Webdesign für einen Premium-Friseursalon – Lior. Friseur",
+    description: {
+      de: "Website für einen Premium-Friseursalon mit cinematischer Bildsprache und lokaler SEO-Struktur.",
+      en: "Website for a premium hair salon with cinematic imagery and a local SEO structure.",
+    },
     de: {
       intro: "Farbe, die dich verändert. Eine Website, die wirkt wie der Moment vor dem ersten Schnitt.",
       overview: "Ein Premium-Friseursalon in Nürnberg wollte sich von Standard-Branchenseiten absetzen.",
@@ -307,6 +365,13 @@ export const projects: Project[] = [
     tech: ["Astro", "Tailwind"],
     tags: ["Editorial Web", "Photography", "Brand"],
     image: raumform, gallery: [raumform], mood: "warm", device: "phone", layout: "floating",
+    altText: "Webdesign für ein Innenarchitektur-Atelier – Raumform Atelier",
+    description: {
+      de: "Website für ein Innenarchitektur-Atelier: großformatige Raumbilder, ruhige Navigation und ein Auftritt, der Materialität in den Vordergrund stellt.",
+      en: "Website for an interior design atelier: large-format spatial imagery, calm navigation and a presentation that foregrounds materiality.",
+    },
+    liveUrl: "https://raumform-atelier.netlify.app",
+    featured: true,
     de: {
       intro: "Räume, die man fühlt — nicht nur sieht. Eine Website, die haptisch wirkt, ohne es zu sein.",
       overview: "Ein Innenarchitektur-Atelier brauchte eine Bühne für Materialität.",
@@ -339,6 +404,7 @@ export const projects: Project[] = [
     },
   },
   {
+    liveUrl: "https://credit-path.netlify.app",
     slug: "creditpath",
     year: "2024",
     name: "CreditPath",
@@ -348,6 +414,11 @@ export const projects: Project[] = [
     tech: ["Next.js", "Tailwind", "HubSpot"],
     tags: ["Fintech UX", "Conversion", "Trust Design"],
     image: creditpath, gallery: [creditpath], mood: "corporate", device: "laptop-tablet", layout: "right",
+    altText: "Webdesign für eine Finanz- und Kreditberatung – CreditPath",
+    description: {
+      de: "Website für eine Finanzberatung mit vertrauensbildender Struktur und geführtem Anfrage-Prozess.",
+      en: "Website for a financial advisory with a trust-building structure and a guided inquiry flow.",
+    },
     de: {
       intro: "Get approved for your dream home — even if your credit isn't perfect. Vertrauen, in Pixel gegossen.",
       overview: "Eine Kredit- und Hypothekenberatung brauchte einen Auftritt, der Seriosität ausstrahlt.",
@@ -380,6 +451,7 @@ export const projects: Project[] = [
     },
   },
   {
+    liveUrl: "https://dentalfactory.netlify.app",
     slug: "dentallux",
     year: "2024",
     name: "DentalLux",
@@ -389,6 +461,11 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Healthcare UX", "Premium", "Local SEO"],
     image: dentallux, gallery: [dentallux], mood: "clinic", device: "tablet-laptop", layout: "left",
+    altText: "Webdesign für eine Zahnarztpraxis in Berlin – DentalLux",
+    description: {
+      de: "Website für eine Premium-Zahnarztpraxis mit ruhiger Gestaltung und klarer Terminanfrage.",
+      en: "Website for a premium dental practice with a calm design and clear appointment requests.",
+    },
     de: {
       intro: "Ihr Lächeln in besten Händen. Medizin, die sich anfühlt wie ein gutes Hotel.",
       overview: "Eine Premium-Zahnarztpraxis wollte raus aus dem klinischen Standard.",
@@ -418,6 +495,202 @@ export const projects: Project[] = [
       responsive: "Mobile-first, appointment request in two steps.",
       result: "Online appointments tripled. Self-pay treatment share rose significantly.",
       feedback: { quote: "Patients say they feel welcome before the first appointment.", author: "Owner, DentalLux" },
+    },
+  },
+  {
+    slug: "forma-pilates",
+    year: "2026",
+    name: "Forma Pilates",
+    category: "Reformer Pilates Studio · Nürnberg",
+    categoryTags: ["Beauty", "Healthcare"],
+    serviceTags: ["Web Design", "Web Development", "UX/UI"],
+    tech: ["React", "Vite", "Tailwind"],
+    tags: ["Studio Website", "Kursplan", "Booking UX"],
+    image: formaPilates, gallery: [formaPilates],
+    mood: "pastel", device: "phone", layout: "split",
+    altText: "Webdesign für ein Reformer-Pilates-Studio in Nürnberg – Forma Pilates",
+    description: {
+      de: "Website für ein Boutique-Reformer-Pilates-Studio in Nürnberg: Kursplan, Kursfinder und ein klarer Weg zur Probestunde.",
+      en: "Website for a boutique reformer pilates studio in Nuremberg: class schedule, class finder and a clear path to a trial session.",
+    },
+    liveUrl: "https://forma-pilates.netlify.app",
+    featured: true,
+    de: {
+      intro: "Dein Körper. Deine Kraft. Dein Studio. Eine Website, die Bewegung spürbar macht.",
+      overview: "Ein Boutique-Studio für Reformer Pilates in Nürnberg brauchte einen Auftritt, der Kursangebot und Studioatmosphäre gleichermaßen transportiert.",
+      client: "Reformer-Pilates-Studio in Nürnberg mit kleinen Gruppen und festem Trainerinnen-Team.",
+      goals: ["Kursangebot verständlich zeigen", "Probestunden vereinfachen", "Studioatmosphäre vermitteln"],
+      challenge: "Ein Kursplan wird schnell unübersichtlich. Zeiten, Level und freie Plätze mussten auf einen Blick lesbar sein.",
+      research: "Sichtung vergleichbarer Studio-Websites: Kurspläne liegen dort oft als PDF vor. Hier findet alles direkt in der Seite statt.",
+      ux: "Wochenplan mit Tages- und Level-Filter, ein kurzes Quiz zur Kursempfehlung und die Probestunde als durchgehender Call-to-Action.",
+      ui: "Ruhige, warme Flächen, klare Typografie und großzügige Bildmomente aus dem Studio.",
+      development: "React + Vite mit Tailwind, Kursdaten strukturiert hinterlegt, damit Zeiten leicht gepflegt werden können.",
+      seo: "Lokale Ausrichtung auf Reformer Pilates in Nürnberg, beschreibende Abschnitte für Kurse, Team und Studio.",
+      responsive: "Der Kursplan bleibt auf dem Smartphone bedienbar — ein Tag pro Ansicht, Buchen mit einem Daumen.",
+      result: "Ein Studioauftritt, der Kursangebot, Level und Einstieg ohne Rückfragen erklärt.",
+      feedback: { quote: "Der Kursplan war das Wichtigste — jetzt versteht ihn jede auf Anhieb.", author: "Studioleitung, Forma Pilates" },
+    },
+    en: {
+      intro: "Your body. Your strength. Your studio. A website that makes movement tangible.",
+      overview: "A boutique reformer pilates studio in Nuremberg needed a presence carrying both its schedule and its atmosphere.",
+      client: "Reformer pilates studio in Nuremberg with small groups and a fixed team of trainers.",
+      goals: ["Make the class offering clear", "Simplify trial sessions", "Convey studio atmosphere"],
+      challenge: "Class schedules turn cluttered fast. Times, levels and open spots had to be readable at a glance.",
+      research: "A review of comparable studio sites: schedules are often PDF downloads. Here everything happens on the page.",
+      ux: "Weekly schedule with day and level filters, a short quiz for class recommendations, trial session as a persistent call to action.",
+      ui: "Calm warm surfaces, clear typography and generous imagery from the studio.",
+      development: "React + Vite with Tailwind, class data kept structured so times stay easy to maintain.",
+      seo: "Local focus on reformer pilates in Nuremberg, descriptive sections for classes, team and studio.",
+      responsive: "The schedule stays usable on phones — one day per view, booking with one thumb.",
+      result: "A studio presence that explains classes, levels and how to start without follow-up questions.",
+      feedback: { quote: "The schedule mattered most — now everyone understands it instantly.", author: "Studio lead, Forma Pilates" },
+    },
+  },
+  {
+    slug: "cafe-gruen",
+    year: "2026",
+    name: "Café GRÜN",
+    category: "Specialty Café · Nürnberg",
+    categoryTags: ["Restaurants"],
+    serviceTags: ["Web Design", "Web Development", "SEO"],
+    tech: ["React", "Vite", "Tailwind"],
+    tags: ["Café Website", "Menükarte", "Local SEO"],
+    image: cafeGruen, gallery: [cafeGruen],
+    mood: "warm", device: "phone", layout: "left",
+    altText: "Webdesign für ein Specialty-Café in Nürnberg – Café GRÜN",
+    description: {
+      de: "Website für ein modernes Café in Nürnberg mit Specialty Coffee, Matcha und Brunch: filterbare Karte, warme Bildsprache, klare Kontaktinfos.",
+      en: "Website for a modern café in Nuremberg with specialty coffee, matcha and brunch: filterable menu, warm imagery, clear contact details.",
+    },
+    liveUrl: "https://cafe-gruen.netlify.app",
+    featured: true,
+    de: {
+      intro: "Matcha, Specialty Coffee und Brunch — ein Café, das online genauso einladend wirkt wie vor Ort.",
+      overview: "Ein modernes Café in Nürnberg wollte seine Karte und seine Atmosphäre digital sichtbar machen.",
+      client: "Café in Nürnberg mit Fokus auf Specialty Coffee, handgefertigte Matcha-Getränke und Brunch.",
+      goals: ["Karte übersichtlich zeigen", "Atmosphäre vermitteln", "Besuch und Kontakt erleichtern"],
+      challenge: "Eine Karte mit vielen Kategorien und Ernährungsmerkmalen sollte trotzdem ruhig und appetitlich bleiben.",
+      research: "Kartenanalyse zeigte: Filter nach vegan, glutenfrei und laktosefrei sind der meistgesuchte Einstieg.",
+      ux: "Karte mit Kategorien und Ernährungsfiltern, Signature Drinks als eigene Bildstrecke, Adresse und Öffnungszeiten immer erreichbar.",
+      ui: "Warme Naturtöne, viel Weißraum und große Getränkefotografie als Hauptelement.",
+      development: "React + Vite mit Tailwind, Karteninhalte strukturiert hinterlegt und dadurch leicht aktualisierbar.",
+      seo: "Lokale Optimierung für Café und Specialty Coffee in Nürnberg, strukturierte Inhalte für Karte und Standort.",
+      responsive: "Die Karte bleibt auf dem Smartphone scroll- und filterbar, Bilder passen sich flüssig an.",
+      result: "Ein Caféauftritt, der Karte, Atmosphäre und Weg ins Café in wenigen Sekunden vermittelt.",
+      feedback: { quote: "Gäste bestellen genau das, was sie auf der Website gesehen haben.", author: "Inhaberin, Café GRÜN" },
+    },
+    en: {
+      intro: "Matcha, specialty coffee and brunch — a café that feels as inviting online as in person.",
+      overview: "A modern café in Nuremberg wanted its menu and atmosphere visible online.",
+      client: "Café in Nuremberg focused on specialty coffee, handcrafted matcha drinks and brunch.",
+      goals: ["Show the menu clearly", "Convey atmosphere", "Make visiting and contact easy"],
+      challenge: "A menu with many categories and dietary markers still had to feel calm and appetising.",
+      research: "Menu analysis showed vegan, gluten-free and lactose-free filters are the most used entry point.",
+      ux: "Menu with categories and dietary filters, signature drinks as their own visual series, address and hours always in reach.",
+      ui: "Warm natural tones, generous white space and large drink photography as the lead element.",
+      development: "React + Vite with Tailwind, menu content kept structured so it stays easy to update.",
+      seo: "Local optimisation for café and specialty coffee in Nuremberg, structured content for menu and location.",
+      responsive: "The menu stays scrollable and filterable on phones, imagery scales fluidly.",
+      result: "A café presence that communicates menu, atmosphere and directions within seconds.",
+      feedback: { quote: "Guests order exactly what they saw on the website.", author: "Owner, Café GRÜN" },
+    },
+  },
+  {
+    slug: "guide-stadtfuehrung",
+    year: "2026",
+    name: "Guide Stadtführung",
+    category: "Stadtführungen · Nürnberg",
+    categoryTags: ["Corporate"],
+    serviceTags: ["Web Design", "Web Development", "SEO"],
+    tech: ["React", "Vite", "Tailwind"],
+    tags: ["Tourismus", "Storytelling", "Local SEO"],
+    image: guideStadtfuehrung, gallery: [guideStadtfuehrung],
+    mood: "beige", device: "phone", layout: "right",
+    altText: "Webdesign für private Stadtführungen in Nürnberg – Guide Stadtführung",
+    description: {
+      de: "Website für einen privaten Stadtführer in Nürnberg: persönliche Vorstellung, Tourübersicht und eine unkomplizierte Buchungsanfrage.",
+      en: "Website for a private city guide in Nuremberg: personal introduction, tour overview and a straightforward booking request.",
+    },
+    liveUrl: "https://guide-stadtfuerung.netlify.app",
+    featured: true,
+    de: {
+      intro: "Nürnberg entdecken wie ein Insider — eine Website, die den Menschen hinter der Führung zeigt.",
+      overview: "Ein privater Stadtführer aus Nürnberg brauchte einen Auftritt, der Persönlichkeit und Angebot gleichermaßen transportiert.",
+      client: "Privater Stadtführer, in Nürnberg geboren und aufgewachsen, mit Fokus auf persönliche Touren abseits der Standardrouten.",
+      goals: ["Vertrauen über Persönlichkeit aufbauen", "Touren verständlich zeigen", "Anfragen erleichtern"],
+      challenge: "Stadtführungen werden meist über Portale gebucht. Hier sollte der Guide selbst im Mittelpunkt stehen.",
+      research: "Vergleich mit Tourismusportalen zeigte: austauschbare Angebotslisten, kaum persönliche Ansprache.",
+      ux: "Klarer Aufbau von Vorstellung über Touren bis zur Anfrage, kurze Wege zum Kontaktformular.",
+      ui: "Warme Stadtfotografie, ruhige Serifen-Headlines und persönliche Zitate als Gestaltungselement.",
+      development: "React + Vite mit Tailwind, Tourinhalte strukturiert und leicht erweiterbar.",
+      seo: "Lokale Ausrichtung auf Stadtführungen in Nürnberg mit beschreibenden Abschnitten je Tour.",
+      responsive: "Touren und Anfrage funktionieren unterwegs auf dem Smartphone genauso wie am Desktop.",
+      result: "Ein Auftritt, der den Guide persönlich vorstellt und den Weg zur Anfrage kurz hält.",
+      feedback: { quote: "Die Leute schreiben mich jetzt direkt an.", author: "Inhaber, Guide Stadtführung" },
+    },
+    en: {
+      intro: "Discover Nuremberg like an insider — a website that shows the person behind the tour.",
+      overview: "A private city guide in Nuremberg needed a presence carrying both personality and offering.",
+      client: "Private city guide, born and raised in Nuremberg, focused on personal tours off the standard routes.",
+      goals: ["Build trust through personality", "Present tours clearly", "Simplify requests"],
+      challenge: "City tours are usually booked via portals. Here the guide himself had to be the centre.",
+      research: "Comparison with tourism portals showed interchangeable listings and little personal voice.",
+      ux: "Clear path from introduction to tours to inquiry, short routes to the contact form.",
+      ui: "Warm city photography, quiet serif headlines and personal quotes as a design element.",
+      development: "React + Vite with Tailwind, tour content structured and easy to extend.",
+      seo: "Local focus on guided tours in Nuremberg with descriptive sections per tour.",
+      responsive: "Tours and inquiries work on the go on phones just as well as on desktop.",
+      result: "A presence that introduces the guide personally and keeps the way to an inquiry short.",
+      feedback: { quote: "People now write to me directly.", author: "Owner, Guide Stadtführung" },
+    },
+  },
+  {
+    slug: "la-dolce-vita",
+    year: "2026",
+    name: "La Dolce Vita",
+    category: "Ristorante Italiano · Nürnberg",
+    categoryTags: ["Restaurants"],
+    serviceTags: ["Web Design", "Web Development", "SEO"],
+    tech: ["React", "Vite", "Tailwind"],
+    tags: ["Restaurant Website", "Speisekarte", "Reservierung"],
+    image: laDolceVita, gallery: [laDolceVita],
+    mood: "warm", device: "phone", layout: "full",
+    altText: "Webdesign für ein italienisches Restaurant in Nürnberg – La Dolce Vita",
+    description: {
+      de: "Website für ein italienisches Restaurant in Nürnberg: appetitliche Speisekarte nach Kategorien, Reservierungsanfrage und klare Standortinformationen.",
+      en: "Website for an Italian restaurant in Nuremberg: appetising menu by category, reservation request and clear location details.",
+    },
+    liveUrl: "https://ladolcevita-nuernberg.netlify.app",
+    featured: true,
+    de: {
+      intro: "Ein Stück Italien in Nürnberg — eine Website, die Gastfreundschaft schon vor dem ersten Besuch zeigt.",
+      overview: "Ein italienisches Restaurant in Nürnberg wollte Speisekarte und Reservierung online genauso einladend gestalten wie den Gastraum.",
+      client: "Ristorante Italiano in Nürnberg mit klassischer italienischer Küche von Antipasti bis Dolci.",
+      goals: ["Speisekarte appetitlich zeigen", "Reservierungen erleichtern", "Standort klar kommunizieren"],
+      challenge: "Eine umfangreiche Karte sollte digital lesbar bleiben, ohne die Atmosphäre zu verlieren.",
+      research: "Auswertung typischer Restaurantseiten: PDF-Karten und fehlende Bilder sind die häufigsten Schwachstellen.",
+      ux: "Karte nach Kategorien mit Bildern pro Gericht, Reservierung und Speisekarte als zwei feste Einstiege im Hero.",
+      ui: "Warme Farbwelt, Foodfotografie in großen Flächen und klassische Serifen-Typografie.",
+      development: "React + Vite mit Tailwind, Menüdaten strukturiert hinterlegt für einfache Pflege.",
+      seo: "Lokale Optimierung für italienisches Restaurant in Nürnberg, strukturierte Inhalte für Karte und Adresse.",
+      responsive: "Die Karte bleibt mobil angenehm lesbar, Bilder werden nachgeladen statt gestapelt.",
+      result: "Ein Restaurantauftritt, bei dem Karte, Atmosphäre und Reservierung direkt zugänglich sind.",
+      feedback: { quote: "Die Gäste sehen die Karte jetzt, bevor sie anrufen.", author: "Inhaber, La Dolce Vita" },
+    },
+    en: {
+      intro: "A piece of Italy in Nuremberg — a website showing hospitality before the first visit.",
+      overview: "An Italian restaurant in Nuremberg wanted its menu and reservations online to feel as inviting as its dining room.",
+      client: "Ristorante Italiano in Nuremberg serving classic Italian cuisine from antipasti to dolci.",
+      goals: ["Present the menu appetisingly", "Simplify reservations", "Communicate the location clearly"],
+      challenge: "A large menu had to stay readable online without losing atmosphere.",
+      research: "A review of typical restaurant sites: PDF menus and missing imagery are the most common weak points.",
+      ux: "Menu by category with images per dish, reservation and menu as two fixed entry points in the hero.",
+      ui: "Warm palette, food photography in large areas and classic serif typography.",
+      development: "React + Vite with Tailwind, menu data structured for easy maintenance.",
+      seo: "Local optimisation for Italian restaurant in Nuremberg, structured content for menu and address.",
+      responsive: "The menu stays comfortable to read on mobile, images load progressively instead of stacking.",
+      result: "A restaurant presence where menu, atmosphere and reservation are directly accessible.",
+      feedback: { quote: "Guests see the menu now before they call.", author: "Owner, La Dolce Vita" },
     },
   },
 ];
