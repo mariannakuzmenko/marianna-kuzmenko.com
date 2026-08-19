@@ -2,7 +2,7 @@ import pfotenhaus from "@/assets/projects/pfotenhaus.png";
 import neinStudio from "@/assets/projects/nein-studio.png";
 import fourElements from "@/assets/projects/four-elements.png";
 import atelierNova from "@/assets/projects/atelier-nova.png";
-import lushBloom from "@/assets/projects/lush-bloom.png";
+import lushBloomAsset from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
 import liorFriseur from "@/assets/projects/lior-friseur.png";
 import raumform from "@/assets/projects/raumform.png";
 import creditpath from "@/assets/projects/creditpath.png";
@@ -271,7 +271,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI", "Web Development"],
     tech: ["React", "Vite", "Tailwind", "Cal.com"],
     tags: ["UX/UI", "Conversion", "Pastel Design"],
-    image: lushBloom, gallery: [lushBloom], mood: "pastel", device: "phone", layout: "split",
+    image: lushBloomAsset.url, gallery: [lushBloomAsset.url], mood: "pastel", device: "phone", layout: "split",
     altText: "Webdesign für ein Beauty- und Wellness-Studio – Lush & Bloom",
     description: {
       de: "Website für ein Beauty-Studio mit klarer Leistungsübersicht und einfacher Terminanfrage.",
