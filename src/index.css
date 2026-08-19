@@ -752,8 +752,8 @@
   .tilt-left:hover  { transform: perspective(1400px) rotateY(2deg) rotateX(0) translateY(-10px); }
   .tilt-right:hover { transform: perspective(1400px) rotateY(-2deg) rotateX(0) translateY(-10px); }
 
-  .case-meta { @apply font-mono text-[11px] uppercase tracking-[0.18em] opacity-70; }
-  .case-step-label { @apply font-mono text-[11px] uppercase tracking-[0.22em] mb-2 opacity-80; }
+  .case-meta { @apply font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/75; }
+  .case-step-label { @apply font-mono text-[11px] uppercase tracking-[0.22em] mb-2 text-foreground/80; }
   .case-step + .case-step { @apply mt-7; }
 
   .glow-btn {
