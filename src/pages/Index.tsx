@@ -45,7 +45,7 @@ import neinStudioImg from "@/assets/projects/nein-studio.png";
 import liorImg from "@/assets/projects/lior-friseur.png";
 import fourElementsImg from "@/assets/projects/four-elements.png";
 import pfotenhausImg from "@/assets/projects/pfotenhaus.png";
-import lushBloomImg from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
+import lushBloomImg from "@/assets/projects/lush-bloom-mockup.jpeg";
 
 // Aliases preserved for readability across the page
 const portraitWindow = { url: portraitWindowSrc };
