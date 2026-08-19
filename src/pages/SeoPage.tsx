@@ -139,6 +139,26 @@ const SeoPage = () => {
         path={path("seo")}
         pathDe={ROUTES.seo.de}
         pathEn={ROUTES.seo.en}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: pick(lang, "SEO Optimierung", "SEO optimization"),
+          name: t.seoTitle,
+          description: t.seoDesc,
+          provider: {
+            "@type": "Person",
+            name: CONTACT.name,
+            email: CONTACT.email,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: CONTACT.street,
+              addressLocality: "Nürnberg",
+              postalCode: "90461",
+              addressCountry: "DE",
+            },
+          },
+          areaServed: ["Nürnberg", "Fürth", "Erlangen", "München", "Deutschland", "Österreich", "Schweiz"],
+        }}
       />
 
       <section className="container-editorial pt-12 md:pt-20 pb-12 relative">
