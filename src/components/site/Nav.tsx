@@ -52,8 +52,14 @@ export const Nav = () => {
           ))}
         </nav>
 
-        <div className="hidden xl:flex items-center gap-4 shrink-0">
+        <div className="hidden xl:flex items-center gap-3 shrink-0">
           <LangSwitcher />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="compact"
+            className="!py-2.5 !px-4 !text-xs whitespace-nowrap"
+          />
           <Link to={ctaHref} className="btn-cta !py-3 !px-6 !text-sm whitespace-nowrap">
             {ctaLabel} <ArrowUpRight size={16} strokeWidth={2} />
           </Link>
@@ -61,6 +67,12 @@ export const Nav = () => {
 
         <div className="xl:hidden flex items-center gap-2 shrink-0">
           <LangSwitcher compact />
+          <WhatsAppButton
+            lang={lang}
+            label="WhatsApp"
+            variant="compact"
+            className="!py-2 !px-3 !text-[11px] whitespace-nowrap"
+          />
           <Link
             to={ctaHref}
             className="hidden sm:inline-flex btn-cta !py-2.5 !px-4 !text-xs whitespace-nowrap"
