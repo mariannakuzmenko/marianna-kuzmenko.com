@@ -185,28 +185,6 @@ const Projekte = () => {
         </div>
       </section>
 
-      {/* FILTERS */}
-      <section className="container-editorial pb-6 sticky top-16 md:top-20 xl:top-24 z-20 bg-background/80 backdrop-blur-md">
-        <div className="py-4 overflow-x-auto scrollbar-none">
-          <div className="flex gap-2 min-w-max">
-            {filters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-4 h-9 rounded-full text-xs font-medium tracking-wide transition-all whitespace-nowrap ${
-                  filter === f
-                    ? "bg-foreground text-background shadow-md"
-                    : "bg-card/60 text-muted-foreground hover:bg-card hover:text-foreground border border-border"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROJECTS */}
       <section className="container-editorial pb-28 space-y-16 md:space-y-24">
         {filtered.length === 0 ? (
           <p className="text-center text-muted-foreground py-24 animate-fade-in">{t.empty}</p>
