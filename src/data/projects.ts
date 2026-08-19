@@ -2,7 +2,7 @@ import pfotenhaus from "@/assets/projects/pfotenhaus.png";
 import neinStudio from "@/assets/projects/nein-studio.png";
 import fourElements from "@/assets/projects/four-elements.png";
 import atelierNova from "@/assets/projects/atelier-nova.png";
-import lushBloom from "@/assets/projects/lush-bloom.png";
+import lushBloomAsset from "@/assets/projects/lush-bloom-mockup.jpeg.asset.json";
 import liorFriseur from "@/assets/projects/lior-friseur.png";
 import raumform from "@/assets/projects/raumform.png";
 import creditpath from "@/assets/projects/creditpath.png";
