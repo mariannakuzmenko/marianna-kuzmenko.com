@@ -57,7 +57,7 @@ export const Nav = () => {
           <WhatsAppButton
             lang={lang}
             label="WhatsApp"
-            variant="compact"
+            variant="nav"
             iconOnly
             className="2xl:hidden"
           />
@@ -77,7 +77,7 @@ export const Nav = () => {
           <WhatsAppButton
             lang={lang}
             label="WhatsApp"
-            variant="compact"
+            variant="nav"
             iconOnly
             className="!w-9 !h-9"
           />
