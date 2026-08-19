@@ -271,7 +271,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI", "Web Development"],
     tech: ["React", "Vite", "Tailwind", "Cal.com"],
     tags: ["UX/UI", "Conversion", "Pastel Design"],
-    image: lushBloom, gallery: [lushBloom], mood: "pastel", device: "phone", layout: "split",
+    image: lushBloomAsset.url, gallery: [lushBloomAsset.url], mood: "pastel", device: "phone", layout: "split",
     altText: "Webdesign für ein Beauty- und Wellness-Studio – Lush & Bloom",
     description: {
       de: "Website für ein Beauty-Studio mit klarer Leistungsübersicht und einfacher Terminanfrage.",
