@@ -8,18 +8,6 @@ import { ProjectImage } from "@/components/site/ProjectImage";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
-const FILTERS_DE = [
-  "Alle Projekte", "Web Development", "Web Design", "UX/UI", "SEO",
-  "Restaurants", "Hotels", "Veterinary", "Pet Business",
-  "Beauty", "Healthcare", "E-Commerce", "Corporate",
-];
-const FILTERS_EN = [
-  "All Projects", "Web Development", "Web Design", "UX/UI", "SEO",
-  "Restaurants", "Hotels", "Veterinary", "Pet Business",
-  "Beauty", "Healthcare", "E-Commerce", "Corporate",
-];
-
-const Mockup = ({ p, className = "" }: { p: Project; className?: string }) => (
   <div className={`showcase-mockup rounded-[1.75rem] overflow-hidden ${className}`}>
     <ProjectImage
       project={p}
@@ -106,19 +94,6 @@ const ProjectScene = ({ p, index, caseHref, t, lang }: {
 
 const Projekte = () => {
   const { lang, path } = useLang();
-  const [filter, setFilter] = useState<string>(lang === "en" ? "All Projects" : "Alle Projekte");
-  const filters = lang === "en" ? FILTERS_EN : FILTERS_DE;
-  const allLabel = filters[0];
-
-  const filtered = useMemo(() => {
-    return projects.filter(
-      (p) =>
-        filter === allLabel ||
-        p.serviceTags.includes(filter) ||
-        p.categoryTags.includes(filter),
-    );
-  }, [filter, allLabel]);
-
   const caseBase = lang === "en" ? "/en/projects/" : "/projekte/";
 
   const t = pick(lang,
