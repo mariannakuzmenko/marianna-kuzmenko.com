@@ -54,11 +54,11 @@ const portraitLaptop = { url: portraitLaptopSrc };
 const editorialPortrait = { url: portraitWindowSrc };
 const closePortrait = { url: portraitPampasSrc };
 const dentalluxMockup = { url: dentalluxImg };
-const holzwerkMockup = { url: raumformImg };
+const raumformMockup = { url: raumformImg };
 const therapistMockup = { url: atelierNovaImg };
-const hartmannMockup = { url: neinStudioImg };
-const autowerkMockup = { url: liorImg };
-const muellerSohnMockup = { url: fourElementsImg };
+const neinStudioMockup = { url: neinStudioImg };
+const liorMockup = { url: liorImg };
+const fourElementsMockup = { url: fourElementsImg };
 const nuernbergGuideMockup = { url: pfotenhausImg };
 const creditpathMockup = { url: lushBloomImg };
 
@@ -157,9 +157,9 @@ const Index = () => {
           desc: "Ruhige Premium-Ästhetik, medizinisches Vertrauen und klare Terminführung.",
         },
         {
-          name: "Holzwerk Nürnberg",
-          category: "Interior & Handwerk · Nürnberg",
-          desc: "Editorialer Markenauftritt für hochwertige Innenausbau-Projekte.",
+          name: "Raumform",
+          category: "Innenarchitektur · Editorial",
+          desc: "Großformatige Raumbilder, ruhige Navigation und ein Auftritt, der Materialität in den Vordergrund stellt.",
         },
         {
           name: "Dr. Sarah Mitchell",
@@ -167,19 +167,19 @@ const Index = () => {
           desc: "Sanfte Conversion, Wärme und professionelle Ruhe in einem digitalen Raum.",
         },
         {
-          name: "Erb. Hartmann",
-          category: "Kanzlei · Nürnberg",
-          desc: "Dunkle Luxusästhetik mit präziser Typografie und diskreter Autorität.",
+          name: "Nein Studio",
+          category: "Anti-Agentur · Editorial",
+          desc: "Editorial-Website mit markanter Typografie, Ladesequenz und klarer Haltung statt Standard-Agenturlayout.",
         },
         {
-          name: "AUTOWERK",
-          category: "Automotive · Nürnberg",
-          desc: "Technische Klarheit, starke Kontraste und performante Markenpräsenz.",
+          name: "Lior Friseur",
+          category: "Salon · Cinematic Dark",
+          desc: "Cinematische Bildsprache und lokale SEO-Struktur für einen Premium-Friseursalon.",
         },
         {
-          name: "Müller & Sohn",
-          category: "Handwerk · Berlin",
-          desc: "Vertrauen, Kompetenz und Angebotsfokus für einen modernen Handwerksbetrieb.",
+          name: "Four Elements",
+          category: "Asiatisches Restaurant · Cinematic",
+          desc: "Immersive Bildwelt, kapitelartige Menüpräsentation und besondere Atmosphäre.",
         },
       ],
       allProjects: "Alle Projekte ansehen",
@@ -332,9 +332,9 @@ const Index = () => {
           desc: "Premium calm, medical trust and clear booking direction.",
         },
         {
-          name: "Holzwerk Nürnberg",
-          category: "Interior Craft · Nuremberg",
-          desc: "An editorial identity for a high-end craft business.",
+          name: "Raumform",
+          category: "Interior Design · Editorial",
+          desc: "Large-format spatial imagery, calm navigation and a presentation that foregrounds materiality.",
         },
         {
           name: "Dr. Sarah Mitchell",
@@ -342,19 +342,19 @@ const Index = () => {
           desc: "Warmth, reassurance and soft conversion in a quiet digital space.",
         },
         {
-          name: "Erb. Hartmann",
-          category: "Law Firm · Nuremberg",
-          desc: "Dark luxury styling with typographic restraint and authority.",
+          name: "Nein Studio",
+          category: "Anti-Agency · Editorial",
+          desc: "Editorial website with bold typography, a scripted loading sequence and a clear point of view.",
         },
         {
-          name: "AUTOWERK",
-          category: "Automotive · Nuremberg",
-          desc: "Sharp contrast, technical clarity and a high-performance brand presence.",
+          name: "Lior Friseur",
+          category: "Salon · Cinematic Dark",
+          desc: "Cinematic imagery and a local SEO structure for a premium hair salon.",
         },
         {
-          name: "Müller & Sohn",
-          category: "Craft Business · Berlin",
-          desc: "A clear, trustworthy site built to support inquiries.",
+          name: "Four Elements",
+          category: "Asian Restaurant · Cinematic",
+          desc: "Immersive visuals, chapter-like menu presentation and a distinctive atmosphere.",
         },
       ],
       allProjects: "View all projects",
@@ -430,17 +430,17 @@ const Index = () => {
   const whyIcons = [BadgeCheck, Building2, Globe2];
   const heroScreens = [
     dentalluxMockup.url,
-    holzwerkMockup.url,
+    raumformMockup.url,
     therapistMockup.url,
-    hartmannMockup.url,
+    neinStudioMockup.url,
   ];
   const projectImages = [
     dentalluxMockup.url,
-    holzwerkMockup.url,
+    raumformMockup.url,
     therapistMockup.url,
-    hartmannMockup.url,
-    autowerkMockup.url,
-    muellerSohnMockup.url,
+    neinStudioMockup.url,
+    liorMockup.url,
+    fourElementsMockup.url,
   ];
 
   return (
@@ -598,7 +598,7 @@ const Index = () => {
                 </div>
                 <div className="col-span-12 md:col-span-4 md:-ml-8 md:pt-16">
                   <div className="frame-soft aspect-[4/5] bg-card shadow-[0_30px_60px_-30px_hsl(211_50%_30%_/_0.45)]">
-                    <img src={holzwerkMockup.url} alt={t.projectItems[1].name} loading="lazy" />
+                    <img src={raumformMockup.url} alt={t.projectItems[1].name} loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -618,7 +618,7 @@ const Index = () => {
                 <img src={therapistMockup.url} alt={t.projectItems[2].name} loading="lazy" className="rounded-[1.25rem]" />
               </div>
               <div className="frame-soft aspect-[4/5] glass-card p-2 mt-8">
-                <img src={hartmannMockup.url} alt={t.projectItems[3].name} loading="lazy" className="rounded-[1.25rem]" />
+                <img src={neinStudioMockup.url} alt={t.projectItems[3].name} loading="lazy" className="rounded-[1.25rem]" />
               </div>
             </div>
           </div>
