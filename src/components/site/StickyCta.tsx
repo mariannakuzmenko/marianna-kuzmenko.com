@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, CircleDot } from "lucide-react";
 import { useLang, pick } from "@/i18n/LanguageContext";
-import { whatsappLink, WHATSAPP_DEFAULT_MESSAGE_DE, WHATSAPP_DEFAULT_MESSAGE_EN } from "@/data/contact";
 
 export const StickyCta = () => {
   const { lang, path } = useLang();

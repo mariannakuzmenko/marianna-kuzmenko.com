@@ -9,6 +9,7 @@ import { ConsentProvider } from "@/consent/ConsentContext";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
 import { CookieBanner } from "@/components/site/CookieBanner";
 import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
+import { FloatingActions } from "@/components/site/FloatingActions";
 import Index from "./pages/Index.tsx";
 import UeberMich from "./pages/UeberMich.tsx";
 import Webentwicklung from "./pages/Webentwicklung.tsx";
@@ -94,6 +95,7 @@ const App = () => (
               <ScrollToTop />
               <GoogleAnalytics />
               <AppRoutes />
+              <FloatingActions />
               <CookieBanner />
             </ConsentProvider>
           </LanguageProvider>
