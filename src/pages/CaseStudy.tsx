@@ -7,7 +7,7 @@ import {
   Target, Search, Palette, Code2, LineChart, Smartphone,
   Quote, X, CircleDot,
 } from "lucide-react";
-import { getProject, getRelated, getNeighbors, projects } from "@/data/projects";
+import { getProject, getRelated, getNeighbors } from "@/data/projects";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
 const CaseStudy = () => {
@@ -75,33 +75,38 @@ const CaseStudy = () => {
         pathEn={`${ROUTES.work.en}/${project.slug}`}
       />
 
-      {/* HERO */}
-      <section className={`container-editorial pt-10 md:pt-14 pb-10 relative mood-${project.mood}`}>
-        <div className="blob blob-pink animate-float-slow" style={{ width: 380, height: 380, top: "-100px", right: "-60px" }} />
+      {/* 01 — PROJECT HERO */}
+      <section className="case-study-hero container-editorial">
         <Link to={workBase} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8">
           <ArrowLeft size={14} /> {t.back}
         </Link>
-        <p className="case-meta mb-3">{project.year} · {project.category}</p>
-        <h1 className="display-xl leading-[0.95]">{project.name}</h1>
-        <p className="text-xl md:text-2xl font-display italic mt-6 max-w-3xl opacity-90">{c.intro}</p>
-
-        <div className="mt-12 showcase-mockup rounded-[2rem] overflow-hidden">
-          <img src={project.image} alt={project.name} className="w-full h-auto" />
-        </div>
-
-        <div className="flex flex-wrap gap-3 mt-8">
-          {project.liveUrl ? (
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="glow-btn">
-              {t.visit} <ExternalLink size={14} />
-            </a>
-          ) : (
-            <span className="glow-btn opacity-60 cursor-not-allowed" aria-disabled>{t.visit} <ExternalLink size={14} /></span>
-          )}
-          <Link to={path("inquiry")} className="btn-ghost-soft">{t.ctaPrimary} <ArrowRight size={14} /></Link>
+        <div className="grid lg:grid-cols-12 gap-9 lg:gap-14 items-center">
+          <div className="lg:col-span-5">
+            <p className="case-meta text-rose mb-4">01 — {project.category}</p>
+            <h1 className="case-study-title">{project.name}</h1>
+            <p className="text-xl md:text-2xl font-display italic mt-5 text-foreground/90">{c.intro}</p>
+            <dl className="grid grid-cols-2 gap-5 mt-7 pt-6 border-t border-border">
+              <div><dt className="case-step-label">{t.sec.overview}</dt><dd className="text-sm">{project.serviceTags.join(" · ")}</dd></div>
+              <div><dt className="case-step-label">{t.sec.tech}</dt><dd className="text-sm">{project.year} · {project.tech.slice(0, 2).join(" · ")}</dd></div>
+            </dl>
+            <div className="flex flex-wrap gap-3 mt-8">
+              {project.liveUrl && (
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-cta">
+                  {t.visit} <ExternalLink size={14} />
+                </a>
+              )}
+              <Link to={path("briefing")} className="btn-ghost-soft">{t.ctaPrimary} <ArrowRight size={14} /></Link>
+            </div>
+          </div>
+          <div className="lg:col-span-7">
+            <div className={`case-study-visual case-study-visual-${project.imageSize ?? "medium"}`}>
+              <img src={project.image} alt={project.altText} className="w-full h-full object-contain" />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* CHAPTERS */}
+      {/* 02–07 — CASE STUDY */}
       <section className="container-editorial pb-20 space-y-16 max-w-5xl">
         <Chapter icon={<Target size={16} />} label={t.sec.overview}>{c.overview}</Chapter>
         <Chapter icon={<CircleDot size={16} />} label={t.sec.client}>{c.client}</Chapter>
@@ -149,13 +154,13 @@ const CaseStudy = () => {
             <button
               key={i}
               onClick={() => setLightbox(src)}
-              className={`showcase-mockup rounded-2xl overflow-hidden group ${
+              className={`showcase-mockup rounded-2xl overflow-hidden group bg-card/60 p-3 ${
                 i % 3 === 0 ? "col-span-12" : "col-span-6"
               }`}
             >
               <img
                 src={src} alt={`${project.name} ${i + 1}`} loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </button>
           ))}
@@ -181,7 +186,7 @@ const CaseStudy = () => {
               return (
                 <Link to={`${caseBase}${r.slug}`} key={r.slug} className={`card-soft overflow-hidden group mood-${r.mood} block`}>
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img src={r.image} alt={r.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={r.image} alt={r.name} loading="lazy" className="w-full h-full object-contain p-3 transition-transform duration-700 group-hover:scale-[1.02]" />
                   </div>
                   <div className="p-6">
                     <p className="case-meta mb-1">{r.category}</p>
