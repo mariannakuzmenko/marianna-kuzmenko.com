@@ -328,7 +328,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "SEO", "Web Development"],
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Webdesign", "Local SEO", "Branding"],
-    image: liorFriseur, gallery: [liorFriseur], mood: "luxury", device: "phone", layout: "right", imageSize: "small",
+    image: liorFriseur, gallery: [liorFriseur], mood: "luxury", device: "phone", layout: "right", imageSize: "medium",
     altText: "Webdesign für einen Premium-Friseursalon – Lior. Friseur",
     description: {
       de: "Website für einen Premium-Friseursalon mit cinematischer Bildsprache und lokaler SEO-Struktur.",
