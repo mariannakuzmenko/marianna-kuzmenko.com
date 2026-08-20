@@ -1351,11 +1351,9 @@
     bottom: calc(6.25rem + env(safe-area-inset-bottom, 0px));
     transition: bottom 0.35s var(--transition-smooth);
   }
-  .floating-actions.is-raised { bottom: calc(13rem + env(safe-area-inset-bottom, 0px)); }
 
   @media (min-width: 768px) {
     .floating-actions { right: 1.75rem; bottom: 6rem; }
-    .floating-actions.is-raised { bottom: 13.5rem; }
   }
 
   .fab {

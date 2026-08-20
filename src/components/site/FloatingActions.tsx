@@ -28,6 +28,19 @@ export const FloatingActions = () => {
   // Reset state on route change (pages open at top).
   useEffect(() => { setShowTop(false); }, [pathname]);
 
+  // Lift the stack above the cookie banner while it is visible.
+  const [lift, setLift] = useState(0);
+  useEffect(() => {
+    const measure = () => {
+      const el = document.getElementById("cookie-banner");
+      setLift(el ? el.getBoundingClientRect().height + 12 : 0);
+    };
+    measure();
+    const id = window.setTimeout(measure, 120);
+    window.addEventListener("resize", measure);
+    return () => { window.clearTimeout(id); window.removeEventListener("resize", measure); };
+  }, [bannerOpen, settingsOpen, pathname]);
+
   const toTop = () => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.scrollTo({ top: 0, left: 0, behavior: reduce ? "auto" : "smooth" });
@@ -36,7 +49,7 @@ export const FloatingActions = () => {
   const label = lang === "en" ? "Back to top" : "Nach oben";
 
   return (
-    <div className={`floating-actions${bannerOpen || settingsOpen ? " is-raised" : ""}`}>
+    <div className="floating-actions" style={lift ? { marginBottom: lift } : undefined}>
       <button
         type="button"
         onClick={toTop}

@@ -51,7 +51,7 @@ export const CookieBanner = () => {
     <>
       {/* BANNER */}
       {bannerOpen && !settingsOpen && (
-        <div className="fixed inset-x-0 bottom-0 z-[100] p-3 md:p-6 pointer-events-none">
+        <div id="cookie-banner" className="fixed inset-x-0 bottom-0 z-[100] p-3 md:p-6 pointer-events-none">
           <div className="pointer-events-auto max-w-4xl mx-auto rounded-2xl border border-border bg-background/95 backdrop-blur-xl shadow-2xl p-5 md:p-7">
             <div className="flex items-start gap-4">
               <div className="hidden sm:flex w-11 h-11 rounded-2xl bg-rose-soft items-center justify-center shrink-0">
