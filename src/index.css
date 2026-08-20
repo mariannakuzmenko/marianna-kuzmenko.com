@@ -764,6 +764,155 @@
   }
   .glow-btn:hover { box-shadow: 0 0 0 3px hsl(var(--berry) / 0.25), 0 18px 40px -10px hsl(var(--berry) / 0.7); transform: translateY(-2px); }
 
+  /* ========== Editorial portfolio — Projects + case studies ========== */
+  .portfolio-hero,
+  .case-study-hero {
+    padding-top: clamp(3rem, 6vw, 5.5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    font-family: 'Karla', sans-serif;
+  }
+  .portfolio-title,
+  .case-study-title,
+  .portfolio-hero .font-display,
+  .portfolio-project .font-display,
+  .portfolio-final-cta .font-display,
+  .case-study-hero .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 0;
+  }
+  .portfolio-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3rem, 5.4vw, 5.4rem);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: 0;
+  }
+  .portfolio-title em { color: hsl(var(--rose-hover)); font-weight: 400; }
+  .portfolio-hero-visual {
+    position: relative;
+    min-height: clamp(19rem, 45vw, 34rem);
+    padding: clamp(1rem, 2.5vw, 2.25rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, hsl(var(--paper) / 0.88), hsl(var(--secondary) / 0.58));
+    border: 1px solid hsl(0 0% 100% / 0.75);
+    box-shadow: var(--shadow-card);
+  }
+  .portfolio-hero-visual img { object-fit: contain; filter: drop-shadow(0 24px 34px hsl(var(--foreground) / 0.16)); }
+  .portfolio-hero-caption {
+    position: absolute;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font: 500 0.65rem/1 'Karla', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: hsl(var(--foreground) / 0.72);
+  }
+  .portfolio-intro {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.65fr) minmax(16rem, 1.1fr) minmax(18rem, 1.4fr);
+    gap: 2rem;
+    align-items: start;
+    padding-block: 2rem;
+    border-top: 1px solid hsl(var(--border));
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  .portfolio-list { display: grid; gap: clamp(5rem, 10vw, 9rem); }
+  .portfolio-project-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(17rem, 0.8fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+  }
+  .portfolio-project-reverse { grid-template-columns: minmax(17rem, 0.8fr) minmax(0, 1.65fr); }
+  .portfolio-project-reverse .portfolio-visual { order: 2; }
+  .portfolio-project-reverse .portfolio-copy { order: 1; }
+  .portfolio-copy { max-width: 25rem; }
+  .portfolio-visual {
+    width: 100%;
+    min-height: 22rem;
+    max-height: 42rem;
+    padding: clamp(1rem, 2.5vw, 2.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: hsl(var(--paper) / 0.68);
+    border: 1px solid hsl(0 0% 100% / 0.7);
+    box-shadow: 0 26px 64px -36px hsl(var(--foreground) / 0.28);
+  }
+  .portfolio-visual img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .portfolio-visual-small { height: clamp(26rem, 48vw, 39rem); padding-inline: clamp(3rem, 9vw, 8rem); }
+  .portfolio-visual-medium { height: clamp(23rem, 42vw, 35rem); }
+  .portfolio-visual-large { height: clamp(24rem, 46vw, 38rem); padding: clamp(0.75rem, 1.8vw, 1.5rem); }
+  .portfolio-visual-featured { height: clamp(27rem, 50vw, 42rem); }
+  .portfolio-final-cta {
+    padding: clamp(3rem, 7vw, 6rem) 1.5rem;
+    text-align: center;
+    border-top: 1px solid hsl(var(--border));
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  .case-study-title {
+    font-size: clamp(3.25rem, 6vw, 6.25rem);
+    font-weight: 500;
+    line-height: 0.9;
+  }
+  .case-study-visual {
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: clamp(1rem, 2.5vw, 2.25rem);
+    border-radius: 0.5rem;
+    background: hsl(var(--paper) / 0.72);
+    border: 1px solid hsl(0 0% 100% / 0.74);
+    box-shadow: 0 30px 70px -40px hsl(var(--foreground) / 0.3);
+  }
+  .case-study-visual-small { width: min(100%, 42rem); height: clamp(25rem, 48vw, 38rem); padding-inline: clamp(3rem, 8vw, 7rem); }
+  .case-study-visual-medium { width: min(100%, 59rem); min-height: clamp(20rem, 36vw, 32rem); }
+  .case-study-visual-large { width: min(100%, 68rem); min-height: clamp(21rem, 40vw, 35rem); padding: clamp(0.75rem, 1.5vw, 1.25rem); }
+  .case-study-visual-featured { width: min(100%, 65rem); min-height: clamp(23rem, 43vw, 37rem); }
+
+  @media (max-width: 1023px) {
+    .portfolio-intro { grid-template-columns: 1fr 2fr; }
+    .portfolio-intro > :last-child { grid-column: 2; }
+    .portfolio-project-grid,
+    .portfolio-project-reverse { grid-template-columns: 1fr; gap: 2rem; }
+    .portfolio-project-reverse .portfolio-visual,
+    .portfolio-project-reverse .portfolio-copy { order: initial; }
+    .portfolio-copy { max-width: 38rem; }
+  }
+  @media (max-width: 639px) {
+    .portfolio-hero,
+    .case-study-hero { padding-top: 2.25rem; padding-bottom: 3rem; }
+    .portfolio-title { font-size: clamp(2.75rem, 13vw, 4rem); }
+    .portfolio-hero-visual { min-height: 16rem; padding: 0.8rem 0.8rem 2.2rem; }
+    .portfolio-intro { grid-template-columns: 1fr; gap: 1rem; padding-block: 1.5rem; }
+    .portfolio-intro > :last-child { grid-column: auto; }
+    .portfolio-list { gap: 4.5rem; }
+    .portfolio-visual,
+    .portfolio-visual-small,
+    .portfolio-visual-medium,
+    .portfolio-visual-large,
+    .portfolio-visual-featured { height: auto; min-height: 15rem; max-height: none; padding: 0.75rem; }
+    .portfolio-visual-small { padding-inline: 2.5rem; }
+    .case-study-title { font-size: clamp(3rem, 15vw, 4.25rem); }
+    .case-study-visual,
+    .case-study-visual-small,
+    .case-study-visual-medium,
+    .case-study-visual-large,
+    .case-study-visual-featured { width: 100%; height: auto; min-height: 15rem; padding: 0.75rem; }
+  }
+
   .floating-tag {
     @apply absolute font-mono text-[10px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full backdrop-blur-md;
     background: hsl(0 0% 100% / 0.7);
