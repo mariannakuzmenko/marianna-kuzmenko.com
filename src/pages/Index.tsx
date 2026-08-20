@@ -337,8 +337,8 @@ const Index = () => {
           desc: "Large-format spatial imagery, calm navigation and a presentation that foregrounds materiality.",
         },
         {
-          name: "Dr. Sarah Mitchell",
-          category: "Therapy Practice · International",
+          name: "Atelier Nova",
+          category: "Architektur · International",
           desc: "Warmth, reassurance and soft conversion in a quiet digital space.",
         },
         {
