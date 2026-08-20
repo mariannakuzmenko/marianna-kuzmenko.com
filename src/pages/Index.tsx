@@ -598,7 +598,7 @@ const Index = () => {
                 </div>
                 <div className="col-span-12 md:col-span-4 md:-ml-8 md:pt-16">
                   <div className="frame-soft aspect-[4/5] bg-card shadow-[0_30px_60px_-30px_hsl(211_50%_30%_/_0.45)]">
-                    <img src={holzwerkMockup.url} alt={t.projectItems[1].name} loading="lazy" />
+                    <img src={raumformMockup.url} alt={t.projectItems[1].name} loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -618,7 +618,7 @@ const Index = () => {
                 <img src={therapistMockup.url} alt={t.projectItems[2].name} loading="lazy" className="rounded-[1.25rem]" />
               </div>
               <div className="frame-soft aspect-[4/5] glass-card p-2 mt-8">
-                <img src={hartmannMockup.url} alt={t.projectItems[3].name} loading="lazy" className="rounded-[1.25rem]" />
+                <img src={neinStudioMockup.url} alt={t.projectItems[3].name} loading="lazy" className="rounded-[1.25rem]" />
               </div>
             </div>
           </div>
