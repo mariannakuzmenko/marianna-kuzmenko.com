@@ -43,8 +43,7 @@ import {
 } from "lucide-react";
 import portraitWindow from "@/assets/portraits/marianna-portrait-window.jpeg";
 import portraitPampas from "@/assets/portraits/marianna-portrait-pampas.jpeg";
-import studioChairAsset from "@/assets/portraits/marianna-studio-chair.jpeg.asset.json";
-const portraitStudio = studioChairAsset.url;
+import portraitStudio from "@/assets/portraits/marianna-studio-chair.jpeg";
 import portraitSuit from "@/assets/portraits/marianna-portrait-suit.jpeg";
 import portraitLaptop from "@/assets/portraits/marianna-laptop-coffee.jpeg";
 import workspace from "@/assets/workspace.jpg";

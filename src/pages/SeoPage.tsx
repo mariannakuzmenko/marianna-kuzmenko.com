@@ -34,9 +34,8 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { CONTACT, mailtoLink } from "@/data/contact";
 import seoMockupA from "@/assets/projects/dentallux.png";
 import seoMockupB from "@/assets/projects/creditpath.png";
-import officeDeskAsset from "@/assets/portraits/marianna-office-desk.jpeg.asset.json";
+import officeDesk from "@/assets/portraits/marianna-office-desk.jpeg";
 
-const officeDesk = officeDeskAsset.url;
 
 const SeoPage = () => {
   const { lang, path } = useLang();
