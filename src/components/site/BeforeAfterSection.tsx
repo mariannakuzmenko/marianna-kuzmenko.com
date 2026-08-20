@@ -55,8 +55,8 @@ export const BeforeAfterSection = () => {
           <BeforeAfter
             beforeSrc={beforeImg}
             afterSrc={afterImg}
-            beforeAlt={lang === "de" ? "Vorher — generische Website" : "Before — generic website"}
-            afterAlt={lang === "de" ? "Nachher — Premium Redesign" : "After — premium redesign"}
+            beforeAlt={lang === "de" ? "Vorher — alte Website des KFZ-Sachverständigen Paul Haas" : "Before — old website of car appraiser Paul Haas"}
+            afterAlt={lang === "de" ? "Nachher — neues Premium-Redesign für Paul Haas KFZ-Sachverständiger" : "After — new premium redesign for Paul Haas car appraiser"}
           />
         </div>
         <div className="col-span-12 lg:col-span-4 grid grid-cols-2 gap-4 reveal" style={{ transitionDelay: "120ms" }}>
