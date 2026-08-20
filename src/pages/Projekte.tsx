@@ -1,196 +1,139 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
-import { projects, Project } from "@/data/projects";
 import { ProjectImage } from "@/components/site/ProjectImage";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { projects, Project } from "@/data/projects";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
+import { ArrowDown, ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const Mockup = ({ p, className = "" }: { p: Project; className?: string }) => (
-  <div className={`showcase-mockup rounded-[1.75rem] overflow-hidden ${className}`}>
+const ProjectVisual = ({ project, eager = false }: { project: Project; eager?: boolean }) => (
+  <div className={`portfolio-visual portfolio-visual-${project.imageSize ?? "medium"}`}>
     <ProjectImage
-      project={p}
-      imgClassName="transition-transform duration-700 group-hover:scale-[1.03]"
+      project={project}
+      loading={eager ? "eager" : "lazy"}
       className="w-full h-full"
+      imgClassName="transition-transform duration-700 group-hover:scale-[1.015]"
     />
   </div>
 );
 
-const ProjectScene = ({ p, index, caseHref, t, lang }: {
-  p: Project; index: number; caseHref: string; lang: "de" | "en";
-  t: { visit: string; discover: string; services: string; tech: string; year: string };
+const ProjectInfo = ({ project, number, caseHref, lang }: {
+  project: Project; number: number; caseHref: string; lang: "de" | "en";
 }) => {
-  const isLeft = p.layout === "left" || p.layout === "floating";
-  const isFull = p.layout === "full";
-  const isSplit = p.layout === "split";
-  const content = pick(lang, p.de, p.en);
-
-  const Info = (
-    <div>
-      <p className="case-meta mb-3">
-        {p.serviceTags.join(" · ")} · {p.year}
-      </p>
-      <h2 className="font-display leading-[0.95] mb-4" style={{ fontSize: "clamp(2rem, 4.4vw, 3.4rem)", letterSpacing: "-0.02em" }}>
-        {p.name}
-      </h2>
-      <p className="text-lg md:text-xl font-display italic leading-snug mb-5 text-foreground/90">
-        {content.intro}
-      </p>
-      <p className="text-muted-foreground leading-relaxed mb-6">
-        {pick(lang, p.description.de, p.description.en)}
-      </p>
-
-      <dl className="grid grid-cols-2 gap-4 mb-6 text-sm">
-        <div>
-          <dt className="case-step-label mb-1">{t.services}</dt>
-          <dd className="text-foreground/80">{p.serviceTags.join(", ")}</dd>
-        </div>
-        <div>
-          <dt className="case-step-label mb-1">{t.tech}</dt>
-          <dd className="text-foreground/80">{p.tech.slice(0, 3).join(", ")}</dd>
-        </div>
-      </dl>
-
+  const content = pick(lang, project.de, project.en);
+  return (
+    <div className="portfolio-copy">
+      <p className="case-meta mb-3">{String(number).padStart(2, "0")} — {project.category}</p>
+      <h2 className="font-display text-4xl md:text-5xl leading-none mb-5">{project.name}</h2>
+      <p className="font-display italic text-xl leading-snug text-foreground/90 mb-4">{content.intro}</p>
+      <p className="text-muted-foreground leading-relaxed mb-7">{pick(lang, project.description.de, project.description.en)}</p>
       <div className="flex flex-wrap gap-3">
-        {p.liveUrl && (
-          <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-cta">
-            {t.visit} <ExternalLink size={14} />
+        <Link to={caseHref} className="btn-cta">
+          {pick(lang, "Projekt entdecken", "Discover project")} <ArrowRight size={15} />
+        </Link>
+        {project.liveUrl && (
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost-soft">
+            {pick(lang, "Website besuchen", "Visit website")} <ExternalLink size={14} />
           </a>
         )}
-        <Link to={caseHref} className="btn-ghost-soft">
-          {t.discover} <ArrowRight size={14} />
-        </Link>
       </div>
     </div>
   );
-
-  return (
-    <article className={`showcase-scene mood-${p.mood} scene-fade group`}>
-      {isFull ? (
-        <div className="space-y-10">
-          <Mockup p={p} className="tilt-right" />
-          <div className="grid grid-cols-12 gap-8">
-            <div className="col-span-12 md:col-span-8 md:col-start-3">{Info}</div>
-          </div>
-        </div>
-      ) : isSplit ? (
-        <div className="grid grid-cols-12 gap-8 md:gap-10 items-stretch">
-          <div className="col-span-12 md:col-span-5"><Mockup p={p} className="tilt-left h-full" /></div>
-          <div className="col-span-12 md:col-span-7 flex items-center">{Info}</div>
-        </div>
-      ) : (
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
-          <div className={`col-span-12 md:col-span-6 ${isLeft ? "" : "md:order-2"}`}>
-            <Mockup p={p} className={isLeft ? "tilt-left" : "tilt-right"} />
-          </div>
-          <div className={`col-span-12 md:col-span-6 ${isLeft ? "" : "md:order-1"}`}>{Info}</div>
-        </div>
-      )}
-    </article>
-  );
 };
-
 
 const Projekte = () => {
   const { lang, path } = useLang();
   const caseBase = lang === "en" ? "/en/projects/" : "/projekte/";
+  const heroProject = projects.find((project) => project.slug === "lush-bloom") ?? projects[0];
 
-  const t = pick(lang,
-    {
-      seoTitle: "Projekte — Selected Work · Marianna Kuzmenko",
-      seoDesc: "Ausgewählte Webdesign- und Webentwicklungs-Projekte. Individuelle Websites mit Fokus auf UX, Performance, SEO und Business-Wachstum.",
-      eye: "05 — Selected Projects",
-      h1A: "Selected", h1B: "Projects.",
-      lead: "Jede Website ist individuell designt — mit Fokus auf User Experience, Performance, SEO und messbares Business-Wachstum. Keine Templates. Kein Standard. Nur Arbeit, die für ihre Marke gemacht ist.",
-      empty: "Keine Projekte gefunden — probier einen anderen Filter.",
-      services: "Leistungen", tech: "Technologie", year: "Jahr",
-      visit: "Website besuchen", discover: "Projekt entdecken",
-      ctaEye: "Nächstes Kapitel",
-      ctaA: "Soll deins", ctaB: "das nächste sein?",
-      ctaLead: "Eine Website, die wirkt wie deine Handschrift — und arbeitet wie ein gutes Team.",
-      bWeb: "Webentwicklung", bSeo: "SEO Optimierung", bStart: "Projekt starten",
-    },
-    {
-      seoTitle: "Selected Work — Portfolio · Marianna Kuzmenko",
-      seoDesc: "Selected web design and development projects. Individually crafted websites focused on UX, performance, SEO and business growth.",
-      eye: "05 — Selected Projects",
-      h1A: "Selected", h1B: "Projects.",
-      lead: "Every website is individually designed — with focus on user experience, performance, SEO and measurable business growth. No templates. No defaults. Just work made for its brand.",
-      empty: "No projects match — try a different filter.",
-      services: "Services", tech: "Technology", year: "Year",
-      visit: "Visit website", discover: "Discover project",
-      ctaEye: "Next chapter",
-      ctaA: "Should yours", ctaB: "be the next?",
-      ctaLead: "A website that looks like your handwriting — and works like a good team.",
-      bWeb: "Web Development", bSeo: "SEO Optimization", bStart: "Start a project",
-    }
-  );
+  const t = pick(lang, {
+    seoTitle: "Webdesign Projekte & Case Studies | Marianna Kuzmenko",
+    seoDesc: "Ausgewählte Webdesign-, UX/UI- und SEO-Projekte von Marianna Kuzmenko. Individuelle Websites für Unternehmen und Marken.",
+    eyebrow: "Selected Work",
+    headingA: "Websites, die Unternehmen",
+    headingB: "sichtbar machen.",
+    lead: "Eine Auswahl meiner Projekte — von strategischem Webdesign und UX/UI bis zur technischen Umsetzung und SEO.",
+    explore: "Meine Projekte entdecken",
+    introTitle: "Aus Ideen werden digitale Erlebnisse.",
+    intro: "Jedes Projekt beginnt mit einer individuellen Idee. Ich verbinde Strategie, Design, Nutzererfahrung, Entwicklung und SEO, um Websites zu entwickeln, die nicht nur gut aussehen, sondern Unternehmen sichtbar machen.",
+    ctaEye: "Ihr Projekt · Ihr nächstes Kapitel",
+    ctaTitle: "Bereit für einen Auftritt, der im Gedächtnis bleibt?",
+    ctaText: "Erzählen Sie mir von Ihrem Unternehmen und Ihren Zielen. Gemeinsam entwickeln wir eine Website, die zu Ihnen passt und für Sie arbeitet.",
+    cta: "Projekt anfragen",
+  }, {
+    seoTitle: "Web Design Projects & Case Studies | Marianna Kuzmenko",
+    seoDesc: "Selected web design, UX/UI and SEO projects by Marianna Kuzmenko. Individually crafted websites for businesses and brands.",
+    eyebrow: "Selected Work",
+    headingA: "Websites designed to make",
+    headingB: "businesses stand out.",
+    lead: "A selection of projects — from strategic web design and UX/UI to development and SEO.",
+    explore: "Explore my projects",
+    introTitle: "Ideas become digital experiences.",
+    intro: "Every project begins with an individual idea. I combine strategy, design, user experience, development and SEO to create websites that look exceptional and make businesses visible.",
+    ctaEye: "Your project · Your next chapter",
+    ctaTitle: "Ready for a presence people remember?",
+    ctaText: "Tell me about your business and goals. Together, we'll create a website that fits you and works for you.",
+    cta: "Start a project",
+  });
 
   return (
     <Layout>
-      <Seo
-        title={t.seoTitle} description={t.seoDesc}
-        path={path("work")} pathDe={ROUTES.work.de} pathEn={ROUTES.work.en}
-      />
+      <Seo title={t.seoTitle} description={t.seoDesc} path={path("work")} pathDe={ROUTES.work.de} pathEn={ROUTES.work.en} />
 
-      {/* HERO */}
-      <section className="container-editorial pt-12 md:pt-20 pb-12 relative">
-        <div className="blob blob-pink animate-float-slow" style={{ width: 420, height: 420, top: "-80px", right: "-80px" }} />
-        <p className="eyebrow mb-6 relative">{t.eye}</p>
-        <h1 className="display-xl relative">
-          {t.h1A} <span className="italic text-rose">{t.h1B}</span>
-        </h1>
-        <div className="grid grid-cols-12 gap-6 mt-8 relative">
-          <div className="col-span-12 md:col-span-7">
-            <p className="text-xl md:text-2xl font-display leading-relaxed text-muted-foreground">
-              {t.lead}
-            </p>
+      <section className="portfolio-hero container-editorial">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="lg:col-span-5">
+            <p className="eyebrow text-rose mb-5">{t.eyebrow}</p>
+            <h1 className="portfolio-title mb-6">
+              {t.headingA}<br /><em>{t.headingB}</em>
+            </h1>
+            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground max-w-xl mb-8">{t.lead}</p>
+            <a href="#selected-projects" className="btn-cta">{t.explore} <ArrowDown size={16} /></a>
           </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 hidden md:block">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="showcase-mockup rounded-2xl overflow-hidden tilt-left">
-                <ProjectImage project={projects[2]} className="w-full h-full" />
-              </div>
-              <div className="showcase-mockup rounded-2xl overflow-hidden tilt-right mt-8">
-                <ProjectImage project={projects[4]} className="w-full h-full" />
+          <div className="lg:col-span-7 group">
+            <div className="portfolio-hero-visual">
+              <ProjectImage project={heroProject} loading="eager" className="w-full h-full" />
+              <div className="portfolio-hero-caption">
+                <span>{heroProject.name}</span><span>{heroProject.year}</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container-editorial pb-28 space-y-16 md:space-y-24">
-        {projects.map((p, i) => (
-          <div key={p.slug} className="animate-fade-in">
-            <ProjectScene
-              p={p} index={i} lang={lang}
-              caseHref={`${caseBase}${p.slug}`}
-              t={{ visit: t.visit, discover: t.discover, services: t.services, tech: t.tech, year: t.year }}
-            />
-          </div>
-        ))}
+      <section className="container-editorial py-12 md:py-16">
+        <div className="portfolio-intro">
+          <p className="case-meta">01 — Approach</p>
+          <h2 className="font-display text-3xl md:text-5xl leading-tight">{t.introTitle}</h2>
+          <p className="text-muted-foreground leading-relaxed max-w-2xl">{t.intro}</p>
+        </div>
       </section>
 
-      {/* CTA */}
-      <section className="container-editorial pb-28">
-        <div className="card-soft p-10 md:p-16 text-center" style={{ background: "var(--gradient-sky)" }}>
-          <p className="eyebrow mb-4 flex items-center justify-center gap-2">
-            <span aria-hidden="true" className="inline-block w-6 h-px bg-rose" /> {t.ctaEye}
-          </p>
-          <h2 className="display-md mb-6">
-            {t.ctaA}<br />
-            <span className="italic text-rose">{t.ctaB}</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto mb-8">{t.ctaLead}</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link to={path("inquiry")} className="btn-cta">{t.bStart} <ArrowUpRight size={16} /></Link>
+      <section id="selected-projects" className="container-editorial pb-20 md:pb-28 scroll-mt-28">
+        <div className="portfolio-list">
+          {projects.map((project, index) => {
+            const reverse = index % 2 === 1;
+            return (
+              <article key={project.slug} className="portfolio-project group">
+                <div className={`portfolio-project-grid ${reverse ? "portfolio-project-reverse" : ""}`}>
+                  <ProjectVisual project={project} eager={index === 0} />
+                  <ProjectInfo project={project} number={index + 1} caseHref={`${caseBase}${project.slug}`} lang={lang} />
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="container-editorial pb-24 md:pb-28">
+        <div className="portfolio-final-cta">
+          <p className="eyebrow text-rose mb-4">{t.ctaEye}</p>
+          <h2 className="font-display text-4xl md:text-6xl leading-none max-w-3xl mx-auto mb-6">{t.ctaTitle}</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto mb-8">{t.ctaText}</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to={path("briefing")} className="btn-cta">{t.cta} <ArrowUpRight size={16} /></Link>
             <WhatsAppButton lang={lang} />
-            <Link to={path("web")} className="btn-ghost-soft">{t.bWeb} <ArrowRight size={14} /></Link>
-            <Link to={path("seo")} className="btn-ghost-soft">{t.bSeo} <ArrowRight size={14} /></Link>
-            <Link to={path("pricing")} className="btn-ghost-soft">
-              {pick(lang, "Preise ansehen", "See pricing")} <ArrowRight size={14} />
-            </Link>
           </div>
         </div>
       </section>

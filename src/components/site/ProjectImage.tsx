@@ -42,7 +42,7 @@ export const ProjectImage = ({
       alt={project.altText}
       loading={loading}
       decoding="async"
-      className={`w-full h-full object-cover ${imgClassName} ${className}`}
+      className={`w-full h-full object-contain ${imgClassName} ${className}`}
     />
   );
 };

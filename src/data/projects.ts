@@ -28,6 +28,7 @@ export type Mood =
 
 export type Layout = "left" | "right" | "full" | "split" | "floating";
 export type Device = "phone" | "phones" | "laptop-tablet" | "tablet-laptop";
+export type ProjectImageSize = "small" | "medium" | "large" | "featured";
 
 export interface ProjectContent {
   intro: string;
@@ -59,6 +60,8 @@ export interface Project {
   mood: Mood;
   device: Device;
   layout: Layout;
+  /** Controls visual scale without cropping the project's natural composition. */
+  imageSize?: ProjectImageSize;
   /** Live website — opens in a new tab. Easy to update here. */
   liveUrl?: string;
   /** Internal case study slug is derived from `slug`. */
@@ -83,7 +86,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "Web Development", "UX/UI"],
     tech: ["React", "Vite", "Tailwind", "Framer Motion"],
     tags: ["Webdesign", "Brand Voice", "UX Writing"],
-    image: pfotenhaus, gallery: [pfotenhaus], mood: "emotion", device: "phones", layout: "left",
+    image: pfotenhaus, gallery: [pfotenhaus], mood: "emotion", device: "phones", layout: "left", imageSize: "featured",
     altText: "Webdesign für ein Tierhotel in Berlin – Pfotenhaus Berlin",
     description: {
       de: "Website für ein Tierhotel: warme Bildsprache, klare Informationen und ein einfacher Weg zur Kontaktaufnahme für Tierbesitzer.",
@@ -131,7 +134,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI"],
     tech: ["React", "GSAP", "Tailwind"],
     tags: ["Branding", "Typografie", "Webdesign"],
-    image: neinStudio, gallery: [neinStudio], mood: "bold", device: "phone", layout: "right",
+    image: neinStudio, gallery: [neinStudio], mood: "bold", device: "phone", layout: "right", imageSize: "medium",
     altText: "Webdesign für ein Kreativstudio – NEIN / STUDIO",
     description: {
       de: "Editorial-Website für ein Kreativstudio mit markanter Typografie, Ladesequenz und klarer Haltung statt Standard-Agenturlayout.",
@@ -179,7 +182,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI"],
     tech: ["React", "Framer Motion", "Tailwind"],
     tags: ["Editorial", "Animation", "Restaurant Branding"],
-    image: fourElements, gallery: [fourElements], mood: "dark", device: "phone", layout: "left",
+    image: fourElements, gallery: [fourElements], mood: "dark", device: "phone", layout: "left", imageSize: "medium",
     altText: "Webdesign für ein asiatisches Restaurant – Four Elements",
     description: {
       de: "Website für ein asiatisches Restaurant mit besonderer Atmosphäre: immersive Bildwelt, kapitelartige Menüpräsentation, vollständig responsiv.",
@@ -227,7 +230,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI", "SEO"],
     tech: ["Next.js", "Tailwind", "Contentful"],
     tags: ["Webdesign", "Editorial", "Photography"],
-    image: atelierNova, gallery: [atelierNova], mood: "beige", device: "phone", layout: "full",
+    image: atelierNova, gallery: [atelierNova], mood: "beige", device: "phone", layout: "full", imageSize: "medium",
     altText: "Webdesign für ein Architekturbüro – Atelier Nova Tokio",
     description: {
       de: "Editorial-Website für ein Architektur-Atelier: großzügige Projektstrecken, ruhige Typografie und Fokus auf Material und Licht.",
@@ -276,7 +279,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI", "Web Development"],
     tech: ["React", "Vite", "Tailwind", "Cal.com"],
     tags: ["UX/UI", "Conversion", "Pastel Design"],
-    image: lushBloomAsset.url, gallery: [lushBloomAsset.url], mood: "pastel", device: "phone", layout: "split",
+    image: lushBloomAsset.url, gallery: [lushBloomAsset.url], mood: "pastel", device: "phone", layout: "split", imageSize: "large",
     altText: "Webdesign für ein Beauty- und Wellness-Studio – Lush & Bloom",
     description: {
       de: "Website für ein Beauty-Studio mit klarer Leistungsübersicht und einfacher Terminanfrage.",
@@ -323,7 +326,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "SEO", "Web Development"],
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Webdesign", "Local SEO", "Branding"],
-    image: liorFriseur, gallery: [liorFriseur], mood: "luxury", device: "phone", layout: "right",
+    image: liorFriseur, gallery: [liorFriseur], mood: "luxury", device: "phone", layout: "right", imageSize: "small",
     altText: "Webdesign für einen Premium-Friseursalon – Lior. Friseur",
     description: {
       de: "Website für einen Premium-Friseursalon mit cinematischer Bildsprache und lokaler SEO-Struktur.",
@@ -369,7 +372,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI"],
     tech: ["Astro", "Tailwind"],
     tags: ["Editorial Web", "Photography", "Brand"],
-    image: raumform, gallery: [raumform], mood: "warm", device: "phone", layout: "floating",
+    image: raumform, gallery: [raumform], mood: "warm", device: "phone", layout: "floating", imageSize: "small",
     altText: "Webdesign für ein Innenarchitektur-Atelier – Raumform Atelier",
     description: {
       de: "Website für ein Innenarchitektur-Atelier: großformatige Raumbilder, ruhige Navigation und ein Auftritt, der Materialität in den Vordergrund stellt.",
@@ -418,7 +421,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI", "Web Development", "SEO"],
     tech: ["Next.js", "Tailwind", "HubSpot"],
     tags: ["Fintech UX", "Conversion", "Trust Design"],
-    image: creditpath, gallery: [creditpath], mood: "corporate", device: "laptop-tablet", layout: "right",
+    image: creditpath, gallery: [creditpath], mood: "corporate", device: "laptop-tablet", layout: "right", imageSize: "large",
     altText: "Webdesign für eine Finanz- und Kreditberatung – CreditPath",
     description: {
       de: "Website für eine Finanzberatung mit vertrauensbildender Struktur und geführtem Anfrage-Prozess.",
@@ -465,7 +468,7 @@ export const projects: Project[] = [
     serviceTags: ["Web Design", "UX/UI", "SEO"],
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Healthcare UX", "Premium", "Local SEO"],
-    image: dentallux, gallery: [dentallux], mood: "clinic", device: "tablet-laptop", layout: "left",
+    image: dentallux, gallery: [dentallux], mood: "clinic", device: "tablet-laptop", layout: "left", imageSize: "large",
     altText: "Webdesign für eine Zahnarztpraxis in Berlin – DentalLux",
     description: {
       de: "Website für eine Premium-Zahnarztpraxis mit ruhiger Gestaltung und klarer Terminanfrage.",
@@ -512,7 +515,7 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Studio Website", "Kursplan", "Booking UX"],
     image: formaPilates, gallery: [formaPilates],
-    mood: "pastel", device: "phone", layout: "split",
+    mood: "pastel", device: "phone", layout: "split", imageSize: "medium",
     altText: "Webdesign für ein Reformer-Pilates-Studio in Nürnberg – Forma Pilates",
     description: {
       de: "Website für ein Boutique-Reformer-Pilates-Studio in Nürnberg: Kursplan, Kursfinder und ein klarer Weg zur Probestunde.",
@@ -561,7 +564,7 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Café Website", "Menükarte", "Local SEO"],
     image: cafeGruen, gallery: [cafeGruen],
-    mood: "warm", device: "phone", layout: "left",
+    mood: "warm", device: "phone", layout: "left", imageSize: "medium",
     altText: "Webdesign für ein Specialty-Café in Nürnberg – Café GRÜN",
     description: {
       de: "Website für ein modernes Café in Nürnberg mit Specialty Coffee, Matcha und Brunch: filterbare Karte, warme Bildsprache, klare Kontaktinfos.",
@@ -610,7 +613,7 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Tourismus", "Storytelling", "Local SEO"],
     image: guideStadtfuehrung, gallery: [guideStadtfuehrung],
-    mood: "beige", device: "phone", layout: "right",
+    mood: "beige", device: "phone", layout: "right", imageSize: "small",
     altText: "Webdesign für private Stadtführungen in Nürnberg – Guide Stadtführung",
     description: {
       de: "Website für einen privaten Stadtführer in Nürnberg: persönliche Vorstellung, Tourübersicht und eine unkomplizierte Buchungsanfrage.",
@@ -659,7 +662,7 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind"],
     tags: ["Restaurant Website", "Speisekarte", "Reservierung"],
     image: laDolceVita, gallery: [laDolceVita],
-    mood: "warm", device: "phone", layout: "full",
+    mood: "warm", device: "phone", layout: "full", imageSize: "medium",
     altText: "Webdesign für ein italienisches Restaurant in Nürnberg – La Dolce Vita",
     description: {
       de: "Website für ein italienisches Restaurant in Nürnberg: appetitliche Speisekarte nach Kategorien, Reservierungsanfrage und klare Standortinformationen.",

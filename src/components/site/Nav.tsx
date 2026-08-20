@@ -16,9 +16,6 @@ export const Nav = () => {
     { to: path("seo"),     label: pick(lang, "SEO", "SEO") },
     { to: path("work"),    label: pick(lang, "Projekte", "Work") },
     { to: path("pricing"), label: pick(lang, "Preise", "Pricing") },
-    { to: path("faq"),     label: pick(lang, "FAQ", "FAQ") },
-    { to: path("blog"),    label: pick(lang, "Blog", "Blog") },
-    { to: path("briefing"), label: pick(lang, "Projekt anfragen", "Start a project") },
     { to: path("contact"), label: pick(lang, "Kontakt", "Contact") },
   ];
 
@@ -37,7 +34,7 @@ export const Nav = () => {
           />
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-4 2xl:gap-7 min-w-0">
+        <nav className="hidden xl:flex items-center gap-3 2xl:gap-6 min-w-0">
           {links.map((l) => (
             <NavLink
               key={l.to}
