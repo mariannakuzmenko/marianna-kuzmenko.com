@@ -1,10 +1,7 @@
 import { BeforeAfter } from "./BeforeAfter";
 import { useLang, pick } from "@/i18n/LanguageContext";
-import beforeAsset from "@/assets/projects/haas-vorher.png.asset.json";
-import afterAsset from "@/assets/projects/haas-nachher.png.asset.json";
-
-const beforeImg = beforeAsset.url;
-const afterImg = afterAsset.url;
+import beforeImg from "@/assets/projects/haas-vorher.png";
+import afterImg from "@/assets/projects/haas-nachher.png";
 
 export const BeforeAfterSection = () => {
   const { lang } = useLang();
