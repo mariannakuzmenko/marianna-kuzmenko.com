@@ -54,11 +54,11 @@ const portraitLaptop = { url: portraitLaptopSrc };
 const editorialPortrait = { url: portraitWindowSrc };
 const closePortrait = { url: portraitPampasSrc };
 const dentalluxMockup = { url: dentalluxImg };
-const holzwerkMockup = { url: raumformImg };
+const raumformMockup = { url: raumformImg };
 const therapistMockup = { url: atelierNovaImg };
-const hartmannMockup = { url: neinStudioImg };
-const autowerkMockup = { url: liorImg };
-const muellerSohnMockup = { url: fourElementsImg };
+const neinStudioMockup = { url: neinStudioImg };
+const liorMockup = { url: liorImg };
+const fourElementsMockup = { url: fourElementsImg };
 const nuernbergGuideMockup = { url: pfotenhausImg };
 const creditpathMockup = { url: lushBloomImg };
 
@@ -430,17 +430,17 @@ const Index = () => {
   const whyIcons = [BadgeCheck, Building2, Globe2];
   const heroScreens = [
     dentalluxMockup.url,
-    holzwerkMockup.url,
+    raumformMockup.url,
     therapistMockup.url,
-    hartmannMockup.url,
+    neinStudioMockup.url,
   ];
   const projectImages = [
     dentalluxMockup.url,
-    holzwerkMockup.url,
+    raumformMockup.url,
     therapistMockup.url,
-    hartmannMockup.url,
-    autowerkMockup.url,
-    muellerSohnMockup.url,
+    neinStudioMockup.url,
+    liorMockup.url,
+    fourElementsMockup.url,
   ];
 
   return (
