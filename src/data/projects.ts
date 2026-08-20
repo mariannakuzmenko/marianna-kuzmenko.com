@@ -15,10 +15,8 @@ const cafeGruenAsset = { url: cafeGruenImage };
 import guideImage from "@/assets/projects/guide-stadtfuehrung.jpeg";
 const guideAsset = { url: guideImage };
 import laDolceVitaImage from "@/assets/projects/la-dolce-vita.png";
-import haasVorherAsset from "@/assets/projects/haas-vorher.png.asset.json";
+import haasVorher from "@/assets/projects/haas-vorher.png";
 import haasNachher from "@/assets/projects/haas-nachher.png";
-
-const haasVorher = haasVorherAsset.url;
 const laDolceVitaAsset = { url: laDolceVitaImage };
 
 const formaPilates = formaPilatesAsset.url;
