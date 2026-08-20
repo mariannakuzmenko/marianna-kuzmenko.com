@@ -69,7 +69,7 @@ const Index = () => {
     lang,
     {
       seoTitle:
-        "Webdesign Nürnberg, Webentwicklung & SEO Nürnberg — Marianna Kuzmenko",
+        "Webdesign Nürnberg, Webentwicklung & SEO Nürnberg - Marianna Kuzmenko",
       seoDesc:
         "Marianna Kuzmenko gestaltet moderne Webseiten für Nürnberg, Fürth, Erlangen, München und ganz Deutschland: Webdesign, Webentwicklung, SEO und UX/UI Design mit hochwertiger Markenwirkung.",
       heroEyebrow: "Marianna Kuzmenko · Webdesign & SEO",
@@ -244,7 +244,7 @@ const Index = () => {
     },
     {
       seoTitle:
-        "Web Design, Web Development & SEO in Germany — Marianna Kuzmenko",
+        "Web Design, Web Development & SEO in Germany - Marianna Kuzmenko",
       seoDesc:
         "Marianna Kuzmenko creates modern websites, UX/UI systems and SEO-led digital experiences for clients in Germany, the DACH region and international markets.",
       heroEyebrow: "Marianna Kuzmenko · Web Design & SEO",
@@ -288,7 +288,7 @@ const Index = () => {
       serviceTitleA: "Web design, development",
       serviceTitleB: "and SEO together.",
       serviceLead:
-        "For brand presences that do more than look good — they structure the message, earn trust and support growth.",
+        "For brand presences that do more than look good - they structure the message, earn trust and support growth.",
       services: [
         {
           title: "Custom Web Design",

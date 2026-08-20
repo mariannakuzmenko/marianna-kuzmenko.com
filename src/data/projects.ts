@@ -89,7 +89,7 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind", "Framer Motion"],
     tags: ["Webdesign", "Brand Voice", "UX Writing"],
     image: pfotenhaus, gallery: [pfotenhaus], mood: "emotion", device: "phones", layout: "left", imageSize: "featured",
-    altText: "Webdesign für ein Tierhotel in Berlin – Pfotenhaus Berlin",
+    altText: "Webdesign für ein Tierhotel in Berlin - Pfotenhaus Berlin",
     description: {
       de: "Website für ein Tierhotel: warme Bildsprache, klare Informationen und ein einfacher Weg zur Kontaktaufnahme für Tierbesitzer.",
       en: "Website for a pet hotel: warm imagery, clear information and an easy path to contact for pet owners.",
@@ -123,7 +123,7 @@ export const projects: Project[] = [
       development: "React + Vite with Tailwind. AVIF/WebP images, lazy loading, under 100 KB initial JS.",
       seo: "Local schema.org markup, long-tail keywords around care, feeding, emergencies.",
       responsive: "Mobile-first, booking flow operable one-handed.",
-      result: "Visitors became companions. Conversions doubled, cancellations dropped — because people feel understood before they book.",
+      result: "Visitors became companions. Conversions doubled, cancellations dropped - because people feel understood before they book.",
       feedback: { quote: "Our website finally feels like us. Clients email us saying they had tears in their eyes.", author: "Owner, Pfotenhaus" },
     },
   },
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     tech: ["React", "GSAP", "Tailwind"],
     tags: ["Branding", "Typografie", "Webdesign"],
     image: neinStudio, gallery: [neinStudio], mood: "bold", device: "phone", layout: "right", imageSize: "medium",
-    altText: "Webdesign für ein Kreativstudio – NEIN / STUDIO",
+    altText: "Webdesign für ein Kreativstudio - NEIN / STUDIO",
     description: {
       de: "Editorial-Website für ein Kreativstudio mit markanter Typografie, Ladesequenz und klarer Haltung statt Standard-Agenturlayout.",
       en: "Editorial website for a creative studio with bold typography, a scripted loading sequence and a clear point of view.",
