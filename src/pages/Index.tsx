@@ -162,9 +162,9 @@ const Index = () => {
           desc: "Großformatige Raumbilder, ruhige Navigation und ein Auftritt, der Materialität in den Vordergrund stellt.",
         },
         {
-          name: "Dr. Sarah Mitchell",
-          category: "Therapy Practice · International",
-          desc: "Sanfte Conversion, Wärme und professionelle Ruhe in einem digitalen Raum.",
+          name: "Atelier Nova",
+          category: "Architektur · International",
+          desc: "Wärme, Rückhalt und sanfte Conversion in einem ruhigen digitalen Raum.",
         },
         {
           name: "Nein Studio",
