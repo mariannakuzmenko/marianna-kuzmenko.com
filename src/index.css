@@ -9,6 +9,7 @@
 @layer base {
   :root {
     --background: 213 100% 98%;         /* refined porcelain #f8fbff */
+    --header-bg: 212 90% 95%;           /* slightly deeper sky for glass header */
     --foreground: 255 8% 15%;           /* graphite #24242A */
 
     --card: 0 0% 100%;

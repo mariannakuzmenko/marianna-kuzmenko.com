@@ -23,24 +23,18 @@ export const Nav = () => {
   const ctaHref = path("briefing");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/60">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-border/60"
+      style={{ backgroundColor: "hsl(var(--header-bg) / 0.82)" }}
+    >
       <div className="container-editorial flex items-center justify-between h-16 md:h-20 xl:h-24 gap-4">
-        <Link to={path("home")} className="group flex items-center shrink-0" aria-label="Marianna Kuzmenko — Web Design & Development">
-          <span
-            className="inline-flex items-center rounded-2xl px-2.5 py-1.5 md:px-3.5 md:py-2 transition-all duration-500 group-hover:shadow-[0_10px_30px_-16px_hsl(211_50%_40%/0.45)]"
-            style={{
-              background: "linear-gradient(180deg, hsl(0 0% 100% / 0.92), hsl(0 0% 100% / 0.7))",
-              border: "1px solid hsl(0 0% 100% / 0.9)",
-              boxShadow: "0 6px 22px -18px hsl(211 50% 35% / 0.5)",
-            }}
-          >
-            <img
-              src={logo}
-              alt="Marianna Kuzmenko"
-              className="h-11 md:h-[3.5rem] xl:h-[4rem] w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-              style={{ filter: "contrast(1.1) saturate(1.05) drop-shadow(0 2px 8px hsl(208 45% 40% / 0.22))" }}
-            />
-          </span>
+        <Link to={path("home")} className="group shrink-0" aria-label="Marianna Kuzmenko — Web Design & Development">
+          <img
+            src={logo}
+            alt="Marianna Kuzmenko"
+            className="h-12 md:h-14 xl:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+            style={{ filter: "drop-shadow(0 2px 8px rgba(30, 55, 75, 0.18))" }}
+          />
         </Link>
 
 
