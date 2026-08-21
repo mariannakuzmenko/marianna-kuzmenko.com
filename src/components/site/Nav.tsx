@@ -37,7 +37,7 @@ export const Nav = () => {
             <img
               src={logo}
               alt="Marianna Kuzmenko"
-              className="h-11 md:h-15 xl:h-[4.25rem] w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+              className="h-11 md:h-[3.5rem] xl:h-[4rem] w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
               style={{ filter: "contrast(1.1) saturate(1.05) drop-shadow(0 2px 8px hsl(208 45% 40% / 0.22))" }}
             />
           </span>
