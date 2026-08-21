@@ -256,16 +256,33 @@ export const HeroBlueprint = (p: HeroBlueprintProps) => {
                     <div className="absolute left-1/2 top-0 bottom-0 w-px bg-foreground/10" />
                   </div>
 
-                  <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground mb-3">
-                    ◇ Center · Concept
-                  </p>
-                  <h1 className="font-display tracking-[-0.02em] leading-[0.95] text-[clamp(2rem,5.4vw,4.6rem)]">
+                  <span className="relative inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/70 backdrop-blur px-3.5 py-1.5 mb-4 font-mono text-[9.5px] md:text-[10px] tracking-[0.24em] uppercase text-foreground/75 shadow-[0_10px_30px_-22px_hsl(211_50%_35%/0.6)]">
+                    <span aria-hidden className="w-1.5 h-1.5 rounded-full bg-rose" />
+                    Design · Development · SEO
+                  </span>
+                  {/* thin editorial curve toward the visual zones */}
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 200 60"
+                    className="hidden md:block absolute -bottom-6 left-1/2 -translate-x-1/2 w-40 h-14 pointer-events-none"
+                  >
+                    <path
+                      d="M 10 10 C 60 55, 140 55, 190 10"
+                      fill="none"
+                      stroke="hsl(var(--rose) / 0.45)"
+                      strokeWidth="1"
+                    />
+                  </svg>
+                  <h1 className="font-display tracking-[-0.02em] leading-[1.02] text-[clamp(1.9rem,4.2vw,3.4rem)]">
                     <span className="block">{p.titleParts.l1}</span>
                     <span className="block italic text-rose">{p.titleParts.l2}</span>
                     <span className="block">{p.titleParts.l3}</span>
                   </h1>
-                  <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground mt-4">
+                  <p className="font-mono text-[10px] tracking-[0.24em] uppercase text-muted-foreground mt-4">
                     Marianna Kuzmenko · Studio
+                  </p>
+                  <p className="font-mono text-[9.5px] tracking-[0.18em] uppercase text-muted-foreground/85 mt-1.5">
+                    Nürnberg · Fürth · Erlangen · München
                   </p>
                 </div>
               </div>
