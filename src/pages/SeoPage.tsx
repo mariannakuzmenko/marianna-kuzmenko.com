@@ -165,8 +165,8 @@ const SeoPage = () => {
         <div className="grid grid-cols-12 gap-8 md:gap-10 items-center relative">
           <div className="col-span-12 lg:col-span-6">
             <p className="eyebrow mb-6">{t.eye}</p>
-            <h1 className="display-xl">
-              {pick(lang, "Mehr Sichtbarkeit bei Google.", "More visibility on Google.")}<br />
+            <h1 className="display-lg max-w-[16ch] text-balance">
+              {pick(lang, "Mehr Sichtbarkeit bei Google.", "More visibility on Google.")}{" "}
               <span className="italic text-rose">
                 {pick(lang, "Mehr Menschen erreichen.", "Reach more people.")}
               </span>
