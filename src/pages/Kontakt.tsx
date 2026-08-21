@@ -6,7 +6,6 @@ import { ConversionCta } from "@/components/site/ConversionCta";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { CONTACT, telLink } from "@/data/contact";
 import portraitWindow from "@/assets/portraits/marianna-portrait-window.jpeg";
-import portraitLaptop from "@/assets/portraits/marianna-laptop-coffee.jpeg";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
 const EMAIL = CONTACT.email;
@@ -22,13 +21,12 @@ const Kontakt = () => {
       seoTitle: "Kontakt — Marianna Kuzmenko · Webdesign & SEO Nürnberg",
       seoDesc:
         "Direkter Kontakt zu Marianna Kuzmenko: E-Mail, Telefon und Projektanfrage. Persönliche Antwort innerhalb von 24 Stunden — aus Nürnberg für ganz Deutschland.",
-      eyebrow: "— Kontakt —",
-      h1A: "Lass uns",
-      h1B: "reden.",
+      eyebrow: "— Get in touch —",
+      h1A: "Lass uns über dein",
+      h1B: "Projekt sprechen.",
       lead:
-        "Ob konkretes Projekt oder erste Idee — schreib mir direkt. Du sprichst mit mir, nicht mit einer Hotline.",
+        "Du hast eine Idee für eine neue Website, möchtest deine bestehende Website verbessern oder bei Google besser sichtbar werden? Schreib mir — ich freue mich, dein Projekt kennenzulernen.",
       portraitAlt: "Marianna Kuzmenko im schwarzen Blazer",
-      laptopAlt: "Marianna arbeitet am Laptop",
       cards: {
         email: { label: "E-Mail", value: EMAIL, hint: "Ich antworte innerhalb von 24 Stunden." },
         phone: { label: "Telefon", value: PHONE_DISPLAY, hint: "Mo–Fr, 9:00–18:00 Uhr (MEZ)" },
@@ -62,13 +60,12 @@ const Kontakt = () => {
       seoTitle: "Contact — Marianna Kuzmenko · Web Design & SEO Nuremberg",
       seoDesc:
         "Get in touch with Marianna Kuzmenko: email, phone and project inquiry form. Personal response within 24 hours — from Nuremberg to clients worldwide.",
-      eyebrow: "— Contact —",
-      h1A: "Let’s",
-      h1B: "talk.",
+      eyebrow: "— Get in touch —",
+      h1A: "Let’s talk about",
+      h1B: "your project.",
       lead:
-        "Whether it’s a concrete project or an early idea — write to me directly. You’ll be talking to me, not a hotline.",
+        "Planning a new website, improving an existing one, or want to be more visible on Google? Write to me — I’d love to hear about your project.",
       portraitAlt: "Marianna Kuzmenko in a black blazer",
-      laptopAlt: "Marianna working on laptop",
       cards: {
         email: { label: "Email", value: EMAIL, hint: "I reply within 24 hours." },
         phone: { label: "Phone", value: PHONE_DISPLAY, hint: "Mon–Fri, 9:00–18:00 (CET)" },
@@ -118,40 +115,73 @@ const Kontakt = () => {
       />
 
       {/* HERO */}
-      <section className="container-editorial pt-12 md:pt-20 pb-16 relative">
-        <div
-          className="blob blob-pink animate-float-slow"
-          style={{ width: 380, height: 380, top: "40px", right: "-100px" }}
-        />
+      <section className="container-editorial pt-10 md:pt-16 pb-14 md:pb-20 relative">
         <div
           className="blob blob-blue animate-float-slower"
-          style={{ width: 320, height: 320, bottom: "-40px", left: "-80px" }}
+          style={{ width: 420, height: 420, top: "-60px", right: "-140px" }}
         />
-        <p className="eyebrow mb-6 relative">{t.eyebrow}</p>
-        <div className="grid grid-cols-12 gap-8 items-end relative">
-          <div className="col-span-12 md:col-span-7">
-            <h1 className="display-xl">
-              {t.h1A}
-              <br />
-              <span className="italic text-rose">{t.h1B}</span>
+        <div className="grid grid-cols-12 gap-10 lg:gap-14 items-center relative">
+          {/* LEFT */}
+          <div className="col-span-12 lg:col-span-6 reveal">
+            <p className="eyebrow mb-5">{t.eyebrow}</p>
+            <h1 className="font-display text-[clamp(2.1rem,5vw,3.6rem)] leading-[1.08] tracking-tight">
+              {t.h1A} <span className="italic text-rose">{t.h1B}</span>
             </h1>
-            <p className="mt-8 max-w-xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
               {t.lead}
             </p>
-          </div>
-          <div className="col-span-12 md:col-span-5 relative">
-            <div className="frame-soft aspect-[4/5] max-w-[380px] ml-auto">
-              <img src={portraitWindow} alt={t.portraitAlt} loading="eager" />
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to={path("inquiry")} className="btn-cta">
+                {pick(lang, "Projekt anfragen", "Start a project")}
+                <ArrowUpRight size={16} strokeWidth={1.8} />
+              </Link>
+              <WhatsAppButton lang={lang} label="WhatsApp" />
             </div>
-            <div
-              className="hidden md:block frame-soft aspect-square w-32 absolute -bottom-8 -left-4 shadow-xl"
-              style={{ transform: "rotate(-4deg)" }}
-            >
-              <img src={portraitLaptop} alt={t.laptopAlt} loading="lazy" />
+
+            <ul className="mt-9 flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-8 text-sm">
+              <li className="flex items-center gap-2.5">
+                <Mail size={15} strokeWidth={1.6} className="text-rose" />
+                <a href={`mailto:${EMAIL}`} className="underline-draw text-foreground/85 break-all">{EMAIL}</a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone size={15} strokeWidth={1.6} className="text-rose" />
+                <a href={PHONE_TEL} className="underline-draw text-foreground/85">{PHONE_DISPLAY}</a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <MapPin size={15} strokeWidth={1.6} className="text-rose" />
+                <span className="text-muted-foreground">{pick(lang, "Nürnberg, Deutschland", "Nuremberg, Germany")}</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* RIGHT */}
+          <div className="col-span-12 lg:col-span-6 reveal" style={{ transitionDelay: "120ms" }}>
+            <div className="relative max-w-[440px] mx-auto lg:mr-0 lg:ml-auto">
+              <div
+                className="overflow-hidden shadow-[0_30px_70px_-30px_rgba(30,55,75,0.35)]"
+                style={{ borderRadius: "48% 48% 44% 44% / 12% 12% 8% 8%" }}
+              >
+                <img
+                  src={portraitWindow}
+                  alt={t.portraitAlt}
+                  loading="eager"
+                  className="w-full h-full object-cover aspect-[4/5]"
+                />
+              </div>
+              <div className="glass-card absolute -bottom-5 -left-3 sm:-left-8 px-5 py-4 max-w-[230px]">
+                <p className="text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground">
+                  Web Design · Development · SEO
+                </p>
+                <p className="font-display italic text-base mt-1.5 text-foreground">
+                  {pick(lang, "Lass uns etwas Bleibendes schaffen.", "Let’s create something meaningful.")}
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* CONTACT CARDS */}
       <section className="container-editorial pb-24">
