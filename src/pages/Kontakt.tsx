@@ -6,7 +6,6 @@ import { ConversionCta } from "@/components/site/ConversionCta";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { CONTACT, telLink } from "@/data/contact";
 import portraitWindow from "@/assets/portraits/marianna-portrait-window.jpeg";
-import portraitLaptop from "@/assets/portraits/marianna-laptop-coffee.jpeg";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
 const EMAIL = CONTACT.email;
@@ -22,11 +21,11 @@ const Kontakt = () => {
       seoTitle: "Kontakt — Marianna Kuzmenko · Webdesign & SEO Nürnberg",
       seoDesc:
         "Direkter Kontakt zu Marianna Kuzmenko: E-Mail, Telefon und Projektanfrage. Persönliche Antwort innerhalb von 24 Stunden — aus Nürnberg für ganz Deutschland.",
-      eyebrow: "— Kontakt —",
-      h1A: "Lass uns",
-      h1B: "reden.",
+      eyebrow: "— Get in touch —",
+      h1A: "Lass uns über dein",
+      h1B: "Projekt sprechen.",
       lead:
-        "Ob konkretes Projekt oder erste Idee — schreib mir direkt. Du sprichst mit mir, nicht mit einer Hotline.",
+        "Du hast eine Idee für eine neue Website, möchtest deine bestehende Website verbessern oder bei Google besser sichtbar werden? Schreib mir — ich freue mich, dein Projekt kennenzulernen.",
       portraitAlt: "Marianna Kuzmenko im schwarzen Blazer",
       laptopAlt: "Marianna arbeitet am Laptop",
       cards: {
@@ -62,11 +61,11 @@ const Kontakt = () => {
       seoTitle: "Contact — Marianna Kuzmenko · Web Design & SEO Nuremberg",
       seoDesc:
         "Get in touch with Marianna Kuzmenko: email, phone and project inquiry form. Personal response within 24 hours — from Nuremberg to clients worldwide.",
-      eyebrow: "— Contact —",
-      h1A: "Let’s",
-      h1B: "talk.",
+      eyebrow: "— Get in touch —",
+      h1A: "Let’s talk about",
+      h1B: "your project.",
       lead:
-        "Whether it’s a concrete project or an early idea — write to me directly. You’ll be talking to me, not a hotline.",
+        "Planning a new website, improving an existing one, or want to be more visible on Google? Write to me — I’d love to hear about your project.",
       portraitAlt: "Marianna Kuzmenko in a black blazer",
       laptopAlt: "Marianna working on laptop",
       cards: {
