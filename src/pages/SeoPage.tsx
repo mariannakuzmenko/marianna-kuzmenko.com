@@ -160,21 +160,21 @@ const SeoPage = () => {
         }}
       />
 
-      <section className="container-editorial pt-12 md:pt-20 pb-12 relative">
+      <section className="container-editorial pt-8 md:pt-12 pb-10 relative">
         <div className="blob blob-pink animate-float-slow" style={{ width: 420, height: 420, top: "-80px", right: "-80px" }} />
         <div className="grid grid-cols-12 gap-8 md:gap-10 items-center relative">
           <div className="col-span-12 lg:col-span-6">
             <p className="eyebrow mb-6">{t.eye}</p>
-            <h1 className="display-xl">
-              {pick(lang, "Mehr Sichtbarkeit bei Google.", "More visibility on Google.")}<br />
+            <h1 className="display-lg max-w-[16ch] text-balance">
+              {pick(lang, "Mehr Sichtbarkeit bei Google.", "More visibility on Google.")}{" "}
               <span className="italic text-rose">
                 {pick(lang, "Mehr Menschen erreichen.", "Reach more people.")}
               </span>
             </h1>
-            <p className="mt-7 text-lg md:text-xl leading-relaxed text-foreground/80 max-w-xl">
+            <p className="mt-6 text-base md:text-lg leading-relaxed text-foreground/80 max-w-[52ch]">
               {pick(lang,
-                "Eine schöne Website ist nur dann wertvoll, wenn potenzielle Kundinnen und Kunden sie auch finden. Ich verbinde Webdesign, SEO, UX und technische Optimierung zu Websites, die nicht nur gut aussehen, sondern in Suchmaschinen sichtbar sind.",
-                "A beautiful website only creates value when potential customers can actually find it. I combine web design, SEO, UX and technical optimization into websites that look refined and stay visible in search."
+                "Eine schöne Website ist nur dann wertvoll, wenn Kundinnen und Kunden sie auch finden. Ich verbinde SEO, UX und technische Optimierung zu Seiten, die bei Google sichtbar sind.",
+                "A beautiful website only creates value when customers can actually find it. I combine SEO, UX and technical optimization into pages that stay visible on Google."
               )}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -219,7 +219,7 @@ const SeoPage = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-12 gap-6 mt-16 relative">
+        <div className="grid grid-cols-12 gap-6 mt-12 relative">
           <div className="col-span-12 md:col-span-8">
             <p className="text-xl md:text-2xl leading-relaxed font-display">
               {t.lead1a}<span className="marker">{t.leadMark}</span>{t.lead1b}

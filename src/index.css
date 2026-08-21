@@ -24,7 +24,7 @@
     --secondary-foreground: 255 8% 16%;
 
     --muted: 210 50% 94%;
-    --muted-foreground: 258 6% 32%;     /* readable graphite #343238-ish */
+    --muted-foreground: 258 7% 27%;     /* readable graphite #343238-ish */
 
     --accent: 340 35% 74%;
     --accent-foreground: 0 0% 100%;
@@ -126,21 +126,21 @@
   .display-xl {
     font-family: 'Fraunces', serif;
     font-weight: 400;
-    font-size: clamp(3rem, 9vw, 8rem);
-    line-height: 0.98;
+    font-size: clamp(2.35rem, 5.6vw, 4.75rem);
+    line-height: 1.03;
     letter-spacing: -0.035em;
   }
   .display-lg {
     font-family: 'Fraunces', serif;
     font-weight: 400;
-    font-size: clamp(2.25rem, 5.5vw, 5rem);
-    line-height: 1;
+    font-size: clamp(1.9rem, 3.9vw, 3.35rem);
+    line-height: 1.08;
     letter-spacing: -0.03em;
   }
   .display-md {
     font-family: 'Fraunces', serif;
     font-weight: 400;
-    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-size: clamp(1.45rem, 2.8vw, 2.25rem);
     line-height: 1.05;
     letter-spacing: -0.025em;
   }
@@ -708,8 +708,8 @@
   .ending-scene .ending-headline {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(2.25rem, 6vw, 5rem);
-    line-height: 1.1;
+    font-size: clamp(1.9rem, 4.2vw, 3.4rem);
+    line-height: 1.12;
     letter-spacing: -0.025em;
   }
 
@@ -782,9 +782,9 @@
   }
   .portfolio-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(3rem, 5.4vw, 5.4rem);
+    font-size: clamp(2.4rem, 4.2vw, 4rem);
     font-weight: 500;
-    line-height: 0.94;
+    line-height: 1;
     letter-spacing: 0;
   }
   .portfolio-title em { color: hsl(var(--rose-hover)); font-weight: 400; }
@@ -824,7 +824,7 @@
     border-top: 1px solid hsl(var(--border));
     border-bottom: 1px solid hsl(var(--border));
   }
-  .portfolio-list { display: grid; gap: clamp(5rem, 10vw, 9rem); }
+  .portfolio-list { display: grid; gap: clamp(3.5rem, 7vw, 6.5rem); }
   .portfolio-project-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.65fr) minmax(17rem, 0.8fr);
@@ -834,7 +834,7 @@
   .portfolio-project-reverse { grid-template-columns: minmax(17rem, 0.8fr) minmax(0, 1.65fr); }
   .portfolio-project-reverse .portfolio-visual { order: 2; }
   .portfolio-project-reverse .portfolio-copy { order: 1; }
-  .portfolio-copy { max-width: 25rem; }
+  .portfolio-copy { max-width: 25rem; min-width: 0; overflow-wrap: anywhere; }
   .portfolio-visual {
     width: 100%;
     min-height: 22rem;
@@ -850,10 +850,10 @@
     box-shadow: 0 26px 64px -36px hsl(var(--foreground) / 0.28);
   }
   .portfolio-visual img { max-width: 100%; max-height: 100%; object-fit: contain; }
-  .portfolio-visual-small { height: clamp(26rem, 48vw, 39rem); padding-inline: clamp(3rem, 9vw, 8rem); }
-  .portfolio-visual-medium { height: clamp(23rem, 42vw, 35rem); }
-  .portfolio-visual-large { height: clamp(24rem, 46vw, 38rem); padding: clamp(0.75rem, 1.8vw, 1.5rem); }
-  .portfolio-visual-featured { height: clamp(27rem, 50vw, 42rem); }
+  .portfolio-visual-small { height: clamp(20rem, 34vw, 28rem); padding-inline: clamp(3rem, 9vw, 8rem); }
+  .portfolio-visual-medium { height: clamp(20rem, 33vw, 28rem); }
+  .portfolio-visual-large { height: clamp(21rem, 36vw, 31rem); padding: clamp(0.75rem, 1.8vw, 1.5rem); }
+  .portfolio-visual-featured { height: clamp(23rem, 40vw, 34rem); }
   .portfolio-final-cta {
     padding: clamp(3rem, 7vw, 6rem) 1.5rem;
     text-align: center;
@@ -861,9 +861,9 @@
     border-bottom: 1px solid hsl(var(--border));
   }
   .case-study-title {
-    font-size: clamp(3.25rem, 6vw, 6.25rem);
+    font-size: clamp(2.4rem, 4.4vw, 4.25rem);
     font-weight: 500;
-    line-height: 0.9;
+    line-height: 0.98;
   }
   .case-study-visual {
     margin-inline: auto;
@@ -894,7 +894,7 @@
   @media (max-width: 639px) {
     .portfolio-hero,
     .case-study-hero { padding-top: 2.25rem; padding-bottom: 3rem; }
-    .portfolio-title { font-size: clamp(2.75rem, 13vw, 4rem); }
+    .portfolio-title { font-size: clamp(2.1rem, 9.5vw, 3rem); }
     .portfolio-hero-visual { min-height: 16rem; padding: 0.8rem 0.8rem 2.2rem; }
     .portfolio-intro { grid-template-columns: 1fr; gap: 1rem; padding-block: 1.5rem; }
     .portfolio-intro > :last-child { grid-column: auto; }
@@ -905,7 +905,7 @@
     .portfolio-visual-large,
     .portfolio-visual-featured { height: auto; min-height: 15rem; max-height: none; padding: 0.75rem; }
     .portfolio-visual-small { padding-inline: 2.5rem; }
-    .case-study-title { font-size: clamp(3rem, 15vw, 4.25rem); }
+    .case-study-title { font-size: clamp(2.1rem, 10vw, 3.1rem); }
     .case-study-visual,
     .case-study-visual-small,
     .case-study-visual-medium,

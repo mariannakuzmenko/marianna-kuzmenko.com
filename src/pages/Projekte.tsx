@@ -25,9 +25,9 @@ const ProjectInfo = ({ project, number, caseHref, lang }: {
   return (
     <div className="portfolio-copy">
       <p className="case-meta mb-3">{String(number).padStart(2, "0")} — {project.category}</p>
-      <h2 className="font-display text-4xl md:text-5xl leading-none mb-5">{project.name}</h2>
-      <p className="font-display italic text-xl leading-snug text-foreground/90 mb-4">{content.intro}</p>
-      <p className="text-muted-foreground leading-relaxed mb-7">{pick(lang, project.description.de, project.description.en)}</p>
+      <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.05] mb-4 break-words">{project.name}</h2>
+      <p className="font-display italic text-lg md:text-xl leading-snug text-foreground/90 mb-3">{content.intro}</p>
+      <p className="text-[0.95rem] text-muted-foreground leading-relaxed mb-6 max-w-[46ch]">{pick(lang, project.description.de, project.description.en)}</p>
       <div className="flex flex-wrap gap-3">
         <Link to={caseHref} className="btn-cta">
           {pick(lang, "Projekt entdecken", "Discover project")} <ArrowRight size={15} />
@@ -88,7 +88,7 @@ const Projekte = () => {
             <h1 className="portfolio-title mb-6">
               {t.headingA}<br /><em>{t.headingB}</em>
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground max-w-xl mb-8">{t.lead}</p>
+            <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-[52ch] mb-8">{t.lead}</p>
             <a href="#selected-projects" className="btn-cta">{t.explore} <ArrowDown size={16} /></a>
           </div>
           <div className="lg:col-span-7 group">

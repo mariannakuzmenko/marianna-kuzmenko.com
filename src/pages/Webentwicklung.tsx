@@ -26,6 +26,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
+import devMockupMain from "@/assets/projects/lush-bloom-mockup.jpeg";
+import devMockupSecondary from "@/assets/projects/creditpath.png";
 
 const Webentwicklung = () => {
   const { lang, path } = useLang();
@@ -116,28 +118,77 @@ const Webentwicklung = () => {
         pathEn={ROUTES.web.en}
       />
 
-      <section className="container-editorial pt-12 md:pt-20 pb-16 relative">
-        <div className="blob blob-blue animate-float-slow" style={{ width: 420, height: 420, top: "-80px", right: "-80px" }} />
-        <p className="eyebrow mb-6 relative">{t.eye}</p>
-        <h1 className="display-xl relative">
-          {t.h1A}<br />
-          <span className="italic">{t.h1B}</span><span className="text-rose">{t.h1Accent}</span><br />
-          <span className="italic">{t.h1C}</span>
-        </h1>
-        <div className="grid grid-cols-12 gap-6 mt-12 relative">
-          <div className="col-span-12 md:col-span-7 md:col-start-3">
-            <p className="text-xl md:text-2xl leading-relaxed font-display">
-              {t.lead1a}<span className="marker">{t.leadAccent}</span>{t.lead1b}
+      <section className="container-editorial pt-8 md:pt-12 pb-12 relative">
+        <div className="blob blob-blue animate-float-slow" style={{ width: 380, height: 380, top: "-80px", right: "-80px" }} />
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center relative">
+          <div className="col-span-12 lg:col-span-6">
+            <p className="eyebrow mb-5">{pick(lang, "WEB DEVELOPMENT", "WEB DEVELOPMENT")}</p>
+            <h1 className="display-lg max-w-[15ch] text-balance">
+              {pick(lang, "Websites, die ", "Websites that connect ")}
+              <span className="italic text-rose">{pick(lang, "Design und Technik", "design and engineering")}</span>
+              {pick(lang, " verbinden.", ".")}
+            </h1>
+            <p className="mt-6 text-base md:text-lg leading-relaxed text-foreground/80 max-w-[54ch]">
+              {pick(lang,
+                "Ich übersetze UX/UI-Designs in saubere, responsive Websites — technisch solide, schnell und auf jedem Gerät zuverlässig. Kein Baukasten, kein Plugin-Chaos: modularer Code, der wartbar bleibt und mit deinem Unternehmen mitwächst.",
+                "I translate UX/UI designs into clean, responsive websites — technically solid, fast and reliable on every device. No page builders, no plugin chaos: modular code that stays maintainable and grows with your business."
+              )}
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to={path("inquiry")} className="btn-cta btn-press">
+                {pick(lang, "Projekt anfragen", "Start a project")} <ArrowRight size={16} />
+              </Link>
+              <Link to={path("work")} className="btn-cta-outline btn-press">
+                {pick(lang, "Meine Projekte ansehen", "View my work")} <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="col-span-12 lg:col-span-6">
+            <div className="relative">
+              <div className="showcase-mockup rounded-[1.5rem] overflow-hidden tilt-right">
+                <img
+                  src={devMockupMain}
+                  alt={pick(lang, "Responsive Website-Mockup eines Entwicklungsprojekts von Marianna Kuzmenko", "Responsive website mockup of a development project by Marianna Kuzmenko")}
+                  loading="eager"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+              <div className="hidden sm:block absolute -bottom-6 -left-4 w-32 md:w-40 rounded-2xl overflow-hidden shadow-[var(--shadow-card)] rotate-[-4deg] border border-white/70 bg-white">
+                <img
+                  src={devMockupSecondary}
+                  alt={pick(lang, "Mobile Ansicht einer entwickelten Website", "Mobile view of a developed website")}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <div className="container-editorial py-6 flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs uppercase tracking-[0.25em] text-muted-foreground/70">
-        {["React", "TypeScript", "SEO", "Performance", "Accessibility", "Tailwind"].map((c) => (
-          <span key={c}>{c}</span>
-        ))}
-      </div>
+      <section className="container-editorial pb-12 md:pb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          {[
+            pick(lang, "Responsive", "Responsive"),
+            pick(lang, "Performance", "Performance"),
+            pick(lang, "Clean Code", "Clean Code"),
+            pick(lang, "Mobile First", "Mobile First"),
+            pick(lang, "SEO-ready", "SEO-ready"),
+            pick(lang, "Moderne Technologien", "Modern Tech"),
+          ].map((label, i) => (
+            <div
+              key={label}
+              className="rounded-2xl border border-white/70 bg-white/70 backdrop-blur px-4 py-4 reveal"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              <span aria-hidden className="block w-6 h-px bg-rose/70 mb-3" />
+              <p className="text-sm font-medium leading-snug">{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       <section className="container-editorial py-16 md:py-20">
         <div className="grid grid-cols-12 gap-6 mb-16">
