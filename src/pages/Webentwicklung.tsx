@@ -26,6 +26,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
+import devMockupMain from "@/assets/projects/lush-bloom-mockup.jpeg";
+import devMockupSecondary from "@/assets/projects/creditpath.png";
 
 const Webentwicklung = () => {
   const { lang, path } = useLang();
