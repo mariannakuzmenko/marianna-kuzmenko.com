@@ -27,7 +27,6 @@ const Kontakt = () => {
       lead:
         "Du hast eine Idee für eine neue Website, möchtest deine bestehende Website verbessern oder bei Google besser sichtbar werden? Schreib mir — ich freue mich, dein Projekt kennenzulernen.",
       portraitAlt: "Marianna Kuzmenko im schwarzen Blazer",
-      laptopAlt: "Marianna arbeitet am Laptop",
       cards: {
         email: { label: "E-Mail", value: EMAIL, hint: "Ich antworte innerhalb von 24 Stunden." },
         phone: { label: "Telefon", value: PHONE_DISPLAY, hint: "Mo–Fr, 9:00–18:00 Uhr (MEZ)" },
@@ -67,7 +66,6 @@ const Kontakt = () => {
       lead:
         "Planning a new website, improving an existing one, or want to be more visible on Google? Write to me — I’d love to hear about your project.",
       portraitAlt: "Marianna Kuzmenko in a black blazer",
-      laptopAlt: "Marianna working on laptop",
       cards: {
         email: { label: "Email", value: EMAIL, hint: "I reply within 24 hours." },
         phone: { label: "Phone", value: PHONE_DISPLAY, hint: "Mon–Fri, 9:00–18:00 (CET)" },
