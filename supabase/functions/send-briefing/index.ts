@@ -152,7 +152,7 @@ Deno.serve(async (req) => {
       <p style="margin:0 0 20px;color:#7a7480;font-size:13px">${lang === "en" ? "🇬🇧 English submission · " : ""}${esc(company || "—")} · ${esc(name)} · ${esc(email)}</p>
       <table style="width:100%;border-collapse:collapse;border:1px solid #eee">${rows}</table>
       ${filesHtml}
-      <p style="margin-top:24px;color:#a09aa6;font-size:11px">Gesendet über mariannakuzmenko.de${
+      <p style="margin-top:24px;color:#a09aa6;font-size:11px">Gesendet über marianna-kuzmenko.com${
         row?.id ? ` · Ref ${esc(row.id)}` : ""
       }</p>
     </div>`;

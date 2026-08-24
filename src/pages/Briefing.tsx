@@ -903,7 +903,7 @@ const Briefing = () => {
           "@type": "ContactPage",
           name: t("Projekt-Briefing", "Project briefing"),
           description: seoDesc,
-          url: `https://mariannakuzmenko.de${seoPath}`,
+          url: `https://www.marianna-kuzmenko.com${seoPath}`,
         }}
       />
 

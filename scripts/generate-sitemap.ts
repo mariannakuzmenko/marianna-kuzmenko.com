@@ -2,7 +2,7 @@
 import { writeFileSync } from "fs";
 import { resolve } from "path";
 
-const BASE_URL = "https://mariannakuzmenko.de";
+const BASE_URL = "https://www.marianna-kuzmenko.com";
 
 interface Entry {
   path: string;
