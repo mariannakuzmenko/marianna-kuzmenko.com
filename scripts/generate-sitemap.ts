@@ -2,7 +2,7 @@
 import { writeFileSync } from "fs";
 import { resolve } from "path";
 
-const BASE_URL = "https://mariannakuzmenko.de";
+const BASE_URL = "https://www.marianna-kuzmenko.com";
 
 interface Entry {
   path: string;
@@ -24,6 +24,8 @@ const pairs: Array<{ de: string; en: string; priority?: string; changefreq?: Ent
   { de: "/zertifikate", en: "/en/certificates", priority: "0.6", changefreq: "yearly" },
   { de: "/faq", en: "/en/faq", priority: "0.7", changefreq: "monthly" },
   { de: "/projektanfrage", en: "/en/project-inquiry", priority: "0.9", changefreq: "monthly" },
+  { de: "/kontakt", en: "/en/contact", priority: "0.9", changefreq: "monthly" },
+  { de: "/briefing", en: "/en/briefing", priority: "0.7", changefreq: "monthly" },
 ];
 
 // Blog posts — kept in sync with src/data/posts.ts (slug only)
@@ -44,10 +46,7 @@ for (const s of blogSlugs) {
   entries.push({ path: `/en/blog/${s}`, altDe: `/blog/${s}`, altEn: `/en/blog/${s}`, priority: "0.6", changefreq: "monthly" });
 }
 
-// Legal pages (single-language)
-for (const p of ["/impressum", "/datenschutz", "/agb"]) {
-  entries.push({ path: p, priority: "0.3", changefreq: "yearly" });
-}
+// Legal pages (Impressum, Datenschutz, AGB) are intentionally excluded: noindex, follow.
 
 const xml = [
   `<?xml version="1.0" encoding="UTF-8"?>`,

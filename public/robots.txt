@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://mariannakuzmenko.de/sitemap.xml
+Sitemap: https://www.marianna-kuzmenko.com/sitemap.xml

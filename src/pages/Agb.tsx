@@ -10,7 +10,7 @@ const Section = ({ n, title, children }: { n: string; title: string; children: R
 
 const Agb = () => (
   <Layout>
-    <Seo title="AGB — Marianna Kuzmenko" description="Allgemeine Geschäftsbedingungen für Webdesign, Webentwicklung und SEO-Dienstleistungen." path="/agb" />
+    <Seo title="AGB — Marianna Kuzmenko" description="Allgemeine Geschäftsbedingungen für Webdesign, Webentwicklung und SEO-Dienstleistungen." path="/agb" noindex />
     <section className="container-editorial pt-12 pb-24 max-w-3xl">
       <p className="eyebrow mb-6">Rechtliches</p>
       <h1 className="display-xl mb-6">Allgemeine Geschäfts&shy;bedingungen</h1>

@@ -19,7 +19,7 @@ interface SeoProps {
   noindex?: boolean;
 }
 
-const ORIGIN = "https://mariannakuzmenko.de";
+const ORIGIN = "https://www.marianna-kuzmenko.com";
 const DEFAULT_OG = `${ORIGIN}/og-cover.jpg`;
 
 export const Seo = ({

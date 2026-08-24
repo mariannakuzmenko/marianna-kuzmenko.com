@@ -13,7 +13,7 @@ const CookieRichtlinie = () => {
     desc: "Informationen zu den auf dieser Website eingesetzten Cookies, ihren Kategorien, Zwecken und Speicherdauern.",
     eyebrow: "Rechtliches",
     h1: "Cookie-Richtlinie",
-    intro: "Diese Cookie-Richtlinie erklärt, welche Cookies und ähnlichen Technologien auf mariannakuzmenko.de eingesetzt werden, zu welchem Zweck und wie du deine Einwilligung jederzeit verwalten kannst.",
+    intro: "Diese Cookie-Richtlinie erklärt, welche Cookies und ähnlichen Technologien auf marianna-kuzmenko.com eingesetzt werden, zu welchem Zweck und wie du deine Einwilligung jederzeit verwalten kannst.",
     settingsCta: "Cookie-Einstellungen öffnen",
     sections: [
       { h: "1. Was sind Cookies?", p: "Cookies sind kleine Textdateien, die beim Besuch einer Website auf deinem Endgerät gespeichert werden. Sie ermöglichen unter anderem, Einstellungen zu speichern, die Nutzung zu analysieren oder Inhalte auszuspielen." },
@@ -33,7 +33,7 @@ const CookieRichtlinie = () => {
     desc: "Information on the cookies used on this website, their categories, purposes and retention periods.",
     eyebrow: "Legal",
     h1: "Cookie policy",
-    intro: "This cookie policy explains which cookies and similar technologies are used on mariannakuzmenko.de, for what purpose, and how you can manage your consent at any time.",
+    intro: "This cookie policy explains which cookies and similar technologies are used on marianna-kuzmenko.com, for what purpose, and how you can manage your consent at any time.",
     settingsCta: "Open cookie settings",
     sections: [
       { h: "1. What are cookies?", p: "Cookies are small text files stored on your device when you visit a website. They enable settings to be saved, usage to be analysed and content to be delivered." },

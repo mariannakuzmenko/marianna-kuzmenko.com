@@ -6,7 +6,7 @@ const Disclaimer = () => {
   const { lang } = useLang();
   const t = pick(lang, {
     title: "Haftungsausschluss — Marianna Kuzmenko",
-    desc: "Haftungsausschluss (Disclaimer) für Inhalte, Links, Urheberrechte und Datenschutz auf mariannakuzmenko.de.",
+    desc: "Haftungsausschluss (Disclaimer) für Inhalte, Links, Urheberrechte und Datenschutz auf marianna-kuzmenko.com.",
     eyebrow: "Rechtliches",
     h1: "Haftungsausschluss",
     sections: [
@@ -17,7 +17,7 @@ const Disclaimer = () => {
     ],
   }, {
     title: "Disclaimer — Marianna Kuzmenko",
-    desc: "Disclaimer for content, links, copyright and data protection on mariannakuzmenko.de.",
+    desc: "Disclaimer for content, links, copyright and data protection on marianna-kuzmenko.com.",
     eyebrow: "Legal",
     h1: "Disclaimer",
     sections: [

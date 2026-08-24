@@ -4,7 +4,7 @@ import { CONTACT, telLink } from "@/data/contact";
 
 const Impressum = () => (
   <Layout>
-    <Seo title="Impressum — Marianna Kuzmenko" description="Impressum gemäß § 5 TMG der Webdesignerin und SEO-Freelancerin Marianna Kuzmenko aus Nürnberg." path="/impressum" />
+    <Seo title="Impressum — Marianna Kuzmenko" description="Impressum gemäß § 5 TMG der Webdesignerin und SEO-Freelancerin Marianna Kuzmenko aus Nürnberg." path="/impressum" noindex />
     <section className="container-editorial pt-12 pb-24 max-w-3xl">
       <p className="eyebrow mb-6">Rechtliches</p>
       <h1 className="display-xl mb-10">Impressum</h1>
