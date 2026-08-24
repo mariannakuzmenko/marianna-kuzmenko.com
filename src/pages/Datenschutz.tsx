@@ -12,7 +12,7 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 
 const Datenschutz = () => (
   <Layout>
-    <Seo title="Datenschutzerklärung — Marianna Kuzmenko" description="Datenschutzerklärung gemäß DSGVO für die Website von Marianna Kuzmenko — Webdesign, Webentwicklung und SEO." path="/datenschutz" />
+    <Seo title="Datenschutzerklärung — Marianna Kuzmenko" description="Datenschutzerklärung gemäß DSGVO für die Website von Marianna Kuzmenko — Webdesign, Webentwicklung und SEO." path="/datenschutz" noindex />
     <section className="container-editorial pt-12 pb-24 max-w-3xl">
       <p className="eyebrow mb-6">Rechtliches</p>
       <h1 className="display-xl mb-10">Datenschutz&shy;erklärung</h1>
