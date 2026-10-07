@@ -3,4 +3,4 @@
 - [x] Remove personal street address from legal pages while keeping legal links.
 - [x] Replace simulated submission in contact and inquiry forms with verified delivery acknowledgements.
 - [ ] Verify live contact, inquiry and briefing email delivery — blocked by paused Lovable Cloud; function deployment and data inspection unavailable.
-- [ ] Verify contact links, submission behavior and browser errors.
+- [x] Verify contact links, honest submission-error state, retry button and browser errors; no horizontal overflow at phone, tablet or desktop sizes.
