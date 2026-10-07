@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Clock, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Mail, Clock, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { ConversionCta } from "@/components/site/ConversionCta";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
-import { CONTACT, telLink } from "@/data/contact";
+import { CONTACT, whatsappLink } from "@/data/contact";
 import portraitWindow from "@/assets/portraits/marianna-portrait-window.jpeg";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 
 const EMAIL = CONTACT.email;
-const PHONE_DISPLAY = CONTACT.phoneDisplay;
-const PHONE_TEL = telLink;
 
 const Kontakt = () => {
   const { lang, path } = useLang();
@@ -20,7 +18,7 @@ const Kontakt = () => {
     {
       seoTitle: "Kontakt — Marianna Kuzmenko · Webdesign & SEO Nürnberg",
       seoDesc:
-        "Direkter Kontakt zu Marianna Kuzmenko: E-Mail, Telefon und Projektanfrage. Persönliche Antwort innerhalb von 24 Stunden — aus Nürnberg für ganz Deutschland.",
+        "Direkter Kontakt zu Marianna Kuzmenko: E-Mail, WhatsApp und Projektanfrage. Persönliche Antwort innerhalb von 24 Stunden — aus Nürnberg für ganz Deutschland.",
       eyebrow: "— Get in touch —",
       h1A: "Lass uns über dein",
       h1B: "Projekt sprechen.",
@@ -29,7 +27,7 @@ const Kontakt = () => {
       portraitAlt: "Marianna Kuzmenko im schwarzen Blazer",
       cards: {
         email: { label: "E-Mail", value: EMAIL, hint: "Ich antworte innerhalb von 24 Stunden." },
-        phone: { label: "Telefon", value: PHONE_DISPLAY, hint: "Mo–Fr, 9:00–18:00 Uhr (MEZ)" },
+        whatsapp: { label: "WhatsApp", value: "Per WhatsApp schreiben", hint: "Besprechen wir dein Projekt im Chat." },
         response: { label: "Antwortzeit", value: "< 24 Stunden", hint: "An Werktagen. Persönlich, nicht automatisiert." },
         location: { label: "Standort", value: "Nürnberg · Deutschland", hint: "Kund:innen in DACH und international." },
       },
@@ -42,7 +40,6 @@ const Kontakt = () => {
       quickTitle: "Direkt schreiben",
       quickLead: "Wenn du lieber kurz per E-Mail startest — ein Klick genügt.",
       quickCta: "E-Mail schreiben",
-      callCta: "Anrufen",
       ctaEye: "— Bereit? —",
       ctaTitle: (
         <>
@@ -53,13 +50,13 @@ const Kontakt = () => {
       ),
       ctaLead:
         "Ein kurzes Gespräch reicht, um Passung, Budget und Timing zu klären — unverbindlich.",
-      ctaPrimary: "Kostenloses Gespräch",
+      ctaPrimary: "Projekt besprechen",
       ctaSecondary: "Projekte ansehen",
     },
     {
       seoTitle: "Contact — Marianna Kuzmenko · Web Design & SEO Nuremberg",
       seoDesc:
-        "Get in touch with Marianna Kuzmenko: email, phone and project inquiry form. Personal response within 24 hours — from Nuremberg to clients worldwide.",
+        "Get in touch with Marianna Kuzmenko: email, WhatsApp and project inquiry form. Personal response within 24 hours — from Nuremberg to clients worldwide.",
       eyebrow: "— Get in touch —",
       h1A: "Let’s talk about",
       h1B: "your project.",
@@ -68,7 +65,7 @@ const Kontakt = () => {
       portraitAlt: "Marianna Kuzmenko in a black blazer",
       cards: {
         email: { label: "Email", value: EMAIL, hint: "I reply within 24 hours." },
-        phone: { label: "Phone", value: PHONE_DISPLAY, hint: "Mon–Fri, 9:00–18:00 (CET)" },
+        whatsapp: { label: "WhatsApp", value: "Chat on WhatsApp", hint: "Let’s discuss your project in the chat." },
         response: { label: "Response time", value: "< 24 hours", hint: "On working days. Personal, never automated." },
         location: { label: "Location", value: "Nuremberg · Germany", hint: "Clients across DACH and internationally." },
       },
@@ -81,7 +78,6 @@ const Kontakt = () => {
       quickTitle: "Write directly",
       quickLead: "If you’d rather start with a short email — one click is enough.",
       quickCta: "Send an email",
-      callCta: "Call",
       ctaEye: "— Ready? —",
       ctaTitle: (
         <>
@@ -92,14 +88,14 @@ const Kontakt = () => {
       ),
       ctaLead:
         "A short conversation is enough to clarify fit, budget and timing — no commitment.",
-      ctaPrimary: "Book a free call",
+      ctaPrimary: "Discuss your project",
       ctaSecondary: "View projects",
     },
   );
 
   const contactItems = [
     { icon: Mail, key: "email" as const, href: `mailto:${EMAIL}` },
-    { icon: Phone, key: "phone" as const, href: PHONE_TEL },
+    { icon: MessageCircle, key: "whatsapp" as const, href: whatsappLink() },
     { icon: Clock, key: "response" as const, href: null },
     { icon: MapPin, key: "location" as const, href: null },
   ];
@@ -143,10 +139,6 @@ const Kontakt = () => {
               <li className="flex items-center gap-2.5">
                 <Mail size={15} strokeWidth={1.6} className="text-rose" />
                 <a href={`mailto:${EMAIL}`} className="underline-draw text-foreground/85 break-all">{EMAIL}</a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone size={15} strokeWidth={1.6} className="text-rose" />
-                <a href={PHONE_TEL} className="underline-draw text-foreground/85">{PHONE_DISPLAY}</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin size={15} strokeWidth={1.6} className="text-rose" />
@@ -202,7 +194,7 @@ const Kontakt = () => {
             const className = "reveal card-soft group cursor-pointer";
             const style = { transitionDelay: `${i * 80}ms` };
             return item.href ? (
-              <a key={item.key} href={item.href} className={className} style={style}>
+              <a key={item.key} href={item.href} target={item.key === "whatsapp" ? "_blank" : undefined} rel={item.key === "whatsapp" ? "noopener noreferrer" : undefined} className={className} style={style}>
                 {Inner}
               </a>
             ) : (
@@ -227,9 +219,6 @@ const Kontakt = () => {
               <WhatsAppButton lang={lang} />
               <a href={`mailto:${EMAIL}`} className="btn-cta-outline">
                 {t.quickCta} <Mail size={16} strokeWidth={1.8} />
-              </a>
-              <a href={PHONE_TEL} className="btn-cta-outline">
-                {t.callCta} <Phone size={16} strokeWidth={1.8} />
               </a>
             </div>
           </div>

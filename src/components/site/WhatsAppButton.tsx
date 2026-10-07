@@ -31,7 +31,7 @@ export const WhatsAppButton = ({
   className = "",
 }: WhatsAppButtonProps) => {
   const text =
-    label ?? (lang === "en" ? "Chat on WhatsApp" : "WhatsApp schreiben");
+    label ?? (lang === "en" ? "Chat on WhatsApp" : "Per WhatsApp schreiben");
   const msg =
     message ?? (lang === "en" ? WHATSAPP_DEFAULT_MESSAGE_EN : WHATSAPP_DEFAULT_MESSAGE_DE);
 

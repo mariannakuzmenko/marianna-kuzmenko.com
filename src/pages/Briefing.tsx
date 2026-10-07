@@ -16,6 +16,7 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { supabase } from "@/integrations/supabase/client";
 import { CONTACT, whatsappLink } from "@/data/contact";
 import { useLang, pick } from "@/i18n/LanguageContext";
+import { submitInquiry } from "@/lib/submit-inquiry";
 
 type ProjectType = "website" | "website-seo" | "seo" | "unsure";
 
@@ -155,7 +156,7 @@ const TIMELINES: Pair[] = [
 const YESNO: Pair[] = [P("Ja", "Yes"), P("Nein", "No"), P("Vielleicht", "Maybe")];
 const YESNO_UNSURE: Pair[] = [P("Ja", "Yes"), P("Nein", "No"), P("Noch nicht sicher", "Not sure yet")];
 const YESNO_DUNNO: Pair[] = [P("Ja", "Yes"), P("Nein", "No"), P("Weiß ich nicht", "I don't know")];
-const CONTACT_WAYS: Pair[] = [P("E-Mail", "Email"), P("Telefon", "Phone"), P("WhatsApp", "WhatsApp")];
+const CONTACT_WAYS: Pair[] = [P("E-Mail", "Email"), P("WhatsApp", "WhatsApp")];
 
 /* ---------- small field primitives ---------- */
 
@@ -399,7 +400,7 @@ const Briefing = () => {
   };
 
   const submit = async () => {
-    if (status === "sending") return;
+    if (status === "sending" || status === "success" || !type) return;
     if (!validateStep()) return;
     if (!consent) {
       setErrors({
@@ -426,10 +427,7 @@ const Briefing = () => {
         uploaded.push({ name: f.name, path: objPath, size: f.size });
       }
 
-      const { error } = await supabase.functions.invoke("send-briefing", {
-        body: { projectType: type, answers: a, files: uploaded, lang },
-      });
-      if (error) throw error;
+      await submitInquiry({ projectType: type, answers: a, files: uploaded, lang });
       setStatus("success");
       scrollTop();
     } catch (err) {
@@ -552,7 +550,6 @@ const Briefing = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <TextField id="name" label={t("Vorname / Name", "First name / name")} required value={val("name")} onChange={(v) => set("name", v)} error={errors.name} />
               <TextField id="email" label={t("E-Mail", "Email")} type="email" required value={val("email")} onChange={(v) => set("email", v)} error={errors.email} />
-              <TextField id="phone" label={t("Telefon", "Phone")} type="tel" value={val("phone")} onChange={(v) => set("phone", v)} />
               <TextField id="company" label={t("Unternehmen", "Company")} required value={val("company")} onChange={(v) => set("company", v)} error={errors.company} />
               <TextField id="website" label={t("Website (optional)", "Website (optional)")} value={val("website")} onChange={(v) => set("website", v)} placeholder="https://" />
               <TextField id="location" label={t("Standort", "Location")} value={val("location")} onChange={(v) => set("location", v)} placeholder={t("z. B. Nürnberg", "e.g. Nuremberg")} />

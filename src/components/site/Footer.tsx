@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLang, pick } from "@/i18n/LanguageContext";
 import { useConsent } from "@/consent/ConsentContext";
 import { WhatsAppButton } from "./WhatsAppButton";
-import { CONTACT, telLink } from "@/data/contact";
+import { CONTACT } from "@/data/contact";
 
 export const Footer = () => {
   const { lang, path } = useLang();
@@ -78,13 +78,8 @@ export const Footer = () => {
                   <Mail size={14} strokeWidth={1.6} /> {CONTACT.email}
                 </a>
               </li>
-              <li>
-                <a href={telLink} className="inline-flex items-center gap-2 underline-draw">
-                  <Phone size={14} strokeWidth={1.6} /> {CONTACT.phoneDisplay}
-                </a>
-              </li>
               <li className="inline-flex items-center gap-2 text-muted-foreground">
-                <MapPin size={14} strokeWidth={1.6} /> {CONTACT.street}, {CONTACT.zipCity}
+                <MapPin size={14} strokeWidth={1.6} /> {CONTACT.zipCity}
               </li>
             </ul>
           </div>

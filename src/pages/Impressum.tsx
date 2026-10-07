@@ -1,6 +1,6 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { CONTACT, telLink } from "@/data/contact";
+import { CONTACT } from "@/data/contact";
 
 const Impressum = () => (
   <Layout>
@@ -14,8 +14,6 @@ const Impressum = () => (
           <h2 className="font-display text-2xl mb-3">Angaben gemäß § 5 TMG</h2>
           <p>
             {CONTACT.name}<br />
-            {CONTACT.street}<br />
-            {CONTACT.zipCity}<br />
             {CONTACT.country}
           </p>
         </div>
@@ -28,7 +26,6 @@ const Impressum = () => (
         <div>
           <h2 className="font-display text-2xl mb-3">Kontakt</h2>
           <p>
-            Telefon: <a href={telLink} className="underline-draw">{CONTACT.phoneDisplay}</a><br />
             E-Mail: <a href={`mailto:${CONTACT.email}`} className="underline-draw">{CONTACT.email}</a>
           </p>
         </div>
@@ -52,8 +49,7 @@ const Impressum = () => (
         <div>
           <h2 className="font-display text-2xl mb-3">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
           <p>
-            {CONTACT.name}<br />
-            {CONTACT.street}, {CONTACT.zipCity}
+            {CONTACT.name}
           </p>
         </div>
 
