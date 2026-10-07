@@ -411,7 +411,6 @@ const UeberMich = () => {
       jobTitle: pick(lang, "Webdesignerin, Webentwicklerin & SEO-Spezialistin", "Web Designer, Web Developer & SEO Specialist"),
       address: { "@type": "PostalAddress", addressLocality: "Nürnberg", addressCountry: "DE" },
       email: "mari1992.kuzmenko@gmail.com",
-      telephone: "+49 179 1111607",
       knowsAbout: [
         "Webdesign Nürnberg",
         "Webentwicklung Nürnberg",

@@ -1,6 +1,6 @@
 import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
-import { CONTACT, telLink } from "@/data/contact";
+import { CONTACT } from "@/data/contact";
 
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
@@ -29,8 +29,6 @@ const Datenschutz = () => (
           <p>
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
             {CONTACT.name}<br />
-            {CONTACT.street}, {CONTACT.zipCity}, {CONTACT.country}<br />
-            Telefon: <a href={telLink} className="underline-draw">{CONTACT.phoneDisplay}</a><br />
             E-Mail: <a href={`mailto:${CONTACT.email}`} className="underline-draw">{CONTACT.email}</a>
           </p>
         </Section>
