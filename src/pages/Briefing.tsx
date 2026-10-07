@@ -550,7 +550,6 @@ const Briefing = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <TextField id="name" label={t("Vorname / Name", "First name / name")} required value={val("name")} onChange={(v) => set("name", v)} error={errors.name} />
               <TextField id="email" label={t("E-Mail", "Email")} type="email" required value={val("email")} onChange={(v) => set("email", v)} error={errors.email} />
-              <TextField id="phone" label={t("Telefon", "Phone")} type="tel" value={val("phone")} onChange={(v) => set("phone", v)} />
               <TextField id="company" label={t("Unternehmen", "Company")} required value={val("company")} onChange={(v) => set("company", v)} error={errors.company} />
               <TextField id="website" label={t("Website (optional)", "Website (optional)")} value={val("website")} onChange={(v) => set("website", v)} placeholder="https://" />
               <TextField id="location" label={t("Standort", "Location")} value={val("location")} onChange={(v) => set("location", v)} placeholder={t("z. B. Nürnberg", "e.g. Nuremberg")} />

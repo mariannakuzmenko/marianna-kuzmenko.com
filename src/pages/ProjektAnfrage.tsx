@@ -106,9 +106,9 @@ const ProjektAnfrage = () => {
         { t: "Individuelles Angebot", d: "Ein konkretes Angebot mit Leistungen, Zeitplan und Investition." },
         { t: "Projektstart", d: "Nach Freigabe: Kickoff, Briefing, Design — und Schritt für Schritt zum Launch." },
       ],
-      thanksTitle: "Vielen Dank — deine Anfrage ist angekommen.",
+      thanksTitle: "Vielen Dank für Ihre Anfrage!",
       thanksDesc:
-        "Ich melde mich persönlich innerhalb von 48 Stunden.",
+        "Ich habe Ihre Nachricht erhalten und melde mich so schnell wie möglich bei Ihnen.",
       backHome: "Zurück zur Startseite",
       requiredErr: "Bitte fülle die erforderlichen Felder aus.",
       emailErr: "Bitte gib eine gültige E-Mail-Adresse an.",

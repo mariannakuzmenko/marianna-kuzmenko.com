@@ -35,8 +35,8 @@ export const ContactSection = () => {
       errEmail: "Ungültige E-Mail-Adresse",
       errMsg: "Erzähl mir kurz mehr",
       almost: "Fast geschafft",
-      thanksTitle: "Danke, ist angekommen",
-      thanksDesc: "Ich melde mich innerhalb von 48 Stunden persönlich zurück.",
+      thanksTitle: "Vielen Dank für Ihre Anfrage!",
+      thanksDesc: "Ich habe Ihre Nachricht erhalten und melde mich so schnell wie möglich bei Ihnen.",
     },
     {
       eyebrow: "Contact",
