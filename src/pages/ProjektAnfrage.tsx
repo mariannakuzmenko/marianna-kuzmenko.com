@@ -21,6 +21,7 @@ import { Layout } from "@/components/site/Layout";
 import { Seo } from "@/components/site/Seo";
 import { useLang, pick, ROUTES } from "@/i18n/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
+import { submitInquiry } from "@/lib/submit-inquiry";
 
 type Step = {
   id: string;
@@ -53,6 +54,7 @@ const ProjektAnfrage = () => {
   const steps = lang === "de" ? stepsDE : stepsEN;
   const [step, setStep] = useState(0);
   const [done, setDone] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const t = pick(
     lang,
@@ -106,7 +108,7 @@ const ProjektAnfrage = () => {
       ],
       thanksTitle: "Vielen Dank — deine Anfrage ist angekommen.",
       thanksDesc:
-        "Ich melde mich persönlich innerhalb von 48 Stunden. Du erhältst eine Bestätigung per E-Mail.",
+        "Ich melde mich persönlich innerhalb von 48 Stunden.",
       backHome: "Zurück zur Startseite",
       requiredErr: "Bitte fülle die erforderlichen Felder aus.",
       emailErr: "Bitte gib eine gültige E-Mail-Adresse an.",
@@ -189,7 +191,7 @@ const ProjektAnfrage = () => {
       ],
       thanksTitle: "Thank you — your inquiry has been received.",
       thanksDesc:
-        "I’ll get back to you personally within 48 hours. You’ll receive a confirmation by email.",
+        "I’ll get back to you personally within 48 hours.",
       backHome: "Back to homepage",
       requiredErr: "Please complete the required fields.",
       emailErr: "Please enter a valid email address.",
@@ -263,7 +265,8 @@ const ProjektAnfrage = () => {
     }
   }, [step, form]);
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
+    if (sending || done) return;
     const schema = z.object({
       name: z.string().trim().min(2),
       email: z.string().trim().email(),
@@ -274,8 +277,20 @@ const ProjektAnfrage = () => {
       toast({ title: t.requiredErr, variant: "destructive" });
       return;
     }
-    setDone(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setSending(true);
+    try {
+      await submitInquiry({ projectType: form.addons.includes("SEO") ? "website-seo" : "website", lang, answers: {
+        ...form, company: form.companyName, website: form.siteUrl, goals: form.mainGoal,
+        targetCustomers: form.audience, highlights: form.offer, referenceUrls: form.references,
+        pages: form.requiredPages, materials: form.assets, additional: form.notes,
+      } });
+      setDone(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch {
+      toast({ title: pick(lang, "Die Anfrage konnte nicht gesendet werden.", "Your inquiry could not be sent."), description: pick(lang, "Bitte erneut versuchen oder direkt per WhatsApp oder E-Mail schreiben.", "Please try again or contact me via WhatsApp or email."), variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   // ===== Estimator state =====
@@ -595,11 +610,11 @@ const ProjektAnfrage = () => {
                 ) : (
                   <button
                     type="button"
-                    disabled={!stepValid}
+                    disabled={!stepValid || sending}
                     onClick={onSubmit}
                     className="btn-cta disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    {t.submit} <Send size={16}/>
+                    {sending ? pick(lang, "Wird gesendet…", "Sending…") : t.submit} <Send size={16}/>
                   </button>
                 )}
               </div>

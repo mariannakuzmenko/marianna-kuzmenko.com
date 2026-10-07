@@ -5,6 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 import editorialPortraitSrc from "@/assets/portraits/marianna-portrait-window.jpeg";
 const editorialPortrait = { url: editorialPortraitSrc };
 import { useLang, pick } from "@/i18n/LanguageContext";
+import { submitInquiry } from "@/lib/submit-inquiry";
 
 export const ContactSection = () => {
   const { lang } = useLang();
@@ -70,9 +71,11 @@ export const ContactSection = () => {
     message: z.string().trim().min(5, t.errMsg).max(1000),
   });
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    if (loading) return;
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     // Honeypot: bots fill hidden field
     if (fd.get("website")) return;
     const parsed = schema.safeParse({
@@ -85,11 +88,15 @@ export const ContactSection = () => {
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await submitInquiry({ projectType: "unsure", answers: { ...parsed.data, additional: parsed.data.message }, lang });
       toast({ title: t.thanksTitle, description: t.thanksDesc });
-      (e.target as HTMLFormElement).reset();
-    }, 700);
+      form.reset();
+    } catch {
+      toast({ title: pick(lang, "Die Nachricht konnte nicht gesendet werden.", "Your message could not be sent."), description: pick(lang, "Bitte erneut versuchen oder direkt per WhatsApp oder E-Mail schreiben.", "Please try again or contact me via WhatsApp or email."), variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
