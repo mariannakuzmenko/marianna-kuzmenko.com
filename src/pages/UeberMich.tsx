@@ -221,7 +221,7 @@ const UeberMich = () => {
         { k: "Preise", d: "Transparente Pakete und Leistungen.", to: "pricing" as const },
         { k: "Blog", d: "Gedanken zu Design, Technik und SEO.", to: "blog" as const },
         { k: "Zertifikate", d: "Ausbildung und Nachweise.", to: "certs" as const },
-        { k: "Kontakt", d: "Direkt schreiben oder anrufen.", to: "contact" as const },
+        { k: "Kontakt", d: "Per WhatsApp oder E-Mail schreiben.", to: "contact" as const },
       ],
 
       finalTitle: "Lassen Sie uns gemeinsam eine Website entwickeln, die Ihr Unternehmen sichtbar macht.",
@@ -385,7 +385,7 @@ const UeberMich = () => {
         { k: "Pricing", d: "Transparent packages and scope.", to: "pricing" as const },
         { k: "Blog", d: "Notes on design, tech and SEO.", to: "blog" as const },
         { k: "Certificates", d: "Education and proof.", to: "certs" as const },
-        { k: "Contact", d: "Write or call directly.", to: "contact" as const },
+        { k: "Contact", d: "Write via WhatsApp or email.", to: "contact" as const },
       ],
 
       finalTitle: "Let's build a website that makes your business visible.",
